@@ -1,26 +1,62 @@
 @import "tailwindcss";
 
+@theme {
+  --color-gold-50: #faf8f5;
+  --color-gold-100: #f3ebd5;
+  --color-gold-200: #e7d8b5;
+  --color-gold-300: #d7bf8e;
+  --color-gold-400: #b59364; /* Warm premium bronze-gold */
+  --color-gold-500: #93744c;
+  --color-gold-600: #745737;
+
+  --color-luxury-50: #f8fafc;  /* Clean clinical off-white */
+  --color-luxury-100: #f1f5f9; /* Soft grey */
+  --color-luxury-200: #e2e8f0; /* Border grey */
+  --color-luxury-800: #1e293b; /* Slate 800 */
+  --color-luxury-900: #0f172a; /* Slate 900 */
+  --color-luxury-950: #020617; /* Slate 950 */
+
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #fcfcfd; /* Clean clinical ivory white */
+  --foreground: #0f172a; /* Slate 900 */
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Premium Light borders */
+.luxury-border {
+  border: 1px solid rgba(15, 23, 42, 0.05);
+}
+
+.luxury-border-gold {
+  border: 1px solid rgba(181, 147, 100, 0.2);
+}
+
+/* Luxury card hover glow for light mode */
+.luxury-glow {
+  position: relative;
+}
+
+.luxury-glow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 10px 30px -5px rgba(181, 147, 100, 0.05), 0 4px 12px -2px rgba(0, 0, 0, 0.02);
+  opacity: 1;
+  transition: box-shadow 0.4s ease;
+  pointer-events: none;
+}
+
+.luxury-glow:hover::after {
+  box-shadow: 0 20px 40px -5px rgba(181, 147, 100, 0.08), 0 8px 24px -2px rgba(0, 0, 0, 0.04);
 }
