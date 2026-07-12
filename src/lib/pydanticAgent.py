@@ -14,7 +14,7 @@ class DentalTriageResult(BaseModel):
 
 # Define the Agent's dependencies (e.g. database connections, config)
 class ClinicInfo(BaseModel):
-  clinic_name: str = "Arvind Dental Clinic"
+  clinic_name: str = "Red City Dental Care"
   location: str = "Model Town, Ludhiana, Punjab"
   hours: str = "Mon-Fri: 9:30 AM - 7:30 PM, Sat: 9:30 AM - 5:00 PM"
   contact_number: str = "+91 88476-51364"
@@ -26,11 +26,11 @@ dental_triage_agent = Agent(
   deps_type=ClinicInfo,
   result_type=DentalTriageResult,
   system_prompt=(
-    "You are the senior digital clinical coordinator for Arvind Dental Clinic in Ludhiana, Punjab. "
+    "You are the senior digital clinical coordinator for Red City Dental Care in Ludhiana, Punjab. "
     "Your objective is to converse with patients reporting dental symptoms, analyze their complaints, "
-    "provide friendly education about treatments (like laser root canals, titanium implants, veneers), "
+    "provide friendly education about treatments (like laser root canals, titanium implants starting at ₹12,000, custom Zirconia crowns starting at ₹4,000, PFM crowns starting at ₹2,000), "
     "state the estimated local pricing in Rupees, and collect their name and phone to book a callback. "
-    "Be reassuring, professional, and emphasize the presence of MDS specialists. "
+    "Be reassuring, professional, and emphasize the presence of MDS specialists like Dr. Arvind Sahu. "
     "Always return the structured output matching DentalTriageResult once symptoms and contact details are collected."
   )
 )
@@ -40,10 +40,11 @@ dental_triage_agent = Agent(
 def get_treatment_pricing(ctx: RunContext[ClinicInfo], treatment_name: str) -> str:
   """Get local pricing ranges and specialist details for a given treatment."""
   treatments = {
-    "root canal": "₹3,500 - ₹6,500 (completed in single sitting of 45 mins by MDS Endodontist)",
-    "implant": "₹15,000 - ₹35,000 per implant post (Korean Osstem / Swiss Straumann by MDS Prosthodontist)",
-    "veneers": "₹8,000 - ₹12,000 per tooth (IPS E-Max porcelain veneers by MDS Aesthetic Specialist)",
-    "aligners": "₹45,000 - ₹1,20,000 (Certified invisible braces by MDS Orthodontist)"
+    "root canal": "Starts at ₹3,500* (completed in single sitting of 45 mins by MDS Endodontist)",
+    "implant": "Starts at ₹12,000* per titanium post fixture (Korean Osstem / Swiss Straumann options by MDS Prosthodontist)",
+    "zirconia": "Starts at ₹4,000* per unit (100% metal-free, premium aesthetics by MDS Prosthodontist)",
+    "pfm": "Starts at ₹2,000* per unit (porcelain-fused-to-metal cost-effective crown)",
+    "aligners": "Starts at ₹45,000* (Certified invisible clear braces by MDS Orthodontist)"
   }
   
   treatment_key = treatment_name.lower()

@@ -66,11 +66,11 @@ export default function LocalPunjabLanding() {
             <h1 className="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight font-display">
               Painless Laser Treatments <br />
               <span className="bg-gradient-to-r from-gold-400 via-gold-500 to-blue-600 bg-clip-text text-transparent">
-                Arvind Dental Clinic Ludhiana
+                Red City Dental Care Ludhiana
               </span>
             </h1>
             <p className="text-sm text-slate-500 font-light leading-relaxed max-w-2xl">
-              Get premium, pain-free dental implants, single-sitting root canals, and invisible braces in Ludhiana. Led by **Dr. Arvind Singh (MDS Prosthodontics)**. Pay in Indian Rupees (INR) with special local corporate discounts.
+              Get premium, pain-free dental implants starting at ₹12,000*, single-sitting root canals, and invisible braces in Ludhiana. Led by **Dr. Arvind Sahu (MDS Prosthodontics & Implantology)**. Pay in Indian Rupees (INR) with special local corporate discounts.
             </p>
 
             {/* Quick Callback Widget */}

@@ -156,19 +156,19 @@ export default function Home() {
               <div className="inline-flex items-center space-x-2 bg-gold-50/50 border border-gold-455/25 px-4 py-1.5 rounded-full">
                 <Sparkles className="h-3.5 w-3.5 text-gold-400" />
                 <span className="text-[10px] font-bold tracking-widest text-gold-500 uppercase font-sans">
-                  Ludhiana's Best Speciality Dental Clinic
+                  Precision. Passion. Perfection.
                 </span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight font-display">
-                Ludhiana's Leading <br />
+                Restoring Smiles.<br />
                 <span className="bg-gradient-to-r from-gold-400 via-gold-500 to-blue-600 bg-clip-text text-transparent">
-                  MDS Specialist Clinic
+                  Rebuilding Confidence.
                 </span>
               </h1>
 
               <p className="text-base sm:text-lg text-slate-505 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-sans font-light">
-                Experience premium, pain-free dental implants, single-sitting root canals, and custom Zirconia crowns. Led by **Dr. Arvind Singh (MDS Prosthodontics)** and our team of senior MDS specialists in Model Town.
+                Complete Care • Advanced Care • Personalized Care. Experience premium, pain-free dental implants starting from ₹12,000*, custom Zirconia crowns, and smile makeovers. Led by **Dr. Arvind Sahu (MDS Prosthodontics & Implantology)** in Model Town, Ludhiana.
               </p>
 
               {/* Frictionless Callback Capture (Acquisition) */}
@@ -405,6 +405,175 @@ export default function Home() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* NEW SECTION: THE DENTAL IMPLANT ADVANTAGE */}
+      <section className="bg-slate-50/50 py-28 border-t border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left: Key benefits */}
+            <div className="lg:col-span-7 space-y-8">
+              <div className="space-y-4">
+                <span className="text-xs uppercase tracking-wider font-bold text-gold-400 bg-gold-50/50 border border-gold-250/20 px-4 py-1.5 rounded-full inline-block">
+                  Implantology Benefits
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-display">
+                  The Dental Implant Advantage
+                </h2>
+                <p className="text-sm text-slate-505 font-light leading-relaxed">
+                  Why settle for temporary bridges that damage healthy adjacent teeth? Modern titanium implants offer a permanent, independent, and natural-feeling solution to tooth loss.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {[
+                  { title: "Natural Fit", desc: "Looks, feels, and functions exactly like natural teeth." },
+                  { title: "Preservation", desc: "Does not require grinding down neighboring healthy teeth." },
+                  { title: "Bone Health", desc: "Keeps the jawbone strong and prevents long-term bone loss." },
+                  { title: "Longevity", desc: "A lifetime, durable, and highly reliable clinical solution." },
+                  { title: "Function", desc: "Restores full chewing power equal to natural teeth." },
+                  { title: "Maintenance", desc: "Clean easily with standard daily brushing and flossing." }
+                ].map((item, idx) => (
+                  <div key={idx} className="bg-white border border-slate-200 p-5 rounded-2xl space-y-2">
+                    <h4 className="text-sm font-bold text-slate-900 flex items-center font-display">
+                      <Check className="h-4 w-4 text-gold-400 mr-2 flex-shrink-0" />
+                      {item.title}
+                    </h4>
+                    <p className="text-[11px] text-slate-500 font-light leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: Pricing Card & Warranty ribbon */}
+            <div className="lg:col-span-5 bg-white border border-slate-200/80 rounded-[2.5rem] p-8 shadow-2xl space-y-6 text-center relative luxury-glow">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gold-400 hover:bg-gold-500 text-white font-bold text-[10px] uppercase tracking-widest px-6 py-2 rounded-full shadow-lg whitespace-nowrap">
+                10 Years Warranty Included
+              </div>
+
+              <div className="space-y-2 pt-4">
+                <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider block">
+                  Introductory Offer
+                </span>
+                <h3 className="text-3xl font-extrabold text-slate-900 font-display">
+                  Dental Implants
+                </h3>
+                <div className="text-slate-500 text-xs">starting from</div>
+                <div className="text-5xl font-black text-gold-455 font-mono py-2">
+                  ₹12,000*
+                </div>
+                <div className="text-[10px] text-slate-400 font-light">
+                  *Per single tooth titanium post fixture. Crown extra.
+                </div>
+              </div>
+
+              <div className="border-t border-slate-100 pt-6 space-y-4 text-xs font-light text-slate-600 text-left">
+                <p>
+                  🛡️ <strong>We Stand by Our Quality:</strong> Every implant placed at Red City Dental Care comes with an official manufacturer warranty card and certificate.
+                </p>
+                <button
+                  onClick={triggerBooking}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl uppercase tracking-widest text-[10px] font-display transition-colors active:scale-95"
+                >
+                  Book Free Consultation
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* NEW SECTION: PATIENT EDUCATION - EVERY PAIN DOES NOT REQUIRE RCT */}
+      <section className="bg-white py-28 border-t border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left: Core Philosophy & Causes */}
+            <div className="lg:col-span-8 space-y-8">
+              <div className="space-y-4">
+                <span className="text-xs uppercase tracking-wider font-bold text-slate-500 bg-slate-100 px-4 py-1.5 rounded-full inline-block">
+                  Conservative Philosophy
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-display">
+                  Every Pain in Tooth Does Not Require RCT
+                </h2>
+                <p className="text-sm font-semibold text-gold-455">
+                  Preserve. Protect. Prevent. Save your natural tooth.
+                </p>
+                <p className="text-xs text-slate-505 leading-relaxed font-light">
+                  Right Diagnosis. Right Treatment. Better Results. Unnecessary Root Canals weaken natural structures. We specialize in preserving natural teeth whenever medically viable.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <span className="text-[10px] uppercase font-bold text-slate-455 tracking-wider block border-b border-slate-100 pb-2">
+                  6 Common Causes of Tooth Pain (That Aren't Always RCT):
+                </span>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {[
+                    { num: "1", title: "Early Cavities", desc: "Simple decay causes temporary pain; a standard tooth-colored filling resolves it." },
+                    { num: "2", title: "Gum Inflammation", desc: "Swollen or infected gums refer pain to surrounding teeth; treatable with scaling." },
+                    { num: "3", title: "Tooth Sensitivity", desc: "Temporary reactions to hot/cold/acidic food; manageable without nerve removals." },
+                    { num: "4", title: "Teeth Grinding", desc: "Clenching under stress causes jaw muscle soreness that mimics tooth aches." },
+                    { num: "5", title: "Minor Enamel Cracks", desc: "Tiny superficial cracks cause pain, but do not always indicate nerve infection." },
+                    { num: "6", title: "Wisdom Teeth Pressure", desc: "Impacted third molars cause heavy radiating jaw pain that gets misdiagnosed." }
+                  ].map((cause, idx) => (
+                    <div key={idx} className="flex items-start space-x-3 bg-slate-50 p-4 rounded-xl border border-slate-150">
+                      <span className="bg-gold-50 text-gold-500 border border-gold-250/20 font-bold font-mono text-xs h-6 w-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                        {cause.num}
+                      </span>
+                      <div className="space-y-1">
+                        <h4 className="text-xs font-bold text-slate-900 font-display">{cause.title}</h4>
+                        <p className="text-[10px] text-slate-500 leading-normal font-light">{cause.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Right: When is RCT needed & Natural tooth advantages */}
+            <div className="lg:col-span-4 bg-slate-50 border border-slate-205 rounded-[2rem] p-6 space-y-6">
+              <div className="space-y-2 border-b border-slate-200 pb-4">
+                <h4 className="text-xs font-bold text-slate-900 font-display uppercase tracking-wider text-red-600">
+                  When is RCT Actually Needed?
+                </h4>
+                <p className="text-[11px] text-slate-505 leading-relaxed font-light">
+                  A Root Canal Treatment is required **only** when the inner pulp chamber/nerve is irreversibly inflamed, necrotic, or abscessed. Our MDS Endodontist maps this via in-focus digital 3D scans first.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                <span className="text-[9px] uppercase font-bold text-slate-400 tracking-wider block">
+                  Benefits of Saving Your Natural Teeth:
+                </span>
+                
+                <ul className="space-y-2.5 text-xs text-slate-655 font-light">
+                  <li className="flex items-center">
+                    <Check className="h-4 w-4 text-emerald-500 mr-2 flex-shrink-0" />
+                    Superior natural bite force & comfort
+                  </li>
+                  <li className="flex items-center">
+                    <Check className="h-4 w-4 text-emerald-500 mr-2 flex-shrink-0" />
+                    Avoids implant surgical procedures
+                  </li>
+                  <li className="flex items-center">
+                    <Check className="h-4 w-4 text-emerald-500 mr-2 flex-shrink-0" />
+                    More cost-effective than extractions
+                  </li>
+                  <li className="flex items-center">
+                    <Check className="h-4 w-4 text-emerald-500 mr-2 flex-shrink-0" />
+                    Prevents shifts in adjacent teeth alignment
+                  </li>
+                </ul>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

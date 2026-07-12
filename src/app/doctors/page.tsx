@@ -24,11 +24,11 @@ export default function DoctorsPage() {
 
   const doctors = [
     {
-      name: 'Dr. Arvind Singh',
+      name: 'Dr. Arvind Sahu',
       role: 'Founder & Senior MDS Implantologist',
       experience: '28+ Years Experience',
       education: 'BDS, MDS Oral & Maxillofacial Prosthodontics (GDC Amritsar)',
-      bio: 'Dr. Arvind is a pioneer of computer-guided implant surgeries and full mouth rehabilitation in Punjab. With over 28 years of dental experience, he specializes in treating complex bone-grafting cases and fast-turnaround implantations for international NRI patients.',
+      bio: 'Dr. Arvind Sahu is a pioneer of computer-guided implant surgeries and full mouth rehabilitation in Punjab. With over 28 years of dental experience, he specializes in treating complex bone-grafting cases and fast-turnaround implantations for patients in Ludhiana.',
       specialties: [
         'Computer-Guided Dental Implants',
         'All-On-4 & All-On-6 Reconstruction',

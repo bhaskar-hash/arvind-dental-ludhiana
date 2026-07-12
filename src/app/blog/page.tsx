@@ -92,7 +92,7 @@ export default function BlogListingPage() {
           <Sparkles className="h-8 w-8 text-gold-400 mx-auto" />
           <h3 className="text-2xl font-bold text-slate-900 font-display">Have Specific Dental Questions?</h3>
           <p className="text-sm text-slate-500 font-light max-w-xl mx-auto">
-            Get a clinical opinion on your OPG X-ray from Dr. Arvind Singh (MDS Prosthodontist) directly. Request an immediate 15-minute callback.
+            Get a clinical opinion on your OPG X-ray from Dr. Arvind Sahu (MDS Prosthodontist) directly. Request an immediate 15-minute callback.
           </p>
           <button
             onClick={triggerBooking}

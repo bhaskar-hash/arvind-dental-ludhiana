@@ -26,7 +26,7 @@ export default function Footer() {
               <HeartPulse className="h-8 w-8 text-gold-400" />
               <div>
                 <span className="text-xl font-bold tracking-tight text-slate-900 block font-display">
-                  Arvind <span className="text-gold-455">Dental</span>
+                  Red City <span className="text-gold-455">Dental Care</span>
                 </span>
                 <span className="text-[9px] text-slate-500 uppercase tracking-widest block -mt-1 font-semibold">
                   Ludhiana • Best Speciality Care
@@ -34,7 +34,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-sm text-slate-500 font-light leading-relaxed">
-              Rated as the best dental clinic in Ludhiana, Punjab. Providing premium prosthodontic restorations, painless laser root canals, and invisible aligners led by certified MDS specialists.
+              Rated as the best dental clinic in Ludhiana, Punjab. Providing premium prosthodontic restorations, painless laser root canals, and invisible aligners led by Dr. Arvind Sahu, MDS (Prosthodontics & Implantology).
             </p>
             <div className="flex items-center space-x-2 text-xs bg-white border border-slate-200/60 p-3.5 rounded-2xl text-slate-700 font-light luxury-glow">
               <Award className="h-5 w-5 text-gold-400 flex-shrink-0" />
@@ -131,7 +131,7 @@ export default function Footer() {
       {/* Bottom Legal Copyright Bar */}
       <div className="border-t border-slate-200 bg-slate-100/50 py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 font-light">
-          <p>© {new Date().getFullYear()} Arvind Dental Clinic. All Rights Reserved.</p>
+          <p>© {new Date().getFullYear()} Red City Dental Care (www.redcitydentalcare.com). All Rights Reserved.</p>
           <div className="flex space-x-4 mt-2 md:mt-0">
             <Link href="/" className="hover:text-slate-800 transition-colors">Privacy Policy</Link>
             <Link href="/" className="hover:text-slate-800 transition-colors">Terms of Service</Link>

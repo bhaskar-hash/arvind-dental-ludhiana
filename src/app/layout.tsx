@@ -16,9 +16,9 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Arvind Prosthodontics & Implant Centre | Best Dentist Ludhiana",
-  description: "Ludhiana's leading MDS Prosthodontics & Implant Specialist clinic. Expert full mouth reconstructions, lifetime warranted implants, custom ceramic veneers, and painless crown fittings in Punjab.",
-  keywords: "prosthodontist Ludhiana, dental implants Ludhiana, best dentist in Ludhiana, crown cost Ludhiana, smile makeover Punjab, full mouth rehabilitation Ludhiana",
+  title: "Red City Dental Care | Best Dentist Ludhiana | Dr. Arvind Sahu",
+  description: "Ludhiana's leading MDS Prosthodontics & Implant Specialist clinic. Expert full mouth reconstructions, dental implants starting at ₹12,000, custom Zirconia crowns, and smile makeovers in Punjab.",
+  keywords: "dentist Ludhiana, dental implants Ludhiana, best dentist in Ludhiana, crown cost Ludhiana, smile makeover Punjab, Dr Arvind Sahu, Red City Dental Care",
   icons: {
     icon: "/favicon.ico",
   }
@@ -33,10 +33,10 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Dentist",
-    "name": "Arvind Prosthodontics & Implant Centre",
+    "name": "Red City Dental Care",
     "image": "https://images.unsplash.com/photo-1622253692010-333f2da6031d",
-    "@id": "https://ludhianaprosthodontics.com",
-    "url": "https://ludhianaprosthodontics.com",
+    "@id": "https://www.redcitydentalcare.com",
+    "url": "https://www.redcitydentalcare.com",
     "telephone": "+918847651364",
     "priceRange": "$$",
     "address": {

@@ -134,6 +134,57 @@ export default function ServicesPage() {
                 </div>
               </div>
             ))}
+          
+          {/* CROWN COMPARISON GUIDE (ZIRCONIA VS PFM) */}
+          <div className="bg-white border border-slate-200/80 rounded-[2.5rem] p-8 shadow-xl mt-12 space-y-8 luxury-glow">
+            <div className="space-y-2 border-b border-slate-100 pb-4">
+              <span className="text-xs uppercase tracking-wider font-bold text-gold-455">
+                Clinical Comparison
+              </span>
+              <h3 className="text-2xl font-extrabold text-slate-900 font-display">
+                Crown Comparison Guide: Zirconia vs. PFM
+              </h3>
+              <p className="text-xs text-slate-500 font-light leading-relaxed">
+                Choosing the right dental crown affects aesthetics, durability, and gum health. Read our head-to-head comparison before selecting your prosthetic treatment.
+              </p>
+            </div>
+
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse text-xs">
+                <thead>
+                  <tr className="border-b border-slate-200 bg-slate-50">
+                    <th className="p-3.5 font-bold text-slate-900 uppercase tracking-wider">Feature</th>
+                    <th className="p-3.5 font-bold text-slate-900 uppercase tracking-wider bg-gold-455/5 text-gold-455">
+                      Zirconia Crown (Starts at ₹4,000*)
+                    </th>
+                    <th className="p-3.5 font-bold text-slate-900 uppercase tracking-wider bg-navy-950/5 text-navy-950">
+                      PFM Crown (Starts at ₹2,000*)
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 font-light text-slate-655">
+                  {[
+                    { f: "Material Base", z: "100% Metal-Free (Pure Aesthetics, Maximum Strength)", p: "Metal Base with Porcelain (Cost-Effective Solution)" },
+                    { f: "Strength", z: "Exceptional strength; highly durable & fracture resistant", p: "Good strength; metal base provides reliable durability" },
+                    { f: "Aesthetics", z: "Superior aesthetics with natural translucency (looks like real teeth)", p: "Good aesthetics with tooth-colored porcelain on the outside" },
+                    { f: "Biocompatibility", z: "Fully biocompatible; gentle on gums and safe for the body", p: "Contains metal alloy inside" },
+                    { f: "Stain Resistance", z: "Excellent color stability with a long-lasting shine", p: "Prone to staining; metal margin may show over time" },
+                    { f: "Best Suited For", z: "Both Front & Back Teeth", p: "Mainly Back Teeth" }
+                  ].map((row, idx) => (
+                    <tr key={idx} className="hover:bg-slate-50/50 transition-colors">
+                      <td className="p-3.5 font-bold text-slate-900">{row.f}</td>
+                      <td className="p-3.5 bg-gold-455/5 font-medium text-slate-800">{row.z}</td>
+                      <td className="p-3.5 bg-navy-950/5 text-slate-600">{row.p}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="bg-slate-50 p-4.5 rounded-2xl text-[11px] text-slate-500 font-light leading-relaxed">
+              ⚠️ <strong>Note:</strong> Starting rates are per single crown unit. Base rates exclude diagnostic X-rays or custom root canal therapies. Dr. Arvind Sahu (MDS) will recommend the ideal option matching your jawbone bite pattern.
+            </div>
+          </div>
           </div>
 
           {/* Right Column: Live Pricing Widget */}

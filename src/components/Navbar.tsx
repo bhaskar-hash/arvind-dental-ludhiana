@@ -54,7 +54,7 @@ export default function Navbar({ onBookClick }: NavbarProps) {
             <HeartPulse className="h-8 w-8 text-gold-400 group-hover:rotate-12 transition-transform duration-300" />
             <div>
               <span className="text-xl font-bold tracking-tight text-slate-900 block font-display">
-                Arvind <span className="text-gold-455">Dental</span>
+                Red City <span className="text-gold-455">Dental Care</span>
               </span>
               <span className="text-[9px] text-slate-500 uppercase tracking-widest block -mt-1 font-semibold">
                 Ludhiana • Best Speciality Care

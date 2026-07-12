@@ -68,11 +68,11 @@ const DEFAULT_HOURS: OperatingHours[] = [
 ];
 
 const DEFAULT_PRICES: TreatmentPrice[] = [
-  { id: '1', name: 'Laser Root Canal (RCT)', price: '₹3,500 - ₹6,500', category: 'Endodontics' },
-  { id: '2', name: 'Single Tooth Implant (Osstem)', price: '₹15,000 - ₹25,000', category: 'Implantology' },
-  { id: '3', name: 'Premium Swiss Implant (Straumann)', price: '₹35,000 - ₹55,000', category: 'Implantology' },
-  { id: '4', name: 'Full Ceramic Veneer (IPS E-Max)', price: '₹8,000 - ₹12,000', category: 'Cosmetics' },
-  { id: '5', name: 'Clear Invisible Aligners', price: '₹45,000 - ₹1,20,000', category: 'Orthodontics' },
+  { id: '1', name: 'Dental Implants (Titanium)', price: 'Starts at ₹12,000*', category: 'Implantology' },
+  { id: '2', name: 'Zirconia Crown (100% Metal-Free)', price: 'Starts at ₹4,000*', category: 'Prosthodontics' },
+  { id: '3', name: 'PFM Crown (Porcelain-Fused-Metal)', price: 'Starts at ₹2,000*', category: 'Prosthodontics' },
+  { id: '4', name: 'Laser Root Canal (RCT)', price: 'Starts at ₹3,500*', category: 'Endodontics' },
+  { id: '5', name: 'Clear Invisible Aligners', price: 'Starts at ₹45,000*', category: 'Orthodontics' },
 ];
 
 const DEFAULT_GALLERY: BeforeAfterGallery[] = [

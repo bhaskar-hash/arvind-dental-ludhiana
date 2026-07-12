@@ -1,20 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  --color-gold-50: #faf8f5;
+  --color-gold-50: #FDFBF7;   /* Clinic Wall off-white */
   --color-gold-100: #f3ebd5;
   --color-gold-200: #e7d8b5;
   --color-gold-300: #d7bf8e;
-  --color-gold-400: #b59364; /* Warm premium bronze-gold */
-  --color-gold-500: #93744c;
-  --color-gold-600: #745737;
+  --color-gold-400: #B30000;  /* Primary Brand Red */
+  --color-gold-455: #B30000;  /* Primary Brand Red */
+  --color-gold-500: #C59B27;  /* Gold/Accent Bronze */
+  --color-gold-600: #800020;  /* Glossy Maroon/Cabinetry */
+  
+  --color-navy-950: #0A2540;  /* Deep Navy/Cobalt */
 
-  --color-luxury-50: #f8fafc;  /* Clean clinical off-white */
-  --color-luxury-100: #f1f5f9; /* Soft grey */
-  --color-luxury-200: #e2e8f0; /* Border grey */
-  --color-luxury-800: #1e293b; /* Slate 800 */
-  --color-luxury-900: #0f172a; /* Slate 900 */
-  --color-luxury-950: #020617; /* Slate 950 */
+  --color-luxury-50: #f8fafc;
+  --color-luxury-100: #f1f5f9;
+  --color-luxury-200: #e2e8f0;
+  --color-luxury-800: #1e293b;
+  --color-luxury-900: #1A1A1A; /* Deep Charcoal Off-Black */
+  --color-luxury-950: #0f172a;
 
   --font-display: var(--font-display);
   --font-sans: var(--font-sans);
