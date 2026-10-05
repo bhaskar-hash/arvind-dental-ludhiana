@@ -190,29 +190,60 @@ export default function CostAndPaymentPage() {
               {
                 when: "Found at a check-up",
                 what: "A small cavity usually needs only a filling.",
+                color: "bg-[#0B7A55]",
+                badge: "Simple & Low Cost",
+                badgeColor: "bg-[#0B7A55]/10 text-[#0B7A55]",
+                icon: (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <path d="M12 3.5c-2 0-2.8 1-4.4 1S5 3.8 4.4 5.3C3.6 7.2 4 9.5 4.8 12c.7 2.2.8 5.6 1.7 6.9.7 1 1.6.4 2-1 .4-1.6.6-3.6 1.5-3.6h.1" />
+                    <path d="m9 12 2 2 4-4" strokeWidth={2.4} />
+                  </svg>
+                ),
               },
               {
                 when: "Left for months",
                 what: "Decay can reach the nerve and cause pain or infection. The tooth may then need a root canal.",
+                color: "bg-[#D97706]",
+                badge: "Pain & Extra Visits",
+                badgeColor: "bg-[#D97706]/10 text-[#D97706]",
+                icon: (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <path d="M12 9v4M12 17h.01" strokeWidth={2.4} />
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                  </svg>
+                ),
               },
               {
                 when: "After a root canal",
                 what: "A back tooth often needs a crown to protect it, from ₹2,000 per tooth*.",
+                color: "bg-brand-red",
+                badge: "Restoration Needed",
+                badgeColor: "bg-brand-red/10 text-brand-red",
+                icon: (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <path d="M4 9l3 3 5-6 5 6 3-3-1.5 9h-13L4 9Z" />
+                    <path d="M6.5 18h11" strokeWidth={1.2} />
+                  </svg>
+                ),
               },
-            ].map((s, i) => (
-              <li key={s.when} className="relative rounded-2xl border border-black/10 bg-white p-6">
-                <span
-                  className={`flex h-10 w-10 items-center justify-center rounded-full font-body text-sm font-bold text-white ${
-                    i === 0 ? "bg-[#0B7A55]" : "bg-brand-red"
-                  }`}
-                >
-                  {i + 1}
-                </span>
+            ].map((s) => (
+              <li key={s.when} className="relative flex flex-col rounded-2xl border border-black/10 bg-white p-6 shadow-sm">
+                <div className="flex items-center justify-between">
+                  <span
+                    className={`flex h-11 w-11 items-center justify-center rounded-xl text-white shadow-sm ${s.color}`}
+                  >
+                    {s.icon}
+                  </span>
+                  <span className={`rounded-full px-2.5 py-1 font-body text-xs font-bold ${s.badgeColor}`}>
+                    {s.badge}
+                  </span>
+                </div>
                 <p className="font-headline text-lg font-bold mt-4">{s.when}</p>
                 <p className="font-body text-sm opacity-75 mt-2">{s.what}</p>
               </li>
             ))}
           </ol>
+
           <p className="font-body text-base opacity-80 mt-6 max-w-2xl">
             Regular check-ups find problems while they&apos;re small, simpler and cheaper to
             fix. That&apos;s what our memberships are built around.

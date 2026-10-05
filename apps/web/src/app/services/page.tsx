@@ -94,22 +94,29 @@ export default function ServicesIndexPage() {
                   </Reveal>
                 );
               })}
-              {g.more.map((name) => {
+              {g.more.map((name, i) => {
                 const m = moreServices.find((x) => x.name === name);
                 if (!m) return null;
+                const slug = slugify(name);
                 return (
-                  <div key={name} id={slugify(name)} className="flex scroll-mt-24 flex-col rounded-[22px] border border-brand-line bg-white p-7">
-                    <h3 className="font-headline text-xl font-bold">{m.name}</h3>
-                    <p className="mt-2 font-body text-[15px] text-brand-muted">{m.body}</p>
-                    <a
-                      href={whatsappLink(`Hi, I'd like to ask about ${m.name.toLowerCase()} at RedCity Dental Care.`)}
-                      className="mt-auto inline-flex items-center gap-2 pt-4 font-body text-[15px] font-semibold text-brand-red"
-                    >
-                      Ask about this <Icon name="arrow" size={16} strokeWidth={2.2} />
-                    </a>
-                  </div>
+                  <Reveal key={name} delay={i % 3} className="h-full">
+                    <div id={slug} className="flex h-full scroll-mt-24 flex-col rounded-[22px] border border-brand-line bg-white p-7 transition-all duration-200 hover:shadow-lg hover:shadow-black/5 hover:-translate-y-1">
+                      <span className="badge-pop flex h-[52px] w-[52px] items-center justify-center rounded-full bg-brand-blush text-brand-red">
+                        <ServiceIcon slug={slug} className="h-6 w-6" />
+                      </span>
+                      <h3 className="mt-5 font-headline text-xl font-bold">{m.name}</h3>
+                      <p className="mt-2 font-body text-[15px] text-brand-muted">{m.body}</p>
+                      <a
+                        href={whatsappLink(`Hi, I'd like to ask about ${m.name.toLowerCase()} at RedCity Dental Care.`)}
+                        className="mt-auto inline-flex items-center gap-2 pt-4 font-body text-[15px] font-semibold text-brand-red"
+                      >
+                        Ask about this <Icon name="arrow" size={16} strokeWidth={2.2} />
+                      </a>
+                    </div>
+                  </Reveal>
                 );
               })}
+
             </div>
           </div>
         </section>

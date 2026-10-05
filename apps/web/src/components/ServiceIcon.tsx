@@ -79,7 +79,86 @@ const icons: Record<string, (p: SVGProps<SVGSVGElement>) => ReactElement> = {
       <path d="M6 20c0-3 2.7-4.5 6-4.5S18 17 18 20" />
     </svg>
   ),
+  "routine-check-ups": (props) => (
+    <svg {...base} {...props}>
+      <circle cx="9" cy="9" r="5" />
+      <path d="m13 13 7 7" strokeWidth={2} />
+      <path d="M9 7v4M7 9h4" strokeWidth={1.2} />
+    </svg>
+  ),
+  "digital-dental-x-rays": (props) => (
+    <svg {...base} {...props}>
+      <rect x="3" y="3" width="18" height="18" rx="3" />
+      <path d="M12 7c-1.5 0-2.2.7-3.3.7S7.5 7.2 7 8.3c-.6 1.4-.3 3.1.3 5 .5 1.7.6 4.3 1.3 5.3.5.8 1.2.3 1.5-.8.3-1.2.5-2.8 1.2-2.8h.1c.7 0 .8 1.5 1.1 2.8.3 1.1 1 1.5 1.5.8.7-1 .8-3.6 1.3-5.3.6-1.9.9-3.7.3-5.1-.5-1.1-1.6-.6-2.8-1.4-.4-.5-.7-.8-1.1-.8Z" strokeWidth={1.2} />
+      <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+    </svg>
+  ),
+  "teeth-cleaning-scaling": (props) => (
+    <svg {...base} {...props}>
+      <path d={TOOTH_D} />
+      <path d="M17 3l-3 4M19 7l-4 1" strokeWidth={1.3} />
+      <circle cx="18" cy="11" r="1" fill="currentColor" />
+      <circle cx="19" cy="15" r="1.5" fill="currentColor" />
+    </svg>
+  ),
+  "fillings-sealants": (props) => (
+    <svg {...base} {...props}>
+      <path d={TOOTH_D} />
+      <path d="M9.5 8h5c1 0 1.5 1 1.5 2s-.8 2-2 2h-4c-1.2 0-2-1-2-2s.5-2 1.5-2Z" strokeWidth={1.3} fill="currentColor" fillOpacity={0.25} />
+    </svg>
+  ),
+  "tooth-extractions": (props) => (
+    <svg {...base} {...props}>
+      <path d={TOOTH_D} />
+      <path d="M12 2v4M10 4l2-2 2 2" strokeWidth={1.4} />
+    </svg>
+  ),
+  "wisdom-tooth-removal": (props) => (
+    <svg {...base} {...props}>
+      <path d={TOOTH_D} />
+      <path d="M16 16l4 4M20 16v4h-4" strokeWidth={1.3} />
+    </svg>
+  ),
+  "oral-surgery": (props) => (
+    <svg {...base} {...props}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 7v10M7 12h10" strokeWidth={2} />
+    </svg>
+  ),
+  "smile-makeover": (props) => (
+    <svg {...base} {...props}>
+      <path d="M4 12c2.5 5 13.5 5 16 0" strokeWidth={1.8} />
+      <path d="M12 3l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z" strokeWidth={1.1} />
+      <path d="M18 6l.4 1 1 .4-1 .4-.4 1-.4-1-1-.4 1-.4z" strokeWidth={1.1} />
+    </svg>
+  ),
+  "dental-bonding": (props) => (
+    <svg {...base} {...props}>
+      <path d={TOOTH_D} />
+      <path d="M14 6l6-4M13 7l2-2" strokeWidth={1.4} />
+      <circle cx="10" cy="10" r="2" fill="currentColor" fillOpacity={0.3} />
+    </svg>
+  ),
+  "teeth-reshaping": (props) => (
+    <svg {...base} {...props}>
+      <path d={TOOTH_D} />
+      <path d="M8 6h8M6 8h12" strokeWidth={1.2} strokeDasharray="2 2" />
+    </svg>
+  ),
+  "mouth-guards-night-guards": (props) => (
+    <svg {...base} {...props}>
+      <path d="M3 10c0-4 4-7 9-7s9 3 9 7v4c0 3-3 6-9 6s-9-3-9-6v-4Z" />
+      <path d="M6 10c0-2 2.5-4 6-4s6 2 6 4v3c0 1.5-2 3-6 3s-6-1.5-6-3v-3Z" strokeWidth={1.2} />
+    </svg>
+  ),
+  "full-mouth-rehabilitation": (props) => (
+    <svg {...base} {...props}>
+      <path d="M4 7c2-3 14-3 16 0M4 17c2 3 14 3 16 0" strokeWidth={1.8} />
+      <path d="M7 6v2M10 5v4M14 5v4M17 6v2M7 18v-2M10 19v-4M14 19v-4M17 18v-2" strokeWidth={1.3} />
+    </svg>
+  ),
 };
+
 
 function ToothFallback(props: SVGProps<SVGSVGElement>) {
   return (

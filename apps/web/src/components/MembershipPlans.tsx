@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState } from "react";
-import { TERMS, plans, formatRupees, type Term } from "@/lib/pricing";
+import { TERMS, plans, formatRupees, type Term, type PlanId } from "@/lib/pricing";
 import { whatsappLink } from "@/lib/business";
 
 export function TermPicker({
@@ -76,6 +76,34 @@ const Check = () => (
   </svg>
 );
 
+const PLAN_ICONS: Record<PlanId, React.ReactElement> = {
+  basic: (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      <path d="m9 12 2 2 4-4" />
+    </svg>
+  ),
+  advanced: (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <circle cx="12" cy="12" r="9" />
+      <path d="m8 12 2.5 2.5L16 9" />
+    </svg>
+  ),
+  pro: (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M4 9l3 3 5-6 5 6 3-3-1.5 9h-13L4 9Z" />
+      <path d="M6.5 18h11" strokeWidth={1.2} />
+    </svg>
+  ),
+  family: (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+      <circle cx="9" cy="7" r="4" />
+      <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+    </svg>
+  ),
+};
+
 export function MembershipPlans() {
   const [term, setTerm] = useState<Term>(12);
 
@@ -96,8 +124,16 @@ export function MembershipPlans() {
                   : "bg-white border border-black/10 shadow-lg shadow-black/5"
               }`}
             >
+              <span
+                className={`mb-4 flex h-11 w-11 items-center justify-center rounded-xl ${
+                  family ? "bg-white/15 text-brand-gold" : "bg-brand-blush text-brand-red"
+                }`}
+              >
+                {PLAN_ICONS[plan.id]}
+              </span>
               <h3 className="font-headline text-xl font-bold">{plan.name}</h3>
               <p className={`font-body text-sm mt-1 ${family ? "text-white/70" : "opacity-60"}`}>
+
                 {plan.suits}
               </p>
 

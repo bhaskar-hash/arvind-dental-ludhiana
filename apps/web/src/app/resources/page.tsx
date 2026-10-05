@@ -204,16 +204,51 @@ export default function ResourcesPage() {
               {FIRST_AID.map((f) => {
                 const img = illustration(f.image);
                 return (
-                <div key={f.title} className="overflow-hidden rounded-[18px] bg-brand-warm">
-                  {img ? <AiImage image={img} className="block aspect-[4/3] w-full object-cover" /> : null}
-                  <div className="p-6">
-                  <h3 className="font-body text-lg font-bold">{f.title}</h3>
-                  <p className="mt-2 font-body text-[15px] text-brand-muted">{f.body}</p>
+                  <div key={f.title} className="overflow-hidden rounded-[18px] bg-brand-warm border border-brand-line">
+                    {img ? (
+                      <AiImage image={img} className="block aspect-[4/3] w-full object-cover" />
+                    ) : (
+                      <div className="flex aspect-[4/3] w-full flex-col items-center justify-center gap-2 bg-brand-blush/60 text-brand-red">
+                        <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-brand-red shadow-sm">
+                          {f.image === "aid-knocked-out" && (
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                              <path d="M12 3.5c-2 0-2.8 1-4.4 1S5 3.8 4.4 5.3C3.6 7.2 4 9.5 4.8 12c.7 2.2.8 5.6 1.7 6.9.7 1 1.6.4 2-1 .4-1.6.6-3.6 1.5-3.6h.1c.9 0 1.1 2 1.5 3.6.4 1.4 1.3 2 2 1 .9-1.3 1-4.7 1.7-6.9.8-2.5 1.2-4.8.4-6.7C16.5 3.8 15 5.5 13.4 4.5c-.5-.6-.9-1-1.4-1Z" />
+                              <path d="M19 14v6M16 17h6" strokeWidth={2} />
+                            </svg>
+                          )}
+                          {f.image === "aid-toothache" && (
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                              <circle cx="12" cy="12" r="9" />
+                              <path d="M8 15s1.5-2 4-2 4 2 4 2" />
+                              <path d="M9 9h.01M15 9h.01" />
+                              <path d="M17 5l3 3M20 5l-3 3" strokeWidth={1.5} />
+                            </svg>
+                          )}
+                          {f.image === "aid-broken" && (
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                              <path d="M12 3.5c-2 0-2.8 1-4.4 1S5 3.8 4.4 5.3C3.6 7.2 4 9.5 4.8 12c.7 2.2.8 5.6 1.7 6.9.7 1 1.6.4 2-1 .4-1.6.6-3.6 1.5-3.6h.1" />
+                              <path d="M12 4l2 5-3 2 4 3-2 5" strokeWidth={1.5} />
+                            </svg>
+                          )}
+                          {f.image === "aid-bleeding" && (
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                              <rect x="5" y="5" width="14" height="14" rx="3" />
+                              <path d="M12 8v8M8 12h8" strokeWidth={2.4} />
+                            </svg>
+                          )}
+                        </span>
+                        <span className="font-body text-xs font-bold uppercase tracking-wider text-brand-red">Emergency Care</span>
+                      </div>
+                    )}
+                    <div className="p-6">
+                      <h3 className="font-body text-lg font-bold">{f.title}</h3>
+                      <p className="mt-2 font-body text-[15px] text-brand-muted">{f.body}</p>
+                    </div>
                   </div>
-                </div>
                 );
               })}
             </div>
+
             <p className="mt-6 rounded-[14px] bg-brand-maroon px-5 py-4 font-body text-[15px] text-white">
               For heavy bleeding, an injury after an accident, or swelling that makes it hard to
               breathe or swallow, go to the nearest hospital emergency department.
