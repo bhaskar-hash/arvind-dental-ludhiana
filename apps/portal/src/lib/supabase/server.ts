@@ -1,0 +1,35 @@
+import { createServerClient, type SetAllCookies } from "@supabase/ssr";
+import { cookies } from "next/headers";
+
+export async function createClient() {
+  const cookieStore = await cookies();
+
+  return createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() {
+          return cookieStore.getAll();
+        },
+        setAll(cookiesToSet: Parameters<SetAllCookies>[0]) {
+          try {
+            cookiesToSet.forEach(({ name, value, options }) =>
+              cookieStore.set(name, value, options),
+            );
+          } catch {
+            // setAll called from a Server Component — safe to ignore when
+            // middleware is also refreshing the session.
+          }
+        },
+      },
+      global: {
+        // Next.js's fetch cache keys on URL, not the Authorization header --
+        // without this, one signed-in user's cached response can be served
+        // to a different user hitting the same Supabase REST endpoint.
+        fetch: (input: RequestInfo | URL, init?: RequestInit) =>
+          fetch(input, { ...init, cache: "no-store" }),
+      },
+    },
+  );
+}

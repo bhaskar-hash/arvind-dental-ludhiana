@@ -1,0 +1,48 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    restart: unless-stopped
+    env_file:
+      - apps/web/.env.production
+    expose:
+      - "3000"
+
+  portal:
+    build:
+      context: .
+      dockerfile: apps/portal/Dockerfile
+    restart: unless-stopped
+    env_file:
+      - apps/portal/.env.production
+    expose:
+      - "3000"
+
+  api:
+    build:
+      context: apps/api
+    restart: unless-stopped
+    env_file:
+      - apps/api/.env
+    expose:
+      - "8000"
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - web
+      - portal
+      - api
+
+volumes:
+  caddy_data:
+  caddy_config:

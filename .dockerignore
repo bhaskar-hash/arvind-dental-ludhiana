@@ -1,0 +1,10 @@
+**/node_modules
+**/.next
+**/.venv
+**/.turbo
+**/dist
+.git
+.github
+supabase/.temp
+supabase/.branches
+*.md

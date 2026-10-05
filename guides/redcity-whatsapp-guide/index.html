@@ -1,0 +1,759 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#2B0A0F">
+<title>WhatsApp Business Setup · RedCity Dental</title>
+<meta name="description" content="Step-by-step WhatsApp Business setup for Dr. Arvind Sahu: business profile, auto-replies, service catalog and lead labels.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='%23A61C2E'/%3E%3Cpath transform='translate(3.6 3.2) scale(.7)' d='M12 3.5c-2 0-2.8 1-4.4 1S5 3.8 4.4 5.3C3.6 7.2 4 9.5 4.8 12c.7 2.2.8 5.6 1.7 6.9.7 1 1.6.4 2-1 .4-1.6.6-3.6 1.5-3.6h.1c.9 0 1.1 2 1.5 3.6.4 1.4 1.3 2 2 1 .9-1.3 1-4.7 1.7-6.9.8-2.5 1.2-4.8.4-6.7C16.5 3.8 15 5.5 13.4 4.5c-.5-.6-.9-1-1.4-1Z' fill='none' stroke='white' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Gurmukhi:wght@500&family=Roboto+Slab:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: light;
+    --red: #A61C2E; --red-d: #7d1523; --gold: #D4AF37; --maroon: #2B0A0F; --ink: #1A1A1A;
+    --bg: #fdf9f8; --blush: #fbf1ef; --card: #fff; --line: rgba(26,26,26,.10); --muted: rgba(26,26,26,.66);
+    --bubble: #e7ffdb; --bubble-line: #c6e9b3; --ok: #1f8a4c;
+    --r: 16px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: 64px; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 Inter, system-ui, -apple-system, "Segoe UI", "Noto Sans Gurmukhi", sans-serif; }
+  h1, h2, h3 { font-family: "Roboto Slab", Georgia, serif; line-height: 1.18; margin: 0; text-wrap: balance; }
+  a { color: var(--red); text-underline-offset: 3px; }
+  b, strong { font-weight: 650; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+  .muted { color: var(--muted); }
+  .small { font-size: 14px; }
+
+  /* Hero */
+  .hero { color: #fff; padding: 24px 0 36px;
+    background: radial-gradient(700px 420px at 92% -12%, rgba(212,175,55,.24), transparent 60%),
+                linear-gradient(155deg, #3d0e17, #2B0A0F 52%, #1A1A1A); }
+  .logo { display: inline-block; background: #fff; border-radius: 12px; padding: 8px 14px; }
+  .logo img { height: 30px; width: auto; display: block; }
+  .eyebrow { color: var(--gold); font-weight: 700; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; margin: 28px 0 10px; }
+  .hero h1 { font-size: clamp(30px, 7.4vw, 46px); font-weight: 800; }
+  .hero .lead { color: rgba(255,255,255,.8); font-size: 17px; margin: 14px 0 0; max-width: 580px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+  .chip { border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.07); border-radius: 999px; padding: 6px 12px; font-size: 13px; font-weight: 500; }
+
+  /* Sticky progress */
+  .progress { position: sticky; top: 0; z-index: 20; background: rgba(253,249,248,.94); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  .progress .wrap { display: flex; align-items: center; gap: 12px; height: 50px; }
+  .bar { flex: 1; height: 6px; background: rgba(166,28,46,.12); border-radius: 99px; overflow: hidden; }
+  .bar span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--red), var(--gold)); transition: width .45s ease; }
+  .progress strong { font-size: 13px; white-space: nowrap; }
+
+  /* Generic blocks */
+  section { padding: 26px 0; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 18px; }
+  .card + .card { margin-top: 12px; }
+  .callout { border-radius: var(--r); padding: 16px 18px; margin-top: 16px; font-size: 15px; }
+  .callout p { margin: 0; } .callout p + p, .callout ul { margin-top: 8px; }
+  .callout ul { padding-left: 20px; margin-bottom: 0; }
+  .callout.tip { background: #fff8e1; border: 1px solid #f0dc9c; }
+  .callout.warn { background: #fdecec; border: 1px solid #f2c2c2; }
+  .callout.info { background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--gold); }
+  .callout .t { font-weight: 700; display: block; margin-bottom: 4px; }
+
+  /* Inputs */
+  .fill h2 { font-size: 22px; }
+  .fill label { display: block; font-weight: 600; font-size: 14px; margin-top: 16px; }
+  .fill input { width: 100%; margin-top: 6px; font: inherit; font-size: 16px; padding: 12px 14px; border: 1.5px solid rgba(26,26,26,.18); border-radius: 12px; background: #fff; color: var(--ink); }
+  .fill input:focus { outline: none; border-color: var(--red); box-shadow: 0 0 0 3px rgba(166,28,46,.15); }
+  .fill .hint { font-size: 13px; color: var(--muted); margin-top: 6px; }
+
+  /* TOC */
+  .toc ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+  .toc a { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 12px; background: #fff; border: 1px solid var(--line); color: var(--ink); text-decoration: none; font-weight: 500; font-size: 15px; }
+  .toc a:hover { border-color: rgba(166,28,46,.35); }
+  .toc .n { width: 26px; height: 26px; border-radius: 50%; background: rgba(166,28,46,.1); color: var(--red); font-weight: 700; font-size: 13px; display: inline-flex; align-items: center; justify-content: center; flex: none; }
+  .toc .is-done .n { background: var(--ok); color: #fff; }
+  .toc .min { margin-left: auto; font-size: 12px; color: var(--muted); white-space: nowrap; }
+
+  /* Steps */
+  .step { border-top: 1px solid var(--line); }
+  .step-head { display: flex; gap: 14px; align-items: flex-start; }
+  .num { flex: none; width: 44px; height: 44px; border-radius: 12px; color: #fff; font-family: "Roboto Slab", serif; font-weight: 800; font-size: 20px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--red), var(--red-d)); box-shadow: 0 8px 20px -8px rgba(166,28,46,.6); }
+  .step.is-done .num { background: var(--ok); box-shadow: none; }
+  .step-head h2 { font-size: 23px; }
+  .step-head .meta { margin: 4px 0 0; font-size: 14px; color: var(--muted); }
+  ol.how { margin: 18px 0 0; padding-left: 22px; }
+  ol.how > li { margin-top: 10px; padding-left: 4px; }
+  ol.how > li::marker { font-weight: 700; color: var(--red); }
+  .path { display: inline; background: var(--blush); border: 1px solid rgba(166,28,46,.15); border-radius: 6px; padding: 1px 6px; font-weight: 600; font-size: 14.5px; white-space: nowrap; }
+  .done { display: flex; align-items: center; gap: 12px; margin-top: 22px; padding: 14px 16px; border-radius: 14px; border: 1.5px dashed rgba(26,26,26,.2); cursor: pointer; font-weight: 600; user-select: none; }
+  .done input { width: 22px; height: 22px; accent-color: var(--ok); margin: 0; flex: none; }
+  .step.is-done .done { border-style: solid; border-color: var(--ok); background: #eefaf2; color: var(--ok); }
+
+  /* Copyable fields */
+  .fields { margin-top: 16px; display: grid; gap: 8px; }
+  .field { display: flex; align-items: center; gap: 12px; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px 10px 10px 14px; }
+  .field .kv { min-width: 0; flex: 1; }
+  .field .k { display: block; font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+  .field .v { display: block; font-size: 15px; overflow-wrap: anywhere; }
+  .copy { flex: none; font: inherit; font-size: 14px; font-weight: 600; color: #fff; background: var(--red); border: 0; border-radius: 10px; padding: 9px 14px; cursor: pointer; min-height: 40px; }
+  .copy:hover { background: var(--red-d); }
+  .copy:focus-visible { outline: 3px solid rgba(166,28,46,.35); outline-offset: 2px; }
+  .copy.ok { background: var(--ok); }
+
+  /* WhatsApp-style message bubbles */
+  .msg { margin-top: 16px; background: #efeae2; border-radius: var(--r); padding: 12px; border: 1px solid #e2dbd0; }
+  .msg-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; }
+  .msg-head span { font-weight: 700; font-size: 14px; }
+  .msg-head code { font: 600 13px/1 ui-monospace, SFMono-Regular, Menlo, monospace; background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 4px 7px; color: var(--red); }
+  .bubble { position: relative; background: var(--bubble); border: 1px solid var(--bubble-line); border-radius: 12px 12px 12px 4px; padding: 12px 14px; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 15px; line-height: 1.55; box-shadow: 0 1px 0 rgba(0,0,0,.06); }
+  .bubble mark { background: #ffe58a; border-radius: 4px; padding: 0 3px; font-weight: 600; }
+  .bubble .pa { font-family: "Noto Sans Gurmukhi", sans-serif; }
+
+  /* Images */
+  .profile { display: flex; gap: 16px; align-items: center; margin-top: 16px; }
+  .profile img { width: 96px; height: 96px; border-radius: 50%; border: 1px solid var(--line); flex: none; }
+  .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 8px; margin-top: 16px; }
+  .gallery img { width: 100%; height: auto; border-radius: 10px; display: block; }
+  .btn-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px; text-decoration: none; border-radius: 10px; padding: 10px 14px; border: 1.5px solid var(--red); color: var(--red); background: #fff; }
+
+  /* Catalog items */
+  .items { margin-top: 16px; display: grid; gap: 10px; }
+  details.item { background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  details.item summary { list-style: none; display: flex; align-items: center; gap: 12px; padding: 10px 14px 10px 10px; cursor: pointer; font-weight: 600; }
+  details.item summary::-webkit-details-marker { display: none; }
+  details.item summary img { width: 52px; height: 52px; border-radius: 9px; flex: none; }
+  details.item summary .chev { margin-left: auto; color: var(--muted); transition: transform .2s; }
+  details.item[open] summary .chev { transform: rotate(180deg); }
+  details.item .body { padding: 0 14px 16px; }
+  details.item .body > img { width: 100%; max-width: 320px; height: auto; border-radius: 12px; display: block; }
+  details.item .save { font-size: 13px; color: var(--muted); margin: 8px 0 0; }
+
+  /* Labels */
+  .labels { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+  .label { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 7px 13px 7px 10px; font-size: 14px; font-weight: 600; }
+  .label i { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+  .flow { counter-reset: f; }
+  .flow .label::before { counter-increment: f; content: counter(f); font-size: 11px; font-weight: 700; color: var(--muted); margin-right: -2px; }
+
+  /* Table */
+  .table-wrap { overflow-x: auto; margin-top: 14px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+  table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 14px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+  th { background: var(--blush); font-weight: 650; font-size: 13px; }
+  td { height: 40px; }
+  tr:last-child td { border-bottom: 0; }
+
+  h3 { font-size: 18px; margin-top: 24px; }
+  .info-grid { display: grid; gap: 12px; margin-top: 14px; }
+  @media (min-width: 640px) { .info-grid { grid-template-columns: 1fr 1fr; } }
+  ul.ticks { list-style: none; padding: 0; margin: 10px 0 0; }
+  ul.ticks li { position: relative; padding-left: 26px; margin-top: 8px; }
+  ul.ticks li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--ok); font-weight: 800; }
+  ul.crosses li::before { content: "✕"; color: var(--red); }
+
+  footer { background: var(--maroon); color: rgba(255,255,255,.72); font-size: 13px; padding: 28px 0 40px; margin-top: 20px; }
+  footer strong { color: #fff; }
+
+  @media print {
+    .progress, .copy, .done, .btn-row, .fill { display: none !important; }
+    .hero { background: #fff; color: var(--ink); } .hero .lead { color: var(--muted); }
+    details.item { break-inside: avoid; } details.item .body { display: block; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="logo">
+      <picture>
+        <source srcset="assets/redcity-logo.webp" type="image/webp">
+        <img src="assets/redcity-logo.png" width="560" height="169" alt="RedCity Dental Care &amp; Implant Centre">
+      </picture>
+    </span>
+    <p class="eyebrow">For Dr. Arvind Sahu</p>
+    <h1>Set up WhatsApp Business for the clinic</h1>
+    <p class="lead">A business profile, automatic replies with your hours, a service catalog and labels to track every enquiry, set up on the clinic phone. Every message and image you need is on this page, ready to copy or save.</p>
+    <div class="chips">
+      <span class="chip">⏱ About 45 minutes</span>
+      <span class="chip">📱 Clinic phone · 88476 51364</span>
+      <span class="chip">₹0 · free app</span>
+    </div>
+  </div>
+</header>
+
+<div class="progress" aria-live="polite">
+  <div class="wrap">
+    <div class="bar" aria-hidden="true"><span id="bar"></span></div>
+    <strong id="count">0 of 9 steps done</strong>
+  </div>
+</div>
+
+<noscript><div class="wrap"><p class="callout warn">Turn on JavaScript to see the ready-to-copy messages on this page.</p></div></noscript>
+
+<!-- Details that fill into every message below -->
+<section class="fill">
+  <div class="wrap">
+    <div class="card">
+      <h2>First, fill in two details</h2>
+      <p class="muted small" style="margin:6px 0 0">They're added to the messages below automatically and saved only on this device.</p>
+
+      <label for="hours">Clinic hours</label>
+      <input id="hours" type="text" autocomplete="off" placeholder="e.g. Mon–Sat 10 AM – 8 PM · Sunday closed">
+      <p class="hint">Write them exactly as you want patients to read them.</p>
+
+      <label for="review">Google review link</label>
+      <input id="review" type="url" inputmode="url" autocomplete="off" placeholder="https://g.page/r/…/review">
+      <p class="hint">To get it: search <b>RedCity Dental</b> on Google while signed in as the owner → <b>Ask for reviews</b> (or <b>Read reviews → Get more reviews</b>) → copy the link.</p>
+    </div>
+  </div>
+</section>
+
+<section class="toc" aria-label="Steps">
+  <div class="wrap">
+    <ol id="toc"></ol>
+  </div>
+</section>
+
+<!-- Step 0 -->
+<section class="step" id="step-0" data-title="Before you start" data-min="5 min">
+  <div class="wrap">
+    <div class="step-head">
+      <span class="num">0</span>
+      <div><h2>Before you start</h2><p class="meta">About 5 min · so no chats are lost</p></div>
+    </div>
+    <ol class="how">
+      <li>Use the <b>clinic number, +91 88476 51364</b>, on the phone whose SIM has that number.</li>
+      <li>One number can't be on regular WhatsApp and WhatsApp Business at the same time. If the clinic number is on regular WhatsApp now, the Business app <b>moves it over</b> and can bring the chats with it.</li>
+      <li><b>Back up the chats first.</b> In regular WhatsApp: <span class="path">Settings → Chats → Chat backup → Back up</span>.</li>
+      <li>Use Wi-Fi, and fill in your <b>clinic hours</b> at the top of this page.</li>
+    </ol>
+    <label class="done"><input type="checkbox" data-step="0"> I've backed up and I'm ready</label>
+  </div>
+</section>
+
+<!-- Step 1 -->
+<section class="step" id="step-1" data-title="Install and register" data-min="5 min">
+  <div class="wrap">
+    <div class="step-head">
+      <span class="num">1</span>
+      <div><h2>Install WhatsApp Business and register the number</h2><p class="meta">About 5 min</p></div>
+    </div>
+    <ol class="how">
+      <li>Install <b>WhatsApp Business</b> (by WhatsApp LLC, green icon with a “B”) from the Play Store or App Store. It's free.</li>
+      <li>Open it and tap <b>Agree and continue</b>.</li>
+      <li>If it shows the clinic number, tap <b>Continue</b>. Otherwise type <b>88476 51364</b> and enter the 6-digit code from the SMS.</li>
+      <li>If it offers to restore your chat backup, tap <b>Restore</b>.</li>
+      <li>Enter the business name and category below, then add the profile photo.</li>
+    </ol>
+    <div class="fields">
+      <div class="field"><div class="kv"><span class="k">Business name</span><span class="v">RedCity Dental Care &amp; Implant Centre</span></div><button class="copy" type="button" data-copy="RedCity Dental Care &amp; Implant Centre">Copy</button></div>
+      <div class="field"><div class="kv"><span class="k">Category</span><span class="v">Search “Dentist” and pick the closest match</span></div></div>
+    </div>
+    <div class="profile">
+      <img src="assets/whatsapp-profile-photo.jpg" width="640" height="640" alt="RedCity logo profile photo">
+      <div>
+        <b>Profile photo</b>
+        <p class="small muted" style="margin:4px 0 0">Long-press the image → <b>Save to Photos</b> (iPhone) or <b>Download image</b> (Android), then pick it in WhatsApp.</p>
+        <div class="btn-row" style="margin-top:8px"><a class="btn" href="assets/whatsapp-profile-photo.jpg" download>⬇ Download</a></div>
+      </div>
+    </div>
+    <div class="callout info">
+      <span class="t">Use one name everywhere</span>
+      <p>Your signboard and website say <b>RedCity Dental Care &amp; Implant Centre</b>, but the Google listing says “Red City Dental Care and Implant Centre”. Use the signboard version here, and edit the Google listing to match. Google ranks clinics higher when the name is the same everywhere. Choose carefully: WhatsApp may limit how often you can change a business name.</p>
+    </div>
+    <label class="done"><input type="checkbox" data-step="1"> Installed and registered</label>
+  </div>
+</section>
+
+<!-- Where is Business tools -->
+<section>
+  <div class="wrap">
+    <div class="callout tip">
+      <span class="t">🧰 Where to find “Business tools”</span>
+      <p>Every setting in steps 2 to 8 lives under <b>Business tools</b>:</p>
+      <ul>
+        <li><b>Newer versions:</b> the <b>Tools</b> tab at the bottom of the app.</li>
+        <li><b>Android:</b> <span class="path">⋮ (top right) → Business tools</span>, or <span class="path">Settings → Business tools</span>.</li>
+        <li><b>iPhone:</b> <span class="path">Settings → Business tools</span>.</li>
+      </ul>
+      <p>WhatsApp moves its menus from time to time, but the names (Greeting message, Away message, Quick replies, Catalog, Labels) stay the same.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Step 2 -->
+<section class="step" id="step-2" data-title="Business profile" data-min="7 min">
+  <div class="wrap">
+    <div class="step-head">
+      <span class="num">2</span>
+      <div><h2>Fill in the business profile</h2><p class="meta">About 7 min · this is what patients see when they tap your name</p></div>
+    </div>
+    <ol class="how">
+      <li>Go to <span class="path">Business tools → Business profile</span>.</li>
+      <li>Copy each detail below into the matching field.</li>
+      <li>Under <b>Business hours</b>, choose <b>Open for selected hours</b> and set each day to match the hours you typed at the top. The away message in step 4 uses these.</li>
+      <li>After pasting the address, tap the map and drop the pin on the clinic.</li>
+    </ol>
+    <div class="fields">
+      <div class="field"><div class="kv"><span class="k">Description</span><span class="v" id="desc-text">Dental implants, root canal treatment, crowns, veneers, dentures and family dental care in South Model Gram, Ludhiana. Led by Dr. Arvind Sahu, BDS, MDS (Prosthodontics &amp; Crown &amp; Bridge), Prosthodontist &amp; Oral Implantologist. Send photos of your teeth here — Dr. Sahu personally reviews them and replies with a voice message (not an automated diagnosis). 10-year warranty on implant fixtures, T&amp;C apply.</span></div><button class="copy" type="button" data-copy-from="desc-text">Copy</button></div>
+      <div class="field"><div class="kv"><span class="k">Address</span><span class="v">47 A/1, South Model Gram, Ludhiana, Punjab 141002</span></div><button class="copy" type="button" data-copy="47 A/1, South Model Gram, Ludhiana, Punjab 141002">Copy</button></div>
+      <div class="field"><div class="kv"><span class="k">Website 1</span><span class="v">https://redcity-web-lac.vercel.app</span></div><button class="copy" type="button" data-copy="https://redcity-web-lac.vercel.app">Copy</button></div>
+      <div class="field"><div class="kv"><span class="k">Website 2 · Google Maps</span><span class="v">https://maps.app.goo.gl/aw86VcC2PLQ8iETQ8</span></div><button class="copy" type="button" data-copy="https://maps.app.goo.gl/aw86VcC2PLQ8iETQ8">Copy</button></div>
+      <div class="field"><div class="kv"><span class="k">Email · optional</span><span class="v">The clinic's email address</span></div></div>
+    </div>
+    <p class="small muted" style="margin-top:12px">When the clinic's own domain goes live, change Website 1 to it.</p>
+    <label class="done"><input type="checkbox" data-step="2"> Profile filled in</label>
+  </div>
+</section>
+
+<!-- Step 3 -->
+<section class="step" id="step-3" data-title="Greeting message" data-min="2 min">
+  <div class="wrap">
+    <div class="step-head">
+      <span class="num">3</span>
+      <div><h2>Turn on the greeting message</h2><p class="meta">About 2 min · sent automatically to new patients</p></div>
+    </div>
+    <ol class="how">
+      <li>Go to <span class="path">Business tools → Greeting message</span> and switch on <b>Send greeting message</b>.</li>
+      <li>Tap the message, delete the sample text, and paste the message below.</li>
+      <li>Set <b>Recipients</b> to <b>Everyone</b> and tap <b>Save</b>.</li>
+    </ol>
+    <div class="msg">
+      <div class="msg-head"><span>Greeting message</span><button class="copy" type="button" data-copy-tpl="greeting">Copy</button></div>
+      <div class="bubble" data-tpl="greeting"></div>
+    </div>
+    <p class="small muted" style="margin-top:10px">WhatsApp sends this when someone messages for the first time, or after 14 days without messages. Dr. Sahu: please check the Punjabi line reads naturally to you before saving.</p>
+    <label class="done"><input type="checkbox" data-step="3"> Greeting message is on</label>
+  </div>
+</section>
+
+<!-- Step 4 -->
+<section class="step" id="step-4" data-title="Away message with hours" data-min="3 min">
+  <div class="wrap">
+    <div class="step-head">
+      <span class="num">4</span>
+      <div><h2>Turn on the away message with your hours</h2><p class="meta">About 3 min · replies for you when the clinic is closed</p></div>
+    </div>
+    <ol class="how">
+      <li>Go to <span class="path">Business tools → Away message</span> and switch on <b>Send away message</b>.</li>
+      <li>Paste the message below.</li>
+      <li>Set <b>Schedule</b> to <b>Outside of business hours</b>. It uses the hours from step 2.</li>
+      <li>Set <b>Recipients</b> to <b>Everyone</b> and tap <b>Save</b>.</li>
+    </ol>
+    <div class="msg">
+      <div class="msg-head"><span>Away message</span><button class="copy" type="button" data-copy-tpl="away">Copy</button></div>
+      <div class="bubble" data-tpl="away"></div>
+    </div>
+    <div class="callout warn">
+      <span class="t">Check the emergency line</span>
+      <p>Only keep the “Call +91 88476 51364” line if someone answers this number after hours. If not, delete that line before saving, so a patient in pain isn't left waiting. Keep the hospital line either way.</p>
+    </div>
+    <label class="done"><input type="checkbox" data-step="4"> Away message is on</label>
+  </div>
+</section>
+
+<!-- Step 5 -->
+<section class="step" id="step-5" data-title="Quick replies" data-min="5 min">
+  <div class="wrap">
+    <div class="step-head">
+      <span class="num">5</span>
+      <div><h2>Save six quick replies</h2><p class="meta">About 5 min · answer the common questions in two taps</p></div>
+    </div>
+    <ol class="how">
+      <li>Go to <span class="path">Business tools → Quick replies</span> and tap <b>+</b>.</li>
+      <li>Paste a message, type its <b>shortcut</b> (the word shown in red, e.g. <code>hours</code>), and tap <b>Save</b>.</li>
+      <li>Repeat for all six.</li>
+      <li>To use one in a chat, type <b>/</b> and pick it, or type the full shortcut, e.g. <b>/photos</b>.</li>
+    </ol>
+    <div id="quick"></div>
+    <p class="small muted" style="margin-top:10px">In <b>/book</b>, fill in the date and time in the chat before you press send.</p>
+    <label class="done"><input type="checkbox" data-step="5"> Six quick replies saved</label>
+  </div>
+</section>
+
+<!-- Step 6 -->
+<section class="step" id="step-6" data-title="Service catalog" data-min="10 min">
+  <div class="wrap">
+    <div class="step-head">
+      <span class="num">6</span>
+      <div><h2>Build the service catalog</h2><p class="meta">About 10 min · patients browse your treatments right inside WhatsApp</p></div>
+    </div>
+    <h3>a) Save the 10 service images</h3>
+    <p class="small muted" style="margin:6px 0 0">On the phone, long-press each image → <b>Save to Photos</b> or <b>Download image</b>. On a computer, download them all at once.</p>
+    <div class="gallery" id="gallery"></div>
+    <div class="btn-row"><a class="btn" href="assets/redcity-whatsapp-images.zip" download>⬇ Download all images (.zip, 0.7 MB)</a></div>
+
+    <h3>b) Add each service</h3>
+    <ol class="how">
+      <li>Go to <span class="path">Business tools → Catalog → Add new item</span>.</li>
+      <li>Tap <b>Add images</b> and pick the matching image.</li>
+      <li>Copy the <b>name</b>, <b>description</b> and <b>link</b> from the item below.</li>
+      <li>Leave <b>Price</b> empty, because fees depend on the examination. Tap <b>Save</b>.</li>
+      <li>Repeat for each service, starting with <b>Online Photo Review</b> so it shows first.</li>
+    </ol>
+    <div class="items" id="items"></div>
+
+    <div class="callout info">
+      <span class="t">Optional: group them into collections</span>
+      <p>In the Catalog, create a collection and add items to it:</p>
+      <ul>
+        <li><b>Replace missing teeth:</b> Implants, Dentures &amp; Bridges, Crowns</li>
+        <li><b>Pain &amp; repair:</b> Root Canal, Emergency, Laser, Kids'</li>
+        <li><b>Smile makeover:</b> Veneers, Teeth Whitening</li>
+      </ul>
+      <p>WhatsApp checks each item before it appears, which is usually quick. If one is rejected, tap it to see why and edit the wording.</p>
+    </div>
+    <div class="callout warn">
+      <span class="t">Never put patient photos in the catalog without written consent</span>
+      <p>Before/after photos only from real patients who have agreed in writing. Never use edited or AI-made “results”: misleading health advertising is a legal risk under the Consumer Protection Act and the Dental Council's rules.</p>
+    </div>
+    <p class="small muted" style="margin-top:12px">To send an item in a chat: tap 📎 (attach) → <b>Catalog</b> → pick the item → send.</p>
+    <label class="done"><input type="checkbox" data-step="6"> Catalog built</label>
+  </div>
+</section>
+
+<!-- Step 7 -->
+<section class="step" id="step-7" data-title="Labels to track leads" data-min="5 min">
+  <div class="wrap">
+    <div class="step-head">
+      <span class="num">7</span>
+      <div><h2>Create labels to track every enquiry</h2><p class="meta">About 5 min · see at a glance who needs a reply, a booking or a follow-up</p></div>
+    </div>
+    <ol class="how">
+      <li>Open <span class="path">Business tools → Labels</span> (Android: also <span class="path">⋮ → Labels</span>).</li>
+      <li>Delete or rename the shop labels you won't need: <b>New order, Pending payment, Paid, Order complete</b>. Rename “New customer” to <b>New enquiry</b>.</li>
+      <li>Create the labels below. Colours are suggestions.</li>
+    </ol>
+
+    <h3>Journey labels: one per chat, moved along as things happen</h3>
+    <div class="labels flow">
+      <span class="label"><i style="background:#2f80ed"></i>New enquiry</span>
+      <span class="label"><i style="background:#9b51e0"></i>Photos received</span>
+      <span class="label"><i style="background:#f2994a"></i>Voice note sent</span>
+      <span class="label"><i style="background:#27ae60"></i>Appointment booked</span>
+      <span class="label"><i style="background:#A61C2E"></i>In treatment</span>
+      <span class="label"><i style="background:#219653"></i>Treatment done</span>
+      <span class="label"><i style="background:#D4AF37"></i>Review requested</span>
+    </div>
+    <div class="labels">
+      <span class="label"><i style="background:#eb5757"></i>Follow-up due</span>
+    </div>
+    <p class="small muted" style="margin-top:8px">Use <b>Follow-up due</b> alongside any journey label when someone needs a reminder call or message.</p>
+
+    <h3>Treatment labels: add one next to the journey label</h3>
+    <div class="labels">
+      <span class="label"><i style="background:#56ccf2"></i>Implant</span>
+      <span class="label"><i style="background:#56ccf2"></i>Root canal</span>
+      <span class="label"><i style="background:#56ccf2"></i>Crown / Veneer</span>
+      <span class="label"><i style="background:#56ccf2"></i>Denture / Bridge</span>
+      <span class="label"><i style="background:#56ccf2"></i>Kids</span>
+      <span class="label"><i style="background:#56ccf2"></i>Emergency</span>
+    </div>
+
+    <h3>How to use them</h3>
+    <ul class="ticks">
+      <li><b>Add a label:</b> Android: long-press the chat → tap the 🏷 label icon. iPhone: swipe left on the chat → <b>More</b> → <b>Label chat</b>.</li>
+      <li><b>Move it along:</b> when a patient moves to the next stage, remove the old journey label and add the new one, so the counts stay accurate.</li>
+      <li><b>See a list:</b> open <b>Labels</b> and tap any label to see every chat with it, e.g. all <b>Implant</b> enquiries still at <b>Voice note sent</b>.</li>
+    </ul>
+    <label class="done"><input type="checkbox" data-step="7"> Labels created</label>
+  </div>
+</section>
+
+<!-- Step 8 -->
+<section class="step" id="step-8" data-title="Reception QR and clinic computer" data-min="3 min">
+  <div class="wrap">
+    <div class="step-head">
+      <span class="num">8</span>
+      <div><h2>Print a QR code and connect the clinic computer</h2><p class="meta">About 3 min</p></div>
+    </div>
+    <h3>QR code for the reception desk</h3>
+    <ol class="how">
+      <li>Go to <span class="path">Business tools → Short link</span>.</li>
+      <li>Turn on <b>Default message</b> and paste the message below.</li>
+      <li>Tap <b>View QR code → Share</b>, and print it for the reception desk, visiting cards and prescription pads.</li>
+    </ol>
+    <div class="fields">
+      <div class="field"><div class="kv"><span class="k">Default message</span><span class="v">Hi, I'd like to book a consultation at RedCity Dental Care.</span></div><button class="copy" type="button" data-copy="Hi, I'd like to book a consultation at RedCity Dental Care.">Copy</button></div>
+    </div>
+    <p class="small muted" style="margin-top:8px">This matches the WhatsApp button on the website, so every enquiry starts the same way.</p>
+
+    <h3>Let the receptionist reply from the computer</h3>
+    <ol class="how">
+      <li>On the phone: Android <span class="path">⋮ → Linked devices</span> · iPhone <span class="path">Settings → Linked devices</span> → <b>Link a device</b>.</li>
+      <li>On the clinic computer, open <b>web.whatsapp.com</b> (or the WhatsApp desktop app) and scan the QR code with the phone.</li>
+      <li>Replies and labels can now be handled from the computer. Up to 4 computers can be linked.</li>
+    </ol>
+    <label class="done"><input type="checkbox" data-step="8"> QR printed and computer linked</label>
+  </div>
+</section>
+
+<!-- Routine -->
+<section class="step" id="routine">
+  <div class="wrap">
+    <h2 style="font-size:24px">The routine that turns chats into patients</h2>
+    <div class="info-grid">
+      <div class="card">
+        <b>Every day</b>
+        <ul class="ticks">
+          <li>Reply to new messages within an hour during clinic hours. The clinic that answers first usually gets the patient.</li>
+          <li>Label every new chat the same day: <b>New enquiry</b> plus a treatment label.</li>
+          <li>Move each chat's journey label as things happen.</li>
+          <li>Check <b>Follow-up due</b> before closing.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <b>After every visit</b>
+        <ul class="ticks">
+          <li>Send <b>/review</b> to <b>every</b> patient, not only the happy ones. Google penalises asking selectively.</li>
+          <li>Never offer discounts or gifts for reviews, and never write one on a patient's behalf.</li>
+          <li>Change the label to <b>Review requested</b>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3>Every Monday: count your labels (5 minutes)</h3>
+    <p class="small muted" style="margin:6px 0 0">Open each label, count the chats, and write the numbers here or in a notebook. <b>Booked ÷ New enquiries</b> shows how well WhatsApp turns enquiries into patients.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Week starting</th><th>New enquiries</th><th>Photos received</th><th>Booked</th><th>Treatment started</th><th>Reviews requested</th></tr></thead>
+        <tbody><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td><td></td></tr></tbody>
+      </table>
+    </div>
+    <div class="btn-row"><button class="btn" type="button" onclick="window.print()">🖨 Print this page</button></div>
+  </div>
+</section>
+
+<!-- Privacy -->
+<section class="step" id="privacy">
+  <div class="wrap">
+    <h2 style="font-size:24px">Patient privacy on WhatsApp</h2>
+    <p class="muted" style="margin:8px 0 0">Patient photos are health data under India's DPDP Act. A few settings keep them safe:</p>
+    <ul class="ticks">
+      <li><b>Keep patient photos out of the phone gallery:</b> Android <span class="path">Settings → Chats → Media visibility → Off</span> · iPhone <span class="path">Settings → Chats → Save to Photos → Off</span>. This also keeps them out of Google Photos and iCloud backups.</li>
+      <li><b>Keep the clinical record in the patient file.</b> WhatsApp is for conversation, not record-keeping.</li>
+      <li>When replying to photos, use the wording from <b>/photos</b>: <i>“Dr. Sahu will personally review your photos and send you a voice message — this is not an automated diagnosis.”</i></li>
+    </ul>
+    <ul class="ticks crosses">
+      <li>Don't forward patient photos to personal chats or groups.</li>
+      <li>Don't post patient photos or videos on Status, the catalog or social media without written consent.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p style="margin:0"><strong>RedCity Dental Care &amp; Implant Centre</strong> · Dr. Arvind Sahu, BDS, MDS (Prosthodontics &amp; Crown &amp; Bridge)</p>
+    <p style="margin:6px 0 0">47 A/1, South Model Gram, Ludhiana, Punjab 141002 · +91 88476 51364</p>
+    <p style="margin:14px 0 0;opacity:.7">Setup guide prepared October 2026. WhatsApp changes its menus from time to time; if a screen looks different, look for the same setting name.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var SITE = "https://redcity-web-lac.vercel.app";
+
+  // ---- Message templates. {{HOURS}} and {{REVIEW}} come from the inputs at the top.
+  var T = {
+    greeting:
+      "Hello! 👋 Welcome to RedCity Dental Care & Implant Centre.\n" +
+      "ਜੀ ਆਇਆਂ ਨੂੰ!\n\n" +
+      "How can we help you today?\n" +
+      "1️⃣ Book an appointment\n" +
+      "2️⃣ Send photos of your teeth for Dr. Sahu to review\n" +
+      "3️⃣ Ask about a treatment\n\n" +
+      "Just reply with 1, 2 or 3.\n\n" +
+      "Dr. Arvind Sahu, MDS (Prosthodontics)\n" +
+      "📍 47 A/1, South Model Gram, Ludhiana",
+    away:
+      "Thank you for messaging RedCity Dental Care & Implant Centre 🙏\n" +
+      "The clinic is closed right now.\n\n" +
+      "🕒 Clinic hours: {{HOURS}}\n\n" +
+      "Leave your question or photos here and we'll reply as soon as we're back.\n\n" +
+      "🚨 Severe pain, a broken tooth or a knocked-out tooth? Call +91 88476 51364.\n" +
+      "For heavy bleeding, an injury after an accident, or swelling that makes it hard to breathe or swallow, please go to the nearest hospital emergency department.",
+    hours:
+      "🕒 Our clinic hours: {{HOURS}}\n\n" +
+      "Reply here or call +91 88476 51364 to book your visit.",
+    location:
+      "📍 RedCity Dental Care & Implant Centre\n" +
+      "47 A/1, South Model Gram, Ludhiana, Punjab 141002\n\n" +
+      "Look for the red building with the RedCity signboard.\n" +
+      "Directions: https://maps.app.goo.gl/aw86VcC2PLQ8iETQ8",
+    photos:
+      "📸 To help Dr. Sahu understand your concern, please send 3 clear photos in good light:\n" +
+      "1. Your smile from the front, teeth together\n" +
+      "2. Upper teeth: open wide, tilt your head back\n" +
+      "3. Lower teeth: open wide, tilt your head down\n\n" +
+      "Also tell us in one line what is bothering you and since when.\n\n" +
+      "Dr. Sahu will personally review your photos and send you a voice message — this is not an automated diagnosis.",
+    book:
+      "✅ Your appointment is confirmed\n\n" +
+      "📅 Date: \n" +
+      "🕒 Time: \n" +
+      "👨‍⚕️ With Dr. Arvind Sahu\n" +
+      "📍 47 A/1, South Model Gram, Ludhiana\n\n" +
+      "Please bring any old X-rays or reports. To change the time, just reply to this message.",
+    implant:
+      "Dental implants at RedCity are planned by Dr. Arvind Sahu, MDS (Prosthodontics).\n\n" +
+      "✔ Fixed, natural-looking replacement for missing teeth\n" +
+      "✔ 10-year warranty on the implant fixture (terms & conditions apply)\n\n" +
+      "Whether an implant suits you depends on your bone and gum health, so Dr. Sahu will advise you after an examination. Would you like to book a consultation?",
+    review:
+      "Thank you for visiting RedCity Dental Care 🙏\n\n" +
+      "If you have a minute, please share your honest experience on Google. It helps other families in Ludhiana find the right dentist:\n" +
+      "{{REVIEW}}",
+  };
+  var QUICK = [
+    ["hours", "Clinic hours"], ["location", "Address & directions"], ["photos", "How to send photos"],
+    ["book", "Appointment confirmation"], ["implant", "About implants"], ["review", "Ask for a Google review"],
+  ];
+
+  // ---- Catalog items. Images are in /assets, links point at the live website.
+  var ITEMS = [
+    ["photo-review", "Online Photo Review", "Send 3 photos of your teeth on WhatsApp. Dr. Sahu personally reviews them and replies with a voice message — this is not an automated diagnosis.", SITE],
+    ["dental-implants", "Dental Implants", "Fixed, natural-looking replacement for missing teeth, planned by Dr. Arvind Sahu, MDS (Prosthodontics). 10-year warranty on the implant fixture — terms & conditions apply. Dr. Sahu will advise whether implants suit you after an examination.", SITE + "/services/dental-implants"],
+    ["root-canal-treatment", "Root Canal Treatment", "Not every toothache needs a root canal. Dr. Sahu first finds the real cause of the pain and recommends RCT only when it is needed to save the tooth.", SITE + "/services/root-canal-treatment"],
+    ["crowns", "Dental Crowns (Zirconia & PFM)", "Crowns to protect and restore damaged or root-canal-treated teeth. Dr. Sahu will explain the difference between Zirconia and PFM in strength, appearance and cost.", SITE + "/services/crowns"],
+    ["veneers", "Veneers", "Thin, custom-made shells bonded to the front of the teeth to improve shape, spacing or colour, planned around your smile after a consultation.", SITE + "/services/veneers"],
+    ["dentures-bridges", "Dentures & Bridges", "Comfortable, natural-looking replacement for missing teeth: complete dentures, partial dentures, overdentures and fixed bridges.", SITE + "/services/dentures-bridges"],
+    ["teeth-whitening", "Teeth Whitening", "Professional, dentist-supervised whitening for a brighter smile with realistic, natural-looking results.", SITE + "/services/teeth-whitening"],
+    ["laser-dentistry", "Laser Dentistry", "Precise, minimally invasive laser treatment for selected gum and soft-tissue procedures.", SITE + "/services/laser-dentistry"],
+    ["paediatric-dentistry", "Kids' Dentistry", "Gentle check-ups, fillings and sealants for children, with a calm and positive first visit.", SITE + "/services/paediatric-dentistry"],
+    ["emergency-dental-care", "Emergency Dental Care", "Severe toothache, broken tooth, swelling or a knocked-out tooth? Message us here or call +91 88476 51364 for the earliest possible appointment.", SITE + "/services/emergency-dental-care"],
+  ];
+
+  // ---- Per-device storage (wrapped: private mode can throw)
+  function load(k, d) { try { var v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); } catch (e) { return d; } }
+  function save(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+
+  var state = { HOURS: load("rc-wa-hours", ""), REVIEW: load("rc-wa-review", "") };
+  var MISSING = { HOURS: "[add clinic hours at the top of this page]", REVIEW: "[add your Google review link at the top of this page]" };
+
+  function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function plain(key) {
+    return T[key].replace(/\{\{(HOURS|REVIEW)\}\}/g, function (_, k) { return state[k].trim() || MISSING[k]; });
+  }
+  function html(key) {
+    return esc(T[key])
+      .replace(/\{\{(HOURS|REVIEW)\}\}/g, function (_, k) { var v = state[k].trim(); return v ? esc(v) : "<mark>" + MISSING[k] + "</mark>"; })
+      .replace(/(ਜੀ ਆਇਆਂ ਨੂੰ!)/, '<span class="pa" lang="pa">$1</span>');
+  }
+
+  // Build quick replies
+  var quick = document.getElementById("quick");
+  QUICK.forEach(function (q) {
+    var d = document.createElement("div");
+    d.className = "msg";
+    d.innerHTML = '<div class="msg-head"><span>' + esc(q[1]) + ' <code>/' + q[0] + '</code></span><button class="copy" type="button" data-copy-tpl="' + q[0] + '">Copy</button></div><div class="bubble" data-tpl="' + q[0] + '"></div>';
+    quick.appendChild(d);
+  });
+
+  // Build gallery + catalog items
+  var gallery = document.getElementById("gallery"), items = document.getElementById("items");
+  ITEMS.forEach(function (it, i) {
+    var src = "assets/catalog-" + it[0] + ".jpg";
+    var g = document.createElement("a");
+    g.href = src; g.setAttribute("download", "");
+    g.innerHTML = '<img src="' + src + '" width="1080" height="1080" loading="lazy" alt="' + esc(it[1]) + ' catalog image">';
+    gallery.appendChild(g);
+
+    var d = document.createElement("details");
+    d.className = "item";
+    d.innerHTML =
+      '<summary><img src="' + src + '" width="1080" height="1080" loading="lazy" alt=""><span>' + (i + 1) + ". " + esc(it[1]) + '</span><span class="chev" aria-hidden="true">▾</span></summary>' +
+      '<div class="body">' +
+        '<img src="' + src + '" width="1080" height="1080" loading="lazy" alt="' + esc(it[1]) + ' catalog image">' +
+        '<p class="save">Long-press the image to save it.</p>' +
+        '<div class="fields">' +
+          field("Item name", it[1]) + field("Description", it[2]) + field("Link", it[3]) +
+          '<div class="field"><div class="kv"><span class="k">Price</span><span class="v">Leave empty</span></div></div>' +
+        "</div>" +
+      "</div>";
+    items.appendChild(d);
+  });
+  function field(k, v) {
+    return '<div class="field"><div class="kv"><span class="k">' + k + '</span><span class="v">' + esc(v) + '</span></div><button class="copy" type="button" data-copy="' + esc(v) + '">Copy</button></div>';
+  }
+
+  function renderTemplates() {
+    document.querySelectorAll("[data-tpl]").forEach(function (el) { el.innerHTML = html(el.getAttribute("data-tpl")); });
+  }
+
+  // Inputs
+  [["hours", "HOURS", "rc-wa-hours"], ["review", "REVIEW", "rc-wa-review"]].forEach(function (c) {
+    var el = document.getElementById(c[0]);
+    el.value = state[c[1]];
+    el.addEventListener("input", function () { state[c[1]] = el.value; save(c[2], el.value); renderTemplates(); });
+  });
+  renderTemplates();
+
+  // Copy
+  function copyText(text, btn) {
+    function done(ok) {
+      var label = btn.getAttribute("data-label") || btn.textContent;
+      btn.setAttribute("data-label", label);
+      btn.textContent = ok ? "Copied ✓" : "Select & copy";
+      btn.classList.toggle("ok", ok);
+      clearTimeout(btn._t);
+      btn._t = setTimeout(function () { btn.textContent = label; btn.classList.remove("ok"); }, 1600);
+    }
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = text; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.top = "0"; ta.style.opacity = "0";
+      document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, text.length);
+      var ok = false; try { ok = document.execCommand("copy"); } catch (e) {}
+      ta.remove(); done(ok);
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(function () { done(true); }, fallback);
+    else fallback();
+  }
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest(".copy");
+    if (!b) return;
+    var text = b.hasAttribute("data-copy-tpl") ? plain(b.getAttribute("data-copy-tpl"))
+      : b.hasAttribute("data-copy-from") ? document.getElementById(b.getAttribute("data-copy-from")).textContent.trim()
+      : b.getAttribute("data-copy");
+    copyText(text, b);
+  });
+
+  // Steps + progress
+  var steps = Array.prototype.slice.call(document.querySelectorAll("section.step[data-title]"));
+  var doneSet = load("rc-wa-steps", []);
+  var toc = document.getElementById("toc");
+  steps.forEach(function (s, i) {
+    var li = document.createElement("li");
+    li.innerHTML = '<a href="#' + s.id + '"><span class="n">' + i + '</span>' + esc(s.getAttribute("data-title")) + '<span class="min">' + s.getAttribute("data-min") + "</span></a>";
+    toc.appendChild(li);
+    var cb = s.querySelector(".done input");
+    cb.checked = doneSet.indexOf(s.id) !== -1;
+    cb.addEventListener("change", function () {
+      doneSet = doneSet.filter(function (x) { return x !== s.id; });
+      if (cb.checked) doneSet.push(s.id);
+      save("rc-wa-steps", doneSet);
+      refresh();
+    });
+  });
+  function refresh() {
+    var n = 0;
+    steps.forEach(function (s, i) {
+      var on = s.querySelector(".done input").checked;
+      if (on) n++;
+      s.classList.toggle("is-done", on);
+      toc.children[i].classList.toggle("is-done", on);
+      toc.children[i].querySelector(".n").textContent = on ? "✓" : i;
+    });
+    document.getElementById("bar").style.width = (n / steps.length * 100) + "%";
+    document.getElementById("count").textContent = n === steps.length ? "All done 🎉" : n + " of " + steps.length + " steps done";
+  }
+  refresh();
+})();
+</script>
+</body>
+</html>
