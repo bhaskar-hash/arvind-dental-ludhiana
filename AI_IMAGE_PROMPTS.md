@@ -2,7 +2,7 @@
 
 Generated from `apps/web/src/lib/illustration-prompts.ts` by `node scripts/ai-images.mjs`. Edit prompts there, not here.
 
-**23 of 28 images done.**
+**28 of 28 images done.**
 
 ## Task for the Antigravity agent
 
@@ -269,7 +269,7 @@ An Indian adult sitting on a sofa, holding a cold compress wrapped in a cloth ag
 A small broken piece of tooth resting in a little cup of milk on a table, beside a stick of sugar-free chewing gum and a glass of warm water. Draw it as a warm, modern editorial illustration: clean flat shapes, soft shading and a subtle paper-grain texture, in a limited palette of cream (#FBF6F4), blush pink (#F6ECE9), deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). People are Indian, with natural skin tones, friendly simple faces and everyday clothes. Calm and reassuring, never frightening or gory. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 4:3.
 ```
 
-### [ ] Bleeding that won't stop
+### [x] Bleeding that won't stop
 
 - **Shows on:** Resources page, first-aid card: Bleeding that won't stop
 - **Save as:** `apps/web/public/ai/first-aid/bleeding.jpg` — 1200×900 (4:3)
@@ -281,7 +281,7 @@ An Indian adult sitting upright and calm, gently biting on a folded clean gauze 
 
 ## How to take the 3 photos
 
-### [ ] Photo 1: front smile
+### [x] Photo 1: front smile
 
 - **Shows on:** 'Send us 3 photos' band, tile 1
 - **Save as:** `apps/web/public/ai/photo-guide/front-smile.jpg` — 800×800 (1:1)
@@ -291,7 +291,7 @@ An Indian adult sitting upright and calm, gently biting on a folded clean gauze 
 A young Indian woman stands by a bright window holding a smartphone at arm's length, taking a photo of her natural smile with her teeth together. Draw it as a warm, modern editorial illustration: clean flat shapes, soft shading and a subtle paper-grain texture, in a limited palette of cream (#FBF6F4), blush pink (#F6ECE9), deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). People are Indian, with natural skin tones, friendly simple faces and everyday clothes. Calm and reassuring, never frightening or gory. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 1:1.
 ```
 
-### [ ] Photo 2: upper teeth
+### [x] Photo 2: upper teeth
 
 - **Shows on:** 'Send us 3 photos' band, tile 2
 - **Save as:** `apps/web/public/ai/photo-guide/upper-teeth.jpg` — 800×800 (1:1)
@@ -301,7 +301,7 @@ A young Indian woman stands by a bright window holding a smartphone at arm's len
 An Indian man tilts his head back with his mouth open wide, holding a smartphone below his chin and pointing it up to photograph his upper teeth, in good daylight. Draw it as a warm, modern editorial illustration: clean flat shapes, soft shading and a subtle paper-grain texture, in a limited palette of cream (#FBF6F4), blush pink (#F6ECE9), deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). People are Indian, with natural skin tones, friendly simple faces and everyday clothes. Calm and reassuring, never frightening or gory. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 1:1.
 ```
 
-### [ ] Photo 3: lower teeth
+### [x] Photo 3: lower teeth
 
 - **Shows on:** 'Send us 3 photos' band, tile 3
 - **Save as:** `apps/web/public/ai/photo-guide/lower-teeth.jpg` — 800×800 (1:1)
@@ -313,7 +313,7 @@ An Indian man tilts his head down with his mouth open wide, holding a smartphone
 
 ## Home page
 
-### [ ] The right diagnosis comes first
+### [x] The right diagnosis comes first
 
 - **Shows on:** Home page, 'Why patients choose RedCity', middle card
 - **Save as:** `apps/web/public/ai/home/diagnosis-first.jpg` — 1600×1200 (4:3)
