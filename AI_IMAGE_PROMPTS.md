@@ -2,7 +2,7 @@
 
 Generated from `apps/web/src/lib/illustration-prompts.ts` by `node scripts/ai-images.mjs`. Edit prompts there, not here.
 
-**11 of 28 images done.**
+**23 of 28 images done.**
 
 ## Task for the Antigravity agent
 
@@ -147,7 +147,7 @@ Two jaw-section models side by side. On the left, a single dental implant with i
 A tidy desk seen from above: a printed treatment estimate shown only as blank lines and boxes, a small dental implant model, a calculator, a pen and a cup of chai. Draw it as a warm, modern editorial illustration: clean flat shapes, soft shading and a subtle paper-grain texture, in a limited palette of cream (#FBF6F4), blush pink (#F6ECE9), deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). People are Indian, with natural skin tones, friendly simple faces and everyday clothes. Calm and reassuring, never frightening or gory. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 16:9.
 ```
 
-### [ ] Veneers vs. crowns
+### [x] Veneers vs. crowns
 
 - **Shows on:** Article cover: Veneers vs. Crowns
 - **Save as:** `apps/web/public/ai/articles/veneers-vs-crowns.jpg` — 1600×900 (16:9)
@@ -157,7 +157,7 @@ A tidy desk seen from above: a printed treatment estimate shown only as blank li
 Two upper front tooth models side by side: the left one has a thin veneer shell on its front surface only, the right one is fully covered by a crown. A thin gold line separates the two. Render it as a soft, matte 3D clay-style illustration: smooth rounded forms, gentle diffused studio light from the upper left, soft contact shadows, on a warm cream background (#FBF6F4). Teeth are natural ivory and gums a soft healthy pink. Use small accents only in deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). Calm, premium and clinical, with generous empty space around the subject. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 16:9.
 ```
 
-### [ ] Root canal aftercare
+### [x] Root canal aftercare
 
 - **Shows on:** Article cover: 10 Tips for a Smooth Recovery After a Root Canal
 - **Save as:** `apps/web/public/ai/articles/root-canal-aftercare-tips.jpg` — 1600×900 (16:9)
@@ -167,7 +167,7 @@ Two upper front tooth models side by side: the left one has a thin veneer shell 
 An Indian adult resting comfortably on a sofa at home with a soft meal of khichdi in a bowl, a glass of water and a soft-bristled toothbrush on the side table. Draw it as a warm, modern editorial illustration: clean flat shapes, soft shading and a subtle paper-grain texture, in a limited palette of cream (#FBF6F4), blush pink (#F6ECE9), deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). People are Indian, with natural skin tones, friendly simple faces and everyday clothes. Calm and reassuring, never frightening or gory. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 16:9.
 ```
 
-### [ ] What is laser dentistry
+### [x] What is laser dentistry
 
 - **Shows on:** Article cover: What Is Laser Dentistry?
 - **Save as:** `apps/web/public/ai/articles/what-is-laser-dentistry.jpg` — 1600×900 (16:9)
@@ -177,7 +177,7 @@ An Indian adult resting comfortably on a sofa at home with a soft meal of khichd
 A wide, calm composition of a gum-and-teeth model on the right, with a single slim beam of soft red light entering from the left edge and touching the gum line. No device is visible. Render it as a soft, matte 3D clay-style illustration: smooth rounded forms, gentle diffused studio light from the upper left, soft contact shadows, on a warm cream background (#FBF6F4). Teeth are natural ivory and gums a soft healthy pink. Use small accents only in deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). Calm, premium and clinical, with generous empty space around the subject. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 16:9.
 ```
 
-### [ ] Choosing a dentist in Ludhiana
+### [x] Choosing a dentist in Ludhiana
 
 - **Shows on:** Article cover: How to Choose the Right Dentist in Ludhiana
 - **Save as:** `apps/web/public/ai/articles/how-to-choose-a-dentist-in-ludhiana.jpg` — 1600×900 (16:9)
@@ -187,7 +187,7 @@ A wide, calm composition of a gum-and-teeth model on the right, with a single sl
 A Punjabi family of three sits together on a sofa at home, looking at a phone and a printed leaflet and talking calmly about choosing a dentist. A window shows a soft city skyline. Draw it as a warm, modern editorial illustration: clean flat shapes, soft shading and a subtle paper-grain texture, in a limited palette of cream (#FBF6F4), blush pink (#F6ECE9), deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). People are Indian, with natural skin tones, friendly simple faces and everyday clothes. Calm and reassuring, never frightening or gory. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 16:9.
 ```
 
-### [ ] Life with implants
+### [x] Life with implants
 
 - **Shows on:** Article cover: Life With Dental Implants
 - **Save as:** `apps/web/public/ai/articles/living-with-dental-implants-long-term.jpg` — 1600×900 (16:9)
@@ -197,7 +197,7 @@ A Punjabi family of three sits together on a sofa at home, looking at a phone an
 An older Indian couple laughing together at a dining table, the man biting into a crisp apple and the woman tearing a roti, both relaxed and confident. Draw it as a warm, modern editorial illustration: clean flat shapes, soft shading and a subtle paper-grain texture, in a limited palette of cream (#FBF6F4), blush pink (#F6ECE9), deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). People are Indian, with natural skin tones, friendly simple faces and everyday clothes. Calm and reassuring, never frightening or gory. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 16:9.
 ```
 
-### [ ] Whitening myths
+### [x] Whitening myths
 
 - **Shows on:** Article cover: 5 Teeth Whitening Myths
 - **Save as:** `apps/web/public/ai/articles/teeth-whitening-myths.jpg` — 1600×900 (16:9)
@@ -207,7 +207,7 @@ An older Indian couple laughing together at a dining table, the man biting into 
 A neat row of home whitening myths laid out on the surface: half a lemon, a small bowl of baking soda, a pinch of charcoal powder and a strawberry, with a dental shade guide set slightly apart at the end of the row. Render it as a soft, matte 3D clay-style illustration: smooth rounded forms, gentle diffused studio light from the upper left, soft contact shadows, on a warm cream background (#FBF6F4). Teeth are natural ivory and gums a soft healthy pink. Use small accents only in deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). Calm, premium and clinical, with generous empty space around the subject. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 16:9.
 ```
 
-### [ ] Denture care
+### [x] Denture care
 
 - **Shows on:** Article cover: How to Care for Your Dentures
 - **Save as:** `apps/web/public/ai/articles/denture-care-guide.jpg` — 1600×900 (16:9)
@@ -217,7 +217,7 @@ A neat row of home whitening myths laid out on the surface: half a lemon, a smal
 A denture soaking in a clear glass of water on a clean bathroom shelf, beside a soft denture brush and a small folded towel. Render it as a soft, matte 3D clay-style illustration: smooth rounded forms, gentle diffused studio light from the upper left, soft contact shadows, on a warm cream background (#FBF6F4). Teeth are natural ivory and gums a soft healthy pink. Use small accents only in deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). Calm, premium and clinical, with generous empty space around the subject. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 16:9.
 ```
 
-### [ ] Dental emergency first aid
+### [x] Dental emergency first aid
 
 - **Shows on:** Article cover: Dental Emergency First Aid
 - **Save as:** `apps/web/public/ai/articles/dental-emergency-first-aid.jpg` — 1600×900 (16:9)
@@ -227,7 +227,7 @@ A denture soaking in a clear glass of water on a clean bathroom shelf, beside a 
 A calm first-aid arrangement: a small glass of milk, a folded white gauze pad, an ice pack wrapped in a cloth and a smartphone lying face down, set out neatly on the surface. Render it as a soft, matte 3D clay-style illustration: smooth rounded forms, gentle diffused studio light from the upper left, soft contact shadows, on a warm cream background (#FBF6F4). Teeth are natural ivory and gums a soft healthy pink. Use small accents only in deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). Calm, premium and clinical, with generous empty space around the subject. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 16:9.
 ```
 
-### [ ] Child's first dental visit
+### [x] Child's first dental visit
 
 - **Shows on:** Article cover: Your Child's First Dental Visit
 - **Save as:** `apps/web/public/ai/articles/childs-first-dental-visit.jpg` — 1600×900 (16:9)
@@ -239,7 +239,7 @@ An Indian mother and her young son walk hand in hand along a bright path towards
 
 ## Emergency first aid
 
-### [ ] Knocked-out tooth
+### [x] Knocked-out tooth
 
 - **Shows on:** Resources page, first-aid card: Knocked-out tooth
 - **Save as:** `apps/web/public/ai/first-aid/knocked-out-tooth.jpg` — 1200×900 (4:3)
@@ -249,7 +249,7 @@ An Indian mother and her young son walk hand in hand along a bright path towards
 Close-up of two hands carefully holding a knocked-out front tooth by its white crown, never touching the root, about to place it into a small glass of milk. Draw it as a warm, modern editorial illustration: clean flat shapes, soft shading and a subtle paper-grain texture, in a limited palette of cream (#FBF6F4), blush pink (#F6ECE9), deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). People are Indian, with natural skin tones, friendly simple faces and everyday clothes. Calm and reassuring, never frightening or gory. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 4:3.
 ```
 
-### [ ] Severe toothache
+### [x] Severe toothache
 
 - **Shows on:** Resources page, first-aid card: Severe toothache
 - **Save as:** `apps/web/public/ai/first-aid/toothache.jpg` — 1200×900 (4:3)
@@ -259,7 +259,7 @@ Close-up of two hands carefully holding a knocked-out front tooth by its white c
 An Indian adult sitting on a sofa, holding a cold compress wrapped in a cloth against the outside of one cheek, with a glass of warm salt water on the table beside them. Draw it as a warm, modern editorial illustration: clean flat shapes, soft shading and a subtle paper-grain texture, in a limited palette of cream (#FBF6F4), blush pink (#F6ECE9), deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). People are Indian, with natural skin tones, friendly simple faces and everyday clothes. Calm and reassuring, never frightening or gory. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 4:3.
 ```
 
-### [ ] Broken or chipped tooth
+### [x] Broken or chipped tooth
 
 - **Shows on:** Resources page, first-aid card: Broken or chipped tooth
 - **Save as:** `apps/web/public/ai/first-aid/broken-tooth.jpg` — 1200×900 (4:3)
