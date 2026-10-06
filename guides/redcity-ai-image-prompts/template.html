@@ -1,0 +1,265 @@
+<meta charset="utf-8">
+<title>RedCity AI Image Prompts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Roboto+Slab:wght@700;800&display=swap">
+<style>
+/* Layout: one working column — how-to and rules up top, then a filterable list of image slots with copy buttons. Brand tokens mirror the RedCity website. */
+:root {
+  --bg: #FBF6F4; --surface: #FFFFFF; --sunk: #F6ECE9; --line: #EADFDC;
+  --ink: #1F1718; --muted: #5E5456; --red: #A61C2E; --red-ink: #A61C2E; --maroon: #2B0A0F;
+  --gold: #D4AF37; --ok: #0B7A55; --ok-bg: #E3F3EC; --warn-bg: #FDECEC; --warn-line: #F2C2C2;
+  --code-bg: #2B0A0F; --code-fg: #F3E7E4;
+  --display: "Roboto Slab", Georgia, serif; --body: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #170F10; --surface: #221718; --sunk: #2C1E20; --line: #3D2C2E;
+  --ink: #F3E7E4; --muted: #C7B3B0; --red-ink: #F08A97; --ok: #4CC79A; --ok-bg: #12291F; --warn-bg: #2E1517; --warn-line: #5A2A30;
+  --code-bg: #0E0809; --code-fg: #F3E7E4; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #170F10; --surface: #221718; --sunk: #2C1E20; --line: #3D2C2E;
+  --ink: #F3E7E4; --muted: #C7B3B0; --red-ink: #F08A97; --ok: #4CC79A; --ok-bg: #12291F; --warn-bg: #2E1517; --warn-line: #5A2A30;
+  --code-bg: #0E0809; --code-fg: #F3E7E4; color-scheme: dark }
+
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 16px/1.6 var(--body); margin: 0; padding-inline: 16px; }
+.wrap { max-width: 980px; margin: 0 auto; padding-block: 32px 72px; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.15; margin: 0; text-wrap: balance; }
+a { color: var(--red-ink); }
+code, .mono { font-family: var(--mono); font-size: 13.5px; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+.top { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px; }
+.eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--red-ink); margin: 0 0 10px; }
+h1 { font-size: clamp(30px, 5vw, 44px); font-weight: 800; }
+.lead { color: var(--muted); font-size: 17px; margin: 12px 0 0; max-width: 62ch; }
+.meter { min-width: 220px; flex: 0 1 280px; }
+.meter b { font-family: var(--display); font-size: 28px; }
+.meter span { color: var(--muted); font-size: 14px; }
+.bar { height: 8px; background: var(--sunk); border-radius: 99px; overflow: hidden; margin-top: 8px; }
+.bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--red), var(--gold)); transition: width .4s ease; }
+
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 22px; }
+.how { margin-top: 28px; display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.how ol { margin: 10px 0 0; padding-left: 20px; display: grid; gap: 6px; color: var(--muted); }
+.how ol b { color: var(--ink); }
+.how h2 { font-size: 19px; }
+.taskbox { margin-top: 14px; }
+.taskbox pre { margin: 12px 0 0; }
+
+pre { background: var(--code-bg); color: var(--code-fg); border-radius: 12px; padding: 14px 16px; white-space: pre-wrap; overflow-wrap: anywhere; font: 13.5px/1.6 var(--mono); margin: 0; }
+.btn { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 14px; border-radius: 10px; border: 1.5px solid var(--red); background: var(--red); color: #fff; font: 600 14px var(--body); cursor: pointer; }
+.btn.ghost { background: transparent; color: var(--red-ink); border-color: var(--line); }
+.btn.ok { background: var(--ok); border-color: var(--ok); color: #fff; }
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+
+.rules { margin-top: 14px; display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.never { background: var(--warn-bg); border: 1px solid var(--warn-line); border-radius: 18px; padding: 20px 22px; }
+.never h2, .check h2 { font-size: 18px; }
+.never ul, .check ul { margin: 10px 0 0; padding-left: 20px; display: grid; gap: 4px; }
+.check { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 20px 22px; }
+
+.filters { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.chip { min-height: 38px; padding: 0 14px; border-radius: 99px; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); font: 600 14px var(--body); cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.chip .n { opacity: .6; font-weight: 500; margin-left: 4px; }
+.filters label { margin-left: auto; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); }
+
+.group h2 { font-size: 22px; margin: 34px 0 14px; }
+.slot { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 18px; padding: 20px; margin-top: 12px; }
+.slot.done { opacity: .62; }
+.frame { width: 92px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.frame i { display: block; width: 100%; border-radius: 8px; background: var(--sunk); border: 1.5px dashed var(--line); }
+.frame span { font: 500 11.5px var(--mono); color: var(--muted); }
+.slot h3 { font-size: 19px; }
+.where { color: var(--muted); font-size: 14px; margin: 2px 0 0; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.tag { font: 500 12.5px var(--mono); background: var(--sunk); border-radius: 8px; padding: 3px 8px; overflow-wrap: anywhere; }
+.tag.style { font-family: var(--body); font-weight: 600; }
+.slot pre { margin-top: 12px; }
+.slot .row { margin-top: 12px; }
+.donebox { display: inline-flex; align-items: center; gap: 8px; margin-left: auto; font-size: 14px; font-weight: 600; cursor: pointer; }
+.donebox input { width: 20px; height: 20px; accent-color: var(--ok); margin: 0; }
+.empty { color: var(--muted); margin-top: 28px; }
+footer { margin-top: 48px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); padding-top: 18px; }
+@media (max-width: 560px) { .slot { grid-template-columns: 1fr; } .frame { flex-direction: row; width: auto; } .frame i { width: 64px; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <p class="eyebrow">RedCity Dental · Gemini in Antigravity</p>
+      <h1>AI image prompts for the website</h1>
+      <p class="lead"><span id="lead-count">All the images</span>. Generate each one and save it at its path. Website images appear on the next deploy, and until then the site keeps its current icon, so you can add them one at a time. Catalogue artwork is used by <code>CATALOGUE_BRIEF.md</code>.</p>
+    </div>
+    <div class="meter" aria-live="polite">
+      <b id="count">0</b> <span>of <span id="total">0</span> done</span>
+      <div class="bar"><i id="bar"></i></div>
+    </div>
+  </header>
+
+  <section class="how" aria-label="How to use this guide">
+    <div class="panel">
+      <h2>Fastest: let Antigravity do all of them</h2>
+      <ol>
+        <li>Open the <b>Dr Sahu</b> project folder in Antigravity.</li>
+        <li>Paste the task below into the agent chat.</li>
+        <li>It reads <code>AI_IMAGE_PROMPTS.md</code>, makes every image, checks it and saves it in the right place.</li>
+      </ol>
+    </div>
+    <div class="panel">
+      <h2>One at a time</h2>
+      <ol>
+        <li>Pick an image below and press <b>Copy for Antigravity</b> (or <b>Copy prompt</b> for the Gemini app).</li>
+        <li>Check the result with the list below before saving.</li>
+        <li>Save it at the path shown, then tick <b>Done</b>.</li>
+      </ol>
+    </div>
+    <div class="panel">
+      <h2>Then publish</h2>
+      <ol>
+        <li>Run <code>pnpm ai-images:optimize</code> if any are PNG or the wrong size.</li>
+        <li>Run <code>pnpm ai-images</code> to update the checklist.</li>
+        <li>Deploy: <code>vercel deploy --prod --yes</code>.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="panel taskbox" aria-label="Task for Antigravity">
+    <div class="row">
+      <h2 style="font-size:19px">Task for Antigravity (all images)</h2>
+      <button class="btn" type="button" data-copy-id="task" style="margin-left:auto">Copy task</button>
+    </div>
+    <pre id="task">Open AI_IMAGE_PROMPTS.md in this repository and follow its "Task for the Antigravity agent" section. Generate every image that is not ticked, using its prompt exactly and its aspect ratio. Before saving each one, check it: regenerate if the teeth look wrong, if any text or watermark appears, if hands or faces are distorted, or if it looks like a real photograph of a real patient. Save each image as a JPG at its exact path and size under apps/web/public/ai/. Never generate anything on the "Never generate these with AI" list. When finished, run `pnpm ai-images:optimize`, then `pnpm ai-images`, then `pnpm --filter @redcity/web build`, and tell me which images you made and any you skipped.</pre>
+  </section>
+
+  <section class="rules">
+    <div class="never">
+      <h2>Never generate these with AI</h2>
+      <ul id="guardrails"></ul>
+      <p style="margin:10px 0 0;font-size:14px;color:var(--muted)">These must always be real photos, with written consent wherever a patient appears.</p>
+    </div>
+    <div class="check">
+      <h2>Before you save an image</h2>
+      <ul>
+        <li>Teeth look right: the right number, evenly shaped, natural gums.</li>
+        <li>No text, letters, numbers or watermarks anywhere.</li>
+        <li>Hands and faces look normal.</li>
+        <li>It reads as an illustration, not a photo of a real person or clinic.</li>
+        <li>The colours sit with the site: cream, blush, deep red, maroon, gold.</li>
+      </ul>
+    </div>
+  </section>
+
+  <nav class="filters" aria-label="Filter images" id="filters"></nav>
+  <main id="list"></main>
+  <p class="empty" id="empty" hidden>Nothing left in this section. Untick "Hide done" to see finished images.</p>
+
+  <footer>
+    Prompts live in <code>apps/web/src/lib/illustration-prompts.ts</code>. Edit them there, then run <code>pnpm ai-images</code> to rebuild <code>AI_IMAGE_PROMPTS.md</code>. The site picks up each image from its path when it's built.
+  </footer>
+</div>
+
+<script type="application/json" id="data">__DATA__</script>
+<script>
+(function () {
+  const data = JSON.parse(document.getElementById("data").textContent);
+  const slots = data.slots;
+  const KEY = "redcity-ai-done";
+  const load = () => { try { return new Set(JSON.parse(localStorage.getItem(KEY) || "[]")); } catch (e) { return new Set(); } };
+  const save = (set) => { try { localStorage.setItem(KEY, JSON.stringify([...set])); } catch (e) {} };
+  const done = load();
+  slots.forEach((s) => { if (s.done) done.add(s.id); });
+  let filter = "all";
+  let hideDone = slots.some((s) => !s.done);
+
+  document.getElementById("total").textContent = slots.length;
+  const siteCount = slots.filter((s) => s.group !== "catalogue").length;
+  document.getElementById("lead-count").textContent = slots.length + " images: " + siteCount + " for the website and " + (slots.length - siteCount) + " for the service catalogue";
+  document.getElementById("guardrails").innerHTML = data.GUARDRAILS.map((g) => "<li>" + esc(g) + "</li>").join("");
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]); }
+  function agentTask(s) {
+    return "Generate an image with Gemini using the prompt below, at aspect ratio " + s.aspect + ". Check it before saving: regenerate if the teeth look wrong, any text or watermark appears, or it looks like a real photo of a real patient. Save it as a JPG at apps/web/public/" + s.file + ".jpg, " + s.width + "x" + s.height + " pixels.\n\nPrompt:\n" + s.prompt;
+  }
+
+  function renderFilters() {
+    const groups = [...new Set(slots.map((s) => s.group))];
+    const chip = (id, label, n) => '<button type="button" class="chip" data-filter="' + id + '" aria-pressed="' + (filter === id) + '">' + esc(label) + '<span class="n">' + n + "</span></button>";
+    document.getElementById("filters").innerHTML =
+      chip("all", "All", slots.length) +
+      groups.map((g) => chip(g, data.GROUP_TITLES[g], slots.filter((s) => s.group === g).length)).join("") +
+      '<label><input type="checkbox" id="hideDone"' + (hideDone ? " checked" : "") + "> Hide done</label>";
+  }
+
+  function render() {
+    const groups = [...new Set(slots.map((s) => s.group))].filter((g) => filter === "all" || g === filter);
+    let html = "";
+    let shown = 0;
+    groups.forEach((g) => {
+      const items = slots.filter((s) => s.group === g && !(hideDone && done.has(s.id)));
+      if (!items.length) return;
+      shown += items.length;
+      html += '<section class="group"><h2>' + esc(data.GROUP_TITLES[g]) + "</h2>";
+      items.forEach((s) => {
+        const ratio = s.height / s.width;
+        html +=
+          '<article class="panel slot' + (done.has(s.id) ? " done" : "") + '" id="' + s.id + '">' +
+            '<div class="frame" aria-hidden="true"><i style="aspect-ratio:' + s.width + "/" + s.height + '"></i><span>' + s.aspect + "</span></div>" +
+            '<div style="min-width:0">' +
+              "<h3>" + esc(s.title) + "</h3>" +
+              '<p class="where">' + esc(s.where) + "</p>" +
+              '<div class="meta"><span class="tag">apps/web/public/' + esc(s.file) + '.jpg</span><span class="tag">' + s.width + "×" + s.height + '</span><span class="tag style">' + (s.style === "render" ? "3D render" : "Illustration") + "</span></div>" +
+              '<pre id="p-' + s.id + '">' + esc(s.prompt) + "</pre>" +
+              '<div class="row">' +
+                '<button class="btn" type="button" data-copy-agent="' + s.id + '">Copy for Antigravity</button>' +
+                '<button class="btn ghost" type="button" data-copy-id="p-' + s.id + '">Copy prompt</button>' +
+                '<label class="donebox"><input type="checkbox" data-done="' + s.id + '"' + (done.has(s.id) ? " checked" : "") + "> Done</label>" +
+              "</div>" +
+            "</div>" +
+          "</article>";
+      });
+      html += "</section>";
+    });
+    document.getElementById("list").innerHTML = html;
+    document.getElementById("empty").hidden = shown > 0;
+    const n = slots.filter((s) => done.has(s.id)).length;
+    document.getElementById("count").textContent = n;
+    document.getElementById("bar").style.width = (n / slots.length) * 100 + "%";
+  }
+
+  function copy(text, btn) {
+    const label = btn.dataset.label || btn.textContent;
+    btn.dataset.label = label;
+    const ok = () => { btn.textContent = "Copied"; btn.classList.add("ok"); setTimeout(() => { btn.textContent = label; btn.classList.remove("ok"); }, 1500); };
+    const fallback = () => {
+      const ta = document.createElement("textarea");
+      ta.value = text; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta); ta.select();
+      let worked = false; try { worked = document.execCommand("copy"); } catch (e) {}
+      ta.remove();
+      if (worked) ok(); else { btn.textContent = "Select the text and copy"; setTimeout(() => (btn.textContent = label), 2200); }
+    };
+    if (navigator.clipboard) navigator.clipboard.writeText(text).then(ok, fallback); else fallback();
+  }
+
+  document.addEventListener("click", (e) => {
+    const f = e.target.closest("[data-filter]");
+    if (f) { filter = f.dataset.filter; renderFilters(); render(); return; }
+    const a = e.target.closest("[data-copy-agent]");
+    if (a) { copy(agentTask(slots.find((s) => s.id === a.dataset.copyAgent)), a); return; }
+    const c = e.target.closest("[data-copy-id]");
+    if (c) { copy(document.getElementById(c.dataset.copyId).textContent, c); }
+  });
+  document.addEventListener("change", (e) => {
+    if (e.target.id === "hideDone") { hideDone = e.target.checked; render(); return; }
+    const d = e.target.dataset && e.target.dataset.done;
+    if (d) { if (e.target.checked) done.add(d); else done.delete(d); save(done); render(); }
+  });
+
+  renderFilters();
+  render();
+})();
+</script>
