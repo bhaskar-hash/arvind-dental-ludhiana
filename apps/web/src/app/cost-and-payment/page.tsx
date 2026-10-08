@@ -44,9 +44,9 @@ const COST_FAQS = [
       "No. It's a prepaid membership: set visits are included and you pay member prices on treatment. It does not pay for treatment the way insurance does.",
   },
   {
-    question: "Does my health insurance cover dental treatment?",
+    question: "Will insurance pay for my dental treatment?",
     answer:
-      "Many health policies don't cover routine dental treatment, though some cover dental care after an accident or under an OPD add-on. Check your policy; we provide itemised bills and treatment records for your claim.",
+      "Health insurance in India generally doesn't cover dental treatment, so you'll usually pay for it yourself. That's why we give you a clear estimate first, let you pay for bigger treatment in stages, and offer memberships that lower the cost of routine care.",
   },
 ];
 
@@ -322,9 +322,10 @@ export default function CostAndPaymentPage() {
               </div>
             ) : null}
             <div className="rounded-2xl bg-white border border-black/10 p-6">
-              <p className="font-headline text-lg font-bold">Insurance &amp; reimbursement</p>
+              <p className="font-headline text-lg font-bold">Itemised bills</p>
               <p className="mt-3 font-body text-sm opacity-80">
-                Itemised bills and treatment records for your insurer or employer claim.
+                Every bill lists each treatment and its fee, so you know exactly what you paid
+                for.
               </p>
             </div>
             <div className="rounded-2xl bg-brand-band text-white p-6">
