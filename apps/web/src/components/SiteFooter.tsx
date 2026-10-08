@@ -76,6 +76,7 @@ export function SiteFooter() {
               { label: "Articles", href: "/blog" },
               { label: "Dental emergency first aid", href: "/resources#emergency" },
               { label: "Visit us", href: "/location" },
+              { label: "Dental camps for organisations", href: "/dental-camps" },
               { label: "Book a consultation", href: business.bookHref },
             ].map((l) => (
               <Link key={l.label} href={l.href} className={LINK}>

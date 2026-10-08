@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: `${business.siteUrl}/privacy` },
 };
 
-const LAST_UPDATED = "6 October 2026";
+const LAST_UPDATED = "9 October 2026";
 
 const SECTIONS = [
   { id: "who", label: "Who we are" },
@@ -117,7 +117,7 @@ export default function PrivacyPage() {
           <ul className={UL}>
             <li>To reply to you, book and confirm appointments, and call you back when you ask us to.</li>
             <li>To diagnose, plan and carry out your treatment, and keep your clinical records.</li>
-            <li>To give you estimates, bills, receipts and the records you need for an insurance or reimbursement claim.</li>
+            <li>To give you estimates, bills, receipts and copies of your records when you ask for them.</li>
             <li>To send check-up and membership reminders, only if you have agreed to receive them.</li>
             <li>To meet our legal and professional duties as a dental clinic.</li>
           </ul>
@@ -141,7 +141,6 @@ export default function PrivacyPage() {
           <ul className={UL}>
             <li>With the dental laboratory making your crown, bridge, denture or implant parts: only the case details they need.</li>
             <li>With services we use to talk to you and run the clinic, such as WhatsApp (Meta) for messages, and our payment provider when you pay.</li>
-            <li>With your insurer or employer, only when you ask us to provide documents for a claim.</li>
             <li>When the law requires it, for example a court order or a request from a government authority.</li>
           </ul>
         </section>

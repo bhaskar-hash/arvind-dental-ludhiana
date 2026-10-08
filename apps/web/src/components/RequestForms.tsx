@@ -54,7 +54,9 @@ function Field({
   );
 }
 
-function useRequest(kind: "callback" | "booking") {
+const REQUEST_EVENTS = { callback: "callback_request", booking: "booking_request", camp: "camp_request" } as const;
+
+function useRequest(kind: keyof typeof REQUEST_EVENTS) {
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   function submit(e: FormEvent<HTMLFormElement>, build: (data: FormData) => string[]) {
@@ -68,7 +70,7 @@ function useRequest(kind: "callback" | "booking") {
     setErrors(next);
     if (Object.keys(next).length) return;
 
-    gtagEvent({ action: kind === "callback" ? "callback_request" : "booking_request", params: {} });
+    gtagEvent({ action: REQUEST_EVENTS[kind], params: {} });
     window.open(whatsappLink(build(data).join("\n")), "_blank", "noopener,noreferrer");
   }
 
@@ -209,6 +211,77 @@ export function BookingForm() {
       <p className="font-body text-xs text-brand-muted sm:col-span-2">
         This opens WhatsApp with your request ready to send, and we confirm the time with you.
         Nothing is stored on this website.
+      </p>
+    </form>
+  );
+}
+
+const ORG_TYPES = ["Company or office", "School", "College or university", "Housing society or other group"];
+
+/** Enquiry for a dental check-up camp at a workplace, school or college. */
+export function CampForm() {
+  const id = useId();
+  const { errors, submit } = useRequest("camp");
+
+  return (
+    <form
+      noValidate
+      onSubmit={(e) =>
+        submit(e, (d) => {
+          const optional = (key: string, label: string) => {
+            const v = String(d.get(key) ?? "").trim();
+            return v ? [`${label}: ${v}`] : [];
+          };
+          return [
+            "Hi, I'd like to plan a dental camp with RedCity Dental Care.",
+            `Name: ${d.get("name")}`,
+            `Mobile: ${d.get("phone")}`,
+            `Organisation: ${String(d.get("org") ?? "").trim() || "not given"} (${d.get("type")})`,
+            ...optional("people", "About how many people"),
+            ...optional("dates", "Preferred dates"),
+            ...optional("place", "Where"),
+            ...optional("note", "Anything else"),
+          ];
+        })
+      }
+      className={formShell}
+    >
+      <h3 className="font-headline text-[22px] font-bold sm:col-span-2">Plan a dental camp</h3>
+      <Field label="Your name" id={`${id}-name`} error={errors.name}>
+        <input id={`${id}-name`} name="name" type="text" autoComplete="name" aria-invalid={!!errors.name} className={field} />
+      </Field>
+      <Field label="Mobile number" id={`${id}-phone`} error={errors.phone}>
+        <input id={`${id}-phone`} name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="+91" aria-invalid={!!errors.phone} className={field} />
+      </Field>
+      <Field label="Organisation name" id={`${id}-org`}>
+        <input id={`${id}-org`} name="org" type="text" autoComplete="organization" className={field} />
+      </Field>
+      <Field label="Type of organisation" id={`${id}-type`}>
+        <select id={`${id}-type`} name="type" className={field}>
+          {ORG_TYPES.map((t) => (
+            <option key={t}>{t}</option>
+          ))}
+        </select>
+      </Field>
+      <Field label="About how many people?" hint="Optional" id={`${id}-people`}>
+        <input id={`${id}-people`} name="people" type="number" inputMode="numeric" min={1} className={field} />
+      </Field>
+      <Field label="Preferred dates" hint="Optional" id={`${id}-dates`}>
+        <input id={`${id}-dates`} name="dates" type="text" placeholder="e.g. a weekday in November" className={field} />
+      </Field>
+      <Field label="Where in Ludhiana?" hint="Optional" id={`${id}-place`} wide>
+        <input id={`${id}-place`} name="place" type="text" className={field} />
+      </Field>
+      <Field label="Anything else we should know?" hint="Optional" id={`${id}-note`} wide>
+        <textarea id={`${id}-note`} name="note" rows={3} className={`${field} py-3`} />
+      </Field>
+      <Consent id={`${id}-consent`} error={errors.consent} />
+      <button type="submit" className={submitBtn}>
+        Send camp request
+      </button>
+      <p className="font-body text-xs text-brand-muted sm:col-span-2">
+        This opens WhatsApp with your request ready to send, and we reply with a plan and a
+        quote. Nothing is stored on this website.
       </p>
     </form>
   );

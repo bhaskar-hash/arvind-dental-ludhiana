@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
-import { BeforeAfter } from "@/components/BeforeAfter";
 import { GoogleG, Icon, Stars } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
 import { CallbackForm } from "@/components/RequestForms";
@@ -11,7 +10,7 @@ import { business, photoReviewUrl } from "@/lib/business";
 import { clinicPhoto, doctor } from "@/lib/doctor";
 import { payment, pricingApproved } from "@/lib/pricing";
 import { buildDentistSchema } from "@/lib/schema";
-import { beforeAfterCases, introVideoUrl, reviews } from "@/lib/site";
+import { introVideoUrl, reviews } from "@/lib/site";
 import { btn, container, eyebrow, h2, lead } from "@/lib/styles";
 import { slugify } from "@/lib/treatment-menu";
 import { illustration } from "@/lib/illustrations";
@@ -74,12 +73,21 @@ export default function Home() {
               Send 3 photos on WhatsApp and Dr. Sahu replies with a personal voice message — this
               is not an automated diagnosis.
             </p>
-            <div className="mt-9 flex flex-wrap gap-x-9 gap-y-5 border-t border-brand-line pt-7">
+            <div className="mt-9 grid gap-x-9 gap-y-5 border-t border-brand-line pt-7 sm:grid-cols-2">
               <div className="flex items-center gap-3">
                 <Stars />
                 <span className="flex flex-col font-body leading-snug">
                   <strong className="text-[15px]">{business.googleRating.toFixed(1)} on Google</strong>
                   <span className="text-[13px] text-brand-muted">{reviewLine}</span>
+                </span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-wa text-white">
+                  <Icon name="mic" />
+                </span>
+                <span className="flex flex-col font-body leading-snug">
+                  <strong className="text-[15px]">Personal voice replies</strong>
+                  <span className="text-[13px] text-brand-muted">From Dr. Sahu himself, on WhatsApp</span>
                 </span>
               </div>
               <div className="flex items-center gap-3">
@@ -122,15 +130,6 @@ export default function Home() {
               <div className="absolute inset-x-[18px] bottom-[18px] rounded-2xl bg-white px-[18px] py-3.5 shadow-[0_12px_30px_-12px_rgba(43,10,15,0.35)]">
                 <strong className="block font-headline text-lg">{doctor.name}</strong>
                 <span className="font-body text-[13px] text-brand-muted">BDS, MDS (Prosthodontics) · Oral Implantologist</span>
-              </div>
-              <div className="absolute left-2 top-14 flex max-w-[236px] items-center gap-3 rounded-2xl bg-white px-4 py-3.5 shadow-[0_16px_36px_-14px_rgba(43,10,15,0.4)] sm:-left-10">
-                <span className="flex h-[42px] w-[42px] shrink-0 items-center justify-center rounded-xl bg-brand-wa text-white">
-                  <Icon name="mic" />
-                </span>
-                <span className="font-body text-[13px] leading-snug text-brand-muted">
-                  <strong className="block text-sm text-brand-ink">Personal voice replies</strong>
-                  From Dr. Sahu himself, on WhatsApp
-                </span>
               </div>
             </div>
           </div>
@@ -287,29 +286,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Before & after — only with real, consented cases */}
-      {beforeAfterCases.length ? (
-        <section id="results" className="py-[104px]">
-          <div className={container}>
-            <Reveal className="mx-auto max-w-[720px] text-center">
-              <p className={eyebrow}>Before &amp; after</p>
-              <h2 className={h2}>
-                Real patients. <span className="text-brand-red">Real results.</span>
-              </h2>
-              <p className={`${lead} mx-auto`}>
-                Cases Dr. Sahu treated during his specialist MDS training, shown with each
-                patient&apos;s permission. Drag the slider to compare.
-              </p>
-            </Reveal>
-            <div className="mt-11">
-              <BeforeAfter cases={beforeAfterCases} />
-            </div>
-          </div>
-        </section>
-      ) : null}
-
       {/* A note from Dr. Sahu */}
-      <section className={`py-[104px] ${beforeAfterCases.length ? "bg-brand-warm" : ""}`}>
+      <section className="py-[104px]">
         <div className={`${container} flex flex-wrap items-center gap-14`}>
           <div className="relative aspect-[16/10] min-w-0 flex-[1_1_480px] overflow-hidden rounded-3xl bg-brand-maroon">
             {introVideoUrl ? (
@@ -348,7 +326,7 @@ export default function Home() {
       </section>
 
       {/* Cost */}
-      <section className={`py-[104px] ${beforeAfterCases.length ? "" : "bg-brand-warm"}`}>
+      <section className="bg-brand-warm py-[104px]">
         <div className={container}>
           <Reveal className="max-w-[720px]">
             <p className={eyebrow}>Cost &amp; payment</p>
@@ -361,8 +339,8 @@ export default function Home() {
               { icon: "scale" as const, title: "Choices explained", body: "Zirconia crowns from ₹4,000 or PFM from ₹2,000 per tooth*. We explain the difference in strength, look and price." },
               { icon: "card" as const, title: "Easy ways to pay", body: `${payment.methods.map((m) => m.split(" (")[0]).join(", ")}${payment.stagedPayments ? ". Longer treatment can be paid in stages." : "."}` },
             ].map((c) => (
-              <div key={c.title} className={`${beforeAfterCases.length ? "bg-brand-warm" : "bg-white"} rounded-[20px] p-7`}>
-                <span className={`flex h-12 w-12 items-center justify-center rounded-[14px] ${beforeAfterCases.length ? "bg-white" : "bg-brand-blush"} text-brand-red`}>
+              <div key={c.title} className="rounded-[20px] bg-white p-7">
+                <span className="flex h-12 w-12 items-center justify-center rounded-[14px] bg-brand-blush text-brand-red">
                   <Icon name={c.icon} size={24} strokeWidth={1.8} />
                 </span>
                 <h3 className="mt-4 font-headline text-xl font-bold">{c.title}</h3>
@@ -391,7 +369,7 @@ export default function Home() {
       </section>
 
       {/* Call back */}
-      <section className={`py-[104px] ${beforeAfterCases.length ? "bg-brand-warm" : ""}`}>
+      <section className="py-[104px]">
         <div className={`${container} flex flex-wrap items-start gap-14`}>
           <Reveal className="min-w-0 flex-[1_1_400px]">
             <p className={eyebrow}>Have a question?</p>
@@ -419,7 +397,7 @@ export default function Home() {
       </section>
 
       {/* Visit */}
-      <section className={`py-[104px] ${beforeAfterCases.length ? "" : "bg-brand-warm"}`}>
+      <section className="bg-brand-warm py-[104px]">
         <div className={`${container} flex flex-wrap items-center gap-14`}>
           <div className="relative min-w-0 flex-[1_1_480px]">
             <Photo {...clinicPhoto} className="block aspect-[4/3] w-full rounded-3xl object-cover" />
@@ -462,7 +440,7 @@ export default function Home() {
       </section>
 
       {/* Reviews */}
-      <section id="reviews" className={`scroll-mt-20 py-[104px] ${beforeAfterCases.length ? "bg-brand-warm" : ""}`}>
+      <section id="reviews" className="scroll-mt-20 py-[104px]">
         <div className={container}>
           <div className="flex flex-wrap items-end justify-between gap-5">
             <Reveal>

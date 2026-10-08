@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services",
     "/blog",
     "/resources",
+    "/dental-camps",
     "/privacy",
     ...(pricingApproved ? ["/cost-and-payment"] : []),
     ...(policiesApproved ? ["/policies"] : []),

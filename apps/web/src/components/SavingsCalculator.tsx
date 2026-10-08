@@ -230,7 +230,7 @@ export function SavingsCalculator() {
                 Our honest answer
               </p>
               <p className="mt-2 font-headline text-2xl font-bold">
-                Paying as you go is cheapest for this.
+                Paying as you go is better value for this.
               </p>
               <p className="mt-2 font-body text-sm opacity-75">
                 A membership wouldn&apos;t save you money on this care. If your needs change,
@@ -266,8 +266,8 @@ export function SavingsCalculator() {
                   <p className="font-body font-semibold">
                     {r.name}
                     {isBest ? (
-                      <span className="ml-2 rounded-full bg-brand-red px-2 py-0.5 text-[11px] font-bold text-white">
-                        Cheapest
+                      <span className="ml-2 whitespace-nowrap rounded-full bg-brand-red px-2 py-0.5 text-[11px] font-bold text-white">
+                        Value for money
                       </span>
                     ) : null}
                   </p>

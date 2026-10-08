@@ -1,9 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { BeforeAfter } from "@/components/BeforeAfter";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { beforeAfterCases } from "@/lib/site";
 import { treatmentHero } from "@/lib/illustrations";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { Icon } from "@/components/Icon";
@@ -48,7 +46,6 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
 
   const isImplant = service.slug === "dental-implants";
   const relatedPosts = blogPosts.filter((p) => p.relatedService === service.slug);
-  const cases = beforeAfterCases.filter((c) => c.service === service.slug);
   const heroImage = treatmentHero(service.slug);
   const related = (relatedServices[service.slug] ?? [])
     .map((slug) => getServiceBySlug(slug))
@@ -207,21 +204,6 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                 </Reveal>
               ))}
             </div>
-          </div>
-        </section>
-      ) : null}
-
-      {/* This treatment's before & afters */}
-      {cases.length ? (
-        <section className={`py-24 ${nextBg()}`}>
-          <div className={container}>
-            <Reveal className="mx-auto mb-10 max-w-[720px] text-center">
-              <p className={eyebrow}>Before &amp; after</p>
-              <h2 className={h2}>
-                Real patients. <span className="text-brand-red">Real results.</span>
-              </h2>
-            </Reveal>
-            <BeforeAfter cases={cases} />
           </div>
         </section>
       ) : null}

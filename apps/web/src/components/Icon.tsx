@@ -86,6 +86,19 @@ const paths: Record<string, ReactElement> = {
       <path d="M16 3v4M8 3v4M3 10h18" />
     </>
   ),
+  briefcase: (
+    <>
+      <rect x="3" y="7" width="18" height="13" rx="2" />
+      <path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18" />
+    </>
+  ),
+  users: (
+    <>
+      <circle cx="9" cy="8" r="3.5" />
+      <path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6" />
+      <path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18.5 14.4c1.8.8 3 2.8 3 5.6" />
+    </>
+  ),
   navigate: <path d="M3 11 21 3l-8 18-2-8z" />,
   smile: (
     <>
