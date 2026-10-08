@@ -73,12 +73,21 @@ export default function Home() {
               Send 3 photos on WhatsApp and Dr. Sahu replies with a personal voice message — this
               is not an automated diagnosis.
             </p>
-            <div className="mt-9 flex flex-wrap gap-x-9 gap-y-5 border-t border-brand-line pt-7">
+            <div className="mt-9 grid gap-x-9 gap-y-5 border-t border-brand-line pt-7 sm:grid-cols-2">
               <div className="flex items-center gap-3">
                 <Stars />
                 <span className="flex flex-col font-body leading-snug">
                   <strong className="text-[15px]">{business.googleRating.toFixed(1)} on Google</strong>
                   <span className="text-[13px] text-brand-muted">{reviewLine}</span>
+                </span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-wa text-white">
+                  <Icon name="mic" />
+                </span>
+                <span className="flex flex-col font-body leading-snug">
+                  <strong className="text-[15px]">Personal voice replies</strong>
+                  <span className="text-[13px] text-brand-muted">From Dr. Sahu himself, on WhatsApp</span>
                 </span>
               </div>
               <div className="flex items-center gap-3">
@@ -121,15 +130,6 @@ export default function Home() {
               <div className="absolute inset-x-[18px] bottom-[18px] rounded-2xl bg-white px-[18px] py-3.5 shadow-[0_12px_30px_-12px_rgba(43,10,15,0.35)]">
                 <strong className="block font-headline text-lg">{doctor.name}</strong>
                 <span className="font-body text-[13px] text-brand-muted">BDS, MDS (Prosthodontics) · Oral Implantologist</span>
-              </div>
-              <div className="absolute left-2 top-14 flex max-w-[236px] items-center gap-3 rounded-2xl bg-white px-4 py-3.5 shadow-[0_16px_36px_-14px_rgba(43,10,15,0.4)] sm:-left-10">
-                <span className="flex h-[42px] w-[42px] shrink-0 items-center justify-center rounded-xl bg-brand-wa text-white">
-                  <Icon name="mic" />
-                </span>
-                <span className="font-body text-[13px] leading-snug text-brand-muted">
-                  <strong className="block text-sm text-brand-ink">Personal voice replies</strong>
-                  From Dr. Sahu himself, on WhatsApp
-                </span>
               </div>
             </div>
           </div>

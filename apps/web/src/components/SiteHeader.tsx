@@ -10,13 +10,14 @@ import { pricingApproved } from "@/lib/pricing";
 
 type NavItem = { label: string; href: string; match: (p: string) => boolean };
 
+// Kept short on purpose: Treatments (the menu button) plus these. Resources,
+// articles and policies live in the footer.
 const NAV: NavItem[] = [
-  { label: "Why RedCity", href: "/about", match: (p) => p.startsWith("/about") },
   ...(pricingApproved
-    ? [{ label: "Cost & Payment", href: "/cost-and-payment", match: (p: string) => p.startsWith("/cost-and-payment") }]
+    ? [{ label: "Prices & plans", href: "/cost-and-payment", match: (p: string) => p.startsWith("/cost-and-payment") }]
     : []),
-  { label: "Visit Us", href: "/location", match: (p) => p.startsWith("/location") },
-  { label: "Resources", href: "/resources", match: (p) => p.startsWith("/resources") || p.startsWith("/blog") },
+  { label: "About", href: "/about", match: (p) => p.startsWith("/about") },
+  { label: "Visit us", href: "/location", match: (p) => p.startsWith("/location") },
 ];
 
 function TopBar() {
@@ -172,7 +173,7 @@ export function SiteHeader() {
   };
   const treatmentsActive = pathname.startsWith("/services");
   const linkClass = (active: boolean) =>
-    `inline-flex items-center gap-1.5 border-b-2 py-2.5 font-body text-[15px] font-semibold transition-colors ${
+    `inline-flex items-center gap-1.5 whitespace-nowrap border-b-2 py-2.5 font-body text-[15px] font-semibold transition-colors ${
       active ? "border-brand-red text-brand-red" : "border-transparent text-brand-ink hover:text-brand-red"
     }`;
 
@@ -193,10 +194,7 @@ export function SiteHeader() {
             </picture>
           </Link>
 
-          <nav aria-label="Main" className="hidden items-center gap-7 lg:flex">
-            <Link href={NAV[0].href} className={linkClass(NAV[0].match(pathname))}>
-              {NAV[0].label}
-            </Link>
+          <nav aria-label="Main" className="hidden items-center gap-8 lg:flex">
             <button
               type="button"
               aria-expanded={treatmentsOpen}
@@ -212,7 +210,7 @@ export function SiteHeader() {
                 className={`transition-transform ${treatmentsOpen ? "rotate-180" : ""}`}
               />
             </button>
-            {NAV.slice(1).map((n) => (
+            {NAV.map((n) => (
               <Link key={n.href} href={n.href} className={linkClass(n.match(pathname))}>
                 {n.label}
               </Link>
