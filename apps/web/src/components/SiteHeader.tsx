@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, type PointerEvent as ReactPointerEvent } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Icon } from "@/components/Icon";
@@ -143,6 +143,9 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [treatmentsOpen, setTreatmentsOpen] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
+  const closeTimer = useRef<number | undefined>(undefined);
+  const openedByHover = useRef(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -151,7 +154,7 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close menus on navigation and on Escape.
+  // Close menus on navigation, on Escape, and on a click outside the header.
   useEffect(() => {
     setMenuOpen(false);
     setTreatmentsOpen(false);
@@ -163,9 +166,38 @@ export function SiteHeader() {
         setMenuOpen(false);
       }
     };
+    const onPointerDown = (e: PointerEvent) => {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) setTreatmentsOpen(false);
+    };
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.removeEventListener("pointerdown", onPointerDown);
+    };
   }, []);
+
+  // The treatments menu opens on hover with a mouse, and on click or tap.
+  const hoverOpen = (e: ReactPointerEvent) => {
+    if (e.pointerType !== "mouse") return;
+    window.clearTimeout(closeTimer.current);
+    if (!treatmentsOpen) openedByHover.current = true;
+    setTreatmentsOpen(true);
+  };
+  const hoverKeep = (e: ReactPointerEvent) => {
+    if (e.pointerType === "mouse") window.clearTimeout(closeTimer.current);
+  };
+  const hoverClose = (e: ReactPointerEvent) => {
+    if (e.pointerType !== "mouse") return;
+    window.clearTimeout(closeTimer.current);
+    closeTimer.current = window.setTimeout(() => setTreatmentsOpen(false), 180);
+  };
+  const toggleTreatments = () => {
+    // The first click after a hover-open keeps the menu open; the next closes it.
+    const keepOpen = openedByHover.current;
+    openedByHover.current = false;
+    setTreatmentsOpen((v) => (keepOpen ? true : !v));
+  };
 
   const close = () => {
     setTreatmentsOpen(false);
@@ -179,11 +211,15 @@ export function SiteHeader() {
 
   return (
     <>
+      <a
+        href="#main-content"
+        className="sr-only z-[60] rounded-xl bg-brand-red px-4 py-3 font-body text-sm font-semibold text-white focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
+      >
+        Skip to main content
+      </a>
       <TopBar />
-      {treatmentsOpen ? (
-        <div className="fixed inset-0 z-30 hidden bg-brand-ink/40 lg:block" aria-hidden onClick={() => setTreatmentsOpen(false)} />
-      ) : null}
       <header
+        ref={headerRef}
         className={`site-header sticky top-0 z-40 border-b border-brand-line bg-white ${scrolled ? "is-scrolled" : ""}`}
       >
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-3">
@@ -195,21 +231,23 @@ export function SiteHeader() {
           </Link>
 
           <nav aria-label="Main" className="hidden items-center gap-8 lg:flex">
-            <button
-              type="button"
-              aria-expanded={treatmentsOpen}
-              aria-controls="treatments-menu"
-              onClick={() => setTreatmentsOpen((v) => !v)}
-              className={linkClass(treatmentsActive || treatmentsOpen)}
-            >
-              Treatments
-              <Icon
-                name="chevronDown"
-                size={14}
-                strokeWidth={2.4}
-                className={`transition-transform ${treatmentsOpen ? "rotate-180" : ""}`}
-              />
-            </button>
+            <div onPointerEnter={hoverOpen} onPointerLeave={hoverClose}>
+              <button
+                type="button"
+                aria-expanded={treatmentsOpen}
+                aria-controls="treatments-menu"
+                onClick={toggleTreatments}
+                className={linkClass(treatmentsActive || treatmentsOpen)}
+              >
+                Treatments
+                <Icon
+                  name="chevronDown"
+                  size={14}
+                  strokeWidth={2.4}
+                  className={`transition-transform ${treatmentsOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+            </div>
             {NAV.map((n) => (
               <Link key={n.href} href={n.href} className={linkClass(n.match(pathname))}>
                 {n.label}
@@ -250,6 +288,8 @@ export function SiteHeader() {
         {treatmentsOpen ? (
           <div
             id="treatments-menu"
+            onPointerEnter={hoverKeep}
+            onPointerLeave={hoverClose}
             className="absolute inset-x-0 top-full hidden border-t border-brand-line bg-white shadow-[0_30px_50px_-20px_rgba(31,23,24,0.35)] lg:block"
           >
             <TreatmentsPanel onNavigate={close} />
@@ -262,44 +302,44 @@ export function SiteHeader() {
           hidden={!menuOpen}
           className="max-h-[calc(100vh-64px)] overflow-y-auto border-t border-brand-line bg-white lg:hidden"
         >
-          <nav aria-label="Mobile" className="flex flex-col px-6 pb-6 pt-3 font-body">
-            <p className="mt-2 text-xs font-bold uppercase tracking-[0.14em] text-brand-red">
-              What&apos;s bothering you?
-            </p>
-            <ul className="mt-1">
-              {concerns.map((c) => (
-                <li key={c.id}>
+          <nav aria-label="Mobile" className="flex flex-col px-6 pb-6 pt-2 font-body">
+            <details className="group border-b border-brand-line">
+              <summary className="flex min-h-[48px] cursor-pointer list-none items-center justify-between text-[15px] font-semibold text-brand-ink [&::-webkit-details-marker]:hidden">
+                Treatments
+                <Icon name="chevronDown" size={14} className="transition-transform group-open:rotate-180" />
+              </summary>
+              <div className="pb-3">
+                <p className="mt-1 pl-3 text-xs font-bold uppercase tracking-[0.14em] text-brand-red">
+                  What&apos;s bothering you?
+                </p>
+                {concerns.map((c) => (
                   <Link
+                    key={c.id}
                     href={c.href}
                     onClick={close}
-                    className={`flex min-h-[44px] items-center justify-between border-b border-brand-line text-[15px] font-semibold ${
-                      c.urgent ? "text-brand-red" : "text-brand-ink"
+                    className={`flex min-h-[40px] items-center pl-3 text-sm hover:text-brand-red ${
+                      c.urgent ? "font-semibold text-brand-red" : "text-brand-muted"
                     }`}
                   >
                     {c.short}
-                    <Icon name="chevronRight" size={14} />
                   </Link>
-                </li>
-              ))}
-            </ul>
-            {menuGroups.map((g) => (
-              <details key={g.id} className="group border-b border-brand-line">
-                <summary className="flex min-h-[48px] cursor-pointer list-none items-center justify-between text-[15px] font-semibold text-brand-ink">
-                  {g.title}
-                  <Icon name="chevronDown" size={14} className="transition-transform group-open:rotate-180" />
-                </summary>
-                <ul className="pb-2">
-                  {g.items.map((item) => (
-                    <li key={item.label}>
-                      <Link href={item.href} onClick={close} className="flex min-h-[40px] items-center pl-3 text-sm text-brand-muted hover:text-brand-red">
+                ))}
+                {menuGroups.map((g) => (
+                  <div key={g.id}>
+                    <p className="mt-3 pl-3 text-xs font-bold uppercase tracking-[0.14em] text-brand-muted">{g.title}</p>
+                    {g.items.map((item) => (
+                      <Link key={item.label} href={item.href} onClick={close} className="flex min-h-[40px] items-center pl-3 text-sm text-brand-muted hover:text-brand-red">
                         {item.label}
                       </Link>
-                    </li>
-                  ))}
-                </ul>
-              </details>
-            ))}
-            {[{ label: "All treatments", href: "/services" }, ...NAV].map((n) => (
+                    ))}
+                  </div>
+                ))}
+                <Link href="/services" onClick={close} className="mt-2 flex min-h-[40px] items-center pl-3 text-sm font-semibold text-brand-red">
+                  All treatments
+                </Link>
+              </div>
+            </details>
+            {NAV.map((n) => (
               <Link
                 key={n.href}
                 href={n.href}
@@ -309,13 +349,22 @@ export function SiteHeader() {
                 {n.label}
               </Link>
             ))}
-            <Link
-              href={business.bookHref}
-              onClick={close}
-              className="mt-5 flex min-h-[52px] items-center justify-center rounded-xl bg-brand-red font-semibold text-white"
-            >
-              Book a consultation
-            </Link>
+            <div className="mt-5 grid grid-cols-2 gap-3">
+              <a
+                href={`tel:${business.telephone}`}
+                className="flex min-h-[52px] items-center justify-center gap-2 rounded-xl border-[1.5px] border-brand-red font-semibold text-brand-red"
+              >
+                <Icon name="phone" size={17} />
+                Call
+              </a>
+              <Link
+                href={business.bookHref}
+                onClick={close}
+                className="flex min-h-[52px] items-center justify-center rounded-xl bg-brand-red px-3 text-center font-semibold text-white"
+              >
+                Book a consultation
+              </Link>
+            </div>
           </nav>
         </div>
       </header>

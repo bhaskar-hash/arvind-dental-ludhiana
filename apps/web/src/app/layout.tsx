@@ -65,7 +65,9 @@ export default function RootLayout({
         className={`${headlineFont.variable} ${bodyFont.variable} ${gurmukhiFont.variable} font-body antialiased bg-white text-brand-ink`}
       >
         <SiteHeader />
-        {children}
+        <div id="main-content" tabIndex={-1} className="outline-none">
+          {children}
+        </div>
         <SiteFooter />
         <StickyActions />
         {GA_MEASUREMENT_ID ? (
