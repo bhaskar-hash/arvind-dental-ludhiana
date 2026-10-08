@@ -3,7 +3,8 @@
  * as, its size, and the Gemini prompt that makes it. This is the single
  * source of truth for the website (lib/illustrations.ts), the Antigravity
  * task file (AI_IMAGE_PROMPTS.md, via `node scripts/ai-images.mjs`) and the
- * prompt guide page.
+ * prompt guide page. The "catalogue" group is artwork for the service
+ * catalogue cards and PDF (see CATALOGUE_BRIEF.md); it isn't shown on the site.
  *
  * AI images are ONLY for illustrations and explainers. Never for patients,
  * treatment results, before/afters, Dr. Sahu, the team or the clinic itself
@@ -14,7 +15,7 @@ export type ImageStyle = "render" | "illustration";
 
 export interface ImageSlot {
   id: string;
-  group: "treatments" | "articles" | "first-aid" | "photo-guide" | "home";
+  group: "treatments" | "articles" | "first-aid" | "photo-guide" | "home" | "catalogue";
   /** Short name shown in the guide. */
   title: string;
   /** Where it appears on the site. */
@@ -371,6 +372,119 @@ export const slots: ImageSlot[] = [
       "A calm, honest conversation in a dental surgery: an Indian patient sits upright in the chair, listening, while a dentist shown only from behind points to a dental X-ray on a monitor. The dentist's face is not visible.",
     alt: "Illustration of a dentist explaining an X-ray to a patient",
   },
+
+  // ── Service catalogue artwork (catalogue cards and PDF, not the website) ──
+  // The 8 treatment heroes above are reused for their own catalogue cards.
+  {
+    id: "cat-implants",
+    group: "catalogue",
+    title: "Dental implants",
+    where: "Catalogue card and PDF page: Dental Implants",
+    file: "ai/catalogue/implants",
+    width: 1200, height: 1200, aspect: "1:1", style: "render",
+    scene:
+      "A single dental implant shown in a clean cross-section of soft pink gum and pale jawbone, standing between two natural teeth: a titanium screw post in the bone, a short abutment, and a natural ivory crown on top. A thin gold ring marks where the crown meets the abutment.",
+    alt: "Illustration of a dental implant with its crown, set in the jawbone between two natural teeth",
+  },
+  {
+    id: "cat-full-mouth",
+    group: "catalogue",
+    title: "Full mouth rehabilitation",
+    where: "Catalogue card and PDF page: Full Mouth Rehabilitation",
+    file: "ai/catalogue/full-mouth-rehabilitation",
+    width: 1200, height: 1200, aspect: "1:1", style: "render",
+    scene:
+      "A complete upper and lower set of natural-looking teeth on a dental model, slightly open so both arches are visible, with even, healthy-looking teeth and gums, shown at a three-quarter angle. A small gold dental mirror rests beside the model.",
+    alt: "Illustration of a complete upper and lower set of teeth on a dental model",
+  },
+  {
+    id: "cat-smile-makeover",
+    group: "catalogue",
+    title: "Smile makeover",
+    where: "Catalogue card and PDF page: Smile Makeover",
+    file: "ai/catalogue/smile-makeover",
+    width: 1200, height: 1200, aspect: "1:1", style: "render",
+    scene:
+      "A gentle arc of upper front teeth floating above the background, beside a fanned dental shade guide in graded ivory tones and one thin porcelain veneer. A few tiny gold sparkles float near the teeth.",
+    alt: "Illustration of an arc of front teeth beside a shade guide and a veneer",
+  },
+  {
+    id: "cat-checkup",
+    group: "catalogue",
+    title: "Check-up",
+    where: "Catalogue card and PDF page: Check-up with Dr. Sahu",
+    file: "ai/catalogue/checkup",
+    width: 1200, height: 1200, aspect: "1:1", style: "render",
+    scene:
+      "A healthy lower molar tooth model standing upright, with a round dental mirror and a slim dental probe laid neatly across each other in front of it, their handles in deep red.",
+    alt: "Illustration of a healthy tooth with a dental mirror and probe",
+  },
+  {
+    id: "cat-cleaning",
+    group: "catalogue",
+    title: "Teeth cleaning",
+    where: "Catalogue card and PDF page: Teeth Cleaning (Scaling & Polishing)",
+    file: "ai/catalogue/cleaning",
+    width: 1200, height: 1200, aspect: "1:1", style: "render",
+    scene:
+      "A bright, healthy molar tooth model with a soft clean shine, a slim curved scaling instrument touching its gum line, and a few tiny water droplets and gold sparkles around it.",
+    alt: "Illustration of a tooth being professionally cleaned",
+  },
+  {
+    id: "cat-xray",
+    group: "catalogue",
+    title: "Digital X-ray",
+    where: "Catalogue card and PDF page: Digital X-ray",
+    file: "ai/catalogue/digital-xray",
+    width: 1200, height: 1200, aspect: "1:1", style: "render",
+    scene:
+      "A small rounded-rectangle digital dental X-ray sensor with a short coiled cable, lying beside a healthy molar tooth model. The sensor surface is plain and blank, with no image on it.",
+    alt: "Illustration of a digital dental X-ray sensor beside a tooth",
+  },
+  {
+    id: "cat-photo-review",
+    group: "catalogue",
+    title: "Online photo review",
+    where: "Catalogue card and PDF page: Online Photo Review",
+    file: "ai/catalogue/photo-review",
+    width: 1200, height: 1200, aspect: "1:1", style: "illustration",
+    scene:
+      "An Indian woman's hand holds a smartphone; the screen shows a simple illustrated close-up of a smile. Beside the phone floats a rounded speech bubble containing only a sound-wave shape, suggesting a voice message reply. No face is shown.",
+    alt: "Illustration of a hand holding a phone with a smile photo and a voice message bubble",
+  },
+  {
+    id: "cat-membership",
+    group: "catalogue",
+    title: "Membership plans",
+    where: "Catalogue cards and PDF page: Basic, Advanced and Pro memberships",
+    file: "ai/catalogue/membership",
+    width: 1200, height: 1200, aspect: "1:1", style: "render",
+    scene:
+      "A healthy tooth model standing in front of a soft rounded shield shape in deep red, beside a small desk calendar whose blank grid has two days marked with small gold dots. A toothbrush lies in front.",
+    alt: "Illustration of a tooth in front of a shield, beside a calendar and a toothbrush",
+  },
+  {
+    id: "cat-membership-family",
+    group: "catalogue",
+    title: "Family membership",
+    where: "Catalogue card and PDF page: Family with Pro",
+    file: "ai/catalogue/membership-family",
+    width: 1200, height: 1200, aspect: "1:1", style: "illustration",
+    scene:
+      "A Punjabi family of four, two parents and two young children, brushing their teeth together at a bathroom mirror at home, smiling at each other. Seen from a slight angle so the faces are simple and friendly.",
+    alt: "Illustration of a family of four brushing their teeth together",
+  },
+  {
+    id: "cat-cover",
+    group: "catalogue",
+    title: "Catalogue cover",
+    where: "PDF catalogue, cover page (top half)",
+    file: "ai/catalogue/cover",
+    width: 1600, height: 1200, aspect: "4:3", style: "render",
+    scene:
+      "A calm still life on a cream surface: a model of an upper set of teeth, a single implant crown and a dental mirror arranged in a loose group in the lower right, with a soft gold arc behind them. The upper left half of the image is empty cream space for a title.",
+    alt: "Illustration of a dental model, an implant crown and a mirror arranged as a still life",
+  },
 ];
 
 export const GROUP_TITLES: Record<ImageSlot["group"], string> = {
@@ -379,6 +493,7 @@ export const GROUP_TITLES: Record<ImageSlot["group"], string> = {
   "first-aid": "Emergency first aid",
   "photo-guide": "How to take the 3 photos",
   home: "Home page",
+  catalogue: "Service catalogue (not on the website)",
 };
 
 /** The full prompt to paste into Gemini for a slot. */

@@ -2,7 +2,7 @@
 /**
  * AI image helper for the RedCity website.
  *
- *   node scripts/ai-images.mjs            # write AI_IMAGE_PROMPTS.md and show which images are missing
+ *   node scripts/ai-images.mjs            # write AI_IMAGE_PROMPTS.md and the prompt guide page, show which images are missing
  *   node scripts/ai-images.mjs --optimize # crop, resize and convert finished images to .jpg (macOS `sips`)
  *   node scripts/ai-images.mjs --json     # print every slot as JSON (used to build the prompt guide page)
  *
@@ -23,8 +23,10 @@ const { slots, STYLE, RULES, GUARDRAILS, GROUP_TITLES, fullPrompt } = await impo
 const EXTS = ["webp", "jpg", "jpeg", "png"];
 const found = (slot) => EXTS.map((e) => `${slot.file}.${e}`).filter((f) => fs.existsSync(path.join(publicDir, f)));
 
+const guideData = () => ({ slots: slots.map((s) => ({ ...s, prompt: fullPrompt(s), done: found(s).length > 0 })), STYLE, RULES, GUARDRAILS, GROUP_TITLES });
+
 if (process.argv.includes("--json")) {
-  console.log(JSON.stringify({ slots: slots.map((s) => ({ ...s, prompt: fullPrompt(s), done: found(s).length > 0 })), STYLE, RULES, GUARDRAILS, GROUP_TITLES }, null, 2));
+  console.log(JSON.stringify(guideData(), null, 2));
   process.exit(0);
 }
 
@@ -68,7 +70,7 @@ For every image below that is not ticked:
 3. Save it as a JPG at the exact path and size given (for example \`apps/web/public/ai/articles/teeth-whitening-myths.jpg\`, 1600×900). A PNG at the same path is fine too: run \`node scripts/ai-images.mjs --optimize\` afterwards to crop, resize and convert it.
 4. When all are saved, run \`node scripts/ai-images.mjs\` to update this checklist, then \`pnpm --filter @redcity/web build\` to check the site still builds.
 
-Each image appears on the website automatically on the next deploy, in the place listed. Until then the site shows its current icon panel, so images can be added one at a time.
+Each image appears on the website automatically on the next deploy, in the place listed. Until then the site shows its current icon panel, so images can be added one at a time. The "Service catalogue" images are not on the website: they are the artwork for the catalogue cards and PDF described in \`CATALOGUE_BRIEF.md\`.
 
 ## Never generate these with AI
 
@@ -99,6 +101,14 @@ ${fullPrompt(s)}
   }
 }
 fs.writeFileSync(path.join(root, "AI_IMAGE_PROMPTS.md"), md);
+
+// Rebuild the prompt guide page with the current prompts and done status.
+const guideDir = path.join(root, "guides/redcity-ai-image-prompts");
+const template = path.join(guideDir, "template.html");
+if (fs.existsSync(template)) {
+  const json = JSON.stringify(guideData()).replace(/</g, "\\u003c");
+  fs.writeFileSync(path.join(guideDir, "index.html"), fs.readFileSync(template, "utf8").replace("__DATA__", () => json));
+}
 
 console.log(`\nAI_IMAGE_PROMPTS.md written — ${done.length} of ${slots.length} images done.\n`);
 for (const s of slots) console.log(`${found(s).length ? "  ✓" : "  ·"}  ${s.file}  (${s.width}x${s.height})`);

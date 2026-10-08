@@ -2,7 +2,7 @@
 
 Generated from `apps/web/src/lib/illustration-prompts.ts` by `node scripts/ai-images.mjs`. Edit prompts there, not here.
 
-**28 of 28 images done.**
+**38 of 38 images done.**
 
 ## Task for the Antigravity agent
 
@@ -13,7 +13,7 @@ For every image below that is not ticked:
 3. Save it as a JPG at the exact path and size given (for example `apps/web/public/ai/articles/teeth-whitening-myths.jpg`, 1600×900). A PNG at the same path is fine too: run `node scripts/ai-images.mjs --optimize` afterwards to crop, resize and convert it.
 4. When all are saved, run `node scripts/ai-images.mjs` to update this checklist, then `pnpm --filter @redcity/web build` to check the site still builds.
 
-Each image appears on the website automatically on the next deploy, in the place listed. Until then the site shows its current icon panel, so images can be added one at a time.
+Each image appears on the website automatically on the next deploy, in the place listed. Until then the site shows its current icon panel, so images can be added one at a time. The "Service catalogue" images are not on the website: they are the artwork for the catalogue cards and PDF described in `CATALOGUE_BRIEF.md`.
 
 ## Never generate these with AI
 
@@ -321,4 +321,106 @@ An Indian man tilts his head down with his mouth open wide, holding a smartphone
 
 ```text
 A calm, honest conversation in a dental surgery: an Indian patient sits upright in the chair, listening, while a dentist shown only from behind points to a dental X-ray on a monitor. The dentist's face is not visible. Draw it as a warm, modern editorial illustration: clean flat shapes, soft shading and a subtle paper-grain texture, in a limited palette of cream (#FBF6F4), blush pink (#F6ECE9), deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). People are Indian, with natural skin tones, friendly simple faces and everyday clothes. Calm and reassuring, never frightening or gory. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 4:3.
+```
+
+## Service catalogue (not on the website)
+
+### [x] Dental implants
+
+- **Shows on:** Catalogue card and PDF page: Dental Implants
+- **Save as:** `apps/web/public/ai/catalogue/implants.jpg` — 1200×1200 (1:1)
+- **Alt text (already in the site):** Illustration of a dental implant with its crown, set in the jawbone between two natural teeth
+
+```text
+A single dental implant shown in a clean cross-section of soft pink gum and pale jawbone, standing between two natural teeth: a titanium screw post in the bone, a short abutment, and a natural ivory crown on top. A thin gold ring marks where the crown meets the abutment. Render it as a soft, matte 3D clay-style illustration: smooth rounded forms, gentle diffused studio light from the upper left, soft contact shadows, on a warm cream background (#FBF6F4). Teeth are natural ivory and gums a soft healthy pink. Use small accents only in deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). Calm, premium and clinical, with generous empty space around the subject. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 1:1.
+```
+
+### [x] Full mouth rehabilitation
+
+- **Shows on:** Catalogue card and PDF page: Full Mouth Rehabilitation
+- **Save as:** `apps/web/public/ai/catalogue/full-mouth-rehabilitation.jpg` — 1200×1200 (1:1)
+- **Alt text (already in the site):** Illustration of a complete upper and lower set of teeth on a dental model
+
+```text
+A complete upper and lower set of natural-looking teeth on a dental model, slightly open so both arches are visible, with even, healthy-looking teeth and gums, shown at a three-quarter angle. A small gold dental mirror rests beside the model. Render it as a soft, matte 3D clay-style illustration: smooth rounded forms, gentle diffused studio light from the upper left, soft contact shadows, on a warm cream background (#FBF6F4). Teeth are natural ivory and gums a soft healthy pink. Use small accents only in deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). Calm, premium and clinical, with generous empty space around the subject. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 1:1.
+```
+
+### [x] Smile makeover
+
+- **Shows on:** Catalogue card and PDF page: Smile Makeover
+- **Save as:** `apps/web/public/ai/catalogue/smile-makeover.jpg` — 1200×1200 (1:1)
+- **Alt text (already in the site):** Illustration of an arc of front teeth beside a shade guide and a veneer
+
+```text
+A gentle arc of upper front teeth floating above the background, beside a fanned dental shade guide in graded ivory tones and one thin porcelain veneer. A few tiny gold sparkles float near the teeth. Render it as a soft, matte 3D clay-style illustration: smooth rounded forms, gentle diffused studio light from the upper left, soft contact shadows, on a warm cream background (#FBF6F4). Teeth are natural ivory and gums a soft healthy pink. Use small accents only in deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). Calm, premium and clinical, with generous empty space around the subject. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 1:1.
+```
+
+### [x] Check-up
+
+- **Shows on:** Catalogue card and PDF page: Check-up with Dr. Sahu
+- **Save as:** `apps/web/public/ai/catalogue/checkup.jpg` — 1200×1200 (1:1)
+- **Alt text (already in the site):** Illustration of a healthy tooth with a dental mirror and probe
+
+```text
+A healthy lower molar tooth model standing upright, with a round dental mirror and a slim dental probe laid neatly across each other in front of it, their handles in deep red. Render it as a soft, matte 3D clay-style illustration: smooth rounded forms, gentle diffused studio light from the upper left, soft contact shadows, on a warm cream background (#FBF6F4). Teeth are natural ivory and gums a soft healthy pink. Use small accents only in deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). Calm, premium and clinical, with generous empty space around the subject. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 1:1.
+```
+
+### [x] Teeth cleaning
+
+- **Shows on:** Catalogue card and PDF page: Teeth Cleaning (Scaling & Polishing)
+- **Save as:** `apps/web/public/ai/catalogue/cleaning.jpg` — 1200×1200 (1:1)
+- **Alt text (already in the site):** Illustration of a tooth being professionally cleaned
+
+```text
+A bright, healthy molar tooth model with a soft clean shine, a slim curved scaling instrument touching its gum line, and a few tiny water droplets and gold sparkles around it. Render it as a soft, matte 3D clay-style illustration: smooth rounded forms, gentle diffused studio light from the upper left, soft contact shadows, on a warm cream background (#FBF6F4). Teeth are natural ivory and gums a soft healthy pink. Use small accents only in deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). Calm, premium and clinical, with generous empty space around the subject. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 1:1.
+```
+
+### [x] Digital X-ray
+
+- **Shows on:** Catalogue card and PDF page: Digital X-ray
+- **Save as:** `apps/web/public/ai/catalogue/digital-xray.jpg` — 1200×1200 (1:1)
+- **Alt text (already in the site):** Illustration of a digital dental X-ray sensor beside a tooth
+
+```text
+A small rounded-rectangle digital dental X-ray sensor with a short coiled cable, lying beside a healthy molar tooth model. The sensor surface is plain and blank, with no image on it. Render it as a soft, matte 3D clay-style illustration: smooth rounded forms, gentle diffused studio light from the upper left, soft contact shadows, on a warm cream background (#FBF6F4). Teeth are natural ivory and gums a soft healthy pink. Use small accents only in deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). Calm, premium and clinical, with generous empty space around the subject. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 1:1.
+```
+
+### [x] Online photo review
+
+- **Shows on:** Catalogue card and PDF page: Online Photo Review
+- **Save as:** `apps/web/public/ai/catalogue/photo-review.jpg` — 1200×1200 (1:1)
+- **Alt text (already in the site):** Illustration of a hand holding a phone with a smile photo and a voice message bubble
+
+```text
+An Indian woman's hand holds a smartphone; the screen shows a simple illustrated close-up of a smile. Beside the phone floats a rounded speech bubble containing only a sound-wave shape, suggesting a voice message reply. No face is shown. Draw it as a warm, modern editorial illustration: clean flat shapes, soft shading and a subtle paper-grain texture, in a limited palette of cream (#FBF6F4), blush pink (#F6ECE9), deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). People are Indian, with natural skin tones, friendly simple faces and everyday clothes. Calm and reassuring, never frightening or gory. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 1:1.
+```
+
+### [x] Membership plans
+
+- **Shows on:** Catalogue cards and PDF page: Basic, Advanced and Pro memberships
+- **Save as:** `apps/web/public/ai/catalogue/membership.jpg` — 1200×1200 (1:1)
+- **Alt text (already in the site):** Illustration of a tooth in front of a shield, beside a calendar and a toothbrush
+
+```text
+A healthy tooth model standing in front of a soft rounded shield shape in deep red, beside a small desk calendar whose blank grid has two days marked with small gold dots. A toothbrush lies in front. Render it as a soft, matte 3D clay-style illustration: smooth rounded forms, gentle diffused studio light from the upper left, soft contact shadows, on a warm cream background (#FBF6F4). Teeth are natural ivory and gums a soft healthy pink. Use small accents only in deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). Calm, premium and clinical, with generous empty space around the subject. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 1:1.
+```
+
+### [x] Family membership
+
+- **Shows on:** Catalogue card and PDF page: Family with Pro
+- **Save as:** `apps/web/public/ai/catalogue/membership-family.jpg` — 1200×1200 (1:1)
+- **Alt text (already in the site):** Illustration of a family of four brushing their teeth together
+
+```text
+A Punjabi family of four, two parents and two young children, brushing their teeth together at a bathroom mirror at home, smiling at each other. Seen from a slight angle so the faces are simple and friendly. Draw it as a warm, modern editorial illustration: clean flat shapes, soft shading and a subtle paper-grain texture, in a limited palette of cream (#FBF6F4), blush pink (#F6ECE9), deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). People are Indian, with natural skin tones, friendly simple faces and everyday clothes. Calm and reassuring, never frightening or gory. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 1:1.
+```
+
+### [x] Catalogue cover
+
+- **Shows on:** PDF catalogue, cover page (top half)
+- **Save as:** `apps/web/public/ai/catalogue/cover.jpg` — 1600×1200 (4:3)
+- **Alt text (already in the site):** Illustration of a dental model, an implant crown and a mirror arranged as a still life
+
+```text
+A calm still life on a cream surface: a model of an upper set of teeth, a single implant crown and a dental mirror arranged in a loose group in the lower right, with a soft gold arc behind them. The upper left half of the image is empty cream space for a title. Render it as a soft, matte 3D clay-style illustration: smooth rounded forms, gentle diffused studio light from the upper left, soft contact shadows, on a warm cream background (#FBF6F4). Teeth are natural ivory and gums a soft healthy pink. Use small accents only in deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). Calm, premium and clinical, with generous empty space around the subject. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 4:3.
 ```
