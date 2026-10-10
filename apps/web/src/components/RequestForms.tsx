@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useId, useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useId, useState, type FormEvent, type ReactNode } from "react";
 import { whatsappLink } from "@/lib/business";
+import { sourceLine } from "@/lib/attribution";
 import { gtagEvent } from "@/lib/gtag";
 import { field } from "@/lib/styles";
 
@@ -56,22 +57,43 @@ function Field({
 
 const REQUEST_EVENTS = { callback: "callback_request", booking: "booking_request", camp: "camp_request" } as const;
 
+/** An Indian mobile number as 10 digits, or null. Accepts +91, 91, 0 and spaces or dashes. */
+function indianMobile(raw: string): string | null {
+  let d = raw.replace(/\D/g, "");
+  if (d.length === 12 && d.startsWith("91")) d = d.slice(2);
+  else if (d.length === 11 && d.startsWith("0")) d = d.slice(1);
+  return /^[6-9]\d{9}$/.test(d) ? d : null;
+}
+
 function useRequest(kind: keyof typeof REQUEST_EVENTS) {
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   function submit(e: FormEvent<HTMLFormElement>, build: (data: FormData) => string[]) {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const data = new FormData(form);
     const next: Record<string, string> = {};
-    if (!String(data.get("name") ?? "").trim()) next.name = "Please add your name.";
-    if (String(data.get("phone") ?? "").replace(/\D/g, "").length < 10)
-      next.phone = "Please add a 10-digit mobile number.";
+    if (String(data.get("name") ?? "").trim().length < 2) next.name = "Please add your name.";
+    const mobile = indianMobile(String(data.get("phone") ?? ""));
+    if (!mobile) next.phone = "Please add a 10-digit mobile number, for example 98765 43210.";
     if (!data.get("consent")) next.consent = "Please tick this box so we can contact you.";
     setErrors(next);
-    if (Object.keys(next).length) return;
+    const firstBad = (["name", "phone", "consent"] as const).find((k) => next[k]);
+    if (firstBad) {
+      form.querySelector<HTMLElement>(`[name="${firstBad}"]`)?.focus();
+      return;
+    }
+
+    // Send the cleaned-up number and where the patient came from, so the
+    // clinic can reply and see which pages and sources bring enquiries.
+    data.set("phone", `+91 ${mobile!.slice(0, 5)} ${mobile!.slice(5)}`);
+    const lines = build(data);
+    lines.push(`Page: ${window.location.pathname}`);
+    const source = sourceLine();
+    if (source) lines.push(source);
 
     gtagEvent({ action: REQUEST_EVENTS[kind], params: {} });
-    window.open(whatsappLink(build(data).join("\n")), "_blank", "noopener,noreferrer");
+    window.open(whatsappLink(lines.join("\n")), "_blank", "noopener,noreferrer");
   }
 
   return { errors, submit };
@@ -85,6 +107,8 @@ function Consent({ id, error }: { id: string; error?: string }) {
           id={id}
           name="consent"
           type="checkbox"
+          required
+          aria-invalid={!!error}
           aria-describedby={error ? `${id}-error` : undefined}
           className="mt-0.5 h-[22px] w-[22px] shrink-0 accent-brand-red"
         />
@@ -132,10 +156,10 @@ export function CallbackForm() {
     >
       <h3 className="font-headline text-[22px] font-bold sm:col-span-2">Request a call back</h3>
       <Field label="Your name" id={`${id}-name`} error={errors.name} wide>
-        <input id={`${id}-name`} name="name" type="text" autoComplete="name" aria-invalid={!!errors.name} className={field} />
+        <input id={`${id}-name`} name="name" type="text" autoComplete="name" required maxLength={80} aria-invalid={!!errors.name} aria-describedby={errors.name ? `${id}-name-error` : undefined} className={field} />
       </Field>
       <Field label="Mobile number" id={`${id}-phone`} error={errors.phone} wide>
-        <input id={`${id}-phone`} name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="+91" aria-invalid={!!errors.phone} className={field} />
+        <input id={`${id}-phone`} name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="98765 43210" required maxLength={17} aria-invalid={!!errors.phone} aria-describedby={errors.phone ? `${id}-phone-error` : undefined} className={field} />
       </Field>
       <Field label="What would you like help with?" id={`${id}-topic`}>
         <select id={`${id}-topic`} name="topic" className={field}>
@@ -165,6 +189,12 @@ export function CallbackForm() {
 export function BookingForm() {
   const id = useId();
   const { errors, submit } = useRequest("booking");
+  // Set after mount: today's date differs between the server and the browser.
+  const [today, setToday] = useState<string | undefined>();
+  useEffect(() => {
+    const d = new Date();
+    setToday(new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10));
+  }, []);
 
   return (
     <form
@@ -186,13 +216,13 @@ export function BookingForm() {
       className={formShell}
     >
       <Field label="Your name" id={`${id}-name`} error={errors.name}>
-        <input id={`${id}-name`} name="name" type="text" autoComplete="name" aria-invalid={!!errors.name} className={field} />
+        <input id={`${id}-name`} name="name" type="text" autoComplete="name" required maxLength={80} aria-invalid={!!errors.name} aria-describedby={errors.name ? `${id}-name-error` : undefined} className={field} />
       </Field>
       <Field label="Mobile number" id={`${id}-phone`} error={errors.phone}>
-        <input id={`${id}-phone`} name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="+91" aria-invalid={!!errors.phone} className={field} />
+        <input id={`${id}-phone`} name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="98765 43210" required maxLength={17} aria-invalid={!!errors.phone} aria-describedby={errors.phone ? `${id}-phone-error` : undefined} className={field} />
       </Field>
       <Field label="Preferred day" id={`${id}-day`}>
-        <input id={`${id}-day`} name="day" type="date" className={field} />
+        <input id={`${id}-day`} name="day" type="date" min={today} className={field} />
       </Field>
       <Field label="Preferred time" id={`${id}-time`}>
         <select id={`${id}-time`} name="time" className={field}>
@@ -248,10 +278,10 @@ export function CampForm() {
     >
       <h3 className="font-headline text-[22px] font-bold sm:col-span-2">Plan a dental camp</h3>
       <Field label="Your name" id={`${id}-name`} error={errors.name}>
-        <input id={`${id}-name`} name="name" type="text" autoComplete="name" aria-invalid={!!errors.name} className={field} />
+        <input id={`${id}-name`} name="name" type="text" autoComplete="name" required maxLength={80} aria-invalid={!!errors.name} aria-describedby={errors.name ? `${id}-name-error` : undefined} className={field} />
       </Field>
       <Field label="Mobile number" id={`${id}-phone`} error={errors.phone}>
-        <input id={`${id}-phone`} name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="+91" aria-invalid={!!errors.phone} className={field} />
+        <input id={`${id}-phone`} name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="98765 43210" required maxLength={17} aria-invalid={!!errors.phone} aria-describedby={errors.phone ? `${id}-phone-error` : undefined} className={field} />
       </Field>
       <Field label="Organisation name" id={`${id}-org`}>
         <input id={`${id}-org`} name="org" type="text" autoComplete="organization" className={field} />

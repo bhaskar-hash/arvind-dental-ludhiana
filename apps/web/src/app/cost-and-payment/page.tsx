@@ -13,8 +13,8 @@ import { formatRupees, payment, priceGuide, pricingApproved } from "@/lib/pricin
 import { buildFaqSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Cost & Payment — Dental Prices, Membership Plans & Savings Calculator",
-  description: `Clear dental prices at ${business.name}, ${business.addressLocality}: a price guide, membership plans for 3, 6 or 12 months, and a calculator showing whether a membership saves you money.`,
+  title: "Dental Prices, Membership Plans & Savings Calculator",
+  description: `Clear dental prices in ${business.addressLocality}: a price guide, membership plans for 3, 6 or 12 months, and a calculator to see if a membership saves you money.`,
   alternates: { canonical: `${business.siteUrl}/cost-and-payment` },
   robots: pricingApproved ? undefined : { index: false, follow: false },
 };

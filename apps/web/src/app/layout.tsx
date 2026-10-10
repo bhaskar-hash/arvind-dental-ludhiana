@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Roboto_Slab, Inter, Noto_Sans_Gurmukhi } from "next/font/google";
 import Script from "next/script";
 import { GA_MEASUREMENT_ID } from "@/lib/gtag";
+import { business } from "@/lib/business";
+import { defaultOgImage } from "@/lib/seo";
+import { AnalyticsEvents } from "@/components/AnalyticsEvents";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { StickyActions } from "@/components/StickyActions";
@@ -25,12 +28,10 @@ const gurmukhiFont = Noto_Sans_Gurmukhi({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://redcitydentalcare.com",
-  ),
+  metadataBase: new URL(business.siteUrl),
   title: {
     default: "Dental Implant, Best Prosthodontist in Ludhiana | RedCity Dental Care",
-    template: "%s | RedCity Dental Care & Implant Centre",
+    template: "%s | RedCity Dental Care",
   },
   description:
     "RedCity Dental Care & Implant Centre, South Model Gram, Ludhiana — Dr. Arvind Sahu, MDS (Prosthodontics). Complete Care, Advanced Care, Personalized Care.",
@@ -48,9 +49,12 @@ export const metadata: Metadata = {
     description:
       "Complete Care · Advanced Care · Personalized Care — Dr. Arvind Sahu, MDS (Prosthodontics), South Model Gram, Ludhiana.",
     locale: "en_IN",
+    url: business.siteUrl,
+    images: [defaultOgImage],
   },
   twitter: {
     card: "summary_large_image",
+    images: [defaultOgImage.url],
   },
 };
 
@@ -70,6 +74,7 @@ export default function RootLayout({
         </div>
         <SiteFooter />
         <StickyActions />
+        <AnalyticsEvents />
         {GA_MEASUREMENT_ID ? (
           <>
             <Script

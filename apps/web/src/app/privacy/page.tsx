@@ -3,14 +3,15 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { business } from "@/lib/business";
 import { doctor } from "@/lib/doctor";
+import { GA_MEASUREMENT_ID } from "@/lib/gtag";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: `How ${business.name} collects, uses and protects your personal and health information, and your rights under India's Digital Personal Data Protection Act, 2023.`,
+  description: `How ${business.name} collects, uses and protects your personal and health information, and your rights under India's DPDP Act, 2023.`,
   alternates: { canonical: `${business.siteUrl}/privacy` },
 };
 
-const LAST_UPDATED = "9 October 2026";
+const LAST_UPDATED = "10 October 2026";
 
 const SECTIONS = [
   { id: "who", label: "Who we are" },
@@ -98,9 +99,21 @@ export default function PrivacyPage() {
               you choose whether to send it.
             </li>
             <li>
-              We don&apos;t use advertising cookies or tracking. If we add visitor statistics, we
-              will update this page first.
+              When you send a booking or call-back request, the WhatsApp message also names the
+              page you were on and how you found us (for example Google), so we can see which
+              pages help patients. You can delete those lines before you send it.
             </li>
+            {GA_MEASUREMENT_ID ? (
+              <li>
+                We use Google Analytics to count visits and see which pages and buttons are used,
+                for example how many people tap Call or WhatsApp. It sets cookies and sends
+                information about your device and visit to Google. It never receives what you type
+                into our forms. You can block it in your browser settings or with Google&apos;s
+                opt-out add-on.
+              </li>
+            ) : (
+              <li>We don&apos;t use advertising cookies or visitor tracking on this website.</li>
+            )}
             <li>
               The map on our Visit Us page is provided by Google, and videos may be hosted on
               YouTube. Those services may set their own cookies under Google&apos;s privacy policy.

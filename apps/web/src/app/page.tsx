@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { GoogleG, Icon, Stars } from "@/components/Icon";
@@ -15,6 +16,10 @@ import { btn, container, eyebrow, h2, lead } from "@/lib/styles";
 import { slugify } from "@/lib/treatment-menu";
 import { illustration } from "@/lib/illustrations";
 import { AiImage } from "@/components/AiImage";
+
+export const metadata: Metadata = {
+  alternates: { canonical: `${business.siteUrl}/` },
+};
 
 const TREATMENTS = [
   { slug: "dental-implants", href: "/services/dental-implants", name: "Dental Implants", body: "A fixed, natural-looking replacement for one tooth or many.", badge: "Up to lifetime warranty*" },

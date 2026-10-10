@@ -12,7 +12,7 @@ import { btn, container, eyebrow, h2 } from "@/lib/styles";
 
 export const metadata: Metadata = {
   title: `About ${doctor.name}`,
-  description: `${doctor.name}, ${doctor.credentials} — ${doctor.role} at ${business.name}, ${business.addressLocality}. Dental implants, full mouth rehabilitation, crowns & bridges and smile design.`,
+  description: `${doctor.name}, ${doctor.credentialsShort}: prosthodontist and oral implantologist at ${business.name}, ${business.addressLocality}.`,
   alternates: { canonical: `${business.siteUrl}/about` },
 };
 
@@ -61,7 +61,7 @@ export default function AboutPage() {
       </section>
 
       {/* Education + expertise */}
-      <section className="py-24">
+      <section id="training" className="scroll-mt-24 py-24">
         <div className={`${container} grid gap-14 lg:grid-cols-2`}>
           <Reveal>
             <p className={eyebrow}>Education &amp; training</p>

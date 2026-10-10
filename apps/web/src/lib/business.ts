@@ -10,6 +10,14 @@
 // Google listing to match, or local ranking suffers from the NAP mismatch.
 const telephone = "+917626858230";
 
+// The address Google should treat as THE website: every canonical link, the
+// sitemap, robots.txt and the schema read it. It is the working Vercel address
+// for now, because redcitydentalcare.com isn't registered yet. When the domain
+// is registered and attached to the Vercel project, change this one line to
+// "https://redcitydentalcare.com", redeploy, and add a redirect from the
+// Vercel address in vercel.json.
+const LIVE_SITE_URL = "https://redcity-web-lac.vercel.app";
+
 export const business = {
   name: "RedCity Dental Care & Implant Centre",
   googleListedName: "Red City Dental Care and Implant Centre",
@@ -52,8 +60,7 @@ export const business = {
   social: {} as Partial<Record<"instagram" | "facebook" | "youtube", string>>,
   /** Where every "Book a consultation" button goes. */
   bookHref: "/location#book",
-  siteUrl:
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://redcitydentalcare.com",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? LIVE_SITE_URL,
   // The patient portal isn't deployed yet, so no CTA links to it.
   portalUrl:
     process.env.NEXT_PUBLIC_PORTAL_URL ?? "https://app.redcitydentalcare.com",

@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
-import { gtagEvent } from "@/lib/gtag";
 import { business } from "@/lib/business";
 
 export function StickyActions() {
@@ -15,7 +14,6 @@ export function StickyActions() {
       >
         <a
           href={`tel:${business.telephone}`}
-          onClick={() => gtagEvent({ action: "call_click", params: { placement: "sticky_bar" } })}
           className="flex flex-col items-center justify-center gap-1 bg-brand-ink"
         >
           <Icon name="phone" size={20} />
@@ -25,7 +23,6 @@ export function StickyActions() {
           href={business.whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          onClick={() => gtagEvent({ action: "whatsapp_click", params: { placement: "sticky_bar" } })}
           className="flex flex-col items-center justify-center gap-1 bg-brand-wa"
         >
           <Icon name="chat" size={20} />
@@ -33,7 +30,6 @@ export function StickyActions() {
         </a>
         <Link
           href={business.bookHref}
-          onClick={() => gtagEvent({ action: "book_click", params: { placement: "sticky_bar" } })}
           className="flex flex-col items-center justify-center gap-1 bg-brand-red"
         >
           <Icon name="calendar" size={20} />
@@ -48,7 +44,7 @@ export function StickyActions() {
         href={business.whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        onClick={() => gtagEvent({ action: "whatsapp_click", params: { placement: "floating" } })}
+        data-placement="floating"
         className="fixed bottom-6 right-6 z-50 hidden items-center gap-2 rounded-full bg-brand-wa px-5 py-3 font-body text-sm font-semibold text-white shadow-lg hover:brightness-110 md:flex"
       >
         <Icon name="chat" size={18} />

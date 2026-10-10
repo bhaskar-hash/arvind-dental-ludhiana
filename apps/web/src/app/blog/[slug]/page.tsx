@@ -10,6 +10,7 @@ import { blogPosts, getBlogPostBySlug } from "@/lib/blog";
 import { getServiceBySlug } from "@/lib/services";
 import { buildBlogPostSchemaGraph } from "@/lib/schema";
 import { business } from "@/lib/business";
+import { ogImagesFor } from "@/lib/seo";
 
 export function generateStaticParams() {
   return blogPosts.map((p) => ({ slug: p.slug }));
@@ -31,6 +32,7 @@ export function generateMetadata({
       description: post.metaDescription,
       url: `${business.siteUrl}/blog/${post.slug}`,
       type: "article",
+      images: ogImagesFor(articleCover(post.slug)),
     },
   };
 }

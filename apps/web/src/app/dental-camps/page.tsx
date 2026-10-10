@@ -13,8 +13,8 @@ import { buildFaqSchema } from "@/lib/schema";
 import { btn, container, eyebrow, h2, lead } from "@/lib/styles";
 
 export const metadata: Metadata = {
-  title: `Dental Camps for Companies, Schools & Colleges in ${business.addressLocality}`,
-  description: `Dental check-up camps at your workplace, school or college in ${business.addressLocality}, run by ${business.name}. Private check-ups, a written note for everyone, and no pressure to book.`,
+  title: `Dental Camps for Schools, Colleges & Offices in ${business.addressLocality}`,
+  description: `Dental check-up camps at your workplace, school or college in ${business.addressLocality}. Private check-ups, a written note for everyone, no pressure to book.`,
   alternates: { canonical: `${business.siteUrl}/dental-camps` },
 };
 

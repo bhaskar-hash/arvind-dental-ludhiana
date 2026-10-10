@@ -1,3 +1,5 @@
+import { business } from "./business";
+
 export interface ServiceFaq {
   question: string;
   answer: string;
@@ -22,6 +24,8 @@ export interface TitledText {
 export interface Service {
   slug: string;
   name: string;
+  /** Title for search results and browser tabs, when it should differ from `name`. */
+  metaTitle?: string;
   shortName: string;
   metaDescription: string;
   intro: string;
@@ -63,9 +67,10 @@ export const services: Service[] = [
   {
     slug: "dental-implants",
     name: "Dental Implant, Best Prosthodontist in Ludhiana",
+    metaTitle: "Dental Implants in Ludhiana by a Prosthodontist",
     shortName: "Dental Implants",
     metaDescription:
-      "Dental implant treatment in Ludhiana with Dr. Arvind Sahu, MDS (Prosthodontics) — warranty of 5 years, 10 years or lifetime on the implant, depending on the option you choose.",
+      "Dental implants in Ludhiana with Dr. Arvind Sahu, MDS (Prosthodontics). A 5-year, 10-year or lifetime warranty on the implant, depending on your option.",
     intro:
       "A dental implant replaces a missing tooth's root with a titanium post, topped with a custom crown. Because prosthodontics — the restoration and replacement of teeth — is Dr. Sahu's specialty area of training, implant planning at RedCity Dental Care covers the full arc from the initial scan to the final crown.",
     eyebrow: "For missing teeth",
@@ -533,7 +538,7 @@ export const services: Service[] = [
     eyebrow: "Need help today?",
     headline: "Severe pain or a broken tooth? Call us first.",
     metaDescription:
-      "Dental emergency in Ludhiana? Severe toothache, broken tooth, swelling, or a knocked-out tooth — call RedCity Dental Care at +91 8847651364.",
+      `Dental emergency in Ludhiana? Severe toothache, broken tooth, swelling or a knocked-out tooth: call RedCity Dental Care on ${business.telephoneDisplay}.`,
     intro:
       "Severe toothache, a broken or knocked-out tooth, uncontrolled bleeding, or facial swelling — dental emergencies need prompt attention, and acting quickly often decides whether a tooth can be saved. Call us first; we'll tell you what to do right away.",
     whatToExpect: [

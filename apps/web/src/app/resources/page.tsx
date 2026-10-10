@@ -12,7 +12,7 @@ import { buildFaqSchema } from "@/lib/schema";
 import { btn, container, eyebrow, h2 } from "@/lib/styles";
 
 export const metadata: Metadata = {
-  title: "Patient Questions, Dental Guides & Emergency First Aid",
+  title: "Dental Questions & Emergency First Aid",
   description: `Answers to the questions patients ask ${business.name} most, plain-English dental guides from Dr. Sahu, and what to do in a dental emergency.`,
   alternates: { canonical: `${business.siteUrl}/resources` },
 };

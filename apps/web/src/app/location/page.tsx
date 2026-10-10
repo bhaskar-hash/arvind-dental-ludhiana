@@ -9,7 +9,7 @@ import { clinicPhoto } from "@/lib/doctor";
 import { btn, container, eyebrow, h2 } from "@/lib/styles";
 
 export const metadata: Metadata = {
-  title: `Visit Us in ${business.addressLocality} — Address, Directions & Booking`,
+  title: `Visit Us in ${business.addressLocality}: Address & Directions`,
   description: `${business.name}, ${business.streetAddress}, ${business.addressLocality}. Directions, how to find the clinic, and booking a consultation.`,
   alternates: { canonical: `${business.siteUrl}/location` },
 };
