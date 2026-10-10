@@ -123,6 +123,13 @@
   }
 }
 
+/* The desktop header has two rows; keep in-page anchors clear of it. */
+@media (min-width: 1024px) {
+  html {
+    scroll-padding-top: 56px;
+  }
+}
+
 /* Header shadow appears once the page is scrolled (toggled by JS) */
 .site-header {
   transition:
