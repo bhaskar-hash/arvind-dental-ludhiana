@@ -3,7 +3,9 @@ import { articleCover, type FoundImage } from "@/lib/illustrations";
 
 /** Renders an AI illustration found by lib/illustrations.ts. */
 export function AiImage({ image, className, priority }: { image: FoundImage; className: string; priority?: boolean }) {
+  // NMC guidelines 7.2: AI-generated images must say so where they are shown.
   return (
+    <span className="relative block">
     <picture>
       {image.webp ? <source srcSet={image.webp} type="image/webp" /> : null}
       <img
@@ -16,6 +18,10 @@ export function AiImage({ image, className, priority }: { image: FoundImage; cla
         className={className}
       />
     </picture>
+      <span className="pointer-events-none absolute bottom-2 left-2 rounded-full bg-black/55 px-2 py-0.5 font-body text-[10px] font-semibold text-white">
+        AI illustration
+      </span>
+    </span>
   );
 }
 

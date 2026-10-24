@@ -4,16 +4,6 @@
  * list is empty or the value is null — never a placeholder or invented copy.
  */
 
-export interface Review {
-  /** First name as shown on Google. */
-  name: string;
-  /** Quoted exactly as written on Google, with the reviewer's permission. */
-  text: string;
-  rating: 1 | 2 | 3 | 4 | 5;
-}
-
-/** TODO(business-content): 3 real Google reviews, quoted exactly. */
-export const reviews: Review[] = [];
 
 /** TODO(business-content): Dr. Sahu's 1-minute introduction (YouTube embed URL). */
 export const introVideoUrl: string | null = null;

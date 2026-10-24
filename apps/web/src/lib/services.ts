@@ -66,7 +66,7 @@ export interface Service {
 export const services: Service[] = [
   {
     slug: "dental-implants",
-    name: "Dental Implant, Best Prosthodontist in Ludhiana",
+    name: "Dental Implants in Ludhiana",
     metaTitle: "Dental Implants in Ludhiana by a Prosthodontist",
     shortName: "Dental Implants",
     metaDescription:

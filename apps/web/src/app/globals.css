@@ -123,12 +123,69 @@
   }
 }
 
-/* The desktop header has two rows; keep in-page anchors clear of it. */
-@media (min-width: 1024px) {
-  html {
-    scroll-padding-top: 56px;
-  }
+/* Keep in-page anchors clear of the sticky header. */
+html {
+  scroll-padding-top: 16px;
 }
+
+/* Header, after the Shree Anand Fabrics shell: sliding underline links,
+   pill buttons with a slide-up fill, a two-line menu button and a
+   full-screen mobile menu. Never put a filter on .hdr: it would trap the
+   fixed menu inside the header. */
+@layer components {
+.nav-link { position: relative; padding: 10px 0; }
+.nav-link::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 4px; height: 1.5px;
+  background: #A61C2E; transform: scaleX(0); transform-origin: right;
+  transition: transform 350ms cubic-bezier(.2, .7, .1, 1);
+}
+.nav-link:hover::after, .nav-link[aria-current="page"]::after { transform: scaleX(1); transform-origin: left; }
+
+.pill-btn {
+  position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  border-radius: 999px; border: 1px solid #A61C2E; background: #A61C2E; color: #fff;
+  font-family: var(--font-body), sans-serif; font-weight: 600; white-space: nowrap;
+  overflow: hidden; isolation: isolate; transition: transform 150ms cubic-bezier(.2, .7, .1, 1);
+}
+.pill-btn::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; background: #7D1523; border-radius: inherit;
+  transform: translateY(101%); transition: transform 260ms cubic-bezier(.2, .7, .1, 1);
+}
+.pill-btn:active { transform: scale(.97); }
+.pill-btn .arr { display: inline-block; transition: transform 200ms cubic-bezier(.2, .7, .1, 1); }
+@media (hover: hover) { .pill-btn:hover::before { transform: none; } .pill-btn:hover .arr { transform: translateX(4px); } }
+.pill-btn.gold { background: #D4AF37; border-color: #D4AF37; color: #2B0A0F; }
+.pill-btn.gold::before { background: #F2D98A; }
+
+.menu-btn { position: relative; width: 48px; height: 48px; border-radius: 50%; border: 1px solid #EADFDC; background: transparent; cursor: pointer; }
+.menu-btn span { position: absolute; left: 15px; right: 15px; height: 1.5px; background: #1F1718; transition: transform 200ms cubic-bezier(.2, .7, .1, 1); }
+.menu-btn span:nth-child(1) { top: 19px; }
+.menu-btn span:nth-child(2) { top: 27px; }
+.menu-btn.is-open { border-color: rgba(255, 255, 255, .25); }
+.menu-btn.is-open span { background: #fff; }
+.menu-btn.is-open span:nth-child(1) { transform: translateY(4px) rotate(45deg); }
+.menu-btn.is-open span:nth-child(2) { transform: translateY(-4px) rotate(-45deg); }
+
+.mnav {
+  position: fixed; inset: 0; z-index: 39; display: flex; flex-direction: column; overflow-y: auto;
+  height: 100vh; height: 100dvh; background: #2B0A0F; color: #FBF6F4;
+  padding: calc(96px + env(safe-area-inset-top)) 24px calc(28px + env(safe-area-inset-bottom));
+  animation: mnav-fade 160ms ease both;
+}
+.mnav ol { list-style: none; margin: 0; padding: 0; }
+.mnav li { border-bottom: 1px solid rgba(251, 246, 244, .16); }
+.mnav ol li a {
+  display: flex; justify-content: space-between; align-items: baseline; min-height: 56px; padding: 14px 0;
+  font-family: var(--font-headline), serif; font-weight: 700; font-size: clamp(30px, 8.5vw, 44px); line-height: 1.1;
+}
+.mnav ol li a small { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 11px; letter-spacing: .14em; color: #F2D98A; }
+.mnav ol li a[aria-current="page"] { color: #F2D98A; }
+.mnav ul li { border: 0; }
+.mnav-foot { margin-top: auto; padding-top: 28px; }
+.mnav-foot p { margin-top: 16px; font-size: 14px; color: rgba(251, 246, 244, .7); }
+}
+
+@keyframes mnav-fade { from { opacity: 0; } to { opacity: 1; } }
 
 /* Header shadow appears once the page is scrolled (toggled by JS) */
 .site-header {

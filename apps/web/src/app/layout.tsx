@@ -30,7 +30,7 @@ const gurmukhiFont = Noto_Sans_Gurmukhi({
 export const metadata: Metadata = {
   metadataBase: new URL(business.siteUrl),
   title: {
-    default: "Dental Implant, Best Prosthodontist in Ludhiana | RedCity Dental Care",
+    default: "Dental Implants & Prosthodontics in Ludhiana | RedCity Dental Care",
     template: "%s | RedCity Dental Care",
   },
   description:
@@ -38,14 +38,14 @@ export const metadata: Metadata = {
   keywords: [
     "dentist Ludhiana",
     "dental implant Ludhiana",
-    "best prosthodontist in Ludhiana",
+    "prosthodontist Ludhiana",
     "root canal treatment Ludhiana",
     "dental clinic South Model Gram",
   ],
   openGraph: {
     type: "website",
     siteName: "RedCity Dental Care & Implant Centre",
-    title: "Dental Implant, Best Prosthodontist in Ludhiana | RedCity Dental Care",
+    title: "Dental Implants & Prosthodontics in Ludhiana | RedCity Dental Care",
     description:
       "Complete Care · Advanced Care · Personalized Care — Dr. Arvind Sahu, MDS (Prosthodontics), South Model Gram, Ludhiana.",
     locale: "en_IN",

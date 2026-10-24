@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
-import { GoogleG, Icon, Stars } from "@/components/Icon";
+import { Icon } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
 import { CallbackForm } from "@/components/RequestForms";
 import { Reveal } from "@/components/Reveal";
@@ -9,9 +9,9 @@ import { ConcernGrid, PhotoReviewCta } from "@/components/Sections";
 import { ServiceIcon } from "@/components/ServiceIcon";
 import { business, photoReviewUrl } from "@/lib/business";
 import { clinicPhoto, doctor } from "@/lib/doctor";
-import { payment, pricingApproved } from "@/lib/pricing";
+import { payment, pricingApproved, routineFees } from "@/lib/pricing";
 import { buildDentistSchema } from "@/lib/schema";
-import { introVideoUrl, reviews } from "@/lib/site";
+import { introVideoUrl } from "@/lib/site";
 import { btn, container, eyebrow, h2, lead } from "@/lib/styles";
 import { slugify } from "@/lib/treatment-menu";
 import { illustration } from "@/lib/illustrations";
@@ -41,9 +41,7 @@ function Photo({ webp, fallback, width, height, alt, className }: { webp: string
 
 export default function Home() {
   const diagnosisImage = illustration("home-diagnosis");
-  const reviewLine = business.googleReviewCount
-    ? `${business.googleReviewCount} patient reviews`
-    : "Rated by patients on Google";
+  const specialistImage = illustration("crowns");
 
   return (
     <main>
@@ -80,10 +78,12 @@ export default function Home() {
             </p>
             <div className="mt-9 grid gap-x-9 gap-y-5 border-t border-brand-line pt-7 sm:grid-cols-2">
               <div className="flex items-center gap-3">
-                <Stars />
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-brand-blush text-brand-red">
+                  <Icon name="receipt" />
+                </span>
                 <span className="flex flex-col font-body leading-snug">
-                  <strong className="text-[15px]">{business.googleRating.toFixed(1)} on Google</strong>
-                  <span className="text-[13px] text-brand-muted">{reviewLine}</span>
+                  <strong className="text-[15px]">Fees shown upfront</strong>
+                  <span className="text-[13px] text-brand-muted">Check-up ₹{routineFees.checkup}, before anything starts</span>
                 </span>
               </div>
               <div className="flex items-center gap-3">
@@ -122,19 +122,19 @@ export default function Home() {
             <div className="relative w-full max-w-[420px]">
               <div aria-hidden className="absolute -right-12 -top-10 h-[340px] w-[340px] rounded-full bg-[#F3DEDA]" />
               <picture>
-                <source srcSet={doctor.photo.webp} type="image/webp" />
+                <source srcSet={clinicPhoto.webp} type="image/webp" />
                 <img
-                  src={doctor.photo.fallback}
-                  width={doctor.photo.width}
-                  height={doctor.photo.height}
-                  alt={doctor.photo.alt}
+                  src={clinicPhoto.fallback}
+                  width={clinicPhoto.width}
+                  height={clinicPhoto.height}
+                  alt={clinicPhoto.alt}
                   fetchPriority="high"
-                  className="relative block aspect-[3/4] w-full rounded-[28px] object-cover object-top shadow-[0_30px_60px_-24px_rgba(43,10,15,0.45)]"
+                  className="relative block aspect-[3/4] w-full rounded-[28px] object-cover object-[58%_50%] shadow-[0_30px_60px_-24px_rgba(43,10,15,0.45)]"
                 />
               </picture>
               <div className="absolute inset-x-[18px] bottom-[18px] rounded-2xl bg-white px-[18px] py-3.5 shadow-[0_12px_30px_-12px_rgba(43,10,15,0.35)]">
-                <strong className="block font-headline text-lg">{doctor.name}</strong>
-                <span className="font-body text-[13px] text-brand-muted">BDS, MDS (Prosthodontics) · Oral Implantologist</span>
+                <strong className="block font-headline text-lg">{business.name}</strong>
+                <span className="font-body text-[13px] text-brand-muted">{business.streetAddress}, {business.addressLocality}</span>
               </div>
             </div>
           </div>
@@ -163,7 +163,7 @@ export default function Home() {
         <div className={container}>
           <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
             {[
-              { value: <AnimatedCounter to={5} decimals={1} />, label: "Google rating", sub: business.googleReviewCount ? `From ${business.googleReviewCount} patient reviews` : "Rated by patients" },
+              { value: `₹${routineFees.checkup}`, label: "Check-up with Dr. Sahu", sub: "Every fee published before treatment" },
               { value: "Lifetime", label: "Implant warranty, up to*", sub: "5-year, 10-year or lifetime options" },
               { value: "MDS", label: "Prosthodontics specialist", sub: "Restoring and replacing teeth" },
               { value: <AnimatedCounter to={20} suffix="+" />, label: "Treatments under one roof", sub: "From check-ups to full-mouth rehabilitation" },
@@ -198,7 +198,9 @@ export default function Home() {
           </Reveal>
           <div className="mt-12 grid gap-7 md:grid-cols-3">
             <Reveal as="article" className="flex flex-col gap-3.5">
-              <Photo webp={doctor.photo.webp} fallback={doctor.photo.fallback} width={doctor.photo.width} height={doctor.photo.height} alt={doctor.photo.alt} className="aspect-[4/3] w-full rounded-[20px] object-cover object-[50%_18%]" />
+              {specialistImage ? (
+                <AiImage image={specialistImage} className="aspect-[4/3] w-full rounded-[20px] object-cover" />
+              ) : null}
               <h3 className="mt-2 font-headline text-[23px] font-bold leading-tight">A specialist for complex cases</h3>
               <p className="font-body text-base text-brand-muted">
                 Prosthodontics is the specialty of restoring and replacing teeth. Dr. Sahu plans
@@ -305,7 +307,11 @@ export default function Home() {
                 className="absolute inset-0 h-full w-full"
               />
             ) : (
-              <Photo webp={doctor.photo.webp} fallback={doctor.photo.fallback} width={doctor.photo.width} height={doctor.photo.height} alt={doctor.photo.alt} className="absolute inset-0 h-full w-full object-cover object-[50%_20%]" />
+              <div className="absolute inset-0 flex flex-col justify-end p-8 text-white">
+                <span aria-hidden className="font-headline text-[140px] leading-[0.6] text-brand-gold">“</span>
+                <p className="mt-6 font-headline text-2xl font-bold">{doctor.name}</p>
+                <p className="mt-1 font-body text-sm text-[#E3D1CE]">{doctor.credentials}</p>
+              </div>
             )}
           </div>
           <Reveal className="min-w-0 flex-[1_1_420px]">
@@ -387,13 +393,6 @@ export default function Home() {
                 </li>
               ))}
             </ul>
-            <div className="mt-8 inline-flex items-center gap-3.5 rounded-2xl border border-brand-line bg-white px-[18px] py-3.5">
-              <span className="font-headline text-3xl font-extrabold leading-none">{business.googleRating.toFixed(1)}</span>
-              <span className="flex flex-col gap-1">
-                <Stars />
-                <span className="font-body text-[13px] text-brand-muted">{reviewLine}</span>
-              </span>
-            </div>
           </Reveal>
           <div className="min-w-0 flex-[1_1_440px]">
             <CallbackForm />
@@ -441,46 +440,6 @@ export default function Home() {
               </Link>
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      {/* Reviews */}
-      <section id="reviews" className="scroll-mt-20 py-[104px]">
-        <div className={container}>
-          <div className="flex flex-wrap items-end justify-between gap-5">
-            <Reveal>
-              <p className={eyebrow}>Patient reviews</p>
-              <h2 className={h2}>In our patients&apos; own words</h2>
-            </Reveal>
-            <a href={business.googleBusinessUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-[48px] items-center gap-2.5 rounded-xl border-[1.5px] border-brand-line bg-white px-5 font-body font-semibold text-brand-ink hover:border-brand-red">
-              <GoogleG />
-              Read all reviews on Google
-            </a>
-          </div>
-          {reviews.length ? (
-            <div className="mt-11 grid gap-5 md:grid-cols-3">
-              {reviews.map((r) => (
-                <figure key={r.name + r.text.slice(0, 12)} className="flex flex-col gap-4 rounded-[20px] border border-brand-line bg-white p-7">
-                  <Stars />
-                  <blockquote className="font-body text-[17px] leading-relaxed">“{r.text}”</blockquote>
-                  <figcaption className="mt-auto font-body text-sm text-brand-muted">
-                    <strong className="text-brand-ink">{r.name}</strong> · Google review
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-          ) : (
-            <div className="mt-11 flex flex-wrap items-center gap-6 rounded-3xl border border-brand-line bg-white p-8">
-              <span className="font-headline text-6xl font-extrabold leading-none">{business.googleRating.toFixed(1)}</span>
-              <span className="flex flex-col gap-2">
-                <Stars size={20} />
-                <span className="font-body text-base text-brand-muted">
-                  {reviewLine}. We don&apos;t write our own testimonials — our patients do, on
-                  Google, where we can&apos;t edit a word.
-                </span>
-              </span>
-            </div>
-          )}
         </div>
       </section>
 

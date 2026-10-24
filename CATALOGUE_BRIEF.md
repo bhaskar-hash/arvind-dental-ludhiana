@@ -138,7 +138,7 @@ The links use the current live site. When `redcitydentalcare.com` goes live, cha
 
 ```json
 {
-  "site": "https://redcity-web-lac.vercel.app",
+  "site": "https://www.redcitydental.com",
   "clinic": {
     "name": "RedCity Dental Care & Implant Centre",
     "doctor": "Dr. Arvind Sahu",

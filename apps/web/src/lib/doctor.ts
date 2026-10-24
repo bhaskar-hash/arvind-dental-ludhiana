@@ -14,6 +14,13 @@ export const doctor = {
   /** Short form for tight UI (badges, nav, meta titles). */
   credentialsShort: "MDS (Prosthodontics)",
   role: "Prosthodontist & Oral Implantologist",
+  /**
+   * TODO(business-content): State Dental Council registration, e.g.
+   * "Punjab Dental Council, Reg. No. 1234-A". The NMC advertising guidelines
+   * (Explanations III–IV) ask that it be shown with the name and
+   * qualifications; it appears in the footer and on /about once set.
+   */
+  registration: null as string | null,
 
   photo: {
     webp: "/dr-arvind-sahu.webp",

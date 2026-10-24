@@ -46,6 +46,9 @@ export default function AboutPage() {
               {doctor.name}
             </h1>
             <p className="mt-3.5 font-body text-[17px] font-semibold text-brand-red">{doctor.credentials}</p>
+            {doctor.registration ? (
+              <p className="mt-1 font-body text-sm text-brand-muted">{doctor.registration}</p>
+            ) : null}
             <p className="mt-1 font-body text-base text-brand-muted">{doctor.role}</p>
             <p className="hero-in hero-in-3 mt-6 max-w-[600px] font-body text-[19px] text-[#3E3536]">{doctor.intro}</p>
             <div className="hero-in hero-in-4 mt-8 flex flex-wrap gap-3">

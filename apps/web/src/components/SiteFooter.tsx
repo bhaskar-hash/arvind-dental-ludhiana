@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
 import { business } from "@/lib/business";
+import { doctor } from "@/lib/doctor";
 import { pricingApproved } from "@/lib/pricing";
 import { policiesApproved } from "@/lib/policies";
 
@@ -11,7 +12,6 @@ export function SiteFooter() {
   const forPatients = [
     { label: "Why RedCity", href: "/about" },
     { label: "Meet Dr. Sahu", href: "/about" },
-    { label: "Patient reviews", href: "/#reviews" },
     ...(pricingApproved ? [{ label: "Cost & payment", href: "/cost-and-payment" }] : []),
     ...(policiesApproved ? [{ label: "Patient policies", href: "/policies" }] : []),
   ];
@@ -94,7 +94,8 @@ export function SiteFooter() {
 
         <div className="mt-7 flex flex-wrap items-center justify-between gap-4 border-t border-[#3A2A2C] pt-5 font-body text-[13px]">
           <span>
-            © {new Date().getFullYear()} {business.name}
+            © {new Date().getFullYear()} {business.name} · {doctor.name}, {doctor.credentials}
+            {doctor.registration ? ` · ${doctor.registration}` : ""}
           </span>
           <span className="flex flex-wrap gap-x-6 gap-y-2">
             <Link href="/privacy" className="hover:text-white">

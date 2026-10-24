@@ -1,11 +1,11 @@
-redcitydentalcare.com, www.redcitydentalcare.com {
+redcitydental.com, www.redcitydental.com {
 	reverse_proxy web:3000
 }
 
-app.redcitydentalcare.com {
+app.redcitydental.com {
 	reverse_proxy portal:3000
 }
 
-api.redcitydentalcare.com {
+api.redcitydental.com {
 	reverse_proxy api:8000
 }

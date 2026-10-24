@@ -70,4 +70,5 @@ pnpm ai-images
 
 ## 🌐 Deployments
 
-- **Production URL:** [https://redcity-web-lac.vercel.app](https://redcity-web-lac.vercel.app)
+- **Production Domain:** [https://redcitydental.com](https://redcitydental.com)
+- **Vercel Deployment:** [https://redcity-web-lac.vercel.app](https://redcity-web-lac.vercel.app)

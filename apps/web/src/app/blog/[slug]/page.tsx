@@ -32,7 +32,7 @@ export function generateMetadata({
       description: post.metaDescription,
       url: `${business.siteUrl}/blog/${post.slug}`,
       type: "article",
-      images: ogImagesFor(articleCover(post.slug)),
+      images: ogImagesFor(),
     },
   };
 }
