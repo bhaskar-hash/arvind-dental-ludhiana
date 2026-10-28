@@ -96,21 +96,47 @@ export function buildArticleSchema(post: BlogPost) {
     headline: post.title,
     description: post.metaDescription,
     url: `${business.siteUrl}/blog/${post.slug}`,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${business.siteUrl}/blog/${post.slug}`,
+    },
     author: {
       "@type": "Person",
       name: business.doctorName,
+      jobTitle: business.doctorCredentials,
+      url: `${business.siteUrl}/about`,
     },
     publisher: {
       "@type": "Organization",
       name: business.name,
+      url: business.siteUrl,
+      logo: {
+        "@type": "ImageObject",
+        url: `${business.siteUrl}/redcity-logo.png`,
+      },
     },
   };
 }
 
 export function buildBlogPostSchemaGraph(post: BlogPost) {
+  const faqs = post.sections
+    .filter((s) => s.heading.includes("?") || /^(how|why|what|when|does|can|is|which)/i.test(s.heading))
+    .map((s) => {
+      const firstPara = s.body.split("\n\n")[0].replace(/\*\*/g, "").trim();
+      return {
+        question: s.heading,
+        answer: firstPara,
+      };
+    });
+
+  const graph: Array<Record<string, unknown>> = [buildDentistSchema(), buildArticleSchema(post)];
+  if (faqs.length > 0) {
+    graph.push(buildFaqSchema(faqs));
+  }
+
   return {
     "@context": "https://schema.org",
-    "@graph": [buildDentistSchema(), buildArticleSchema(post)],
+    "@graph": graph,
   };
 }
 
