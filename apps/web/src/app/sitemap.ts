@@ -69,7 +69,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${business.siteUrl}/blog`,
       lastModified: now,
       changeFrequency: "weekly",
-      priority: 0.7,
+      priority: 0.85,
     },
     {
       url: `${business.siteUrl}/privacy`,
@@ -89,8 +89,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${business.siteUrl}/blog/${post.slug}`,
     lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.6,
+    changeFrequency: "weekly",
+    priority: 0.8,
   }));
 
   return [...staticRoutes, ...serviceRoutes, ...blogRoutes];
