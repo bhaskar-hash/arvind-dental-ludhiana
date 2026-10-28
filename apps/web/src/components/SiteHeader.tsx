@@ -23,6 +23,7 @@ const NAV: NavItem[] = [
     ? [{ href: "/cost-and-payment", label: "Prices & plans", match: (p: string) => p.startsWith("/cost-and-payment") || p.startsWith("/policies") }]
     : []),
   { href: "/about", label: "About", match: (p) => p.startsWith("/about") },
+  { href: "/blog", label: "Blog", match: (p) => p.startsWith("/blog") },
   { href: "/location", label: "Visit us", match: (p) => p.startsWith("/location") },
 ];
 
@@ -113,7 +114,7 @@ export function SiteHeader() {
             </picture>
           </Link>
 
-          <nav aria-label="Main" className="hidden items-center gap-8 lg:flex">
+          <nav aria-label="Main" className="hidden items-center gap-6 lg:flex xl:gap-8">
             {NAV.map((n) => (
               <Link
                 key={n.href}

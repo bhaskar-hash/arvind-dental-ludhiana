@@ -1,0 +1,191 @@
+{
+  "site": "https://redcitydental.com",
+  "clinic": {
+    "name": "RedCity Dental Care & Implant Centre",
+    "doctor": "Dr. Arvind Sahu",
+    "credentials": "BDS, MDS (Prosthodontics & Crown & Bridge)",
+    "credentialsShort": "MDS (Prosthodontics)",
+    "role": "Prosthodontist & Oral Implantologist",
+    "address": "47 A/1, South Model Gram, Ludhiana, Punjab 141002",
+    "landmark": "Near South Model Town",
+    "phone": "+91 76268 58230",
+    "phoneShort": "76268 58230",
+    "whatsapp": "https://wa.me/917626858230",
+    "maps": "https://maps.app.goo.gl/aw86VcC2PLQ8iETQ8",
+    "languages": "English · ਪੰਜਾਬੀ · हिंदी",
+    "hours": "Call or WhatsApp for today's hours",
+    "payment": "UPI (Google Pay, PhonePe, Paytm), debit and credit cards, cash. Bigger treatments can be paid in stages.",
+    "pricesAsOf": "Prices as of October 2026. Final cost is confirmed after examination."
+  },
+  "collections": ["Start here", "Replace missing teeth", "Pain & repair", "Smile", "Children", "Memberships"],
+  "items": [
+    {
+      "id": "photo-review", "collection": "Start here",
+      "name": "Online Photo Review",
+      "line": "Not sure what you need? Send us 3 photos.",
+      "price": "Send 3 photos on WhatsApp", "waPrice": "",
+      "fine": "Dr. Sahu will personally review your photos and send you a voice message — this is not an automated diagnosis.",
+      "description": "Not sure what you need? Send 3 photos of your teeth on WhatsApp: your front smile, your upper teeth and your lower teeth. Dr. Sahu will personally review your photos and send you a voice message — this is not an automated diagnosis.",
+      "link": "/#photo-review"
+    },
+    {
+      "id": "checkup", "collection": "Start here",
+      "name": "Check-up with Dr. Sahu",
+      "line": "A full examination, and honest advice on what needs doing",
+      "price": "₹300", "waPrice": "300",
+      "description": "A full examination of your teeth and gums by Dr. Arvind Sahu, MDS (Prosthodontics), with honest advice on what, if anything, needs doing. Most people need a check-up every 6 months. Fee: ₹300.",
+      "link": "/cost-and-payment#prices"
+    },
+    {
+      "id": "cleaning", "collection": "Start here",
+      "name": "Teeth Cleaning (Scaling & Polishing)",
+      "line": "Removes the tartar and stains that brushing can't",
+      "price": "₹1,000", "waPrice": "1000",
+      "fine": "Heavy build-up may need a second visit.",
+      "description": "Professional cleaning removes the hardened tartar and stains that brushing can't, to keep your gums healthy and your breath fresh. Fee: ₹1,000. Heavy build-up may need a second visit.",
+      "link": "/cost-and-payment#prices"
+    },
+    {
+      "id": "digital-xray", "collection": "Start here",
+      "name": "Digital X-ray",
+      "line": "Low-radiation, and taken only when needed",
+      "price": "₹200 per X-ray", "waPrice": "200",
+      "description": "Digital X-rays show decay, roots and bone that can't be seen in an examination. We take them only when they're needed to diagnose. Fee: ₹200 per X-ray.",
+      "link": "/cost-and-payment#prices"
+    },
+    {
+      "id": "dental-implants", "collection": "Replace missing teeth",
+      "name": "Dental Implants",
+      "line": "Fixed, natural-looking replacement for missing teeth",
+      "price": "Price after examination", "waPrice": "",
+      "badge": "Up to lifetime warranty*",
+      "fine": "*5-year, 10-year or lifetime, depending on the implant option. Breakage and failure from poor hygiene aren't covered.",
+      "description": "A fixed, natural-looking replacement for one missing tooth or many, planned by Dr. Arvind Sahu, MDS (Prosthodontics). Up to lifetime warranty*: 5-year, 10-year or lifetime, depending on the implant option. *Breakage and failure from poor hygiene aren't covered. Dr. Sahu will tell you whether implants suit you after an examination.",
+      "link": "/services/dental-implants"
+    },
+    {
+      "id": "dentures-bridges", "collection": "Replace missing teeth",
+      "name": "Dentures & Bridges",
+      "line": "Comfortable, natural-looking replacement teeth",
+      "price": "Price after examination", "waPrice": "",
+      "description": "Comfortable, natural-looking replacement for missing teeth: complete dentures, partial dentures, overdentures and fixed bridges, made to fit you.",
+      "link": "/services/dentures-bridges"
+    },
+    {
+      "id": "full-mouth-rehabilitation", "collection": "Replace missing teeth",
+      "name": "Full Mouth Rehabilitation",
+      "line": "One complete plan to restore chewing, comfort and looks",
+      "price": "Price after examination", "waPrice": "",
+      "description": "For worn, broken or missing teeth across the whole mouth: one complete plan to restore chewing, comfort and appearance. This is the work Dr. Sahu's prosthodontics training is built for.",
+      "link": "/services#full-mouth-rehabilitation"
+    },
+    {
+      "id": "root-canal-treatment", "collection": "Pain & repair",
+      "name": "Root Canal Treatment",
+      "line": "Right diagnosis first, and RCT only when it's needed",
+      "price": "Price after examination", "waPrice": "",
+      "description": "Not every toothache needs a root canal. Dr. Sahu first finds the real cause of the pain and recommends root canal treatment only when it's needed to save the tooth.",
+      "link": "/services/root-canal-treatment"
+    },
+    {
+      "id": "crowns", "collection": "Pain & repair",
+      "name": "Dental Crowns (Zirconia & PFM)",
+      "line": "Protect and restore a damaged tooth",
+      "price": "PFM from ₹2,000 · Zirconia from ₹4,000*", "waPrice": "",
+      "fine": "*Per tooth. Final cost may vary depending on clinical requirements.",
+      "description": "Crowns protect and restore damaged or root-canal-treated teeth. PFM crowns from ₹2,000 and Zirconia crowns from ₹4,000 per tooth*. Dr. Sahu will explain the difference in strength, appearance and cost. *Final cost may vary depending on clinical requirements.",
+      "link": "/services/crowns"
+    },
+    {
+      "id": "emergency-dental-care", "collection": "Pain & repair",
+      "name": "Emergency Dental Care",
+      "line": "Severe toothache, swelling or a broken tooth?",
+      "price": "Call 76268 58230", "waPrice": "",
+      "description": "Severe toothache, a broken or knocked-out tooth, or swelling? Call or WhatsApp +91 76268 58230 and we'll see you as early as we can. For heavy bleeding, an injury after an accident, or swelling that makes it hard to breathe or swallow, go to the nearest hospital emergency department.",
+      "link": "/services/emergency-dental-care"
+    },
+    {
+      "id": "laser-dentistry", "collection": "Pain & repair",
+      "name": "Laser Dentistry",
+      "line": "Precise, minimally invasive gum treatment",
+      "price": "Price after examination", "waPrice": "",
+      "description": "Precise, minimally invasive laser treatment for selected gum and soft-tissue procedures, where Dr. Sahu advises it suits you.",
+      "link": "/services/laser-dentistry"
+    },
+    {
+      "id": "veneers", "collection": "Smile",
+      "name": "Veneers",
+      "line": "Custom shells to improve shape, spacing or colour",
+      "price": "Price after examination", "waPrice": "",
+      "description": "Thin, custom-made shells bonded to the front of the teeth to improve their shape, spacing or colour, planned around your smile after a consultation.",
+      "link": "/services/veneers"
+    },
+    {
+      "id": "teeth-whitening", "collection": "Smile",
+      "name": "Teeth Whitening",
+      "line": "Dentist-supervised, natural-looking results",
+      "price": "Price after examination", "waPrice": "",
+      "description": "Professional, dentist-supervised whitening for a brighter smile, with realistic, natural-looking results. Dr. Sahu checks your teeth first so whitening is safe for you.",
+      "link": "/services/teeth-whitening"
+    },
+    {
+      "id": "smile-makeover", "collection": "Smile",
+      "name": "Smile Makeover",
+      "line": "Treatments planned together around your smile",
+      "price": "Price after examination", "waPrice": "",
+      "description": "Whitening, veneers, crowns or reshaping, planned together around your face and your smile after a consultation with Dr. Sahu.",
+      "link": "/services#smile-makeover"
+    },
+    {
+      "id": "paediatric-dentistry", "collection": "Children",
+      "name": "Kids' Dentistry",
+      "line": "Gentle check-ups and a calm first visit",
+      "price": "Price after examination", "waPrice": "",
+      "description": "Gentle check-ups, fillings and sealants for children, with a calm and positive first visit.",
+      "link": "/services/paediatric-dentistry"
+    },
+    {
+      "id": "membership-basic", "collection": "Memberships",
+      "name": "Basic Membership",
+      "line": "A check-up with Dr. Sahu every 6 months",
+      "price": "₹499 a year", "priceAlt": "or ₹299 for 6 months · ₹199 for 3 months", "waPrice": "499",
+      "fine": "This is a membership plan, not dental insurance.",
+      "description": "For healthy teeth. A check-up with Dr. Sahu every 6 months, consultations for a new problem, and 10% off cleanings, X-rays and general treatment. 12 months ₹499 · 6 months ₹299 · 3 months ₹199. This is a membership plan, not dental insurance.",
+      "link": "/cost-and-payment#membership"
+    },
+    {
+      "id": "membership-advanced", "collection": "Memberships",
+      "name": "Advanced Membership",
+      "line": "Check-ups, cleanings and X-rays included",
+      "price": "₹2,499 a year", "priceAlt": "or ₹1,399 for 6 months · ₹749 for 3 months", "waPrice": "2499",
+      "fine": "*On 6 and 12-month memberships. A membership plan, not dental insurance.",
+      "description": "Check-ups, cleanings and X-rays included, 15% off fillings, root canals and extractions, and 10% off crowns, bridges, dentures and implants*. 12 months ₹2,499 · 6 months ₹1,399 · 3 months ₹749. *Larger discounts on crowns, bridges, dentures and implants apply to 6 and 12-month memberships. Discounts apply to the clinic's fees; lab work and implant parts are charged at the normal price. This is a membership plan, not dental insurance.",
+      "link": "/cost-and-payment#membership"
+    },
+    {
+      "id": "membership-pro", "collection": "Memberships",
+      "name": "Pro Membership",
+      "line": "For people in treatment or planning bigger work",
+      "price": "₹3,499 a year", "priceAlt": "or ₹1,899 for 6 months · ₹1,049 for 3 months", "waPrice": "3499",
+      "fine": "*On 6 and 12-month memberships. A membership plan, not dental insurance.",
+      "description": "Everything in Advanced, plus 20% off general treatment, 15% off crowns, bridges, dentures and implants*, priority WhatsApp replies and a same-day emergency slot during clinic hours. 12 months ₹3,499 · 6 months ₹1,899 · 3 months ₹1,049. *Larger discounts on crowns, bridges, dentures and implants apply to 6 and 12-month memberships. Discounts apply to the clinic's fees; lab work and implant parts are charged at the normal price. This is a membership plan, not dental insurance.",
+      "link": "/cost-and-payment#membership"
+    },
+    {
+      "id": "membership-family", "collection": "Memberships",
+      "name": "Family with Pro",
+      "line": "Pro benefits for 2 adults and 2 children",
+      "price": "₹9,999 a year", "priceAlt": "or ₹5,499 for 6 months · ₹2,999 for 3 months", "waPrice": "9999",
+      "fine": "Children under 18. A membership plan, not dental insurance.",
+      "description": "Pro benefits for 2 adults and 2 children under 18, with fluoride or sealants for children when clinically advised. Add more family members at a member rate: ₹2,499 for 12 months, ₹1,399 for 6 months or ₹749 for 3 months each. 12 months ₹9,999 · 6 months ₹5,499 · 3 months ₹2,999. This is a membership plan, not dental insurance.",
+      "link": "/cost-and-payment#membership"
+    }
+  ],
+  "meetDrSahu": {
+    "id": "meet-dr-sahu",
+    "title": "Meet Dr. Arvind Sahu",
+    "credentials": "BDS, MDS (Prosthodontics & Crown & Bridge)",
+    "role": "Prosthodontist & Oral Implantologist",
+    "quote": "ਹਰ ਮੁਸਕਾਨ ਦੀ ਆਪਣੀ ਇੱਕ ਕਹਾਣੀ ਹੁੰਦੀ ਹੈ, ਅਤੇ ਮੇਰਾ ਮਕਸਦ ਉਸ ਮੁਸਕਾਨ ਨੂੰ ਹੋਰ ਖੂਬਸੂਰਤ ਬਣਾਉਣਾ ਹੈ।"
+  }
+}

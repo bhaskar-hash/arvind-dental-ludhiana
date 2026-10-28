@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>RedCity Dental Care — Complete Service Catalogue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Gurmukhi:wght@500;600&family=Roboto+Slab:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    body {
+      background: #FBF6F4;
+      font-family: 'Inter', -apple-system, sans-serif;
+      color: #1F1718;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .page {
+      width: 210mm;
+      height: 297mm;
+      position: relative;
+      background: #FBF6F4;
+      overflow: hidden;
+      page-break-after: always;
+      break-after: page;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Cover Page */
+    .cover-top {
+      width: 210mm;
+      height: 135mm;
+      overflow: hidden;
+    }
+    .cover-top img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+    }
+    .cover-body {
+      flex: 1;
+      padding: 36px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #FBF6F4;
+    }
+    .cover-logo img {
+      height: 48px;
+      width: auto;
+      display: block;
+    }
+    .cover-title {
+      font-family: 'Roboto Slab', serif;
+      font-weight: 800;
+      font-size: 38px;
+      line-height: 1.15;
+      color: #1F1718;
+      margin-top: 14px;
+    }
+    .cover-subtitle {
+      font-size: 18px;
+      font-weight: 500;
+      color: #5E5456;
+      margin-top: 6px;
+    }
+    .cover-meta {
+      background: #FFFFFF;
+      border: 1px solid #EADFDC;
+      border-radius: 14px;
+      padding: 22px 28px;
+      margin-top: 20px;
+    }
+    .cover-meta-doctor {
+      font-family: 'Roboto Slab', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #1F1718;
+    }
+    .cover-meta-creds {
+      font-size: 14px;
+      font-weight: 600;
+      color: #A61C2E;
+      margin-top: 2px;
+    }
+    .cover-meta-addr {
+      font-size: 13px;
+      color: #5E5456;
+      margin-top: 6px;
+    }
+    .cover-meta-phone {
+      font-size: 15px;
+      font-weight: 700;
+      color: #A61C2E;
+      margin-top: 8px;
+    }
+    
+    /* Inner Page Layout */
+    .page-header {
+      padding: 32px 42px 14px;
+      border-bottom: 2px solid #EADFDC;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .page-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: 26px;
+      font-weight: 800;
+      color: #1F1718;
+      line-height: 1.15;
+    }
+    .page-sub {
+      font-size: 13px;
+      color: #5E5456;
+      margin-top: 4px;
+    }
+    .header-logo img {
+      height: 28px;
+      width: auto;
+    }
+    
+    .page-content {
+      flex: 1;
+      padding: 22px 42px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .pdf-footer {
+      height: 16mm;
+      padding: 0 42px;
+      border-top: 1px solid #EADFDC;
+      background: #F6ECE9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      color: #5E5456;
+    }
+    
+    /* Meet Dr Sahu Page */
+    .doc-grid {
+      display: grid;
+      grid-template-columns: 58mm 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+    .doc-portrait {
+      width: 58mm;
+      height: 78mm;
+      object-fit: cover;
+      object-position: center 20%;
+      border-radius: 12px;
+      border: 2px solid #D4AF37;
+      display: block;
+    }
+    .doc-lead {
+      font-size: 13.5px;
+      color: #1F1718;
+      margin-bottom: 8px;
+    }
+    .doc-edu {
+      background: #FFFFFF;
+      border: 1px solid #EADFDC;
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin-top: 10px;
+    }
+    .edu-item {
+      margin-bottom: 6px;
+    }
+    .edu-item:last-child { margin-bottom: 0; }
+    .edu-deg { font-weight: 700; color: #1F1718; font-size: 12.5px; }
+    .edu-inst { color: #5E5456; font-size: 11.5px; }
+    
+    .chips-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+    .chip {
+      background: #FFFFFF;
+      border: 1px solid #EADFDC;
+      border-radius: 999px;
+      padding: 3px 10px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #2B0A0F;
+    }
+    
+    .punjabi-box {
+      background: #F6ECE9;
+      border: 1px solid #EADFDC;
+      border-radius: 12px;
+      padding: 16px 20px;
+      font-family: 'Noto Sans Gurmukhi', sans-serif;
+      margin-top: 10px;
+    }
+    .punjabi-quote-lg {
+      font-weight: 600;
+      font-size: 14px;
+      color: #A61C2E;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .punjabi-p {
+      font-size: 11.5px;
+      line-height: 1.6;
+      color: #2B0A0F;
+      margin-bottom: 6px;
+    }
+    .punjabi-p:last-child { margin-bottom: 0; }
+    
+    /* Treatment Card Styling in PDF */
+    .pdf-item {
+      background: #FFFFFF;
+      border: 1px solid #EADFDC;
+      border-radius: 12px;
+      padding: 14px 18px;
+      display: grid;
+      grid-template-columns: 45mm 1fr;
+      gap: 16px;
+      align-items: center;
+    }
+    .pdf-item-art {
+      width: 45mm;
+      height: 38mm;
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .pdf-item-art img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .badge-mini {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      background: #D4AF37;
+      color: #2B0A0F;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+    .pdf-item-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+    .pdf-item-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1F1718;
+    }
+    .pdf-item-price {
+      font-weight: 700;
+      font-size: 13.5px;
+      color: #A61C2E;
+      white-space: nowrap;
+      margin-left: 12px;
+    }
+    .pdf-item-desc {
+      font-size: 11.5px;
+      color: #5E5456;
+      line-height: 1.45;
+    }
+    .card-fine {
+      font-size: 10.5px;
+      color: #7D1523;
+      margin-top: 4px;
+      font-style: italic;
+    }
+    .pdf-item-link {
+      font-size: 9.5px;
+      color: #A61C2E;
+      margin-top: 4px;
+    }
+    
+    /* Table Styling */
+    .table-wrap {
+      background: #FFFFFF;
+      border: 1px solid #EADFDC;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 6px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+    }
+    th {
+      background: #2B0A0F;
+      color: #FFFFFF;
+      font-weight: 600;
+      padding: 10px 12px;
+      text-align: left;
+    }
+    td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #EADFDC;
+      vertical-align: top;
+    }
+    tr:last-child td { border-bottom: none; }
+    .td-plan { font-weight: 700; font-size: 12px; color: #1F1718; }
+    .td-price { font-weight: 700; color: #A61C2E; }
+    
+    /* Callout & Promises */
+    .callout {
+      background: #FFFFFF;
+      border-left: 4px solid #A61C2E;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 8px;
+    }
+    .callout h4 {
+      font-family: 'Roboto Slab', serif;
+      font-size: 15px;
+      color: #1F1718;
+      margin-bottom: 4px;
+    }
+    .callout p {
+      font-size: 12px;
+      color: #5E5456;
+      line-height: 1.5;
+    }
+    
+    /* Visit Us */
+    .clinic-photo {
+      width: 100%;
+      height: 90mm;
+      object-fit: cover;
+      object-position: center 50%;
+      border-radius: 12px;
+      border: 2px solid #D4AF37;
+      display: block;
+    }
+    .contact-card {
+      background: #FFFFFF;
+      border: 1px solid #EADFDC;
+      border-radius: 12px;
+      padding: 18px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 10px;
+    }
+    .contact-line {
+      margin-bottom: 8px;
+    }
+    .contact-label {
+      font-weight: 700;
+      color: #1F1718;
+      font-size: 12px;
+      display: block;
+    }
+    .contact-val {
+      color: #5E5456;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== PAGE 1: COVER ==================== -->
+  <section class="page">
+    <div class="cover-top">
+      <img src="file:///Users/dream/Desktop/Arvind Website project/apps/web/public/ai/catalogue/cover.jpg" alt="RedCity Dental Care">
+    </div>
+    <div class="cover-body">
+      <div>
+        <div class="cover-logo">
+          <img src="file:///Users/dream/Desktop/Arvind Website project/apps/web/public/redcity-logo-full.png" alt="RedCity Dental Care">
+        </div>
+        <h1 class="cover-title">Treatments, Fees &amp; Memberships</h1>
+        <p class="cover-subtitle">Complete Care · Advanced Care · Personalized Care</p>
+      </div>
+      <div class="cover-meta">
+        <div class="cover-meta-doctor">Dr. Arvind Sahu</div>
+        <div class="cover-meta-creds">BDS, MDS (Prosthodontics &amp; Crown &amp; Bridge) · Prosthodontist &amp; Oral Implantologist</div>
+        <div class="cover-meta-addr">📍 47 A/1, South Model Gram, Ludhiana, Punjab 141002 (Near South Model Town)</div>
+        <div class="cover-meta-phone">📞 +91 76268 58230 · WhatsApp: https://wa.me/917626858230</div>
+      </div>
+    </div>
+    
+    <footer class="pdf-footer">
+      <span>RedCity Dental Care &amp; Implant Centre · 47 A/1, South Model Gram, Ludhiana · +91 76268 58230</span>
+      <span>Prices as of October 2026. Final cost is confirmed after examination.</span>
+    </footer>
+  
+  </section>
+
+  <!-- ==================== PAGE 2: MEET DR SAHU ==================== -->
+  <section class="page">
+    <header class="page-header">
+      <div>
+        <h2 class="page-title">Meet Dr. Arvind Sahu</h2>
+        <p class="page-sub">Prosthodontist &amp; Oral Implantologist · Ludhiana</p>
+      </div>
+      <div class="header-logo"><img src="file:///Users/dream/Desktop/Arvind Website project/apps/web/public/redcity-logo.png" alt="RedCity"></div>
+    </header>
+    <div class="page-content">
+      <div class="doc-grid">
+        <img class="doc-portrait" src="file:///Users/dream/Desktop/Arvind Website project/apps/web/public/dr-arvind-sahu.jpg" alt="Dr. Arvind Sahu">
+        <div>
+          <p class="doc-lead"><strong>Dr. Arvind Sahu</strong> is dedicated to delivering advanced, personalized dental care with a focus on function, aesthetics, precision, and long-term results.</p>
+          <p class="doc-lead">With a strong interest in implant dentistry and digital prosthodontics, Dr. Sahu integrates modern technology and evidence-based treatment principles to create natural-looking, comfortable, and functional dental restorations.</p>
+          <p class="doc-lead">His philosophy is simple: every patient deserves a treatment plan that is scientifically sound, aesthetically pleasing, and designed around their individual needs.</p>
+          
+          <div class="doc-edu">
+            <div class="edu-item">
+              <div class="edu-deg">Bachelor of Dental Surgery (BDS)</div>
+              <div class="edu-inst">Bhojia Dental College, Himachal Pradesh</div>
+            </div>
+            <div class="edu-item">
+              <div class="edu-deg">Master of Dental Surgery (MDS), Prosthodontics &amp; Crown and Bridge</div>
+              <div class="edu-inst">Seema Dental College &amp; Hospital, Rishikesh</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 4px;">
+        <strong style="font-size:12px; color:#1F1718;">Clinical Expertise:</strong>
+        <div class="chips-row">
+          <span class="chip">Dental Implants</span>
+          <span class="chip">Full Mouth Rehabilitation</span>
+          <span class="chip">Crowns &amp; Bridges</span>
+          <span class="chip">Smile Design</span>
+          <span class="chip">Esthetic Dentistry</span>
+          <span class="chip">Digital Dentistry</span>
+          <span class="chip">Complete Dentures</span>
+          <span class="chip">Overdentures</span>
+          <span class="chip">Maxillofacial Prosthetics</span>
+        </div>
+      </div>
+
+      <div class="punjabi-box">
+        <div class="punjabi-quote-lg">“ਹਰ ਮੁਸਕਾਨ ਦੀ ਆਪਣੀ ਇੱਕ ਕਹਾਣੀ ਹੁੰਦੀ ਹੈ, ਅਤੇ ਮੇਰਾ ਮਕਸਦ ਉਸ ਮੁਸਕਾਨ ਨੂੰ ਹੋਰ ਖੂਬਸੂਰਤ ਬਣਾਉਣਾ ਹੈ।”</div>
+        <p class="punjabi-p">ਮੇਰੇ ਲਈ ਡੈਂਟਲ ਟ੍ਰੀਟਮੈਂਟ ਸਿਰਫ਼ ਦੰਦਾਂ ਦਾ ਇਲਾਜ ਨਹੀਂ—ਇਹ ਤੁਹਾਡੀ ਸਿਹਤ, ਤੁਹਾਡੇ ਆਰਾਮ ਅਤੇ ਤੁਹਾਡੇ ਆਤਮ-ਵਿਸ਼ਵਾਸ ਨਾਲ ਜੁੜਿਆ ਹੋਇਆ ਹੈ।</p>
+        <p class="punjabi-p">ਮੈਂ ਹਰ ਮਰੀਜ਼ ਨੂੰ ਧਿਆਨ ਨਾਲ ਸੁਣਨ, ਉਸਦੀ ਸਮੱਸਿਆ ਨੂੰ ਸਮਝਣ ਅਤੇ ਉਸਦੇ ਲਈ ਸਹੀ, ਇਮਾਨਦਾਰ ਅਤੇ ਵਿਅਕਤੀਗਤ ਇਲਾਜ ਦੀ ਯੋਜਨਾ ਬਣਾਉਣ ਵਿੱਚ ਵਿਸ਼ਵਾਸ ਰੱਖਦਾ ਹਾਂ।</p>
+        <p class="punjabi-p">ਤੁਹਾਡੇ ਦੰਦ ਸਿਰਫ਼ ਤੁਹਾਡੀ ਮੁਸਕਾਨ ਦਾ ਹਿੱਸਾ ਨਹੀਂ—ਇਹ ਤੁਹਾਡੀ ਪਹਿਚਾਣ ਦਾ ਹਿੱਸਾ ਹਨ। ਆਓ, ਮਿਲ ਕੇ ਤੁਹਾਡੀ ਮੁਸਕਾਨ ਨੂੰ ਸਿਹਤਮੰਦ, ਕੁਦਰਤੀ ਅਤੇ ਆਤਮ-ਵਿਸ਼ਵਾਸ ਨਾਲ ਭਰਪੂਰ ਬਣਾਈਏ।</p>
+      </div>
+    </div>
+    
+    <footer class="pdf-footer">
+      <span>RedCity Dental Care &amp; Implant Centre · 47 A/1, South Model Gram, Ludhiana · +91 76268 58230</span>
+      <span>Prices as of October 2026. Final cost is confirmed after examination.</span>
+    </footer>
+  
+  </section>
+
+  <!-- ==================== PAGE 3: START HERE ==================== -->
+  <section class="page">
+    <header class="page-header">
+      <div>
+        <h2 class="page-title">Start Here · Photo Review &amp; Routine Care</h2>
+        <p class="page-sub">Clear fees, no hidden extras, and honest advice first</p>
+      </div>
+      <div class="header-logo"><img src="file:///Users/dream/Desktop/Arvind Website project/apps/web/public/redcity-logo.png" alt="RedCity"></div>
+    </header>
+    <div class="page-content">
+      
+      <div class="pdf-item">
+        <div class="pdf-item-art">
+          <img src="file:///Users/dream/Desktop/Arvind Website project/apps/web/public/ai/catalogue/photo-review.jpg" alt="Online Photo Review">
+          
+        </div>
+        <div class="pdf-item-body">
+          <div class="pdf-item-head">
+            <h3 class="pdf-item-title">Online Photo Review</h3>
+            <span class="pdf-item-price">Send 3 photos on WhatsApp</span>
+          </div>
+          <p class="pdf-item-desc">Not sure what you need? Send 3 photos of your teeth on WhatsApp: your front smile, your upper teeth and your lower teeth. Dr. Sahu will personally review your photos and send you a voice message — this is not an automated diagnosis.</p>
+          <div class="card-fine">Dr. Sahu will personally review your photos and send you a voice message — this is not an automated diagnosis.</div>
+        </div>
+      </div>
+    
+      
+      <div class="pdf-item">
+        <div class="pdf-item-art">
+          <img src="file:///Users/dream/Desktop/Arvind Website project/apps/web/public/ai/catalogue/checkup.jpg" alt="Check-up with Dr. Sahu">
+          
+        </div>
+        <div class="pdf-item-body">
+          <div class="pdf-item-head">
+            <h3 class="pdf-item-title">Check-up with Dr. Sahu</h3>
+            <span class="pdf-item-price">₹300</span>
+          </div>
+          <p class="pdf-item-desc">A full examination of your teeth and gums by Dr. Arvind Sahu, MDS (Prosthodontics), with honest advice on what, if anything, needs doing. Most people need a check-up every 6 months. Fee: ₹300.</p>
+          
+        </div>
+      </div>
+    
+      
+      <div class="pdf-item">
+        <div class="pdf-item-art">
+          <img src="file:///Users/dream/Desktop/Arvind Website project/apps/web/public/ai/catalogue/cleaning.jpg" alt="Teeth Cleaning (Scaling & Polishing)">
+          
+        </div>
+        <div class="pdf-item-body">
+          <div class="pdf-item-head">
+            <h3 class="pdf-item-title">Teeth Cleaning (Scaling & Polishing)</h3>
+            <span class="pdf-item-price">₹1,000</span>
+          </div>
+          <p class="pdf-item-desc">Professional cleaning removes the hardened tartar and stains that brushing can't, to keep your gums healthy and your breath fresh. Fee: ₹1,000. Heavy build-up may need a second visit.</p>
+          <div class="card-fine">Heavy build-up may need a second visit.</div>
+        </div>
+      </div>
+    
+      
+      <div class="pdf-item">
+        <div class="pdf-item-art">
+          <img src="file:///Users/dream/Desktop/Arvind Website project/apps/web/public/ai/catalogue/digital-xray.jpg" alt="Digital X-ray">
+          
+        </div>
+        <div class="pdf-item-body">
+          <div class="pdf-item-head">
+            <h3 class="pdf-item-title">Digital X-ray</h3>
+            <span class="pdf-item-price">₹200 per X-ray</span>
+          </div>
+          <p class="pdf-item-desc">Digital X-rays show decay, roots and bone that can't be seen in an examination. We take them only when they're needed to diagnose. Fee: ₹200 per X-ray.</p>
+          
+        </div>
+      </div>
+    
+    </div>
+    
+    <footer class="pdf-footer">
+      <span>RedCity Dental Care &amp; Implant Centre · 47 A/1, South Model Gram, Ludhiana · +91 76268 58230</span>
+      <span>Prices as of October 2026. Final cost is confirmed after examination.</span>
+    </footer>
+  
+  </section>
+
+  <!-- ==================== PAGE 4: REPLACE MISSING TEETH ==================== -->
+  <section class="page">
+    <header class="page-header">
+      <div>
+        <h2 class="page-title">Replace Missing Teeth</h2>
+        <p class="page-sub">Dental implants, precision prosthetics, and complete rehabilitations</p>
+      </div>
+      <div class="header-logo"><img src="file:///Users/dream/Desktop/Arvind Website project/apps/web/public/redcity-logo.png" alt="RedCity"></div>
+    </header>
+    <div class="page-content" style="gap: 22px;">
+      
+      <div class="pdf-item">
+        <div class="pdf-item-art">
+          <img src="file:///Users/dream/Desktop/Arvind Website project/apps/web/public/ai/catalogue/implants.jpg" alt="Dental Implants">
+          <span class="badge-mini">Up to lifetime warranty*</span>
+        </div>
+        <div class="pdf-item-body">
+          <div class="pdf-item-head">
+            <h3 class="pdf-item-title">Dental Implants</h3>
+            <span class="pdf-item-price">Price after examination</span>
+          </div>
+          <p class="pdf-item-desc">A fixed, natural-looking replacement for one missing tooth or many, planned by Dr. Arvind Sahu, MDS (Prosthodontics). Up to lifetime warranty*: 5-year, 10-year or lifetime, depending on the implant option. *Breakage and failure from poor hygiene aren't covered. Dr. Sahu will tell you whether implants suit you after an examination.</p>
+          <div class="card-fine">*5-year, 10-year or lifetime, depending on the implant option. Breakage and failure from poor hygiene aren't covered.</div>
+        </div>
+      </div>
+    
+      
+      <div class="pdf-item">
+        <div class="pdf-item-art">
+          <img src="file:///Users/dream/Desktop/Arvind Website project/apps/web/public/ai/treatments/dentures-bridges.jpg" alt="Dentures & Bridges">
+          
+        </div>
+        <div class="pdf-item-body">
+          <div class="pdf-item-head">
+            <h3 class="pdf-item-title">Dentures & Bridges</h3>
+            <span class="pdf-item-price">Price after examination</span>
+          </div>
+          <p class="pdf-item-desc">Comfortable, natural-looking replacement for missing teeth: complete dentures, partial dentures, overdentures and fixed bridges, made to fit you.</p>
+          
+        </div>
+      </div>
+    
+      
+      <div class="pdf-item">
+        <div class="pdf-item-art">
+          <img src="file:///Users/dream/Desktop/Arvind Website project/apps/web/public/ai/catalogue/full-mouth-rehabilitation.jpg" alt="Full Mouth Rehabilitation">
+          
+        </div>
+        <div class="pdf-item-body">
+          <div class="pdf-item-head">
+            <h3 class="pdf-item-title">Full Mouth Rehabilitation</h3>
+            <span class="pdf-item-price">Price after examination</span>
+          </div>
+          <p class="pdf-item-desc">For worn, broken or missing teeth across the whole mouth: one complete plan to restore chewing, comfort and appearance. This is the work Dr. Sahu's prosthodontics training is built for.</p>
+          
+        </div>
+      </div>
+    
+    </div>
+    
+    <footer class="pdf-footer">
+      <span>RedCity Dental Care &amp; Implant Centre · 47 A/1, South Model Gram, Ludhiana · +91 76268 58230</span>
+      <span>Prices as of October 2026. Final cost is confirmed after examination.</span>
+    </footer>
+  
+  </section>
+
+  <!-- ==================== PAGE 5: PAIN & REPAIR ==================== -->
+  <section class="page">
+    <header class="page-header">
+      <div>
+        <h2 class="page-title">Pain &amp; Repair</h2>
+        <p class="page-sub">Root canals, restorative crowns, and urgent emergency relief</p>
+      </div>
+      <div class="header-logo"><img src="file:///Users/dream/Desktop/Arvind Website project/apps/web/public/redcity-logo.png" alt="RedCity"></div>
+    </header>
+    <div class="page-content">
+      
+      <div class="pdf-item">
+        <div class="pdf-item-art">
+          <img src="file:///Users/dream/Desktop/Arvind Website project/apps/web/public/ai/treatments/root-canal-treatment.jpg" alt="Root Canal Treatment">
+          
+        </div>
+        <div class="pdf-item-body">
+          <div class="pdf-item-head">
+            <h3 class="pdf-item-title">Root Canal Treatment</h3>
+            <span class="pdf-item-price">Price after examination</span>
+          </div>
+          <p class="pdf-item-desc">Not every toothache needs a root canal. Dr. Sahu first finds the real cause of the pain and recommends root canal treatment only when it's needed to save the tooth.</p>
+          
+        </div>
+      </div>
+    
+      
+      <div class="pdf-item">
+        <div class="pdf-item-art">
+          <img src="file:///Users/dream/Desktop/Arvind Website project/apps/web/public/ai/treatments/crowns.jpg" alt="Dental Crowns (Zirconia & PFM)">
+          
+        </div>
+        <div class="pdf-item-body">
+          <div class="pdf-item-head">
+            <h3 class="pdf-item-title">Dental Crowns (Zirconia & PFM)</h3>
+            <span class="pdf-item-price">PFM from ₹2,000 · Zirconia from ₹4,000*</span>
+          </div>
+          <p class="pdf-item-desc">Crowns protect and restore damaged or root-canal-treated teeth. PFM crowns from ₹2,000 and Zirconia crowns from ₹4,000 per tooth*. Dr. Sahu will explain the difference in strength, appearance and cost. *Final cost may vary depending on clinical requirements.</p>
+          <div class="card-fine">*Per tooth. Final cost may vary depending on clinical requirements.</div>
+        </div>
+      </div>
+    
+      
+      <div class="pdf-item">
+        <div class="pdf-item-art">
+          <img src="file:///Users/dream/Desktop/Arvind Website project/apps/web/public/ai/treatments/emergency-dental-care.jpg" alt="Emergency Dental Care">
+          
+        </div>
+        <div class="pdf-item-body">
+          <div class="pdf-item-head">
+            <h3 class="pdf-item-title">Emergency Dental Care</h3>
+            <span class="pdf-item-price">Call 76268 58230</span>
+          </div>
+          <p class="pdf-item-desc">Severe toothache, a broken or knocked-out tooth, or swelling? Call or WhatsApp +91 76268 58230 and we'll see you as early as we can. For heavy bleeding, an injury after an accident, or swelling that makes it hard to breathe or swallow, go to the nearest hospital emergency department.</p>
+          
+        </div>
+      </div>
+    
+      
+      <div class="pdf-item">
+        <div class="pdf-item-art">
+          <img src="file:///Users/dream/Desktop/Arvind Website project/apps/web/public/ai/treatments/laser-dentistry.jpg" alt="Laser Dentistry">
+          
+        </div>
+        <div class="pdf-item-body">
+          <div class="pdf-item-head">
+            <h3 class="pdf-item-title">Laser Dentistry</h3>
+            <span class="pdf-item-price">Price after examination</span>
+          </div>
+          <p class="pdf-item-desc">Precise, minimally invasive laser treatment for selected gum and soft-tissue procedures, where Dr. Sahu advises it suits you.</p>
+          
+        </div>
+      </div>
+    
+    </div>
+    
+    <footer class="pdf-footer">
+      <span>RedCity Dental Care &amp; Implant Centre · 47 A/1, South Model Gram, Ludhiana · +91 76268 58230</span>
+      <span>Prices as of October 2026. Final cost is confirmed after examination.</span>
+    </footer>
+  
+  </section>
+
+  <!-- ==================== PAGE 6: SMILE & CHILDREN ==================== -->
+  <section class="page">
+    <header class="page-header">
+      <div>
+        <h2 class="page-title">Smile &amp; Children</h2>
+        <p class="page-sub">Custom aesthetic smile design and positive paediatric dentistry</p>
+      </div>
+      <div class="header-logo"><img src="file:///Users/dream/Desktop/Arvind Website project/apps/web/public/redcity-logo.png" alt="RedCity"></div>
+    </header>
+    <div class="page-content">
+      
+      <div class="pdf-item">
+        <div class="pdf-item-art">
+          <img src="file:///Users/dream/Desktop/Arvind Website project/apps/web/public/ai/treatments/veneers.jpg" alt="Veneers">
+          
+        </div>
+        <div class="pdf-item-body">
+          <div class="pdf-item-head">
+            <h3 class="pdf-item-title">Veneers</h3>
+            <span class="pdf-item-price">Price after examination</span>
+          </div>
+          <p class="pdf-item-desc">Thin, custom-made shells bonded to the front of the teeth to improve their shape, spacing or colour, planned around your smile after a consultation.</p>
+          
+        </div>
+      </div>
+    
+      
+      <div class="pdf-item">
+        <div class="pdf-item-art">
+          <img src="file:///Users/dream/Desktop/Arvind Website project/apps/web/public/ai/treatments/teeth-whitening.jpg" alt="Teeth Whitening">
+          
+        </div>
+        <div class="pdf-item-body">
+          <div class="pdf-item-head">
+            <h3 class="pdf-item-title">Teeth Whitening</h3>
+            <span class="pdf-item-price">Price after examination</span>
+          </div>
+          <p class="pdf-item-desc">Professional, dentist-supervised whitening for a brighter smile, with realistic, natural-looking results. Dr. Sahu checks your teeth first so whitening is safe for you.</p>
+          
+        </div>
+      </div>
+    
+      
+      <div class="pdf-item">
+        <div class="pdf-item-art">
+          <img src="file:///Users/dream/Desktop/Arvind Website project/apps/web/public/ai/catalogue/smile-makeover.jpg" alt="Smile Makeover">
+          
+        </div>
+        <div class="pdf-item-body">
+          <div class="pdf-item-head">
+            <h3 class="pdf-item-title">Smile Makeover</h3>
+            <span class="pdf-item-price">Price after examination</span>
+          </div>
+          <p class="pdf-item-desc">Whitening, veneers, crowns or reshaping, planned together around your face and your smile after a consultation with Dr. Sahu.</p>
+          
+        </div>
+      </div>
+    
+      
+      <div class="pdf-item">
+        <div class="pdf-item-art">
+          <img src="file:///Users/dream/Desktop/Arvind Website project/apps/web/public/ai/treatments/paediatric-dentistry.jpg" alt="Kids' Dentistry">
+          
+        </div>
+        <div class="pdf-item-body">
+          <div class="pdf-item-head">
+            <h3 class="pdf-item-title">Kids' Dentistry</h3>
+            <span class="pdf-item-price">Price after examination</span>
+          </div>
+          <p class="pdf-item-desc">Gentle check-ups, fillings and sealants for children, with a calm and positive first visit.</p>
+          
+        </div>
+      </div>
+    
+    </div>
+    
+    <footer class="pdf-footer">
+      <span>RedCity Dental Care &amp; Implant Centre · 47 A/1, South Model Gram, Ludhiana · +91 76268 58230</span>
+      <span>Prices as of October 2026. Final cost is confirmed after examination.</span>
+    </footer>
+  
+  </section>
+
+  <!-- ==================== PAGE 7: MEMBERSHIPS ==================== -->
+  <section class="page">
+    <header class="page-header">
+      <div>
+        <h2 class="page-title">Dental Membership Plans</h2>
+        <p class="page-sub">Predictable prevention and discounted care for you and your family</p>
+      </div>
+      <div class="header-logo"><img src="file:///Users/dream/Desktop/Arvind Website project/apps/web/public/redcity-logo.png" alt="RedCity"></div>
+    </header>
+    <div class="page-content">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Plan</th>
+              <th>3 Months</th>
+              <th>6 Months</th>
+              <th>12 Months</th>
+              <th>Included Care &amp; Member Discounts</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="td-plan">Basic<br><span style="font-weight:normal;color:#5E5456;font-size:10px">Healthy teeth</span></td>
+              <td class="td-price">₹199</td>
+              <td class="td-price">₹299</td>
+              <td class="td-price">₹499</td>
+              <td>• Check-up with Dr. Sahu every 6 months<br>• Consultations for new problems<br>• 10% off cleanings, X-rays and general treatment</td>
+            </tr>
+            <tr>
+              <td class="td-plan">Advanced<br><span style="font-weight:normal;color:#5E5456;font-size:10px">Cleanings &amp; savings</span></td>
+              <td class="td-price">₹749</td>
+              <td class="td-price">₹1,399</td>
+              <td class="td-price">₹2,499</td>
+              <td>• <strong>Check-ups, cleanings and X-rays included</strong><br>• 15% off fillings, root canals and extractions<br>• 10% off crowns, bridges, dentures and implants*</td>
+            </tr>
+            <tr>
+              <td class="td-plan">Pro<br><span style="font-weight:normal;color:#5E5456;font-size:10px">In treatment</span></td>
+              <td class="td-price">₹1,049</td>
+              <td class="td-price">₹1,899</td>
+              <td class="td-price">₹3,499</td>
+              <td>• Everything in Advanced included<br>• <strong>20% off general treatment</strong><br>• <strong>15% off crowns, bridges, dentures &amp; implants*</strong><br>• Priority WhatsApp replies &amp; same-day emergency slot</td>
+            </tr>
+            <tr>
+              <td class="td-plan">Family with Pro<br><span style="font-weight:normal;color:#5E5456;font-size:10px">Whole family</span></td>
+              <td class="td-price">₹2,999</td>
+              <td class="td-price">₹5,499</td>
+              <td class="td-price">₹9,999</td>
+              <td>• Pro benefits for <strong>2 adults and 2 children</strong> under 18<br>• Fluoride or sealants for children when clinically advised<br>• Add extra members: ₹749 (3m) · ₹1,399 (6m) · ₹2,499 (12m)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="background:#FFFFFF; border:1px solid #EADFDC; border-radius:10px; padding:14px 18px; margin-top:8px;">
+        <strong style="color:#1F1718; font-size:12px;">Important Membership Terms:</strong>
+        <p style="color:#5E5456; font-size:11px; margin-top:4px; line-height:1.5;">
+          *Larger discounts on crowns, bridges, dentures and implants apply to 6 and 12-month memberships. Discounts apply to the clinic's professional fees; lab work and implant parts are charged at normal price.<br>
+          <strong>This is a membership plan, not dental insurance.</strong> Plans are non-transferable and apply to treatment at RedCity Dental Care.
+        </p>
+      </div>
+    </div>
+    
+    <footer class="pdf-footer">
+      <span>RedCity Dental Care &amp; Implant Centre · 47 A/1, South Model Gram, Ludhiana · +91 76268 58230</span>
+      <span>Prices as of October 2026. Final cost is confirmed after examination.</span>
+    </footer>
+  
+  </section>
+
+  <!-- ==================== PAGE 8: OUR PROMISES ==================== -->
+  <section class="page">
+    <header class="page-header">
+      <div>
+        <h2 class="page-title">Our Promises to Patients</h2>
+        <p class="page-sub">Clear warranties, honest pricing, and compassionate policies</p>
+      </div>
+      <div class="header-logo"><img src="file:///Users/dream/Desktop/Arvind Website project/apps/web/public/redcity-logo.png" alt="RedCity"></div>
+    </header>
+    <div class="page-content" style="gap: 14px;">
+      <div class="callout">
+        <h4>Dental Implant Warranty: Up to lifetime warranty*</h4>
+        <p>
+          We stand firmly behind our implant restorations. Which option a patient receives is agreed upon with Dr. Sahu and clearly specified on your treatment plan:<br>
+          • <strong>5-year, 10-year or lifetime coverage</strong> on the implant fixture depending on the selected option.<br>
+          • <strong>Check-up requirement:</strong> To keep your implant warranty active, a routine check-up is required every 6 months.<br>
+          • <em>*Breakage and failure resulting from poor oral hygiene, accidental trauma, or unmanaged systemic conditions aren't covered.</em>
+        </p>
+      </div>
+
+      <div class="callout">
+        <h4>Transparent Payments &amp; Staged Plans</h4>
+        <p>
+          • <strong>Accepted payment methods:</strong> UPI (Google Pay, PhonePe, Paytm), debit and credit cards, and cash.<br>
+          • <strong>Staged payment for bigger work:</strong> Extensive treatments such as full mouth rehabilitations, multiple implants, or smile makeovers can be paid in scheduled stages as clinical phases are completed.<br>
+          • <strong>No surprise bills:</strong> You will always receive a clear written estimate before any major procedure begins.
+        </p>
+      </div>
+
+      <div class="callout">
+        <h4>Appointment Flexibility &amp; Refund Policy</h4>
+        <p>
+          • <strong>Rescheduling:</strong> We ask for at least 24 hours notice to reschedule your appointment without any charge, allowing us to offer the slot to an emergency patient.<br>
+          • <strong>Refunds:</strong> If a treatment plan is changed or uncommenced procedures are cancelled, refunds are processed back to the original payment method within 7 working days.<br>
+          • <strong>Binding policies:</strong> Full patient commitments and clinic policies are available upon request at our reception desk.
+        </p>
+      </div>
+    </div>
+    
+    <footer class="pdf-footer">
+      <span>RedCity Dental Care &amp; Implant Centre · 47 A/1, South Model Gram, Ludhiana · +91 76268 58230</span>
+      <span>Prices as of October 2026. Final cost is confirmed after examination.</span>
+    </footer>
+  
+  </section>
+
+  <!-- ==================== PAGE 9: VISIT US ==================== -->
+  <section class="page">
+    <header class="page-header">
+      <div>
+        <h2 class="page-title">Visit RedCity Dental Care</h2>
+        <p class="page-sub">Centrally located in South Model Gram, Ludhiana</p>
+      </div>
+      <div class="header-logo"><img src="file:///Users/dream/Desktop/Arvind Website project/apps/web/public/redcity-logo.png" alt="RedCity"></div>
+    </header>
+    <div class="page-content">
+      <img class="clinic-photo" src="file:///Users/dream/Desktop/Arvind Website project/apps/web/public/clinic-exterior.jpg" alt="RedCity Dental Care Clinic Building">
+      
+      <div class="contact-card">
+        <div>
+          <div class="contact-line">
+            <span class="contact-label">Clinic Location:</span>
+            <span class="contact-val">47 A/1, South Model Gram, Ludhiana, Punjab 141002</span>
+          </div>
+          <div class="contact-line">
+            <span class="contact-label">Landmark:</span>
+            <span class="contact-val">Near South Model Town</span>
+          </div>
+          <div class="contact-line">
+            <span class="contact-label">Directions &amp; Map:</span>
+            <span class="contact-val" style="color:#A61C2E;">https://maps.app.goo.gl/aw86VcC2PLQ8iETQ8</span>
+          </div>
+        </div>
+        <div>
+          <div class="contact-line">
+            <span class="contact-label">Phone &amp; WhatsApp:</span>
+            <span class="contact-val" style="font-weight:700;color:#A61C2E;">+91 76268 58230 · WhatsApp: https://wa.me/917626858230</span>
+          </div>
+          <div class="contact-line">
+            <span class="contact-label">Consultation Hours:</span>
+            <span class="contact-val">Call or WhatsApp for today's hours</span>
+          </div>
+          <div class="contact-line">
+            <span class="contact-label">Languages Spoken:</span>
+            <span class="contact-val">English · ਪੰਜਾਬੀ · हिंदी</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:#2B0A0F; color:#FFFFFF; border-radius:12px; padding:18px 24px; display:flex; justify-content:space-between; align-items:center; margin-top:8px;">
+        <div>
+          <div style="font-family:'Roboto Slab',serif; font-size:18px; font-weight:700;">Ready to book your appointment?</div>
+          <div style="font-size:12px; color:rgba(255,255,255,0.8); margin-top:2px;">Call us or send 3 photos on WhatsApp for Dr. Sahu's personal review.</div>
+        </div>
+        <div style="font-size:18px; font-weight:700; color:#F2D98A;">📞 76268 58230</div>
+      </div>
+    </div>
+    
+    <footer class="pdf-footer">
+      <span>RedCity Dental Care &amp; Implant Centre · 47 A/1, South Model Gram, Ludhiana · +91 76268 58230</span>
+      <span>Prices as of October 2026. Final cost is confirmed after examination.</span>
+    </footer>
+  
+  </section>
+
+</body>
+</html>

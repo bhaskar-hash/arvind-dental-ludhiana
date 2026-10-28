@@ -291,6 +291,256 @@ export const blogPosts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: "nri-dental-implants-cost-punjab",
+    title: "Dental Implants in Ludhiana for NRIs: Cost, Timeline, and What to Expect",
+    metaDescription:
+      "How NRIs from Canada, the UK, and Australia plan dental implant treatment in Ludhiana — transparent costs, travel timelines, warranties, and WhatsApp reviews.",
+    relatedService: "dental-implants",
+    sections: [
+      {
+        heading: "Why NRIs travel to Ludhiana for dental implants",
+        body: "For Non-Resident Indians (NRIs) living in Canada (Surrey, Brampton, Calgary), the UK, and Australia, major dental procedures often come with steep private fees ($3,500 to $5,000 CAD per implant) or extensive NHS waitlists. Travelling to Punjab allows patients to receive care from an MDS-qualified Prosthodontist like Dr. Arvind Sahu using identical international titanium systems (Nobel Biocare and Straumann-compatible connections) at a fraction of Western costs, while visiting family.",
+      },
+      {
+        heading: "Planning around a 2 to 3-week holiday",
+        body: "A successful visit starts with clear scheduling before your flight lands. On Day 1 or 2, an in-person clinical exam and digital 3D imaging confirm bone density and soft tissue contours. Surgical implant placement takes place within the first few days. Depending on your primary bone stability, immediate temporary fixed teeth can be attached within 48 to 72 hours, allowing you to socialize comfortably during family functions and weddings.",
+      },
+      {
+        heading: "Warranties that travel home with you",
+        body: "RedCity Dental provides a written warranty up to lifetime* on dental implants (5-year, 10-year, or lifetime depending on the implant option selected; normal oral hygiene and regular 6-month check-ups required). Every overseas patient receives an official implant passport detailing the exact implant fixture dimensions, brand, platform diameter, and torque values. This ensures any dentist in Toronto, Vancouver, London, or Melbourne can service the restoration in the future without guesswork.",
+      },
+      {
+        heading: "Starting with a WhatsApp review before you fly",
+        body: "To avoid booking flights with uncertainty, patients can send three clear photos of their teeth (front smile, upper arch, and lower arch) along with any recent OPG panoramic X-rays to WhatsApp (+91 76268 58230). Dr. Sahu personally reviews each case and replies with an individualized audio voice note outlining potential treatment directions, estimated appointments, and financial clarity.",
+      },
+    ],
+  },
+  {
+    slug: "all-on-4-vs-all-on-6-implants",
+    title: "All-on-4 vs. All-on-6 Dental Implants: How a Prosthodontist Decides",
+    metaDescription:
+      "Comparing All-on-4 and All-on-6 full arch dental implants — bone density, bite force distribution, and why prosthodontic planning matters for lasting teeth.",
+    relatedService: "dental-implants",
+    sections: [
+      {
+        heading: "How full arch implant solutions work",
+        body: "When all or most teeth in an arch are severely damaged, decayed, or missing, placing ten to twelve separate implants is often unnecessary and biologically invasive. Full-arch rehabilitation instead anchors an entire fixed bridge of 12 to 14 teeth onto either four or six strategically placed implants, restoring solid chewing stability and natural aesthetics.",
+      },
+      {
+        heading: "When All-on-4 is typically recommended",
+        body: "All-on-4 places two straight anterior implants and two posterior implants tilted up to 45 degrees. Tilting the rear implants takes advantage of higher-density bone in the front of the jaw while safely bypassing the maxillary sinus in the upper jaw and the mental nerve in the lower jaw. This often eliminates the need for extensive bone grafting or sinus lifts in patients with moderate bone loss.",
+      },
+      {
+        heading: "Why All-on-6 provides extra stability for heavy bites",
+        body: "All-on-6 introduces two additional posterior implants, distributing biting loads across six foundational pillars rather than four. It is frequently selected for patients with broader dental arches, higher bone density, strong jaw musculature, or those whose opposing arch consists of natural teeth that generate substantial chewing force.",
+      },
+      {
+        heading: "The prosthodontic difference in full arch design",
+        body: "Placing implants is only half the equation; how the final teeth meet (occlusion) determines whether implants survive for decades or suffer biomechanical fatigue. As an MDS Prosthodontist, Dr. Arvind Sahu designs the prosthetic arch from the bite backwards, calculating facial height (VDO), lip support, and chewing paths to ensure comfortable eating without jaw joint strain.",
+      },
+    ],
+  },
+  {
+    slug: "zirconia-vs-pfm-crowns",
+    title: "Zirconia vs. PFM Crowns: Which Cap Lasts Longer and Looks More Natural?",
+    metaDescription:
+      "A head-to-head comparison of Zirconia and PFM dental crowns — strength, aesthetics, black gumlines, and costs from a Ludhiana prosthodontist.",
+    relatedService: "crowns",
+    sections: [
+      {
+        heading: "The two standard crown materials",
+        body: "Porcelain-Fused-to-Metal (PFM) crowns feature an inner metal substructure layered with tooth-coloured porcelain, starting from ₹2,000 per tooth at RedCity Dental. Monolithic Zirconia crowns are precision-milled from a single solid block of zirconium oxide ceramic using CAD/CAM digital technology, starting from ₹4,000 per tooth.",
+      },
+      {
+        heading: "Why gums turn dark around PFM crowns",
+        body: "Over years of natural gum maturity, tiny amounts of gum recession often reveal the dark metal collar of a PFM crown, creating an unsightly grey line right at the gumline. Monolithic Zirconia is 100% metal-free and tooth-coloured through its full thickness, meaning the tooth margin remains naturally white and biocompatible even if gums shift slightly over the decades.",
+      },
+      {
+        heading: "Strength and chipping resistance",
+        body: "PFM crowns carry a risk of porcelain chipping away from the underlying metal frame under heavy biting pressure. Monolithic Zirconia boasts a flexural strength exceeding 1,000 MPa, making it virtually immune to chipping. When polished smoothly by a prosthodontist, Zirconia is remarkably gentle on opposing natural enamel while handling tough, fibrous diets with ease.",
+      },
+      {
+        heading: "Which material fits your tooth?",
+        body: "PFM remains a functional, budget-friendly choice for hidden back molars where appearance is less critical. Zirconia is strongly advised for front teeth, high smile lines, premolars, and patients who clench their teeth or have metal sensitivities.",
+      },
+    ],
+  },
+  {
+    slug: "single-visit-root-canal",
+    title: "Is a Single-Visit Root Canal Treatment as Safe and Effective as Multiple Visits?",
+    metaDescription:
+      "Can a root canal really be completed in one visit? Clinical criteria, modern rotary technology, and safety explained by a Ludhiana prosthodontist.",
+    relatedService: "root-canal-treatment",
+    sections: [
+      {
+        heading: "How modern endodontics made single visits possible",
+        body: "Root canal treatment used to require multiple painful sessions with slow hand instruments and manual chemical washes. Contemporary endodontics relies on flexible nickel-titanium rotary files, electronic apex locators, and ultrasonic irrigation that thoroughly clean, shape, and sanitize the complex root canal anatomy in a single focused 45-to-60-minute visit.",
+      },
+      {
+        heading: "When a single visit is appropriate",
+        body: "Single-visit root canal treatment is clinically ideal for teeth diagnosed with irreversible pulpitis (severe sensitivity or nerve inflammation) where bacterial infection has not yet spread deep into the surrounding jawbone. Completing the cleaning and sealing in one appointment prevents bacteria from leaking past temporary fillings between visits.",
+      },
+      {
+        heading: "When multiple visits are still clinically wiser",
+        body: "If a tooth has a severe peri-apical abscess, continuous fluid drainage through the canal, or extensive facial swelling, sealing the tooth immediately is unsafe. In these situations, Dr. Sahu places a soothing antibacterial medicament (calcium hydroxide) inside the canals for 7 to 10 days to let the infection subside before final obturation.",
+      },
+      {
+        heading: "Protecting the tooth afterward",
+        body: "Regardless of whether treatment takes one visit or two, a tooth loses internal moisture and blood supply after pulp removal. Back teeth especially become brittle under chewing forces; capping the tooth with a custom crown (PFM from ₹2,000 or Zirconia from ₹4,000) is essential to prevent vertical root fractures.",
+      },
+    ],
+  },
+  {
+    slug: "composite-bonding-vs-porcelain-veneers",
+    title: "Composite Bonding vs. Porcelain Veneers: Which Smile Makeover Option Fits You?",
+    metaDescription:
+      "Compare composite bonding and porcelain veneers for fixing chips, gaps, and stains — costs, lifespan, and tooth preparation compared plainly.",
+    relatedService: "veneers",
+    sections: [
+      {
+        heading: "Direct composite bonding: fast and conservative",
+        body: "Direct composite bonding uses moldable, tooth-coloured composite resin applied directly to the tooth and cured with a specialized light. It is completed in a single visit, requires zero to minimal enamel preparation, is completely reversible, and offers a cost-effective solution for small chips or closing a single minor gap.",
+      },
+      {
+        heading: "Porcelain veneers: unmatched aesthetics and longevity",
+        body: "Porcelain veneers are ultra-thin shells of glazed ceramic custom-crafted in a dental laboratory to cover the visible front surface of your teeth. Ceramic mimics the natural light reflection, depth, and translucency of natural enamel, permanently resists coffee, tea, and curry stains, and typically lasts 12 to 20 years with routine care.",
+      },
+      {
+        heading: "Comparing the investment and maintenance",
+        body: "Composite bonding is lower in initial cost and completed in an hour, but resin is porous; it can gradually absorb stains and requires periodic polishing every few years. Porcelain veneers require two appointments and a higher initial investment, but retain their smooth, glass-like luster permanently without dulling.",
+      },
+      {
+        heading: "Choosing the right approach for your smile",
+        body: "If your teeth have minor chips or localized gaps, composite bonding is a gentle, conservative first step. If you seek comprehensive smile harmony, permanent color change, or correction of worn enamel, custom porcelain veneers designed by an MDS Prosthodontist provide the most predictable, long-term outcome.",
+      },
+    ],
+  },
+  {
+    slug: "does-teeth-cleaning-damage-enamel",
+    title: "Does Teeth Cleaning (Scaling) Make Teeth Loose or Damage Enamel?",
+    metaDescription:
+      "Separating dental facts from myths: why ultrasonic teeth cleaning does not thin enamel or loosen teeth, and what actually happens during scaling.",
+    relatedService: "cost-and-payment",
+    sections: [
+      {
+        heading: "The most common dental myth in Punjab",
+        body: "A widespread misconception in Punjab is that professional teeth cleaning (scaling) cuts away natural enamel, creates unnatural gaps between teeth, or causes teeth to loosen. This belief leads many people to avoid the dentist until severe gum disease sets in. Clinically, scaling does none of these things.",
+      },
+      {
+        heading: "How ultrasonic scaling actually works",
+        body: "Modern professional cleaning uses blunt-ended ultrasonic scaler tips vibrating at high frequencies (25,000 to 30,000 vibrations per second) surrounded by a fine cooling water spray. The micro-vibrations shatter hardened tartar (calculus) and bacterial deposits without scratching enamel, which is the hardest biological substance in the human body.",
+      },
+      {
+        heading: "Why teeth can feel different after cleaning",
+        body: "When thick tartar accumulates over years, it hardens into a rigid bridge bridging several teeth while silently destroying the gum tissue and jawbone underneath. Once this infected tartar is gently removed, patients suddenly feel the natural spacing between their teeth or notice slight looseness that the tartar bridge was artificially masking.",
+      },
+      {
+        heading: "What scaling prevents",
+        body: "Leaving tartar uncleaned guarantees progressive periodontitis, chronic bad breath, bleeding gums, and eventual tooth loss. A professional scaling and polishing session (₹1,000 at RedCity Dental) every 6 months removes the bacteria your toothbrush cannot reach, preserving natural teeth for life.",
+      },
+    ],
+  },
+  {
+    slug: "snap-on-dentures-overdentures",
+    title: "Can Loose Lower Dentures Be Fixed Permanently With Snap-On Overdentures?",
+    metaDescription:
+      "How implant-retained overdentures solve slipping lower dentures — stability, chewing comfort, and eliminating messy adhesives for seniors.",
+    relatedService: "dentures-bridges",
+    sections: [
+      {
+        heading: "The struggle with traditional lower dentures",
+        body: "While upper dentures gain natural suction across the roof of the mouth, lower dentures rest on a narrow, shrinking jawbone ridge with the tongue and cheeks constantly nudging them out of position. Over time, progressive bone resorption makes traditional lower dentures loose, painful, and prone to slipping during meals and conversations.",
+      },
+      {
+        heading: "How snap-on overdentures work",
+        body: "An implant-supported overdenture anchors onto two to four standard titanium dental implants placed securely in the front of the lower jaw. Low-profile connectors (locators) attached to the implants click securely into matching caps built into the denture base, locking the teeth firmly in place while allowing easy removal for daily hygiene.",
+      },
+      {
+        heading: "Chewing, speaking, and quality of life",
+        body: "Snap-on overdentures restore roughly 70% to 80% of natural chewing capability, compared to merely 20% with conventional floating dentures. Older adults can bite into apples, chew rotis, and eat fibrous foods without embarrassing slipping, sore spots, or reliance on messy denture pastes.",
+      },
+      {
+        heading: "Prosthodontic planning for senior patients",
+        body: "Geriatric prosthodontics requires careful evaluation of bone volume, facial profile support, and bite comfort. Dr. Arvind Sahu designs overdentures tailored to senior anatomy, offering phased treatment timelines and structured staged payments to keep care accessible for families.",
+      },
+    ],
+  },
+  {
+    slug: "severe-toothache-relief-at-night",
+    title: "Severe Toothache at Night: What Gives Quick Relief and What Never to Do",
+    metaDescription:
+      "Practical first-aid for unbearable nighttime toothache — safe remedies, sleep positioning, what home remedies to avoid, and emergency warning signs.",
+    relatedService: "emergency-dental-care",
+    sections: [
+      {
+        heading: "Why tooth pain intensifies when lying down",
+        body: "When you lie flat in bed, blood pools toward your head and jaw, increasing pressure within the confined pulp chamber of an inflamed tooth. Elevating your head with two to three pillows reduces localized blood pressure and eases that intense, throbbing sensation.",
+      },
+      {
+        heading: "Safe overnight relief steps",
+        body: "Rinse gently with warm salt water to flush out food particles trapped around the aching area. Applying an ice pack wrapped in a clean cloth to the outside of your cheek for 15 minutes helps numb sharp nerve signals. Approved over-the-counter pain relievers taken as directed can help ease the pain until morning.",
+      },
+      {
+        heading: "The dangerous home remedy to avoid",
+        body: "Never place an aspirin tablet or crushed painkiller directly against your gum tissue next to the hurting tooth. Aspirin contains acetylsalicylic acid; pressing it against delicate oral mucosa causes severe chemical burns and tissue damage without relieving the nerve pain inside the tooth.",
+      },
+      {
+        heading: "Warning signs that require urgent care",
+        body: "If your toothache is accompanied by visible facial swelling extending toward the eye or neck, difficulty swallowing or breathing, or a high fever, seek emergency medical care immediately. For severe tooth pain or urgent consultations in Ludhiana, contact RedCity Dental at +91 76268 58230.",
+      },
+    ],
+  },
+  {
+    slug: "fast-track-same-day-teeth-nri",
+    title: "Same-Day Teeth and Immediate Loading: How Fast-Track Dental Care Works",
+    metaDescription:
+      "How immediate loading dental implants allow visiting patients and NRIs to receive fixed provisional teeth in days, and what clinical criteria apply.",
+    relatedService: "dental-implants",
+    sections: [
+      {
+        heading: "What 'same-day teeth' actually means",
+        body: "Immediate loading refers to placing fixed, aesthetic provisional (temporary) teeth onto dental implants within 48 to 72 hours of implant placement, rather than waiting three to six months with gaps or removable plates while the implants heal in the jawbone.",
+      },
+      {
+        heading: "The clinical criteria that make it safe",
+        body: "Immediate provisionalisation cannot be performed universally. It requires adequate bone volume, absence of active acute infection, and primary implant insertion torque exceeding 35 Ncm to ensure the titanium post is firmly anchored. The temporary teeth are carefully adjusted out of heavy biting contact so chewing forces do not disturb the bone integration process.",
+      },
+      {
+        heading: "The fast-track protocol for visiting patients",
+        body: "For NRIs and long-distance visitors on a two-to-three-week stay in Punjab, digital planning begins beforehand via WhatsApp review. Once in the clinic, digital intraoral scanning and guided placement allow implants and fixed provisional bridges to be fitted in the first few days, leaving the rest of the holiday free for family visits.",
+      },
+      {
+        heading: "International handover documentation",
+        body: "Every visiting patient receives comprehensive clinical records, digital radiographs, and an implant passport listing component brands, dimensions, and torque levels. This guarantees seamless ongoing care and routine cleanings with dentists once you return to Canada, the UK, or Australia.",
+      },
+    ],
+  },
+  {
+    slug: "dental-membership-vs-insurance",
+    title: "Dental Membership Plans vs. Insurance: How In-House Care Saves Money",
+    metaDescription:
+      "Why traditional health insurance in India rarely covers dental care, and how RedCity Dental membership plans provide predictable savings with zero claim denials.",
+    relatedService: "cost-and-payment",
+    sections: [
+      {
+        heading: "The insurance gap in Indian dental care",
+        body: "Most Mediclaim and commercial health insurance policies in India only reimburse dental expenses if they involve 24-hour hospitalization following major accidental trauma or oral surgery. Routine cleanings, diagnostic X-rays, cavity fillings, root canals, and crowns are categorized as outpatient (OPD) expenses and excluded from standard coverage.",
+      },
+      {
+        heading: "How clinic membership plans solve the problem",
+        body: "RedCity Dental's membership plans (Basic ₹499/yr, Advanced ₹2,499/yr, Pro ₹3,499/yr, Family ₹9,999/yr) are in-house preventive care arrangements, not commercial insurance. There are no claim forms, deductibles, waiting periods, pre-existing condition exclusions, or insurance pre-authorizations.",
+      },
+      {
+        heading: "The financial savings compared to pay-as-you-go",
+        body: "A typical year of preventive oral care (two check-ups at ₹300, two cleanings at ₹1,000, and diagnostic digital X-rays at ₹200) totals over ₹3,000 when paid per visit. The Advanced Plan covers all routine care 100% for ₹2,499 per year, while providing members with 15% off general procedures (fillings, root canals) and 10% off major prosthodontic work (crowns, implants).",
+      },
+      {
+        heading: "Simple, transparent family care",
+        body: "The Family Plan extends complete preventive coverage to two adults and two children under one predictable annual membership. Routine check-ups every six months keep oral health on track, catching minor issues before they turn into costly emergencies.",
+      },
+    ],
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {

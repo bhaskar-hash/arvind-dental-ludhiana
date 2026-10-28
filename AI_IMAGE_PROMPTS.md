@@ -2,7 +2,7 @@
 
 Generated from `apps/web/src/lib/illustration-prompts.ts` by `node scripts/ai-images.mjs`. Edit prompts there, not here.
 
-**38 of 38 images done.**
+**48 of 48 images done.**
 
 ## Task for the Antigravity agent
 
@@ -235,6 +235,106 @@ A calm first-aid arrangement: a small glass of milk, a folded white gauze pad, a
 
 ```text
 An Indian mother and her young son walk hand in hand along a bright path towards a friendly door with a simple tooth-shaped sign. The boy holds a plush toy tooth and looks curious, not scared. Draw it as a warm, modern editorial illustration: clean flat shapes, soft shading and a subtle paper-grain texture, in a limited palette of cream (#FBF6F4), blush pink (#F6ECE9), deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). People are Indian, with natural skin tones, friendly simple faces and everyday clothes. Calm and reassuring, never frightening or gory. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 16:9.
+```
+
+### [x] Dental implants for NRIs in Ludhiana
+
+- **Shows on:** Article cover: Dental Implants in Ludhiana for NRIs
+- **Save as:** `apps/web/public/ai/articles/nri-dental-implants-cost-punjab.jpg` — 1600×900 (16:9)
+- **Alt text (already in the site):** Illustration of a passport, travel calendar and dental implant model
+
+```text
+A calm top-down flat lay on a warm cream surface: an Indian passport with an airline boarding pass peeking out, a desk calendar with highlighted visit schedule markers, a miniature dental implant model, and a bound maroon notebook with a gold pen. Draw it as a warm, modern editorial illustration: clean flat shapes, soft shading and a subtle paper-grain texture, in a limited palette of cream (#FBF6F4), blush pink (#F6ECE9), deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). People are Indian, with natural skin tones, friendly simple faces and everyday clothes. Calm and reassuring, never frightening or gory. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 16:9.
+```
+
+### [x] All-on-4 vs. All-on-6 implants
+
+- **Shows on:** Article cover: All-on-4 vs. All-on-6 Dental Implants
+- **Save as:** `apps/web/public/ai/articles/all-on-4-vs-all-on-6-implants.jpg` — 1600×900 (16:9)
+- **Alt text (already in the site):** Illustration of full arch dental implants on a model
+
+```text
+A soft matte 3D clay-style dental arch model on a warm cream surface, depicting four dental implants with slim gold abutments supporting a smooth natural ivory arch of teeth in healthy pink gums. Render it as a soft, matte 3D clay-style illustration: smooth rounded forms, gentle diffused studio light from the upper left, soft contact shadows, on a warm cream background (#FBF6F4). Teeth are natural ivory and gums a soft healthy pink. Use small accents only in deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). Calm, premium and clinical, with generous empty space around the subject. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 16:9.
+```
+
+### [x] Zirconia vs. PFM crowns
+
+- **Shows on:** Article cover: Zirconia vs. PFM Crowns
+- **Save as:** `apps/web/public/ai/articles/zirconia-vs-pfm-crowns.jpg` — 1600×900 (16:9)
+- **Alt text (already in the site):** Illustration comparing a PFM crown with a Zirconia crown
+
+```text
+A traditional PFM crown on the left with a subtle dark metal edge at its base, alongside a pristine, translucent monolithic Zirconia crown on the right, separated by a delicate gold line on a warm cream surface. Render it as a soft, matte 3D clay-style illustration: smooth rounded forms, gentle diffused studio light from the upper left, soft contact shadows, on a warm cream background (#FBF6F4). Teeth are natural ivory and gums a soft healthy pink. Use small accents only in deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). Calm, premium and clinical, with generous empty space around the subject. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 16:9.
+```
+
+### [x] Single-visit root canal
+
+- **Shows on:** Article cover: Single-Visit Root Canal Treatment
+- **Save as:** `apps/web/public/ai/articles/single-visit-root-canal.jpg` — 1600×900 (16:9)
+- **Alt text (already in the site):** Illustration of a root canal cross-section beside a rotary instrument and timer
+
+```text
+A vertical cross-section of a lower molar tooth revealing a softly glowing canal system, set in pink gums beside a rotary endodontic instrument with gold accents and a minimalist sandglass timer. Render it as a soft, matte 3D clay-style illustration: smooth rounded forms, gentle diffused studio light from the upper left, soft contact shadows, on a warm cream background (#FBF6F4). Teeth are natural ivory and gums a soft healthy pink. Use small accents only in deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). Calm, premium and clinical, with generous empty space around the subject. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 16:9.
+```
+
+### [x] Composite bonding vs. veneers
+
+- **Shows on:** Article cover: Composite Bonding vs. Porcelain Veneers
+- **Save as:** `apps/web/public/ai/articles/composite-bonding-vs-porcelain-veneers.jpg` — 1600×900 (16:9)
+- **Alt text (already in the site):** Illustration comparing composite bonding and porcelain veneers
+
+```text
+Two upper front tooth models side-by-side on a cream surface: the left displaying layered composite bonding along its repaired incisal edge, and the right showing an ultra-thin porcelain veneer hovering in front ready for bonding. Draw it as a warm, modern editorial illustration: clean flat shapes, soft shading and a subtle paper-grain texture, in a limited palette of cream (#FBF6F4), blush pink (#F6ECE9), deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). People are Indian, with natural skin tones, friendly simple faces and everyday clothes. Calm and reassuring, never frightening or gory. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 16:9.
+```
+
+### [x] Does teeth cleaning damage enamel
+
+- **Shows on:** Article cover: Does Teeth Cleaning Make Teeth Loose?
+- **Save as:** `apps/web/public/ai/articles/does-teeth-cleaning-damage-enamel.jpg` — 1600×900 (16:9)
+- **Alt text (already in the site):** Illustration of an intact tooth with gentle ultrasonic scaling waves
+
+```text
+A smooth, intact ivory tooth floating above pristine pink gums, enveloped by subtle ultrasonic soundwave rings and fine water mist droplets on a warm cream background. Render it as a soft, matte 3D clay-style illustration: smooth rounded forms, gentle diffused studio light from the upper left, soft contact shadows, on a warm cream background (#FBF6F4). Teeth are natural ivory and gums a soft healthy pink. Use small accents only in deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). Calm, premium and clinical, with generous empty space around the subject. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 16:9.
+```
+
+### [x] Snap-on overdentures
+
+- **Shows on:** Article cover: Can Loose Lower Dentures Be Fixed Permanently?
+- **Save as:** `apps/web/public/ai/articles/snap-on-dentures-overdentures.jpg` — 1600×900 (16:9)
+- **Alt text (already in the site):** Illustration of snap-on overdentures and locator implant attachments
+
+```text
+A lower jaw model with two gold locator implant attachments and a lower overdenture hovering directly above aligned to snap into place, set on a warm cream surface. Render it as a soft, matte 3D clay-style illustration: smooth rounded forms, gentle diffused studio light from the upper left, soft contact shadows, on a warm cream background (#FBF6F4). Teeth are natural ivory and gums a soft healthy pink. Use small accents only in deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). Calm, premium and clinical, with generous empty space around the subject. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 16:9.
+```
+
+### [x] Severe toothache at night
+
+- **Shows on:** Article cover: Severe Toothache at Night
+- **Save as:** `apps/web/public/ai/articles/severe-toothache-relief-at-night.jpg` — 1600×900 (16:9)
+- **Alt text (already in the site):** Illustration of nighttime toothache first aid on a bedside table
+
+```text
+A serene nighttime bedside table featuring a glass of warm water, an amber bottle of clove oil with a cotton swab, a cloth-wrapped cold pack, and elevated fluffy pillows against a headboard. Draw it as a warm, modern editorial illustration: clean flat shapes, soft shading and a subtle paper-grain texture, in a limited palette of cream (#FBF6F4), blush pink (#F6ECE9), deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). People are Indian, with natural skin tones, friendly simple faces and everyday clothes. Calm and reassuring, never frightening or gory. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 16:9.
+```
+
+### [x] Same-day teeth and immediate loading
+
+- **Shows on:** Article cover: Same-Day Teeth and Immediate Loading
+- **Save as:** `apps/web/public/ai/articles/fast-track-same-day-teeth-nri.jpg` — 1600×900 (16:9)
+- **Alt text (already in the site):** Illustration of same-day dental travel planning items and scanner
+
+```text
+A top-down travel arrangement featuring a travel ticket sleeve, an ergonomic intraoral scanner wand, a 3-step progress card with gold beads, and a polished provisional dental bridge on a textured cream desk. Draw it as a warm, modern editorial illustration: clean flat shapes, soft shading and a subtle paper-grain texture, in a limited palette of cream (#FBF6F4), blush pink (#F6ECE9), deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). People are Indian, with natural skin tones, friendly simple faces and everyday clothes. Calm and reassuring, never frightening or gory. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 16:9.
+```
+
+### [x] Dental membership vs. insurance
+
+- **Shows on:** Article cover: Dental Membership Plans vs. Insurance
+- **Save as:** `apps/web/public/ai/articles/dental-membership-vs-insurance.jpg` — 1600×900 (16:9)
+- **Alt text (already in the site):** Illustration of a dental membership card, fee schedule, and calculator
+
+```text
+A dark maroon membership card with a gold tooth emblem, a checkmarked fee schedule, a calculator, reading glasses, and a cup of Indian chai on a warm cream desk. Draw it as a warm, modern editorial illustration: clean flat shapes, soft shading and a subtle paper-grain texture, in a limited palette of cream (#FBF6F4), blush pink (#F6ECE9), deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). People are Indian, with natural skin tones, friendly simple faces and everyday clothes. Calm and reassuring, never frightening or gory. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 16:9.
 ```
 
 ## Emergency first aid

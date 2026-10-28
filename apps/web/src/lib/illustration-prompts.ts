@@ -278,6 +278,116 @@ export const slots: ImageSlot[] = [
       "An Indian mother and her young son walk hand in hand along a bright path towards a friendly door with a simple tooth-shaped sign. The boy holds a plush toy tooth and looks curious, not scared.",
     alt: "Illustration of a parent and child walking to a dental visit together",
   },
+  {
+    id: "article-nri-implants",
+    group: "articles",
+    title: "Dental implants for NRIs in Ludhiana",
+    where: "Article cover: Dental Implants in Ludhiana for NRIs",
+    file: "ai/articles/nri-dental-implants-cost-punjab",
+    width: 1600, height: 900, aspect: "16:9", style: "illustration",
+    scene:
+      "A calm top-down flat lay on a warm cream surface: an Indian passport with an airline boarding pass peeking out, a desk calendar with highlighted visit schedule markers, a miniature dental implant model, and a bound maroon notebook with a gold pen.",
+    alt: "Illustration of a passport, travel calendar and dental implant model",
+  },
+  {
+    id: "article-all-on-4-vs-all-on-6",
+    group: "articles",
+    title: "All-on-4 vs. All-on-6 implants",
+    where: "Article cover: All-on-4 vs. All-on-6 Dental Implants",
+    file: "ai/articles/all-on-4-vs-all-on-6-implants",
+    width: 1600, height: 900, aspect: "16:9", style: "render",
+    scene:
+      "A soft matte 3D clay-style dental arch model on a warm cream surface, depicting four dental implants with slim gold abutments supporting a smooth natural ivory arch of teeth in healthy pink gums.",
+    alt: "Illustration of full arch dental implants on a model",
+  },
+  {
+    id: "article-zirconia-vs-pfm",
+    group: "articles",
+    title: "Zirconia vs. PFM crowns",
+    where: "Article cover: Zirconia vs. PFM Crowns",
+    file: "ai/articles/zirconia-vs-pfm-crowns",
+    width: 1600, height: 900, aspect: "16:9", style: "render",
+    scene:
+      "A traditional PFM crown on the left with a subtle dark metal edge at its base, alongside a pristine, translucent monolithic Zirconia crown on the right, separated by a delicate gold line on a warm cream surface.",
+    alt: "Illustration comparing a PFM crown with a Zirconia crown",
+  },
+  {
+    id: "article-single-visit-rct",
+    group: "articles",
+    title: "Single-visit root canal",
+    where: "Article cover: Single-Visit Root Canal Treatment",
+    file: "ai/articles/single-visit-root-canal",
+    width: 1600, height: 900, aspect: "16:9", style: "render",
+    scene:
+      "A vertical cross-section of a lower molar tooth revealing a softly glowing canal system, set in pink gums beside a rotary endodontic instrument with gold accents and a minimalist sandglass timer.",
+    alt: "Illustration of a root canal cross-section beside a rotary instrument and timer",
+  },
+  {
+    id: "article-composite-vs-veneers",
+    group: "articles",
+    title: "Composite bonding vs. veneers",
+    where: "Article cover: Composite Bonding vs. Porcelain Veneers",
+    file: "ai/articles/composite-bonding-vs-porcelain-veneers",
+    width: 1600, height: 900, aspect: "16:9", style: "illustration",
+    scene:
+      "Two upper front tooth models side-by-side on a cream surface: the left displaying layered composite bonding along its repaired incisal edge, and the right showing an ultra-thin porcelain veneer hovering in front ready for bonding.",
+    alt: "Illustration comparing composite bonding and porcelain veneers",
+  },
+  {
+    id: "article-cleaning-enamel-myth",
+    group: "articles",
+    title: "Does teeth cleaning damage enamel",
+    where: "Article cover: Does Teeth Cleaning Make Teeth Loose?",
+    file: "ai/articles/does-teeth-cleaning-damage-enamel",
+    width: 1600, height: 900, aspect: "16:9", style: "render",
+    scene:
+      "A smooth, intact ivory tooth floating above pristine pink gums, enveloped by subtle ultrasonic soundwave rings and fine water mist droplets on a warm cream background.",
+    alt: "Illustration of an intact tooth with gentle ultrasonic scaling waves",
+  },
+  {
+    id: "article-snap-on-overdentures",
+    group: "articles",
+    title: "Snap-on overdentures",
+    where: "Article cover: Can Loose Lower Dentures Be Fixed Permanently?",
+    file: "ai/articles/snap-on-dentures-overdentures",
+    width: 1600, height: 900, aspect: "16:9", style: "render",
+    scene:
+      "A lower jaw model with two gold locator implant attachments and a lower overdenture hovering directly above aligned to snap into place, set on a warm cream surface.",
+    alt: "Illustration of snap-on overdentures and locator implant attachments",
+  },
+  {
+    id: "article-toothache-night-relief",
+    group: "articles",
+    title: "Severe toothache at night",
+    where: "Article cover: Severe Toothache at Night",
+    file: "ai/articles/severe-toothache-relief-at-night",
+    width: 1600, height: 900, aspect: "16:9", style: "illustration",
+    scene:
+      "A serene nighttime bedside table featuring a glass of warm water, an amber bottle of clove oil with a cotton swab, a cloth-wrapped cold pack, and elevated fluffy pillows against a headboard.",
+    alt: "Illustration of nighttime toothache first aid on a bedside table",
+  },
+  {
+    id: "article-same-day-teeth-nri",
+    group: "articles",
+    title: "Same-day teeth and immediate loading",
+    where: "Article cover: Same-Day Teeth and Immediate Loading",
+    file: "ai/articles/fast-track-same-day-teeth-nri",
+    width: 1600, height: 900, aspect: "16:9", style: "illustration",
+    scene:
+      "A top-down travel arrangement featuring a travel ticket sleeve, an ergonomic intraoral scanner wand, a 3-step progress card with gold beads, and a polished provisional dental bridge on a textured cream desk.",
+    alt: "Illustration of same-day dental travel planning items and scanner",
+  },
+  {
+    id: "article-membership-vs-insurance",
+    group: "articles",
+    title: "Dental membership vs. insurance",
+    where: "Article cover: Dental Membership Plans vs. Insurance",
+    file: "ai/articles/dental-membership-vs-insurance",
+    width: 1600, height: 900, aspect: "16:9", style: "illustration",
+    scene:
+      "A dark maroon membership card with a gold tooth emblem, a checkmarked fee schedule, a calculator, reading glasses, and a cup of Indian chai on a warm cream desk.",
+    alt: "Illustration of a dental membership card, fee schedule, and calculator",
+  },
 
   // ── Emergency first aid (Resources page cards) ──
   {
