@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     template: "%s | RedCity Dental Care",
   },
   description:
-    "RedCity Dental Care & Implant Centre, South Model Gram, Ludhiana — Dr. Arvind Sahu, MDS (Prosthodontics). Complete Care, Advanced Care, Personalized Care.",
+    "RedCity Dental Care & Implant Centre, 47 A/1 South Model Gram, Ludhiana. Led by Dr. Arvind Sahu, MDS (Prosthodontics): implants, crowns, dentures, root canals and family dental care.",
   keywords: [
     "dentist Ludhiana",
     "dental implant Ludhiana",
@@ -47,9 +47,8 @@ export const metadata: Metadata = {
     siteName: "RedCity Dental Care & Implant Centre",
     title: "Dental Implants & Prosthodontics in Ludhiana | RedCity Dental Care",
     description:
-      "Complete Care · Advanced Care · Personalized Care — Dr. Arvind Sahu, MDS (Prosthodontics), South Model Gram, Ludhiana.",
+      "Implants, crowns, dentures, root canals and family dental care with Dr. Arvind Sahu, MDS (Prosthodontics), South Model Gram, Ludhiana.",
     locale: "en_IN",
-    url: business.siteUrl,
     images: [defaultOgImage],
   },
   twitter: {

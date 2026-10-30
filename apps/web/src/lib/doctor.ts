@@ -15,12 +15,13 @@ export const doctor = {
   credentialsShort: "MDS (Prosthodontics)",
   role: "Prosthodontist & Oral Implantologist",
   /**
-   * TODO(business-content): State Dental Council registration, e.g.
-   * "Punjab Dental Council, Reg. No. 1234-A". The NMC advertising guidelines
-   * (Explanations III–IV) ask that it be shown with the name and
-   * qualifications; it appears in the footer and on /about once set.
+   * Council registration number, supplied by the practice. The NMC advertising
+   * guidelines (Explanations III-IV) ask for it beside the name and
+   * qualifications. It shows in the footer, on /about and in the schema.
+   * TODO: confirm which council issued it (for example "Punjab Dental
+   * Council") and put the council's name in front of the number.
    */
-  registration: null as string | null,
+  registration: "Registration No. 20407A" as string | null,
 
   photo: {
     webp: "/dr-arvind-sahu.webp",

@@ -1,7 +1,7 @@
 import { business } from "./business";
 import { doctor, clinicPhoto } from "./doctor";
 import { services, type Service } from "./services";
-import type { BlogPost } from "./blog";
+import { ARTICLES_UPDATED, type BlogPost } from "./blog";
 
 export function buildDentistSchema() {
   return {
@@ -39,7 +39,6 @@ export function buildDentistSchema() {
       "@type": "City",
       name: business.addressLocality,
     },
-    priceRange: "₹₹",
     founder: {
       "@type": "Person",
       "@id": `${business.siteUrl}/about#doctor`,
@@ -48,24 +47,21 @@ export function buildDentistSchema() {
       image: `${business.siteUrl}${doctor.photo.fallback}`,
       url: `${business.siteUrl}/about`,
       hasCredential: doctor.credentials,
+      ...(doctor.registration ? { identifier: doctor.registration } : {}),
       alumniOf: doctor.education.map((e) => ({
         "@type": "CollegeOrUniversity",
         name: e.institution,
       })),
       knowsAbout: doctor.expertise,
     },
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Dental treatments",
-      itemListElement: services.map((s) => ({
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "MedicalProcedure",
-          name: s.shortName,
-          url: `${business.siteUrl}/services/${s.slug}`,
-        },
-      })),
-    },
+    // Services as plain procedures (not "Offer"s, which describe things for sale).
+    availableService: services.map((s) => ({
+      "@type": "MedicalProcedure",
+      name: s.shortName,
+      url: `${business.siteUrl}/services/${s.slug}`,
+    })),
+    medicalSpecialty: "Dentistry",
+    knowsLanguage: ["en", "pa", "hi"],
   };
 }
 
@@ -96,6 +92,8 @@ export function buildArticleSchema(post: BlogPost) {
     headline: post.title,
     description: post.metaDescription,
     url: `${business.siteUrl}/blog/${post.slug}`,
+    datePublished: ARTICLES_UPDATED,
+    dateModified: ARTICLES_UPDATED,
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `${business.siteUrl}/blog/${post.slug}`,
@@ -119,24 +117,11 @@ export function buildArticleSchema(post: BlogPost) {
 }
 
 export function buildBlogPostSchemaGraph(post: BlogPost) {
-  const faqs = post.sections
-    .filter((s) => s.heading.includes("?") || /^(how|why|what|when|does|can|is|which)/i.test(s.heading))
-    .map((s) => {
-      const firstPara = s.body.split("\n\n")[0].replace(/\*\*/g, "").trim();
-      return {
-        question: s.heading,
-        answer: firstPara,
-      };
-    });
-
-  const graph: Array<Record<string, unknown>> = [buildDentistSchema(), buildArticleSchema(post)];
-  if (faqs.length > 0) {
-    graph.push(buildFaqSchema(faqs));
-  }
-
+  // No FAQPage markup here: the articles are not written as visible Q&A, and
+  // markup that doesn't match visible content can be treated as misleading.
   return {
     "@context": "https://schema.org",
-    "@graph": graph,
+    "@graph": [buildDentistSchema(), buildArticleSchema(post)],
   };
 }
 

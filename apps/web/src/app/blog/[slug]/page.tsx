@@ -6,10 +6,12 @@ import { PhotoReviewCta } from "@/components/Sections";
 import { articleCover } from "@/lib/illustrations";
 import { JsonLd } from "@/components/JsonLd";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { blogPosts, getBlogPostBySlug } from "@/lib/blog";
+import { ARTICLES_UPDATED, blogPosts, getBlogPostBySlug } from "@/lib/blog";
 import { getServiceBySlug } from "@/lib/services";
 import { buildBlogPostSchemaGraph } from "@/lib/schema";
 import { business } from "@/lib/business";
+import { routineFees } from "@/lib/pricing";
+import { doctor } from "@/lib/doctor";
 import { ogImagesFor } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -163,7 +165,7 @@ export default function BlogPostPage({
           {post.title}
         </h1>
         <p className="font-body text-sm text-brand-muted mt-4">
-          By {business.doctorName}, {business.doctorCredentials} • {business.addressLocality}, Punjab
+          By {doctor.name}, {doctor.credentials}{doctor.registration ? ` · ${doctor.registration}` : ""} • {business.addressLocality}, Punjab
         </p>
 
         <div className="mt-8 flex flex-col gap-10">
@@ -177,28 +179,21 @@ export default function BlogPostPage({
           ))}
         </div>
 
-        <div className="mt-12 rounded-2xl border border-brand-line bg-brand-warm/30 p-6 sm:p-7">
-          <p className="font-headline text-lg font-bold text-brand-ink">
-            Clinical Consultation & Inquiries in Ludhiana
+        <aside className="mt-12 rounded-2xl border border-brand-line bg-brand-warm/30 p-6 sm:p-7" aria-label="About this article">
+          <p className="font-headline text-lg font-bold text-brand-ink">About this article</p>
+          <p className="mt-2 font-body text-[15px] leading-relaxed text-brand-muted">
+            Written for patients, as general information. It is not a diagnosis or a treatment plan, and your own
+            dentist will advise on your teeth after an examination. Author: {doctor.name}, {doctor.credentials}
+            {doctor.registration ? ` · ${doctor.registration}` : ""}. Last updated{" "}
+            <time dateTime={ARTICLES_UPDATED}>{new Date(ARTICLES_UPDATED).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })}</time>.
           </p>
-          <p className="font-body text-[15px] text-brand-muted mt-2 leading-relaxed">
-            Every clinical procedure described in this guide is performed directly by {business.doctorName} ({business.doctorCredentials}) at {business.name}, located at {business.streetAddress}, {business.addressLocality} ({business.landmark}). Initial consultations are ₹300, and digital RVG diagnostic imaging is ₹200.
-          </p>
-          <div className="mt-4 flex flex-wrap gap-3">
-            <Link
-              href={business.bookHref}
-              className="inline-flex items-center rounded-xl bg-brand-red px-4 py-2.5 font-headline text-sm font-semibold text-white transition hover:bg-brand-red/90"
-            >
-              Book Consultation in Ludhiana
+          <p className="mt-3 font-body text-[15px] leading-relaxed text-brand-muted">
+            {business.name}, {business.streetAddress}, {business.addressLocality}. Check-up fee ₹{routineFees.checkup}.{" "}
+            <Link href="/location" className="font-semibold text-brand-red underline underline-offset-2">
+              Address and directions
             </Link>
-            <a
-              href={`tel:${business.telephone}`}
-              className="inline-flex items-center rounded-xl border border-brand-line bg-white px-4 py-2.5 font-headline text-sm font-semibold text-brand-ink transition hover:bg-brand-warm"
-            >
-              Call {business.telephoneDisplay}
-            </a>
-          </div>
-        </div>
+          </p>
+        </aside>
 
         {relatedService ? (
           <p className="font-body text-base mt-6 rounded-2xl bg-brand-warm px-6 py-5">

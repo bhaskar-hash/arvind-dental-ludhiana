@@ -23,7 +23,6 @@ const NAV: NavItem[] = [
     ? [{ href: "/cost-and-payment", label: "Prices & plans", match: (p: string) => p.startsWith("/cost-and-payment") || p.startsWith("/policies") }]
     : []),
   { href: "/about", label: "About", match: (p) => p.startsWith("/about") },
-  { href: "/blog", label: "Blog", match: (p) => p.startsWith("/blog") },
   { href: "/location", label: "Visit us", match: (p) => p.startsWith("/location") },
 ];
 

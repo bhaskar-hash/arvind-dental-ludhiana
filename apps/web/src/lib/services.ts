@@ -125,11 +125,11 @@ export const services: Service[] = [
     warrantyFinePrint:
       "*5-year, 10-year or lifetime warranty depending on the implant option. Breakage and failure from poor hygiene are not covered.",
     featureList: [
-      "Permanent & Natural-Looking Teeth",
-      "Advanced Implant Technology",
-      "Painless & Safe Procedure",
-      "High Success Rate",
-      "Expert Care by Experienced Professionals",
+      "Fixed, natural-looking replacement teeth",
+      "Planned by a prosthodontist",
+      "Local anaesthesia for comfort during treatment",
+      "Every option and fee explained first",
+      "Follow-up care and regular check-ups",
     ],
     whatToExpect: [
       {
@@ -222,7 +222,7 @@ export const services: Service[] = [
       "Thorough examination",
       "Accurate diagnosis",
       "Personalized treatment plan",
-      "Best outcome for your smile",
+      "A plan agreed with you before treatment",
     ],
     closingLine: "Your Smile, Our Responsibility.",
     whatToExpect: [
@@ -338,7 +338,7 @@ export const services: Service[] = [
         {
           label: "Aesthetics",
           values: [
-            "Superior — natural translucency, looks like real teeth",
+            "Natural translucency, similar to a real tooth",
             "Good — tooth-colored porcelain outside",
           ],
         },
@@ -357,7 +357,7 @@ export const services: Service[] = [
           ],
         },
         {
-          label: "Best for",
+          label: "Usually used for",
           values: ["Front & back teeth", "Mainly back teeth"],
         },
         {
@@ -454,7 +454,7 @@ export const services: Service[] = [
     eyebrow: "For a brighter smile",
     headline: "Teeth whitening, supervised by your dentist.",
     metaDescription:
-      "Professional teeth whitening in Ludhiana at RedCity Dental Care — safe, dentist-supervised brightening with realistic, natural-looking results.",
+      "Professional teeth whitening in Ludhiana at RedCity Dental Care — dentist-supervised brightening, with a check first that whitening suits your teeth.",
     intro:
       "Professional teeth whitening lightens stains and discoloration under a dentist's supervision — a safer, more controlled approach than over-the-counter kits, with the shade matched to look natural rather than artificial.",
     whatToExpect: [
@@ -611,7 +611,7 @@ export const services: Service[] = [
       {
         question: "What are dental sealants?",
         answer:
-          "A thin protective coating painted onto the grooves of back teeth, where most childhood cavities start. Applying them is quick and completely painless.",
+          "A thin protective coating painted onto the grooves of back teeth, where most childhood cavities start. Applying them is quick and usually comfortable, and needs no injection.",
       },
     ],
   },
@@ -662,7 +662,7 @@ export const moreServices: MiniService[] = [
   },
   {
     name: "Teeth Reshaping",
-    body: "Gentle contouring of uneven or slightly rough tooth edges to improve the look of your smile, usually painlessly and without anaesthesia.",
+    body: "Gentle contouring of uneven or slightly rough tooth edges to improve the look of your smile, usually comfortably and often without anaesthesia.",
   },
   {
     name: "Mouth Guards & Night Guards",

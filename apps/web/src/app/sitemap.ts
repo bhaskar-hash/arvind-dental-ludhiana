@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { services } from "@/lib/services";
-import { blogPosts } from "@/lib/blog";
+import { ARTICLES_UPDATED, blogPosts } from "@/lib/blog";
 import { business } from "@/lib/business";
 import { pricingApproved } from "@/lib/pricing";
 import { policiesApproved } from "@/lib/policies";
@@ -88,9 +88,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${business.siteUrl}/blog/${post.slug}`,
-    lastModified: now,
-    changeFrequency: "weekly",
-    priority: 0.8,
+    lastModified: new Date(ARTICLES_UPDATED),
+    changeFrequency: "monthly",
+    priority: 0.7,
   }));
 
   return [...staticRoutes, ...serviceRoutes, ...blogRoutes];

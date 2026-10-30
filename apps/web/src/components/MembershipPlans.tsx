@@ -44,7 +44,7 @@ export function TermPicker({
                     on ? "bg-white/20 text-white" : "bg-brand-red/10 text-brand-red"
                   }`}
                 >
-                  Best value
+                  Lowest monthly price
                 </span>
               ) : null}
             </label>

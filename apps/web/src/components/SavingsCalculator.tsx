@@ -240,7 +240,7 @@ export function SavingsCalculator() {
           ) : (
             <>
               <p className="font-body text-xs font-bold uppercase tracking-[0.14em] text-brand-gold">
-                Best for {people === 1 ? "you" : "your family"}
+                Suggested for {people === 1 ? "you" : "your family"}
               </p>
               <p className="mt-2 font-headline text-2xl font-bold">
                 {best.name} saves you {formatRupees(best.saving)}
