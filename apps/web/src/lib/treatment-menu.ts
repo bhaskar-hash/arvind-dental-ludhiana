@@ -101,7 +101,7 @@ export const menuGroups: MenuGroup[] = [
       { label: "Implant-supported overdentures", href: "/services/dentures-bridges" },
       { label: "Bridges", href: "/services/dentures-bridges" },
       { label: "Complete & partial dentures", href: "/services/dentures-bridges" },
-      { label: "Full mouth rehabilitation", href: more("Full Mouth Rehabilitation") },
+      { label: "Full mouth rehabilitation", href: "/services/full-mouth-rehabilitation" },
       { label: "Crowns (Zirconia & PFM)", href: "/services/crowns" },
     ],
   },

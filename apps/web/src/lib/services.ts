@@ -532,6 +532,86 @@ export const services: Service[] = [
     ],
   },
   {
+    slug: "full-mouth-rehabilitation",
+    name: "Full Mouth Rehabilitation in Ludhiana",
+    metaTitle: "Full Mouth Rehabilitation in Ludhiana by a Prosthodontist",
+    shortName: "Full Mouth Rehabilitation",
+    eyebrow: "For many worn, broken or missing teeth",
+    headline: "One plan to rebuild your whole mouth, in stages you can follow.",
+    metaDescription:
+      "Full mouth rehabilitation in Ludhiana by Dr. Arvind Sahu, MDS (Prosthodontics): one staged plan for many worn, broken or missing teeth, with crowns, bridges, implants or dentures.",
+    intro:
+      "Full mouth rehabilitation means restoring most or all of the teeth in both jaws with one coordinated plan, instead of fixing one tooth at a time. It is used when teeth are badly worn, broken, decayed or missing across the mouth, and it usually combines several treatments: crowns, bridges, implants, dentures, root canals and gum care. Planning the bite as a whole is the core of prosthodontics, Dr. Sahu's postgraduate specialty.",
+    forYou: {
+      heading: "Could this be right for you?",
+      points: [
+        "Many teeth are worn down, for example from grinding or acid erosion, and your bite feels short",
+        "Several teeth are broken, heavily filled or missing in both jaws",
+        "Your current dentures or bridges no longer fit or function well",
+        "Chewing is uncomfortable, or your jaw muscles ache",
+        "You want to understand every option before committing to treatment",
+      ],
+      note: "Only an examination with X-rays can confirm whether you need a full plan or a few targeted treatments.",
+    },
+    parts: {
+      heading: "How a full mouth plan usually runs",
+      items: [
+        {
+          title: "Examination and records",
+          body: "A full check of teeth, gums, jaw joints and bite, with X-rays, photographs and models of your teeth.",
+        },
+        {
+          title: "Treatment plan and estimate",
+          body: "A written plan with the stages, options at each stage and the cost, explained before anything starts.",
+        },
+        {
+          title: "Make the mouth healthy",
+          body: "Gum treatment, fillings, root canals or extractions come first, so the final work is built on a stable base.",
+        },
+        {
+          title: "Test the new bite",
+          body: "Where the bite height or shape is changing, temporary crowns or a trial appliance let you try it before the final work is made.",
+        },
+        {
+          title: "Final restorations",
+          body: "Crowns, bridges, implants or dentures are completed in planned sections, usually one jaw or one side at a time.",
+        },
+        {
+          title: "Maintenance",
+          body: "Regular reviews and cleaning, and often a night guard, help protect the finished work.",
+        },
+      ],
+    },
+    whatToExpect: [],
+    faqs: [
+      {
+        question: "What is full mouth rehabilitation?",
+        answer:
+          "It is a coordinated plan to restore most or all of the teeth in both jaws, combining treatments such as crowns, bridges, implants, dentures and root canals, with the bite planned as a whole.",
+      },
+      {
+        question: "How long does full mouth rehabilitation take?",
+        answer:
+          "It depends on the treatments involved. A plan using crowns and bridges on your own teeth often runs over several weeks to a few months. Plans with implants take longer, because implants need time to heal into the bone before the final teeth are fitted. Your written plan gives your own timeline.",
+      },
+      {
+        question: "How many visits will I need?",
+        answer:
+          "Several, spread across the stages: records and planning, preparation, trial of the new bite, and fitting the final work. The plan sets out how many visits each stage needs, which helps if you are travelling from outside Ludhiana or from abroad.",
+      },
+      {
+        question: "How much does full mouth rehabilitation cost?",
+        answer:
+          "There is no single price, because each plan combines different treatments. The cost depends on how many teeth need crowns, whether implants are used, and the materials chosen. You receive an itemised written estimate after the examination, before any treatment begins.",
+      },
+      {
+        question: "Is it done in one sitting?",
+        answer:
+          "No. It is done in planned stages so each step can be checked, and so you can get used to changes in your bite gradually.",
+      },
+    ],
+  },
+  {
     slug: "emergency-dental-care",
     name: "Emergency Dentist in Ludhiana",
     shortName: "Emergency Care",
@@ -676,10 +756,6 @@ export const moreServices: MiniService[] = [
     name: "Smile Makeover",
     body: "A planned combination of treatments — whitening, veneers, crowns, or reshaping — designed together to transform the overall look of your smile.",
   },
-  {
-    name: "Full Mouth Rehabilitation",
-    body: "For complex cases, a comprehensive plan that restores function and appearance across the whole mouth — an area Dr. Sahu's prosthodontics training is built for.",
-  },
 ];
 
 /** Treatments shown under "Related treatments" on each treatment page. */
@@ -690,7 +766,8 @@ export const relatedServices: Record<string, string[]> = {
   crowns: ["root-canal-treatment", "dental-implants", "veneers"],
   "laser-dentistry": ["root-canal-treatment", "teeth-whitening", "paediatric-dentistry"],
   "teeth-whitening": ["veneers", "crowns", "laser-dentistry"],
-  "dentures-bridges": ["dental-implants", "crowns", "root-canal-treatment"],
+  "dentures-bridges": ["dental-implants", "full-mouth-rehabilitation", "crowns"],
+  "full-mouth-rehabilitation": ["dental-implants", "crowns", "dentures-bridges"],
   "emergency-dental-care": ["root-canal-treatment", "crowns", "dental-implants"],
   "paediatric-dentistry": ["emergency-dental-care", "teeth-whitening", "root-canal-treatment"],
 };

@@ -22,8 +22,8 @@ const GROUPS = [
   {
     id: "replace-missing-teeth",
     title: "Replace missing teeth",
-    pages: ["dental-implants", "dentures-bridges", "crowns"],
-    more: ["Full Mouth Rehabilitation"],
+    pages: ["dental-implants", "dentures-bridges", "full-mouth-rehabilitation", "crowns"],
+    more: [],
   },
   {
     id: "treat-and-protect",

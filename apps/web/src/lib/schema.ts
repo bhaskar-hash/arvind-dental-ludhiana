@@ -8,10 +8,8 @@ export function buildDentistSchema() {
     "@type": "Dentist",
     "@id": `${business.siteUrl}/#dentist`,
     name: business.name,
-    image: [
-      `${business.siteUrl}${clinicPhoto.fallback}`,
-      `${business.siteUrl}${doctor.photo.fallback}`,
-    ],
+    // Clinic photo only: the doctor's portrait is not used to promote the practice (NMC).
+    image: [`${business.siteUrl}${clinicPhoto.fallback}`],
     logo: `${business.siteUrl}/redcity-logo.png`,
     url: business.siteUrl,
     telephone: business.telephone,
@@ -82,7 +80,22 @@ export function buildFaqSchema(faqs: { question: string; answer: string }[]) {
 export function buildServiceSchemaGraph(service: Service) {
   return {
     "@context": "https://schema.org",
-    "@graph": [buildDentistSchema(), buildFaqSchema(service.faqs)],
+    "@graph": [
+      buildDentistSchema(),
+      {
+        "@type": "MedicalWebPage",
+        "@id": `${business.siteUrl}/services/${service.slug}`,
+        url: `${business.siteUrl}/services/${service.slug}`,
+        name: service.metaTitle ?? service.name,
+        description: service.metaDescription,
+        about: { "@type": "MedicalProcedure", name: service.shortName },
+        // Links to the Person node inside the Dentist schema.
+        reviewedBy: { "@id": `${business.siteUrl}/about#doctor` },
+        publisher: { "@id": `${business.siteUrl}/#dentist` },
+        inLanguage: "en-IN",
+      },
+      buildFaqSchema(service.faqs),
+    ],
   };
 }
 
@@ -100,6 +113,7 @@ export function buildArticleSchema(post: BlogPost) {
     },
     author: {
       "@type": "Person",
+      "@id": `${business.siteUrl}/about#doctor`,
       name: business.doctorName,
       jobTitle: business.doctorCredentials,
       url: `${business.siteUrl}/about`,

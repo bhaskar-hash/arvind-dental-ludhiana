@@ -13,7 +13,6 @@ import { payment, pricingApproved, routineFees } from "@/lib/pricing";
 import { buildDentistSchema } from "@/lib/schema";
 import { introVideoUrl } from "@/lib/site";
 import { btn, container, eyebrow, h2, lead } from "@/lib/styles";
-import { slugify } from "@/lib/treatment-menu";
 import { illustration } from "@/lib/illustrations";
 import { AiImage } from "@/components/AiImage";
 
@@ -23,7 +22,7 @@ export const metadata: Metadata = {
 
 const TREATMENTS = [
   { slug: "dental-implants", href: "/services/dental-implants", name: "Dental Implants", body: "A fixed, natural-looking replacement for one tooth or many.", badge: "Up to lifetime warranty*" },
-  { slug: "crowns", href: `/services#${slugify("Full Mouth Rehabilitation")}`, name: "Full Mouth Rehabilitation", body: "Rebuilding many worn, broken or missing teeth with one plan." },
+  { slug: "full-mouth-rehabilitation", href: "/services/full-mouth-rehabilitation", name: "Full Mouth Rehabilitation", body: "Rebuilding many worn, broken or missing teeth with one plan." },
   { slug: "root-canal-treatment", href: "/services/root-canal-treatment", name: "Root Canal Treatment", body: "Saving an infected tooth, only when it is truly needed." },
   { slug: "crowns", href: "/services/crowns", name: "Crowns & Bridges", body: "Zirconia and PFM crowns, from ₹2,000 per tooth*." },
   { slug: "veneers", href: "/services/veneers", name: "Veneers & Smile Design", body: "Improving shape, spacing and colour, planned around your face." },

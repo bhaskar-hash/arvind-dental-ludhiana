@@ -13,6 +13,7 @@ import { DigitalWorkflow, PhotoReviewCta } from "@/components/Sections";
 import { ServiceIcon } from "@/components/ServiceIcon";
 import { blogPosts } from "@/lib/blog";
 import { business, photoReviewUrl } from "@/lib/business";
+import { doctor } from "@/lib/doctor";
 import { pricingApproved } from "@/lib/pricing";
 import { buildServiceSchemaGraph } from "@/lib/schema";
 import { getServiceBySlug, relatedServices, services } from "@/lib/services";
@@ -82,6 +83,14 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               {service.headline ?? service.name}
             </h1>
             <p className="hero-in hero-in-3 mt-5 max-w-[580px] font-body text-[19px] text-brand-muted">{service.intro}</p>
+            <p className="hero-in hero-in-3 mt-4 font-body text-sm text-brand-muted">
+              Written and reviewed by{" "}
+              <Link href="/about" className="font-semibold text-brand-ink underline-offset-2 hover:underline">
+                {doctor.name}
+              </Link>
+              , {doctor.credentials}
+              {doctor.registration ? ` · ${doctor.registration}` : ""}
+            </p>
             <div className="hero-in hero-in-4 mt-8 flex flex-wrap gap-3">
               {service.slug === "emergency-dental-care" ? (
                 <>
@@ -192,7 +201,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
         <section className={`py-24 ${nextBg()}`}>
           <div className={container}>
             <Reveal className="max-w-[720px]">
-              <p className={eyebrow}>How an implant is built</p>
+              <p className={eyebrow}>{isImplant ? "How an implant is built" : "Step by step"}</p>
               <h2 className={h2}>{service.parts.heading}</h2>
             </Reveal>
             <div className="mt-11 grid gap-5 md:grid-cols-3">
