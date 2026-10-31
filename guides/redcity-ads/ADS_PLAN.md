@@ -18,7 +18,7 @@ Ad → landing page → WhatsApp, call or form → the WhatsApp message carries 
 - Google Search + Maps: ₹7,000 (~₹230/day). Implants ₹4,000, clinic nearby ₹1,500, tooth pain/root canal ₹1,500.
 - Meta (Facebook + Instagram): ₹3,000 (~₹100/day), educational videos only.
 - Raise the total to ₹25,000 only after 2 months on target.
-- Any agency is paid a flat fee or a share of spend, never per lead or per patient (fee-splitting rule).
+- We help free: no fee, no commission. Ad spend is billed to the clinic's own card on its own Google Ads and Meta accounts, and only if Dr. Sahu decides to run ads. Nobody is ever paid per lead or per patient.
 
 ## Google Search setup
 
