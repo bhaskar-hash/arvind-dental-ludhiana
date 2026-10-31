@@ -4,6 +4,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { business } from "@/lib/business";
 import { doctor } from "@/lib/doctor";
 import { GA_MEASUREMENT_ID } from "@/lib/gtag";
+import { GOOGLE_ADS_ID, META_PIXEL_ID } from "@/lib/ads";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -114,6 +115,15 @@ export default function PrivacyPage() {
             ) : (
               <li>We don&apos;t use advertising cookies or visitor tracking on this website.</li>
             )}
+            {GOOGLE_ADS_ID || META_PIXEL_ID ? (
+              <li>
+                When we advertise, {GOOGLE_ADS_ID && META_PIXEL_ID ? "Google Ads and Meta (Facebook and Instagram)" : GOOGLE_ADS_ID ? "Google Ads" : "Meta (Facebook and Instagram)"}{" "}
+                {GOOGLE_ADS_ID && META_PIXEL_ID ? "set" : "sets"} cookies so we can count how many people who saw an ad then
+                tapped Call, WhatsApp or sent a request. Only that action is shared, never your
+                name, number or anything about your teeth. You can block these cookies in your
+                browser settings.
+              </li>
+            ) : null}
             <li>
               The map on our Visit Us page is provided by Google, and videos may be hosted on
               YouTube. Those services may set their own cookies under Google&apos;s privacy policy.

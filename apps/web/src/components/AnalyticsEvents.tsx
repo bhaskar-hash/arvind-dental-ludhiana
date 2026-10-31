@@ -2,7 +2,8 @@
 
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import { captureSource } from "@/lib/attribution";
+import { trackLead } from "@/lib/ads";
+import { captureSource, visitRef } from "@/lib/attribution";
 import { gtagEvent } from "@/lib/gtag";
 import { business } from "@/lib/business";
 
@@ -37,9 +38,23 @@ export function AnalyticsEvents() {
       if (!a) return;
       const href = a.getAttribute("href") ?? "";
       const params = { placement: placementOf(a), page_path: window.location.pathname };
-      if (href.startsWith("tel:")) gtagEvent({ action: "call_click", params });
-      else if (/^https?:\/\/(wa\.me|api\.whatsapp\.com)\//.test(href)) gtagEvent({ action: "whatsapp_click", params });
-      else if (href === business.bookHref || href.startsWith(`${bookPath}#book`)) gtagEvent({ action: "book_click", params });
+      if (href.startsWith("tel:")) {
+        gtagEvent({ action: "call_click", params });
+        trackLead("call");
+      } else if (/^https?:\/\/(wa\.me|api\.whatsapp\.com)\//.test(href)) {
+        // Add the visit reference to the typed message, so the clinic can
+        // match this chat to the ad or page that brought it.
+        const ref = visitRef();
+        if (ref) {
+          const [base, query = ""] = href.split("?");
+          const text = new URLSearchParams(query).get("text") ?? "";
+          if (!text.includes("Ref:")) {
+            a.href = `${base}?text=${encodeURIComponent(`${text}${text ? "\n" : ""}Ref: ${ref}`)}`;
+          }
+        }
+        gtagEvent({ action: "whatsapp_click", params });
+        trackLead("whatsapp");
+      } else if (href === business.bookHref || href.startsWith(`${bookPath}#book`)) gtagEvent({ action: "book_click", params });
     };
 
     document.addEventListener("click", onClick);

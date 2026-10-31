@@ -37,6 +37,8 @@ const QUICK = [
 
 export function SiteHeader() {
   const pathname = usePathname() ?? "/";
+  // Ads landing pages (/lp/...) keep visitors on the booking form: no menu.
+  const landing = pathname.startsWith("/lp/");
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const header = useRef<HTMLElement>(null);
@@ -113,7 +115,7 @@ export function SiteHeader() {
             </picture>
           </Link>
 
-          <nav aria-label="Main" className="hidden items-center gap-6 lg:flex xl:gap-8">
+          <nav aria-label="Main" className={landing ? "hidden" : "hidden items-center gap-6 lg:flex xl:gap-8"}>
             {NAV.map((n) => (
               <Link
                 key={n.href}
@@ -135,7 +137,7 @@ export function SiteHeader() {
               <Icon name="phone" size={16} className={open ? "text-brand-gold" : "text-brand-red"} />
               {business.telephoneShort}
             </a>
-            <Link href={business.bookHref} className="pill-btn hidden min-h-[44px] items-center px-5 text-[14.5px] sm:inline-flex">
+            <Link href={landing ? "#book" : business.bookHref} className="pill-btn hidden min-h-[44px] items-center px-5 text-[14.5px] sm:inline-flex">
               Book a consultation <span className="arr" aria-hidden>→</span>
             </Link>
             <button
@@ -145,7 +147,7 @@ export function SiteHeader() {
               aria-controls="mnav"
               aria-label={open ? "Close menu" : "Open menu"}
               onClick={() => setOpen((o) => !o)}
-              className={`menu-btn lg:hidden ${open ? "is-open" : ""}`}
+              className={`menu-btn lg:hidden ${open ? "is-open" : ""} ${landing ? "!hidden" : ""}`}
             >
               <span />
               <span />

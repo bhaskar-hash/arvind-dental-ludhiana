@@ -1,10 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Icon } from "@/components/Icon";
 import { business } from "@/lib/business";
 
 export function StickyActions() {
+  // On ads landing pages "Book" scrolls to the form on the same page.
+  const landing = (usePathname() ?? "").startsWith("/lp/");
   return (
     <>
       {/* Mobile: full-width bottom action bar */}
@@ -29,7 +32,7 @@ export function StickyActions() {
           WhatsApp
         </a>
         <Link
-          href={business.bookHref}
+          href={landing ? "#book" : business.bookHref}
           className="flex flex-col items-center justify-center gap-1 bg-brand-red"
         >
           <Icon name="calendar" size={20} />

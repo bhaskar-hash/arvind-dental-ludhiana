@@ -39,3 +39,6 @@ pnpm-debug.log*
 # TypeScript build info
 *.tsbuildinfo
 
+
+# Ads tracker: filled-in copies hold patient enquiry data, never commit them
+guides/redcity-ads/*.xlsx

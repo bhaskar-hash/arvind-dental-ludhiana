@@ -5,6 +5,7 @@ import { useEffect, useId, useState, type FormEvent, type ReactNode } from "reac
 import { whatsappLink } from "@/lib/business";
 import { sourceLine } from "@/lib/attribution";
 import { gtagEvent } from "@/lib/gtag";
+import { trackLead } from "@/lib/ads";
 import { field } from "@/lib/styles";
 
 /**
@@ -93,6 +94,7 @@ function useRequest(kind: keyof typeof REQUEST_EVENTS) {
     if (source) lines.push(source);
 
     gtagEvent({ action: REQUEST_EVENTS[kind], params: {} });
+    trackLead("form");
     window.open(whatsappLink(lines.join("\n")), "_blank", "noopener,noreferrer");
   }
 
@@ -186,7 +188,10 @@ export function CallbackForm() {
   );
 }
 
-export function BookingForm() {
+export function BookingForm({
+  greeting = "Hi, I'd like to book a consultation at RedCity Dental Care.",
+  button = "Request this appointment",
+}: { greeting?: string; button?: string } = {}) {
   const id = useId();
   const { errors, submit } = useRequest("booking");
   // Set after mount: today's date differs between the server and the browser.
@@ -204,7 +209,7 @@ export function BookingForm() {
           const day = String(d.get("day") ?? "");
           const note = String(d.get("note") ?? "").trim();
           return [
-            "Hi, I'd like to book a consultation at RedCity Dental Care.",
+            greeting,
             `Name: ${d.get("name")}`,
             `Mobile: ${d.get("phone")}`,
             day ? `Preferred day: ${new Date(day).toLocaleDateString("en-IN", { weekday: "long", day: "numeric", month: "long" })}` : "Preferred day: any",
@@ -236,7 +241,7 @@ export function BookingForm() {
       </Field>
       <Consent id={`${id}-consent`} error={errors.consent} />
       <button type="submit" className={submitBtn}>
-        Request this appointment
+        {button}
       </button>
       <p className="font-body text-xs text-brand-muted sm:col-span-2">
         This opens WhatsApp with your request ready to send, and we confirm the time with you.
