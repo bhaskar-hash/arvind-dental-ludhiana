@@ -42,3 +42,4 @@ pnpm-debug.log*
 
 # Ads tracker: filled-in copies hold patient enquiry data, never commit them
 guides/redcity-ads/*.xlsx
+guides/redcity-ads/*.docx

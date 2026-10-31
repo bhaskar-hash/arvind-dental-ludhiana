@@ -1,6 +1,8 @@
 # RedCity ads: ₹10,000 a month, target ₹20,000 of treatment (2x ROAS)
 
-**Check first:** the Dental Council rules restrict dentists' advertising. Dr. Sahu should confirm with the Punjab Dental Council that factual paid ads are allowed before spending. The ads below stay factual (name, degree, service, fee, address), but that does not make them approved.
+The version to share with Dr. Sahu is `RedCity-Ads-Plan-Dr-Sahu.docx` in this folder.
+
+**Check first:** the Dental Council rules restrict dentists' advertising. Dr. Sahu should confirm with the Punjab State Dental Council that factual paid ads are allowed before spending. The ads below stay factual (name, degree, service, fee, address), but that does not make them approved.
 
 ## The system
 
@@ -13,25 +15,31 @@ Ad → landing page → WhatsApp, call or form → the WhatsApp message carries 
 
 ## Budget (per month)
 
-- Google Search, implants: ₹5,000 (~₹165/day)
-- Google Search, check-up: ₹2,000 (~₹65/day)
-- Meta (Facebook + Instagram), implants: ₹3,000 (~₹100/day)
+- Google Search + Maps: ₹7,000 (~₹230/day). Implants ₹4,000, clinic nearby ₹1,500, tooth pain/root canal ₹1,500.
+- Meta (Facebook + Instagram): ₹3,000 (~₹100/day), educational videos only.
+- Raise the total to ₹25,000 only after 2 months on target.
+- Any agency is paid a flat fee or a share of spend, never per lead or per patient (fee-splitting rule).
 
 ## Google Search setup
 
-- Location: 8 km around the clinic, "people in" the area, not "interested in".
-- Keywords (phrase match): "dental implants ludhiana", "implant dentist ludhiana", "missing tooth replacement", "dentures ludhiana", "dentist near me", "dental clinic near me", "tooth pain dentist", "root canal ludhiana".
-- Negative keywords: free, course, job, jobs, salary, college, admission, BDS, MDS course, equipment, lab, wholesale, pdf.
+- Campaign type: Search with a Location asset (shows the Maps pin). Not a Smart campaign, which writes its own headlines.
+- Location: 3–6 km around the clinic, "people in" the area. Model Town, Sarabha Nagar and Civil Lines for implants; Dugri and BRS Nagar for check-ups and root canal; raise mobile bids along Ferozepur Road and Pakhowal Road.
+- Ad groups (phrase match):
+  - Clinic nearby: "dental clinic near me", "dentist model town ludhiana", "dentist in sarabha nagar" → check-up page
+  - Tooth pain and root canal: "root canal treatment ludhiana", "toothache dentist", "wisdom tooth extraction" → check-up page
+  - Implants and crowns: "dental implants ludhiana", "implant dentist", "missing tooth replacement", "zirconia crown" → implant page
+- NRI families, October to March: add "dental implant consultation ludhiana". No same-day implant claims.
+- Negative keywords: free, cheapest, discount, offer, home remedy, government hospital, course, job, jobs, salary, college, admission, BDS, equipment, lab, wholesale, pdf.
 - Call extension: 76268 58230. Location extension: link the Google Business Profile.
-- Headlines: Dental Implants in Ludhiana · Prosthodontist, MDS · Examination Fee ₹300 · Written Estimate First · South Model Gram, Ludhiana · Implant, Bridge or Denture · Book on WhatsApp · Call 76268 58230
+- Headlines: RedCity Dental, Model Gram · Dr. Arvind Sahu, MDS · Reg. No. 20407A · Dental Implants in Ludhiana · Prosthodontist, MDS · Examination Fee ₹300 · Written Estimate First · South Model Gram, Ludhiana · Implant, Bridge or Denture · Book on WhatsApp · Call 76268 58230
 - Descriptions: "Implant consultation with Dr. Arvind Sahu, MDS (Prosthodontics). X-ray if needed." · "Your options and a written cost estimate before any treatment starts. Book on WhatsApp."
 
-## Meta setup
+## Meta setup: education only
 
-- Location: Ludhiana, 10 km around the clinic. Age 35+ for implants.
-- Image: the clinic front, or an AI illustration labelled "AI illustration". Not Dr. Sahu's photo.
-- Text: "Missing a tooth? Dr. Arvind Sahu, MDS (Prosthodontics), explains implant, bridge and denture options and gives a written estimate before treatment. South Model Gram, Ludhiana. Examination ₹300."
-- Button: "Learn more", going to the implant landing page.
+- 45–60 second Reels in Punjabi, Hindi or English, boosted to 5 km around the clinic.
+- Topics: filling vs root canal · gum care with diabetes · a knocked-out adult tooth in the first hour.
+- No "book now" or offer overlays, no surgery footage, not promotional shots of Dr. Sahu.
+- The page bio holds the address, Reg. No. 20407A and the booking link. Profile visits that become WhatsApp chats still carry a Ref via the website.
 
 ## Never in an ad
 
@@ -43,6 +51,7 @@ Ad → landing page → WhatsApp, call or form → the WhatsApp message carries 
 - `NEXT_PUBLIC_GOOGLE_ADS_LEAD_LABEL` = that conversion's label
 - `NEXT_PUBLIC_META_PIXEL_ID` = from Meta Events Manager
 - Redeploy. Calls, WhatsApp taps and form sends then count as conversions, and the privacy page updates itself.
+- Also track in Google Ads: Maps direction requests (Location asset) and calls from ads (call reporting on).
 
 ## Weekly routine (15 minutes, Monday)
 
