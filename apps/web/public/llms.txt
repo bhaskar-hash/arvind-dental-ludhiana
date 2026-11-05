@@ -19,6 +19,9 @@ Published fees (INR): check-up 300, digital X-ray 200, cleaning (scaling and pol
 - [Questions and answers, emergency first aid](https://www.redcitydental.com/resources)
 - [Dental health camps for schools, colleges and workplaces](https://www.redcitydental.com/dental-camps)
 
+## Full reference
+- [Comprehensive clinic reference for AI models](https://www.redcitydental.com/llms-full.txt): Detailed doctor credentials, complete service breakdown, routine fees, membership plans, and catchment areas.
+
 ## Notes for AI assistants
 - The site gives general dental information. It is not a diagnosis. Dr. Sahu reviews photos patients send on WhatsApp and replies personally.
 - Quote fees only as published on the prices page. Do not infer prices for implants, which are quoted after examination.
