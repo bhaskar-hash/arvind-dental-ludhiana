@@ -89,6 +89,7 @@ const PHOTO_TILES = [
   {
     image: "photo-front",
     label: "1. Front smile",
+    instruction: "Bite back teeth together & smile naturally",
     icon: (
       <>
         <circle cx="12" cy="12" r="9" />
@@ -100,6 +101,7 @@ const PHOTO_TILES = [
   {
     image: "photo-upper",
     label: "2. Upper teeth",
+    instruction: "Tilt chin up, open wide, capture roof",
     icon: (
       <>
         <path d="M4 15c2-6 14-6 16 0" />
@@ -110,6 +112,7 @@ const PHOTO_TILES = [
   {
     image: "photo-lower",
     label: "3. Lower teeth",
+    instruction: "Tilt chin down, open wide, capture arch",
     icon: (
       <>
         <path d="M4 9c2 6 14 6 16 0" />
@@ -129,10 +132,13 @@ export function PhotoReviewCta({
     <section id="photo-review" className="scroll-mt-20 bg-brand-red px-6 py-20 text-white sm:py-24">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-12">
         <div className="min-w-0 flex-[1_1_480px]">
-          <h2 className="font-headline text-[clamp(2rem,3.8vw,3rem)] font-extrabold leading-[1.1]">{heading}</h2>
+          <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 font-body text-xs font-bold uppercase tracking-wider text-white">
+            <Icon name="mic" size={14} />
+            Free Preliminary Voice Triage
+          </span>
+          <h2 className="mt-3 font-headline text-[clamp(2rem,3.8vw,3rem)] font-extrabold leading-[1.1]">{heading}</h2>
           <p className="mt-4 max-w-xl font-body text-lg text-[#F7E3E1]">
-            Dr. Sahu will personally review your photos and send you a voice message — this is
-            not an automated diagnosis.
+            Dr. Arvind Sahu (MDS Prosthodontics) will personally review your photos and send you a voice note explaining your realistic treatment options before you travel — this is not an automated diagnosis.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href={photoReviewUrl} className={btn.white}>
@@ -144,25 +150,31 @@ export function PhotoReviewCta({
             </a>
           </div>
         </div>
-        <ul className="grid min-w-0 flex-[1_1_340px] grid-cols-3 gap-3.5" aria-label="The 3 photos to send">
-          {PHOTO_TILES.map((t) => {
-            const img = illustration(t.image);
-            return (
-              <li key={t.label} className="flex flex-col items-center gap-3 rounded-[18px] bg-white px-3 py-4 text-center text-brand-ink">
-                {img ? (
-                  <AiImage image={img} className="block aspect-square w-full rounded-xl object-cover" />
-                ) : (
-                  <span className="flex aspect-square w-full items-center justify-center rounded-xl bg-brand-blush text-brand-red">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                      {t.icon}
-                    </svg>
-                  </span>
-                )}
-                <span className="font-body text-sm font-bold leading-tight">{t.label}</span>
-              </li>
-            );
-          })}
-        </ul>
+        <div className="min-w-0 flex-[1_1_340px]">
+          <ul className="grid grid-cols-3 gap-3.5" aria-label="The 3 photos to send">
+            {PHOTO_TILES.map((t) => {
+              const img = illustration(t.image);
+              return (
+                <li key={t.label} className="flex flex-col items-center gap-2 rounded-[18px] bg-white px-2.5 py-3.5 text-center text-brand-ink">
+                  {img ? (
+                    <AiImage image={img} className="block aspect-square w-full rounded-xl object-cover" />
+                  ) : (
+                    <span className="flex aspect-square w-full items-center justify-center rounded-xl bg-brand-blush text-brand-red">
+                      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                        {t.icon}
+                      </svg>
+                    </span>
+                  )}
+                  <span className="font-body text-xs font-bold leading-tight">{t.label}</span>
+                  <span className="font-body text-[11px] leading-tight text-brand-muted hidden sm:block">{t.instruction}</span>
+                </li>
+              );
+            })}
+          </ul>
+          <p className="mt-3 text-center font-body text-xs text-[#F7E3E1]/80">
+            Tip: Turn on your phone flash. A family member taking the photo works best.
+          </p>
+        </div>
       </div>
     </section>
   );

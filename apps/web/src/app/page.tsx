@@ -15,6 +15,8 @@ import { introVideoUrl } from "@/lib/site";
 import { btn, container, eyebrow, h2, lead } from "@/lib/styles";
 import { illustration } from "@/lib/illustrations";
 import { AiImage } from "@/components/AiImage";
+import { TreatmentExplorer } from "@/components/TreatmentExplorer";
+import { UncopyableStandard } from "@/components/UncopyableStandard";
 
 export const metadata: Metadata = {
   alternates: { canonical: `${business.siteUrl}/` },
@@ -248,6 +250,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* The Uncopyable Practice Standard */}
+      <UncopyableStandard />
+
       {/* Treatments */}
       <section className="bg-brand-warm py-[104px]">
         <div className={container}>
@@ -281,7 +286,24 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
-          <div className="mt-9 flex flex-wrap items-center gap-x-5 gap-y-3.5">
+
+          {/* Interactive Treatment & Cost Explorer */}
+          <div className="mt-16 pt-14 border-t border-brand-line">
+            <div className="max-w-2xl mb-8">
+              <span className="font-body text-xs font-bold uppercase tracking-[0.16em] text-brand-red">
+                Interactive Diagnostic Tool
+              </span>
+              <h3 className="mt-2 font-headline text-[clamp(1.75rem,3.2vw,2.4rem)] font-extrabold text-brand-ink">
+                Treatment &amp; fee explorer for Ludhiana patients
+              </h3>
+              <p className="mt-2.5 font-body text-base text-brand-muted">
+                Select your dental concern below to explore conservative options, specialist advantages, published fees, and get Dr. Sahu&apos;s voice triage.
+              </p>
+            </div>
+            <TreatmentExplorer />
+          </div>
+
+          <div className="mt-12 flex flex-wrap items-center gap-x-5 gap-y-3.5">
             <a href={photoReviewUrl} className={btn.primary}>
               Ask if implants could work for you
             </a>
