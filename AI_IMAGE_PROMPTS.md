@@ -2,7 +2,7 @@
 
 Generated from `apps/web/src/lib/illustration-prompts.ts` by `node scripts/ai-images.mjs`. Edit prompts there, not here.
 
-**48 of 48 images done.**
+**52 of 52 images done.**
 
 ## Task for the Antigravity agent
 
@@ -335,6 +335,46 @@ A top-down travel arrangement featuring a travel ticket sleeve, an ergonomic int
 
 ```text
 A dark maroon membership card with a gold tooth emblem, a checkmarked fee schedule, a calculator, reading glasses, and a cup of Indian chai on a warm cream desk. Draw it as a warm, modern editorial illustration: clean flat shapes, soft shading and a subtle paper-grain texture, in a limited palette of cream (#FBF6F4), blush pink (#F6ECE9), deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). People are Indian, with natural skin tones, friendly simple faces and everyday clothes. Calm and reassuring, never frightening or gory. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 16:9.
+```
+
+### [x] Dental fluorosis treatment in Punjab
+
+- **Shows on:** Article cover: Dental Fluorosis in Punjab: Treating Mottled Brown Enamel Stains Conservatively
+- **Save as:** `apps/web/public/ai/articles/dental-fluorosis-treatment-punjab.jpg` — 1600×900 (16:9)
+- **Alt text (already in the site):** Illustration of conservative dental fluorosis treatment on tooth model
+
+```text
+A tooth model on a warm cream surface illustrating conservative fluorosis restoration: mottled brownish-yellow enamel striations transitioning into clean polished ivory enamel with gentle microabrasion mist accents. Draw it as a warm, modern editorial illustration: clean flat shapes, soft shading and a subtle paper-grain texture, in a limited palette of cream (#FBF6F4), blush pink (#F6ECE9), deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). People are Indian, with natural skin tones, friendly simple faces and everyday clothes. Calm and reassuring, never frightening or gory. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 16:9.
+```
+
+### [x] Full mouth rehabilitation for severe tooth wear
+
+- **Shows on:** Article cover: Full-Mouth Rehabilitation for Severe Tooth Wear: Restoring Collapsed Bite Height
+- **Save as:** `apps/web/public/ai/articles/full-mouth-rehabilitation-tooth-wear-bruxism.jpg` — 1600×900 (16:9)
+- **Alt text (already in the site):** Illustration of full mouth rehabilitation restoring collapsed bite height
+
+```text
+A 3D dental study model showing worn flattened teeth with collapsed bite height restored with precision monolithic zirconia crowns and golden occlusal contact points, set on a warm cream background. Render it as a soft, matte 3D clay-style illustration: smooth rounded forms, gentle diffused studio light from the upper left, soft contact shadows, on a warm cream background (#FBF6F4). Teeth are natural ivory and gums a soft healthy pink. Use small accents only in deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). Calm, premium and clinical, with generous empty space around the subject. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 16:9.
+```
+
+### [x] Wisdom tooth pain and night swelling
+
+- **Shows on:** Article cover: Wisdom Tooth Pain and Night Swelling: Triage, Pericoronitis, and When Extraction Is Necessary
+- **Save as:** `apps/web/public/ai/articles/wisdom-tooth-impaction-pain-swelling-ludhiana.jpg` — 1600×900 (16:9)
+- **Alt text (already in the site):** Illustration of wisdom tooth pain triage with cold compress and salt water
+
+```text
+A clean medical anatomical illustration of an impacted lower wisdom tooth beside an elevated headrest pillow, cloth-wrapped cold compress, warm saline cup, and soothing warm lighting. Draw it as a warm, modern editorial illustration: clean flat shapes, soft shading and a subtle paper-grain texture, in a limited palette of cream (#FBF6F4), blush pink (#F6ECE9), deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). People are Indian, with natural skin tones, friendly simple faces and everyday clothes. Calm and reassuring, never frightening or gory. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 16:9.
+```
+
+### [x] Pre-wedding smile makeover timeline
+
+- **Shows on:** Article cover: Pre-Wedding Smile Makeover Timeline: Safe Cosmetic Dental Planning in Ludhiana
+- **Save as:** `apps/web/public/ai/articles/bridal-pre-wedding-smile-makeover-timeline.jpg` — 1600×900 (16:9)
+- **Alt text (already in the site):** Illustration of pre-wedding smile makeover planning with ceramic veneers and wedding calendar
+
+```text
+An elegant aesthetic dental arrangement of ultra-thin ceramic veneers and dental shade guide beside delicate marigold petals, wedding invitation calligraphy, and a minimalist milestone timeline on warm silk fabric. Render it as a soft, matte 3D clay-style illustration: smooth rounded forms, gentle diffused studio light from the upper left, soft contact shadows, on a warm cream background (#FBF6F4). Teeth are natural ivory and gums a soft healthy pink. Use small accents only in deep red (#A61C2E), maroon (#2B0A0F) and muted gold (#D4AF37). Calm, premium and clinical, with generous empty space around the subject. The image contains no words, letters, numbers, logos, watermarks or signatures. Teeth look anatomically believable: the right number, evenly shaped, with natural gums. It is clearly an illustration, not a photograph of a real patient or a real clinic. Aspect ratio 16:9.
 ```
 
 ## Emergency first aid

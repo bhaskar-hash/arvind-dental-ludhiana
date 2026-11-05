@@ -388,6 +388,50 @@ export const slots: ImageSlot[] = [
       "A dark maroon membership card with a gold tooth emblem, a checkmarked fee schedule, a calculator, reading glasses, and a cup of Indian chai on a warm cream desk.",
     alt: "Illustration of a dental membership card, fee schedule, and calculator",
   },
+  {
+    id: "article-dental-fluorosis-punjab",
+    group: "articles",
+    title: "Dental fluorosis treatment in Punjab",
+    where: "Article cover: Dental Fluorosis in Punjab: Treating Mottled Brown Enamel Stains Conservatively",
+    file: "ai/articles/dental-fluorosis-treatment-punjab",
+    width: 1600, height: 900, aspect: "16:9", style: "illustration",
+    scene:
+      "A tooth model on a warm cream surface illustrating conservative fluorosis restoration: mottled brownish-yellow enamel striations transitioning into clean polished ivory enamel with gentle microabrasion mist accents.",
+    alt: "Illustration of conservative dental fluorosis treatment on tooth model",
+  },
+  {
+    id: "article-full-mouth-rehab-bruxism",
+    group: "articles",
+    title: "Full mouth rehabilitation for severe tooth wear",
+    where: "Article cover: Full-Mouth Rehabilitation for Severe Tooth Wear: Restoring Collapsed Bite Height",
+    file: "ai/articles/full-mouth-rehabilitation-tooth-wear-bruxism",
+    width: 1600, height: 900, aspect: "16:9", style: "render",
+    scene:
+      "A 3D dental study model showing worn flattened teeth with collapsed bite height restored with precision monolithic zirconia crowns and golden occlusal contact points, set on a warm cream background.",
+    alt: "Illustration of full mouth rehabilitation restoring collapsed bite height",
+  },
+  {
+    id: "article-wisdom-tooth-impaction",
+    group: "articles",
+    title: "Wisdom tooth pain and night swelling",
+    where: "Article cover: Wisdom Tooth Pain and Night Swelling: Triage, Pericoronitis, and When Extraction Is Necessary",
+    file: "ai/articles/wisdom-tooth-impaction-pain-swelling-ludhiana",
+    width: 1600, height: 900, aspect: "16:9", style: "illustration",
+    scene:
+      "A clean medical anatomical illustration of an impacted lower wisdom tooth beside an elevated headrest pillow, cloth-wrapped cold compress, warm saline cup, and soothing warm lighting.",
+    alt: "Illustration of wisdom tooth pain triage with cold compress and salt water",
+  },
+  {
+    id: "article-bridal-smile-makeover",
+    group: "articles",
+    title: "Pre-wedding smile makeover timeline",
+    where: "Article cover: Pre-Wedding Smile Makeover Timeline: Safe Cosmetic Dental Planning in Ludhiana",
+    file: "ai/articles/bridal-pre-wedding-smile-makeover-timeline",
+    width: 1600, height: 900, aspect: "16:9", style: "render",
+    scene:
+      "An elegant aesthetic dental arrangement of ultra-thin ceramic veneers and dental shade guide beside delicate marigold petals, wedding invitation calligraphy, and a minimalist milestone timeline on warm silk fabric.",
+    alt: "Illustration of pre-wedding smile makeover planning with ceramic veneers and wedding calendar",
+  },
 
   // ── Emergency first aid (Resources page cards) ──
   {
