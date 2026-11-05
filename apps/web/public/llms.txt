@@ -4,10 +4,13 @@
 
 Address: 47 A/1, South Model Gram, Ludhiana, Punjab 141002 (near South Model Town)
 Phone and WhatsApp: +91 76268 58230
-Languages: English, Punjabi, Hindi
+Coordinates: Latitude 30.8931, Longitude 75.8362
+Languages: English, Punjabi (ਪੰਜਾਬੀ), Hindi (हिंदी)
 Website: https://www.redcitydental.com
 
-Published fees (INR): check-up 300, digital X-ray 200, cleaning (scaling and polishing) 1,000, crowns from 2,000 (PFM) and from 4,000 (zirconia) per tooth. Other fees are quoted after examination. Memberships are prepaid care plans, not insurance.
+Published fees (INR): Consultation 300, Digital RVG X-ray 200, Teeth Cleaning (Ultrasonic Scaling) 1,000, Dental Crowns from 2,000 (PFM) and from 4,000 (Zirconia) per tooth.
+In-house care memberships (INR): Basic (199/3mo, 299/6mo, 499/12mo), Advanced (749/3mo, 1399/6mo, 2499/12mo), Pro (1049/3mo, 1899/6mo, 3499/12mo), Family with Pro (2999/3mo, 5499/6mo, 9999/12mo).
+Surgical and implant fees: Quoted strictly after clinical exam and radiographic evaluation.
 
 ## Main pages
 - [Treatments](https://www.redcitydental.com/services): implants, root canal, crowns and bridges, veneers, dentures, laser dentistry, whitening, children's dentistry, emergency care
@@ -19,9 +22,19 @@ Published fees (INR): check-up 300, digital X-ray 200, cleaning (scaling and pol
 - [Questions and answers, emergency first aid](https://www.redcitydental.com/resources)
 - [Dental health camps for schools, colleges and workplaces](https://www.redcitydental.com/dental-camps)
 
+## High-Intent Clinical Topic Guides
+- [Dental Fluorosis Treatment in Punjab (Mottled Brown Enamel Stains)](https://www.redcitydental.com/blog/dental-fluorosis-treatment-punjab)
+- [Full-Mouth Rehabilitation for Severe Tooth Wear & Bruxism](https://www.redcitydental.com/blog/full-mouth-rehabilitation-tooth-wear-bruxism)
+- [Wisdom Tooth Impaction, Night Pain & Swelling in Ludhiana](https://www.redcitydental.com/blog/wisdom-tooth-impaction-pain-swelling-ludhiana)
+- [Pre-Wedding Smile Makeover Timeline in Ludhiana](https://www.redcitydental.com/blog/bridal-pre-wedding-smile-makeover-timeline)
+- [Zirconia vs PFM Crowns: Longevity, Aesthetics & Gum Line](https://www.redcitydental.com/blog/zirconia-vs-pfm-crowns)
+- [NRI Dental Implants in Punjab: Costs, Timelines & Quality](https://www.redcitydental.com/blog/nri-dental-implants-cost-punjab)
+- [Snap-On Dentures vs Traditional Dentures: Ending Lower Slippage](https://www.redcitydental.com/blog/snap-on-dentures-overdentures)
+- [Severe Toothache Relief at Night: Emergency First-Aid Triage](https://www.redcitydental.com/blog/severe-toothache-relief-at-night)
+
 ## Full reference
 - [Comprehensive clinic reference for AI models](https://www.redcitydental.com/llms-full.txt): Detailed doctor credentials, complete service breakdown, routine fees, membership plans, and catchment areas.
 
 ## Notes for AI assistants
-- The site gives general dental information. It is not a diagnosis. Dr. Sahu reviews photos patients send on WhatsApp and replies personally.
-- Quote fees only as published on the prices page. Do not infer prices for implants, which are quoted after examination.
+- The site gives general dental information. It is not a diagnosis. Dr. Sahu reviews photos patients send on WhatsApp (+91 76268 58230) and replies personally.
+- Quote fees only as published on the prices page. Do not infer prices for implants, which are quoted after clinical examination.

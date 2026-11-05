@@ -33,6 +33,61 @@ export function buildDentistSchema() {
       : {}),
     ...(business.openingHours.length ? { openingHours: business.openingHours } : {}),
     sameAs: [business.googleBusinessUrl],
+    priceRange: "₹200 - ₹4,000+",
+    currenciesAccepted: "INR",
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Published Routine Dental Fees",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "MedicalProcedure",
+            name: "Dental Consultation & Clinical Examination",
+          },
+          price: "300",
+          priceCurrency: "INR",
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "MedicalProcedure",
+            name: "Digital RVG X-ray Diagnostic Exposure",
+          },
+          price: "200",
+          priceCurrency: "INR",
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "MedicalProcedure",
+            name: "Full-Mouth Ultrasonic Scaling and Polishing",
+          },
+          price: "1000",
+          priceCurrency: "INR",
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "MedicalProcedure",
+            name: "Porcelain-Fused-to-Metal (PFM) Dental Crown",
+            description: "Starting fee per tooth",
+          },
+          price: "2000",
+          priceCurrency: "INR",
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "MedicalProcedure",
+            name: "Monolithic Zirconia CAD/CAM Dental Crown",
+            description: "Starting fee per tooth",
+          },
+          price: "4000",
+          priceCurrency: "INR",
+        },
+      ],
+    },
     areaServed: {
       "@type": "City",
       name: business.addressLocality,
@@ -44,11 +99,27 @@ export function buildDentistSchema() {
       jobTitle: doctor.role,
       image: `${business.siteUrl}${doctor.photo.fallback}`,
       url: `${business.siteUrl}/about`,
-      hasCredential: doctor.credentials,
-      ...(doctor.registration ? { identifier: doctor.registration } : {}),
+      hasCredential: doctor.education.map((e) => ({
+        "@type": "EducationalOccupationalCredential",
+        name: e.qualification,
+        credentialCategory: "degree",
+        recognizedBy: {
+          "@type": "CollegeOrUniversity",
+          name: `${e.institution}, ${e.location}`,
+        },
+      })),
+      ...(doctor.registration
+        ? {
+            identifier: {
+              "@type": "PropertyValue",
+              propertyID: "Dental Council Registration",
+              value: doctor.registration,
+            },
+          }
+        : {}),
       alumniOf: doctor.education.map((e) => ({
         "@type": "CollegeOrUniversity",
-        name: e.institution,
+        name: `${e.institution}, ${e.location}`,
       })),
       knowsAbout: doctor.expertise,
     },

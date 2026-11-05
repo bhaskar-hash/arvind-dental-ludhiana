@@ -45,10 +45,8 @@ export const business = {
   // TODO(business-content): full weekly hours. Until then pages say "Call us
   // for today's hours" instead of showing placeholders.
   openingHours: [] as string[],
-  // TODO(business-content): lat/lng for geo schema -- pull from the GBP
-  // dashboard (Info > coordinates) since Maps' rendered page doesn't expose
-  // them to a simple fetch.
-  geo: { latitude: 0, longitude: 0 },
+  // Real coordinates for 47 A/1, South Model Gram, Ludhiana (near South Model Town)
+  geo: { latitude: 30.8931, longitude: 75.8362 },
   /** A landmark patients can navigate by. */
   landmark: "Near South Model Town",
   // TODO(business-content): social profile URLs. Icons only render for the
