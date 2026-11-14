@@ -7,7 +7,7 @@ Dr. Arvind Sahu's dental registration depends on these rules. They come from the
 - Praise words: best, No. 1, top, leading, advanced, world-class, affordable, cheapest, painless, guaranteed, 100%, zero, forever, instant.
 - Free, discounts, offers, "limited time".
 - Reviews, ratings, testimonials, patient stories, before/after photos.
-- Dr. Sahu's photo anywhere except /about.
+- Dr. Sahu's photo anywhere except /about and the home page's "A note from Dr. Sahu" section. Never on the ads landing pages (/lp) or in ads.
 - Comparisons with other clinics or dentists ("other clinics", "corporate", "cut-price", "weekend courses"), or statistics about them.
 - X-ray charges. Dr. Sahu asked on 14 Nov 2026 that they not be mentioned.
 - Clinic facts not already in `apps/web/src/lib` (equipment, brands, labs, CAD/CAM, CBCT, procedures, travel times, prices). Ask the website team first.

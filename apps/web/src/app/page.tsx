@@ -1,5 +1,6 @@
 import { ClinicPhoto } from "@/components/ClinicPhoto";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { Icon } from "@/components/Icon";
@@ -278,24 +279,41 @@ export default function Home() {
       {/* A note from Dr. Sahu */}
       <section className="py-[104px]">
         <div className={`${container} flex flex-wrap items-center gap-14`}>
-          <div className="relative aspect-[16/10] min-w-0 flex-[1_1_480px] overflow-hidden rounded-3xl bg-brand-maroon">
+          <div className="flex min-w-0 flex-[1_1_420px] justify-center">
             {introVideoUrl ? (
-              <iframe
-                src={introVideoUrl}
-                title="Dr. Sahu introduces himself"
-                loading="lazy"
-                allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0 h-full w-full"
-              />
-            ) : (
-              // Typographic panel, not his photo: the NMC rules bar promotional use of the doctor's photo.
-              <div className="absolute inset-0 flex flex-col justify-end p-8 text-white">
-                <span aria-hidden className="font-headline text-[140px] leading-[0.6] text-brand-gold">“</span>
-                <p className="mt-6 font-headline text-2xl font-bold">{doctor.name}</p>
-                <p className="mt-1 font-body text-sm text-[#E3D1CE]">{doctor.credentials}</p>
-                {doctor.registration ? <p className="mt-0.5 font-body text-xs text-[#E3D1CE]/80">{doctor.registration}</p> : null}
+              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl bg-brand-maroon">
+                <iframe
+                  src={introVideoUrl}
+                  title="Dr. Sahu introduces himself"
+                  loading="lazy"
+                  allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute inset-0 h-full w-full"
+                />
               </div>
+            ) : (
+              // His photo introduces him here, with his degrees and registration
+              // beside it. It stays off the ads landing pages (/lp) and out of ads.
+              <figure className="relative w-full max-w-[400px]">
+                <div aria-hidden className="absolute -left-4 -top-4 bottom-8 right-8 rounded-[32px] border-2 border-brand-gold/60 sm:-left-6 sm:-top-6 sm:bottom-6 sm:right-6" />
+                <Image
+                  src={doctor.photo.fallback}
+                  width={doctor.photo.width}
+                  height={doctor.photo.height}
+                  alt={doctor.photo.alt}
+                  sizes="(min-width: 1024px) 400px, 90vw"
+                  quality={85}
+                  className="relative block aspect-[3/4] w-full rounded-[28px] object-cover object-top shadow-[0_24px_50px_-20px_rgba(43,10,15,0.45)]"
+                />
+                <figcaption className="absolute inset-x-4 bottom-4 rounded-2xl bg-white/95 p-4 shadow-lg backdrop-blur-sm">
+                  <strong className="block font-headline text-lg font-bold text-brand-ink">{doctor.name}</strong>
+                  <span className="block font-body text-xs font-semibold text-brand-red">{doctor.credentials}</span>
+                  <span className="block font-body text-[11px] text-brand-muted">
+                    {doctor.role}
+                    {doctor.registration ? ` · ${doctor.registration}` : ""}
+                  </span>
+                </figcaption>
+              </figure>
             )}
           </div>
           <Reveal className="min-w-0 flex-[1_1_420px]">
