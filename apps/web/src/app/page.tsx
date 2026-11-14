@@ -1,3 +1,4 @@
+import { ClinicPhoto } from "@/components/ClinicPhoto";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
@@ -8,7 +9,7 @@ import { Reveal } from "@/components/Reveal";
 import { ConcernGrid, PhotoReviewCta } from "@/components/Sections";
 import { ServiceIcon } from "@/components/ServiceIcon";
 import { business, photoReviewUrl } from "@/lib/business";
-import { clinicPhoto, doctor } from "@/lib/doctor";
+import { doctor } from "@/lib/doctor";
 import { payment, pricingApproved, routineFees } from "@/lib/pricing";
 import { buildDentistSchema } from "@/lib/schema";
 import { introVideoUrl } from "@/lib/site";
@@ -28,15 +29,6 @@ const TREATMENTS = [
   { slug: "veneers", href: "/services/veneers", name: "Veneers & Smile Design", body: "Improving shape, spacing and colour, planned around your face." },
   { slug: "dentures-bridges", href: "/services/dentures-bridges", name: "Dentures & Overdentures", body: "Comfortable, natural-looking replacements for missing teeth." },
 ];
-
-function Photo({ webp, fallback, width, height, alt, className }: { webp: string; fallback: string; width: number; height: number; alt: string; className: string }) {
-  return (
-    <picture>
-      <source srcSet={webp} type="image/webp" />
-      <img src={fallback} width={width} height={height} alt={alt} loading="lazy" className={className} />
-    </picture>
-  );
-}
 
 export default function Home() {
   const diagnosisImage = illustration("home-diagnosis");
@@ -120,17 +112,7 @@ export default function Home() {
           <div className="hero-in hero-in-5 flex min-w-0 flex-[1_1_380px] justify-center">
             <div className="relative w-full max-w-[420px]">
               <div aria-hidden className="absolute -right-12 -top-10 h-[340px] w-[340px] rounded-full bg-[#F3DEDA]" />
-              <picture>
-                <source srcSet={clinicPhoto.webp} type="image/webp" />
-                <img
-                  src={clinicPhoto.fallback}
-                  width={clinicPhoto.width}
-                  height={clinicPhoto.height}
-                  alt={clinicPhoto.alt}
-                  fetchPriority="high"
-                  className="relative block aspect-[3/4] w-full rounded-[28px] object-cover object-[58%_50%] shadow-[0_30px_60px_-24px_rgba(43,10,15,0.45)]"
-                />
-              </picture>
+              <ClinicPhoto priority sizes="(min-width: 1024px) 420px, 90vw" className="relative block aspect-[3/4] w-full rounded-[28px] object-cover object-[58%_50%] shadow-[0_30px_60px_-24px_rgba(43,10,15,0.45)]" />
               <div className="absolute inset-x-[18px] bottom-[18px] rounded-2xl bg-white px-[18px] py-3.5 shadow-[0_12px_30px_-12px_rgba(43,10,15,0.35)]">
                 <strong className="block font-headline text-lg">{business.name}</strong>
                 <span className="font-body text-[13px] text-brand-muted">{business.streetAddress}, {business.addressLocality}</span>
@@ -228,7 +210,7 @@ export default function Home() {
               </Link>
             </Reveal>
             <Reveal as="article" delay={2} className="flex flex-col gap-3.5">
-              <Photo {...clinicPhoto} className="aspect-[4/3] w-full rounded-[20px] object-cover" />
+              <ClinicPhoto sizes="(min-width: 1024px) 380px, 100vw" className="aspect-[4/3] w-full rounded-[20px] object-cover" />
               <h3 className="mt-2 font-headline text-[23px] font-bold leading-tight">Know the cost before you begin</h3>
               <p className="font-body text-base text-brand-muted">
                 Dr. Sahu explains each option and what it costs before treatment starts, so there
@@ -406,7 +388,7 @@ export default function Home() {
       <section className="bg-brand-warm py-[104px]">
         <div className={`${container} flex flex-wrap items-center gap-14`}>
           <div className="relative min-w-0 flex-[1_1_480px]">
-            <Photo {...clinicPhoto} className="block aspect-[4/3] w-full rounded-3xl object-cover" />
+            <ClinicPhoto sizes="(min-width: 1024px) 560px, 100vw" className="block aspect-[4/3] w-full rounded-3xl object-cover" />
             <span className="absolute bottom-[18px] left-[18px] inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 font-body text-sm font-semibold shadow-[0_10px_24px_-10px_rgba(0,0,0,0.35)]">
               <Icon name="pin" size={16} className="text-brand-red" />
               Look for the red building

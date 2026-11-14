@@ -169,7 +169,7 @@ export default function BlogPostPage({
 
       <article className="px-6 py-16 sm:py-20 max-w-2xl mx-auto">
         {cover ? (
-          <AiImage image={cover} priority className="mb-10 block aspect-[16/9] w-full rounded-3xl object-cover" />
+          <AiImage image={cover} priority sizes="(min-width: 768px) 720px, 100vw" className="mb-10 block aspect-[16/9] w-full rounded-3xl object-cover" />
         ) : null}
         <h1 className="font-headline text-[clamp(2rem,4vw,2.75rem)] font-extrabold leading-[1.1] tracking-[-0.01em]">
           {post.title}

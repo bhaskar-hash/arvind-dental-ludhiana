@@ -1,3 +1,4 @@
+import { ClinicPhoto } from "@/components/ClinicPhoto";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
@@ -5,7 +6,7 @@ import { AiImage } from "@/components/AiImage";
 import { Icon } from "@/components/Icon";
 import { QuickBookForm } from "@/components/RequestForms";
 import { business } from "@/lib/business";
-import { clinicPhoto, doctor } from "@/lib/doctor";
+import { doctor } from "@/lib/doctor";
 import { illustration } from "@/lib/illustrations";
 import { getLandingPage, landingPages, type FeatureIcon } from "@/lib/landing";
 import { routineFees } from "@/lib/pricing";
@@ -126,17 +127,7 @@ export default function LandingPage({ params }: { params: { slug: string } }) {
 
           <figure className="relative pb-6 lg:pb-0">
             <div className="overflow-hidden rounded-[28px] shadow-[0_30px_60px_-32px_rgba(43,10,15,0.55)]">
-              <picture>
-                <source srcSet={clinicPhoto.webp} type="image/webp" />
-                <img
-                  src={clinicPhoto.fallback}
-                  width={clinicPhoto.width}
-                  height={clinicPhoto.height}
-                  alt={clinicPhoto.alt}
-                  fetchPriority="high"
-                  className="block aspect-[4/3] w-full object-cover"
-                />
-              </picture>
+              <ClinicPhoto priority sizes="(min-width: 1024px) 540px, 100vw" className="block aspect-[4/3] w-full object-cover" />
             </div>
             <figcaption className="absolute -bottom-1 left-4 right-4 rounded-2xl border border-brand-line bg-white/95 p-4 shadow-lg backdrop-blur sm:left-auto sm:right-5 sm:w-[320px] lg:-bottom-6">
               <span className="block font-headline text-[17px] font-bold text-brand-ink">{doctor.name}</span>
@@ -184,7 +175,7 @@ export default function LandingPage({ params }: { params: { slug: string } }) {
                   >
                     <span className="w-[92px] shrink-0 overflow-hidden rounded-2xl bg-brand-warm sm:w-[132px]">
                       {img ? (
-                        <AiImage image={img} className="block aspect-square w-full object-cover" />
+                        <AiImage image={img} sizes="(min-width: 640px) 132px, 92px" className="block aspect-square w-full object-cover" />
                       ) : (
                         <span className="block aspect-square w-full" />
                       )}

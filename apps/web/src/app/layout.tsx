@@ -77,9 +77,12 @@ export default function RootLayout({
         <AnalyticsEvents />
         {GA_MEASUREMENT_ID ? (
           <>
+            {/* The 178 KB library loads once the page is idle, so it doesn't slow the
+                first paint on mobile. The small init below runs first and queues
+                every event in dataLayer, which the library sends when it arrives. */}
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-              strategy="afterInteractive"
+              strategy="lazyOnload"
             />
             <Script id="ga4-init" strategy="afterInteractive">
               {`

@@ -206,7 +206,7 @@ export default function ResourcesPage() {
                 return (
                   <div key={f.title} className="overflow-hidden rounded-[18px] bg-brand-warm border border-brand-line">
                     {img ? (
-                      <AiImage image={img} className="block aspect-[4/3] w-full object-cover" />
+                      <AiImage image={img} sizes="(min-width: 1024px) 280px, (min-width: 640px) 50vw, 100vw" className="block aspect-[4/3] w-full object-cover" />
                     ) : (
                       <div className="flex aspect-[4/3] w-full flex-col items-center justify-center gap-2 bg-brand-blush/60 text-brand-red">
                         <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white text-brand-red shadow-sm">

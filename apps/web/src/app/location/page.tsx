@@ -1,3 +1,4 @@
+import { ClinicPhoto } from "@/components/ClinicPhoto";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
@@ -5,7 +6,6 @@ import { JsonLd } from "@/components/JsonLd";
 import { BookingForm } from "@/components/RequestForms";
 import { buildDentistSchema } from "@/lib/schema";
 import { business } from "@/lib/business";
-import { clinicPhoto } from "@/lib/doctor";
 import { btn, container, eyebrow, h2 } from "@/lib/styles";
 
 export const metadata: Metadata = {
@@ -44,17 +44,7 @@ export default function LocationPage() {
             </div>
           </div>
           <div className="min-w-0 flex-[1_1_520px]">
-            <picture>
-              <source srcSet={clinicPhoto.webp} type="image/webp" />
-              <img
-                src={clinicPhoto.fallback}
-                width={clinicPhoto.width}
-                height={clinicPhoto.height}
-                alt={clinicPhoto.alt}
-                fetchPriority="high"
-                className="block aspect-[4/3] w-full rounded-[26px] object-cover shadow-[0_30px_60px_-30px_rgba(43,10,15,0.45)]"
-              />
-            </picture>
+            <ClinicPhoto priority sizes="(min-width: 1024px) 560px, 100vw" className="block aspect-[4/3] w-full rounded-[26px] object-cover shadow-[0_30px_60px_-30px_rgba(43,10,15,0.45)]" />
           </div>
         </div>
       </section>

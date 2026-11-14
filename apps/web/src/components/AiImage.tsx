@@ -1,23 +1,35 @@
+import Image from "next/image";
 import { ServiceIcon } from "@/components/ServiceIcon";
 import { articleCover, type FoundImage } from "@/lib/illustrations";
 
-/** Renders an AI illustration found by lib/illustrations.ts. */
-export function AiImage({ image, className, priority }: { image: FoundImage; className: string; priority?: boolean }) {
+/**
+ * Renders an AI illustration found by lib/illustrations.ts. Next.js resizes it
+ * to the `sizes` given, so small tiles don't download the 1200px original.
+ */
+export function AiImage({
+  image,
+  className,
+  priority,
+  sizes = "(min-width: 1024px) 50vw, 100vw",
+}: {
+  image: FoundImage;
+  className: string;
+  priority?: boolean;
+  sizes?: string;
+}) {
   // NMC guidelines 7.2: AI-generated images must say so where they are shown.
   return (
     <span className="relative block">
-    <picture>
-      {image.webp ? <source srcSet={image.webp} type="image/webp" /> : null}
-      <img
+      <Image
         src={image.src}
         width={image.width}
         height={image.height}
         alt={image.alt}
-        loading={priority ? undefined : "lazy"}
-        fetchPriority={priority ? "high" : undefined}
+        sizes={sizes}
+        priority={priority}
+        quality={78}
         className={className}
       />
-    </picture>
       <span className="pointer-events-none absolute bottom-2 left-2 rounded-full bg-black/55 px-2 py-0.5 font-body text-[10px] font-semibold text-white">
         AI illustration
       </span>
@@ -28,7 +40,7 @@ export function AiImage({ image, className, priority }: { image: FoundImage; cla
 /** An article's cover: its AI illustration once saved, otherwise the treatment icon. */
 export function ArticleCover({ slug, service, iconClass }: { slug: string; service?: string; iconClass: string }) {
   const cover = articleCover(slug);
-  if (cover) return <AiImage image={cover} className="block aspect-[16/9] w-full object-cover" />;
+  if (cover) return <AiImage image={cover} sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw" className="block aspect-[16/9] w-full object-cover" />;
   return (
     <span className="flex h-[150px] items-center justify-center bg-brand-blush text-brand-red">
       <ServiceIcon slug={service ?? ""} className={iconClass} />

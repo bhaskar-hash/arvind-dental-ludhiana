@@ -158,7 +158,7 @@ export function PhotoReviewCta({
               return (
                 <li key={t.label} className="flex flex-col items-center gap-2 rounded-[18px] bg-white px-2.5 py-3.5 text-center text-brand-ink">
                   {img ? (
-                    <AiImage image={img} className="block aspect-square w-full rounded-xl object-cover" />
+                    <AiImage image={img} sizes="(min-width: 1024px) 140px, 30vw" className="block aspect-square w-full rounded-xl object-cover" />
                   ) : (
                     <span className="flex aspect-square w-full items-center justify-center rounded-xl bg-brand-blush text-brand-red">
                       <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
