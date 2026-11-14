@@ -1,4 +1,5 @@
 import { business } from "./business";
+import { formatRupees, implantFromFee } from "./pricing";
 
 export interface ServiceFaq {
   question: string;
@@ -36,6 +37,8 @@ export interface Service {
   whatToExpect: { title: string; body: string }[];
   faqs: ServiceFaq[];
 
+  /** One factual price line shown under the intro (a starting fee, never an offer). */
+  priceLine?: string;
   /** Patient-centred hero: the concern it answers, and a plain-words headline. */
   eyebrow?: string;
   headline?: string;
@@ -70,7 +73,8 @@ export const services: Service[] = [
     metaTitle: "Dental Implants in Ludhiana by a Prosthodontist",
     shortName: "Dental Implants",
     metaDescription:
-      "Dental implants in Ludhiana with Dr. Arvind Sahu, MDS (Prosthodontics). A 5-year, 10-year or lifetime warranty on the implant, depending on your option.",
+      `Dental implants in Ludhiana from ${formatRupees(implantFromFee)} with Dr. Arvind Sahu, MDS (Prosthodontics). 5-year, 10-year or lifetime warranty, by implant option.`,
+    priceLine: `Dental implants from ${formatRupees(implantFromFee)} per implant · written estimate before treatment`,
     intro:
       "A dental implant replaces a missing tooth's root with a titanium post, topped with a custom crown. Because prosthodontics — the restoration and replacement of teeth — is Dr. Sahu's specialty area of training, implant planning at RedCity Dental Care covers the full arc from the initial scan to the final crown.",
     eyebrow: "For missing teeth",
@@ -112,7 +116,7 @@ export const services: Service[] = [
       ],
     },
     costFactors: {
-      lead: "Implant cost isn't one fixed number. The only reliable way to know yours is an examination and imaging, and Dr. Sahu explains the full cost before anything begins.",
+      lead: `Dental implants start from ${formatRupees(implantFromFee)} per implant. Your own cost depends on the factors below, so the only reliable way to know it is an examination and imaging. Dr. Sahu explains the full cost in writing before anything begins.`,
       items: [
         { title: "How many teeth", body: "One implant, several, or a full arch." },
         { title: "Materials", body: "The implant system and the crown you choose." },
@@ -146,6 +150,10 @@ export const services: Service[] = [
       },
     ],
     faqs: [
+      {
+        question: "How much does a dental implant cost in Ludhiana?",
+        answer: `Dental implants at RedCity Dental Care start from ${formatRupees(implantFromFee)} per implant. The final cost depends on the number of implants, the implant option you choose and whether bone grafting is needed. Dr. Sahu gives you the full cost in writing after an examination, before any treatment begins.`,
+      },
       {
         question: "How long does the implant process take?",
         answer:

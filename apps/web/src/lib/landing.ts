@@ -1,4 +1,4 @@
-import { routineFees } from "./pricing";
+import { implantFromFee, routineFees } from "./pricing";
 
 /**
  * Landing pages for paid ads (/lp/<slug>), in the card layout Dr. Sahu sent on
@@ -9,6 +9,9 @@ import { routineFees } from "./pricing";
  * before/after photos or the doctor's photo. Dr. Sahu asked that X-ray charges
  * not be mentioned. Treatments not on the main site (All-on-4/6, E-max, digital
  * smile design) come from his own mockup.
+ *
+ * The implant starting fee comes from `implantFromFee` in pricing.ts; show it
+ * only as "from", with the footnote that the final cost depends on the case.
  *
  * Ad links should carry UTM tags so the WhatsApp message names the campaign, e.g.
  * /lp/dental-implants?utm_source=google&utm_medium=cpc&utm_campaign=implants
@@ -37,6 +40,10 @@ export interface LandingPage {
   headline: [string, string];
   sub: string;
   heroNote: string;
+  /** Optional price chip under the hero buttons, e.g. "Dental implants from ₹18,000 per implant". */
+  priceChip?: { label: string; amount: string; note: string };
+  /** Extra line for the small print at the bottom of the page. */
+  footnote?: string;
   features: { icon: FeatureIcon; label: string }[];
   cardsHeading: [string, string];
   cardsSub: string;
@@ -48,6 +55,7 @@ export interface LandingPage {
 }
 
 const fee = (n: number) => `₹${n.toLocaleString("en-IN")}`;
+const IMPLANT_FOOTNOTE = `Implant fees shown are starting fees per implant. The final cost depends on the number of implants, the implant option and any bone grafting, and is given in writing before treatment starts.`;
 const LOCATION = "South Model Gram, Ludhiana";
 
 export const landingPages: LandingPage[] = [
@@ -58,7 +66,8 @@ export const landingPages: LandingPage[] = [
     location: LOCATION,
     headline: ["Your smile.", "Our priority."],
     sub: "Check-ups, root canals, crowns, implants and smile makeovers with Dr. Arvind Sahu, MDS (Prosthodontics). Fees are explained before treatment.",
-    heroNote: `Check-up ${fee(routineFees.checkup)} · Open Mon–Sat 10 am–8 pm, Sun 10 am–2 pm`,
+    heroNote: `Check-up ${fee(routineFees.checkup)} · Implants from ${fee(implantFromFee)} · Open Mon–Sat 10 am–8 pm, Sun 10 am–2 pm`,
+    footnote: IMPLANT_FOOTNOTE,
     features: [
       { icon: "digital", label: "Digital dentistry" },
       { icon: "smile", label: "Smile design" },
@@ -73,7 +82,7 @@ export const landingPages: LandingPage[] = [
         tag: "Dental implants",
         title: "Dental implants, standard to premium",
         body: "Fixed replacement for one, several or all teeth.",
-        points: ["Single, multiple or full-arch", "All-on-4 / All-on-6 if suitable"],
+        points: ["Single, multiple or full-arch", "All-on-4 / All-on-6 if suitable", `From ${fee(implantFromFee)} per implant`],
         image: "cat-implants",
       },
       {
@@ -134,11 +143,13 @@ export const landingPages: LandingPage[] = [
     slug: "dental-implants",
     title: "Dental Implant Consultation in Ludhiana",
     description:
-      "Dental implant consultation with Dr. Arvind Sahu, MDS (Prosthodontics), South Model Gram, Ludhiana. Single, multiple and full-arch options, with a written estimate first.",
+      `Dental implants from ${fee(implantFromFee)}: consultation with Dr. Arvind Sahu, MDS (Prosthodontics), South Model Gram, Ludhiana. Written estimate before treatment.`,
     location: LOCATION,
     headline: ["Missing teeth?", "See if implants suit you."],
     sub: "An implant consultation with Dr. Arvind Sahu, MDS (Prosthodontics), the specialty that plans tooth replacement. Standard and premium implant options, and a written estimate before treatment.",
+    priceChip: { label: "Dental implants from", amount: fee(implantFromFee), note: "per implant" },
     heroNote: `Examination ${fee(routineFees.checkup)} · Open Mon–Sat 10 am–8 pm, Sun 10 am–2 pm`,
+    footnote: IMPLANT_FOOTNOTE,
     features: [
       { icon: "degree", label: "MDS prostho\u00addontist" },
       { icon: "digital", label: "Digital dentistry" },
@@ -153,7 +164,7 @@ export const landingPages: LandingPage[] = [
         tag: "One missing tooth",
         title: "Single tooth implant",
         body: "Replaces one tooth without cutting the teeth beside it.",
-        points: ["Implant, abutment and crown"],
+        points: ["Implant, abutment and crown", `From ${fee(implantFromFee)} per implant`],
         image: "cat-implants",
       },
       {

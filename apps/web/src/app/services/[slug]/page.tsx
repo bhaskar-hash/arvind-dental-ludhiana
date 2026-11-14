@@ -91,6 +91,11 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
               , {doctor.credentials}
               {doctor.registration ? ` · ${doctor.registration}` : ""}
             </p>
+            {service.priceLine ? (
+              <p className="hero-in hero-in-3 mt-4 inline-block rounded-full border border-brand-line bg-white px-4 py-2 font-body text-sm font-semibold text-brand-ink">
+                {service.priceLine}
+              </p>
+            ) : null}
             <div className="hero-in hero-in-4 mt-8 flex flex-wrap gap-3">
               {service.slug === "emergency-dental-care" ? (
                 <>

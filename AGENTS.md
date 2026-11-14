@@ -17,7 +17,7 @@ Dr. Arvind Sahu's dental registration depends on these rules. They come from the
 ## Facts
 
 - Clinic facts live in `apps/web/src/lib/` (`business.ts`, `doctor.ts`, `pricing.ts`, `services.ts`). Use them; don't retype them.
-- Quote prices only from `pricing.ts`.
+- Quote prices only from `pricing.ts`. Dental implants: show only "from ₹18,000 per implant" (`implantFromFee`), always as "from". Never add other implant prices, ranges or packages (an earlier agent invented ₹25,000–45,000).
 - Show the doctor's name, qualifications and "Registration No. 20407A" together.
 - Keep the four menu items: Treatments, Prices & plans, About, Visit us.
 

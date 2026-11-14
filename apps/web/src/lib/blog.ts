@@ -55,19 +55,19 @@ export const blogPosts: BlogPost[] = [
       },
       {
         "heading": "Making an informed choice in Ludhiana",
-        "body": "There is no universal answer for every missing tooth. An in-person clinical assessment, with an X-ray where needed, is the only reliable ways to determine which approach fits your mouth and bite.\n\nAt RedCity Dental (47 A/1 South Model Gram, Ludhiana), Dr. Arvind Sahu (MDS Prosthodontics) evaluates your bite alignment and jawbone structure to explain both options clearly. Call +91 76268 58230 to schedule your consultation."
+        "body": "There is no universal answer for every missing tooth. An in-person clinical assessment, with an X-ray where needed, is the only reliable way to determine which approach fits your mouth and bite.\n\nAt RedCity Dental (47 A/1 South Model Gram, Ludhiana), Dr. Arvind Sahu (MDS Prosthodontics) evaluates your bite alignment and jawbone structure to explain both options clearly. Call +91 76268 58230 to schedule your consultation."
       }
     ]
   },
   {
     "slug": "dental-implant-cost-factors",
     "title": "What Affects the Cost of Dental Implants?",
-    "metaDescription": "The factors that typically affect dental implant cost — number of implants, materials, and any preparatory treatment needed — explained plainly.",
+    "metaDescription": "What affects dental implant cost: number of implants, crown material and preparation. At RedCity Dental, implants start from ₹18,000 per implant.",
     "relatedService": "dental-implants",
     "sections": [
       {
         "heading": "Why implant pricing varies between patients",
-        "body": "The cost of dental implant treatment is not a single flat number. Total fees depend on the number of missing teeth, the anatomical location, bone density, and the type of custom crown chosen.\n\nKey factors that influence overall implant treatment:\n• **Number of Missing Teeth:** Replacing a single molar requires one implant and crown. Replacing an entire arch can often be done with 4 to 6 implants supporting a full fixed bridge.\n• **Preparatory Procedures:** If a tooth has been missing for years, jawbone naturally recedes. Bone grafting or a sinus lift may be needed to build a stable foundation.\n• **Crown Material:** The visible tooth attached to the implant can be Porcelain-Fused-to-Metal (PFM, from ₹2,000) or high-strength Monolithic Zirconia (from ₹4,000)."
+        "body": "The cost of dental implant treatment is not a single flat number. At RedCity Dental, dental implants start from ₹18,000 per implant, and the total then depends on the number of missing teeth, the anatomical location, bone density, and the type of custom crown chosen.\n\nKey factors that influence overall implant treatment:\n• **Number of Missing Teeth:** Replacing a single molar requires one implant and crown. Replacing an entire arch can often be done with 4 to 6 implants supporting a full fixed bridge.\n• **Preparatory Procedures:** If a tooth has been missing for years, jawbone naturally recedes. Bone grafting or a sinus lift may be needed to build a stable foundation.\n• **Crown Material:** The visible tooth attached to the implant can be Porcelain-Fused-to-Metal (PFM, from ₹2,000) or high-strength Monolithic Zirconia (from ₹4,000)."
       },
       {
         "heading": "What a complete implant treatment involves",
@@ -154,7 +154,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         "heading": "Evaluate communication and transparent pricing",
-        "body": "A trustworthy clinic explains diagnostic findings clearly, discusses treatment options without pressure, and provides upfront transparent pricing before procedures begin.\n\nImportant transparency standards:\n• **Clear Diagnostics:** Look for clinics that review digital X-rays with you and explain the diagnosis before recommending treatment.\n• **Published Routine Fees:** At RedCity Dental, check-ups are ₹300, cleanings are ₹1,000, and crowns start from ₹2,000 for PFM and from ₹4,000 for Zirconia.\n• **Direct Doctor Review:** Confirm that your case will be evaluated and treated by the qualified doctor personally rather than delegated entirely to rotating assistants."
+        "body": "A trustworthy clinic explains diagnostic findings clearly, discusses treatment options without pressure, and provides upfront transparent pricing before procedures begin.\n\nImportant transparency standards:\n• **Clear Diagnostics:** Look for clinics that review digital X-rays with you and explain the diagnosis before recommending treatment.\n• **Published Fees:** At RedCity Dental, check-ups are ₹300, cleanings are ₹1,000, crowns start from ₹2,000 for PFM and from ₹4,000 for Zirconia, and dental implants start from ₹18,000 per implant.\n• **Direct Doctor Review:** Confirm that your case will be evaluated and treated by the qualified doctor personally rather than delegated entirely to rotating assistants."
       },
       {
         "heading": "Location and accessible continuity of care",
@@ -378,7 +378,7 @@ export const blogPosts: BlogPost[] = [
     "sections": [
       {
         "heading": "Why overseas visitors coordinate dental care during Punjab visits",
-        "body": "For Non-Resident Indians (NRIs) living in Canada (Surrey, Brampton, Calgary), the UK, and Australia, coordinating major dental care like implants, crowns, and bridges while visiting family in Punjab allows them to receive specialist prosthodontic care from Dr. Arvind Sahu with fees explained in writing before treatment.\n\nBenefits of coordinating care in Ludhiana:\n• **MDS Specialist Care:** Restorations are personally planned and delivered by an MDS Prosthodontist.\n• **Transparent Pricing:** Check-ups are ₹300, and crowns start from ₹2,000 (PFM) and ₹4,000 (Zirconia). Implants and complex prosthetics are quoted with clear itemized estimates after examination."
+        "body": "For Non-Resident Indians (NRIs) living in Canada (Surrey, Brampton, Calgary), the UK, and Australia, coordinating major dental care like implants, crowns, and bridges while visiting family in Punjab allows them to receive specialist prosthodontic care from Dr. Arvind Sahu with fees explained in writing before treatment.\n\nBenefits of coordinating care in Ludhiana:\n• **MDS Specialist Care:** Restorations are personally planned and delivered by an MDS Prosthodontist.\n• **Transparent Pricing:** Check-ups are ₹300, and crowns start from ₹2,000 (PFM) and ₹4,000 (Zirconia). Dental implants start from ₹18,000 per implant; implants and complex prosthetics are quoted in a clear, itemised estimate after examination."
       },
       {
         "heading": "Planning around a 2- to 3-week holiday",

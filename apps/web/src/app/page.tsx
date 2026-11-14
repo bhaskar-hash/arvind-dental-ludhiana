@@ -11,7 +11,7 @@ import { ConcernGrid, PhotoReviewCta } from "@/components/Sections";
 import { ServiceIcon } from "@/components/ServiceIcon";
 import { business, photoReviewUrl } from "@/lib/business";
 import { doctor } from "@/lib/doctor";
-import { payment, pricingApproved, routineFees } from "@/lib/pricing";
+import { formatRupees, implantFromFee, payment, pricingApproved, routineFees } from "@/lib/pricing";
 import { buildDentistSchema } from "@/lib/schema";
 import { introVideoUrl } from "@/lib/site";
 import { btn, container, eyebrow, h2, lead } from "@/lib/styles";
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 const TREATMENTS = [
-  { slug: "dental-implants", href: "/services/dental-implants", name: "Dental Implants", body: "A fixed, natural-looking replacement for one tooth or many.", badge: "Up to lifetime warranty*" },
+  { slug: "dental-implants", href: "/services/dental-implants", name: "Dental Implants", body: `A fixed, natural-looking replacement for one tooth or many, from ${formatRupees(implantFromFee)} per implant.`, badge: "Up to lifetime warranty*" },
   { slug: "full-mouth-rehabilitation", href: "/services/full-mouth-rehabilitation", name: "Full Mouth Rehabilitation", body: "Rebuilding many worn, broken or missing teeth with one plan." },
   { slug: "root-canal-treatment", href: "/services/root-canal-treatment", name: "Root Canal Treatment", body: "Saving an infected tooth, only when it is truly needed." },
   { slug: "crowns", href: "/services/crowns", name: "Crowns & Bridges", body: "Zirconia and PFM crowns, from ₹2,000 per tooth*." },
@@ -75,7 +75,7 @@ export default function Home() {
                 </span>
                 <span className="flex flex-col font-body leading-snug">
                   <strong className="text-[15px]">Fees shown upfront</strong>
-                  <span className="text-[13px] text-brand-muted">Check-up ₹{routineFees.checkup}, before anything starts</span>
+                  <span className="text-[13px] text-brand-muted">Check-up ₹{routineFees.checkup} · implants from {formatRupees(implantFromFee)}</span>
                 </span>
               </div>
               <div className="flex items-center gap-3">
@@ -349,7 +349,7 @@ export default function Home() {
           <div className="mt-11 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { icon: "receipt" as const, title: "A clear estimate first", body: "Before treatment starts, you'll know your options and what each one costs." },
-              { icon: "scale" as const, title: "Choices explained", body: "Zirconia crowns from ₹4,000 or PFM from ₹2,000 per tooth*. We explain the difference in strength, look and price." },
+              { icon: "scale" as const, title: "Choices explained", body: `Dental implants from ${formatRupees(implantFromFee)} per implant, zirconia crowns from ₹4,000 or PFM from ₹2,000 per tooth*. We explain the difference in strength, look and price.` },
               { icon: "card" as const, title: "Easy ways to pay", body: `${payment.methods.map((m) => m.split(" (")[0]).join(", ")}${payment.stagedPayments ? ". Longer treatment can be paid in stages." : "."}` },
             ].map((c) => (
               <div key={c.title} className="rounded-[20px] bg-white p-7">

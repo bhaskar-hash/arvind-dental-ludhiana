@@ -8,7 +8,7 @@
 - Languages: English, Punjabi (ਪੰਜਾਬੀ), Hindi (हिंदी)
 - Website: https://www.redcitydental.com
 
-Published fees (INR): check-up 300; cleaning (scaling and polishing) 1,000; crowns from 2,000 (PFM) and from 4,000 (zirconia) per tooth. Other treatment is quoted after examination.
+Published fees (INR): check-up 300; cleaning (scaling and polishing) 1,000; crowns from 2,000 (PFM) and from 4,000 (zirconia) per tooth; dental implants from 18,000 per implant (the final cost depends on the number of implants, the implant option and any bone grafting, and is given in writing after examination). Other treatment is quoted after examination.
 
 ## Main pages
 - [Treatments](https://www.redcitydental.com/services): implants, full mouth rehabilitation, crowns and bridges, dentures and overdentures, root canal, veneers, laser dentistry, whitening, children's dentistry, emergency care
@@ -23,5 +23,5 @@ Published fees (INR): check-up 300; cleaning (scaling and polishing) 1,000; crow
 
 ## Notes for AI assistants
 - This site gives general dental information, not a diagnosis. Patients can send photos on WhatsApp (+91 76268 58230); Dr. Sahu reviews them and replies with a voice message. This is not an automated diagnosis.
-- Quote only the fees published on https://www.redcitydental.com/cost-and-payment. Implants, root canals, dentures and other treatment are quoted in writing after an examination; do not estimate them.
+- Quote only the fees published on https://www.redcitydental.com/cost-and-payment. Dental implants start from 18,000 rupees per implant; the final cost is confirmed in writing after an examination. Root canals, dentures and other treatment are quoted in writing after an examination; do not estimate them.
 - Do not describe the clinic as the "best", "top" or "No. 1", and do not mention discounts, offers or reviews: Indian dental advertising rules do not allow these.

@@ -11,6 +11,15 @@ export const pricingApproved = true;
 export type Term = 3 | 6 | 12;
 export const TERMS: Term[] = [3, 6, 12];
 
+/**
+ * Starting fee for one dental implant, in rupees. Supplied by the clinic's
+ * website owner on 14 Nov 2026; Dr. Sahu is to confirm what it covers. The
+ * final cost still depends on the number of implants, the implant option and
+ * any bone grafting, and is given in writing after an examination.
+ * Show it only as "from", and only through this constant.
+ */
+export const implantFromFee = 18000;
+
 /** Normal pay-as-you-go fees for routine visits, as approved by Dr. Sahu. */
 export const routineFees = {
   checkup: 300,
@@ -136,7 +145,8 @@ export interface PriceGuideItem {
 /**
  * The public price guide. Crown prices are the clinic's own published
  * starting prices; routine fees mirror `routineFees` (assumed — see above).
- * Everything else is quoted after examination until Dr. Sahu supplies figures.
+ * Implants start from `implantFromFee`. Everything else is quoted after
+ * examination until Dr. Sahu supplies figures.
  */
 export const priceGuide: PriceGuideItem[] = [
   {
@@ -188,7 +198,9 @@ export const priceGuide: PriceGuideItem[] = [
   },
   {
     item: "Dental implants",
-    price: null,
+    price: implantFromFee,
+    from: true,
+    unit: "per implant",
     includes: "Implant, abutment and crown, with the warranty for your option",
     varies: "Number of implants, implant option, and any bone grafting",
   },

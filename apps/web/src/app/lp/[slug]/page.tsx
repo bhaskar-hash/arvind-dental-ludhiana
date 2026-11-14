@@ -122,6 +122,13 @@ export default function LandingPage({ params }: { params: { slug: string } }) {
                 Chat on WhatsApp
               </a>
             </div>
+            {page.priceChip ? (
+              <p className="mt-5 inline-flex flex-wrap items-baseline gap-x-2 gap-y-0.5 rounded-2xl border border-brand-red/25 bg-white px-4 py-2.5 shadow-sm">
+                <span className="font-body text-sm text-brand-muted">{page.priceChip.label}</span>
+                <span className="font-headline text-[26px] font-extrabold leading-none text-brand-red">{page.priceChip.amount}</span>
+                <span className="font-body text-sm text-brand-muted">{page.priceChip.note}</span>
+              </p>
+            ) : null}
             <p className="mt-4 font-body text-sm text-brand-muted">{page.heroNote}</p>
           </div>
 
@@ -307,7 +314,8 @@ export default function LandingPage({ params }: { params: { slug: string } }) {
         </div>
         <p className={`${container} mt-12 font-body text-xs leading-relaxed text-brand-muted`}>
           Treatment is decided only after an examination, and its cost is given in writing before it
-          starts. Images marked &ldquo;AI illustration&rdquo; are illustrations, not patient photos.
+          starts.{page.footnote ? ` ${page.footnote}` : ""} Images marked &ldquo;AI illustration&rdquo; are
+          illustrations, not patient photos.
         </p>
       </section>
     </main>
