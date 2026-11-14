@@ -172,7 +172,7 @@ export function PhotoReviewCta({
               );
             })}
           </ul>
-          <p className="mt-3 text-center font-body text-xs text-[#F7E3E1]/80">
+          <p className="mt-3 text-center font-body text-xs text-[#F7E3E1]">
             Tip: turn on your phone&apos;s flash. It is easier if someone else takes the photos.
           </p>
         </div>
