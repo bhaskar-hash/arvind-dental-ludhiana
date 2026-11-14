@@ -42,11 +42,13 @@ export const business = {
   googleReviewCount: null as number | null,
   // TODO(business-content): confirm Hindi is spoken at the clinic.
   languages: ["English", "ਪੰਜਾਬੀ", "हिंदी"],
-  // TODO(business-content): full weekly hours. Until then pages say "Call us
-  // for today's hours" instead of showing placeholders.
-  openingHours: [] as string[],
-  // Real coordinates for 47 A/1, South Model Gram, Ludhiana (near South Model Town)
-  geo: { latitude: 30.8931, longitude: 75.8362 },
+  // Hours as published on the clinic's Google Business Profile (read
+  // 14 Nov 2026). Keep both lists in step with the profile.
+  openingHours: ["Mon–Sat 10 am–8 pm", "Sun 10 am–2 pm"] as string[],
+  /** The same hours in schema.org format, for structured data. */
+  openingHoursSchema: ["Mo-Sa 10:00-20:00", "Su 10:00-14:00"] as string[],
+  // The pin on the clinic's Google Business Profile (place 0x391a83af6f6c5de5:0xf4fe467c266c6ac7), read 14 Nov 2026.
+  geo: { latitude: 30.8910931, longitude: 75.833524 },
   /** A landmark patients can navigate by. */
   landmark: "Near South Model Town",
   // TODO(business-content): social profile URLs. Icons only render for the

@@ -534,12 +534,12 @@ export const services: Service[] = [
   {
     slug: "full-mouth-rehabilitation",
     name: "Full Mouth Rehabilitation in Ludhiana",
-    metaTitle: "Full Mouth Rehabilitation in Ludhiana by a Prosthodontist",
+    metaTitle: "Full Mouth Rehabilitation in Ludhiana",
     shortName: "Full Mouth Rehabilitation",
     eyebrow: "For many worn, broken or missing teeth",
     headline: "One plan to rebuild your whole mouth, in stages you can follow.",
     metaDescription:
-      "Full mouth rehabilitation in Ludhiana by Dr. Arvind Sahu, MDS (Prosthodontics): one staged plan for many worn, broken or missing teeth, with crowns, bridges, implants or dentures.",
+      "Full mouth rehabilitation in Ludhiana by Dr. Arvind Sahu, MDS (Prosthodontics): one staged plan for many worn, broken or missing teeth.",
     intro:
       "Full mouth rehabilitation means restoring most or all of the teeth in both jaws with one coordinated plan, instead of fixing one tooth at a time. It is used when teeth are badly worn, broken, decayed or missing across the mouth, and it usually combines several treatments: crowns, bridges, implants, dentures, root canals and gum care. Planning the bite as a whole is the core of prosthodontics, Dr. Sahu's postgraduate specialty.",
     forYou: {

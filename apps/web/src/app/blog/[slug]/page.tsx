@@ -12,7 +12,7 @@ import { buildBlogPostSchemaGraph } from "@/lib/schema";
 import { business } from "@/lib/business";
 import { routineFees } from "@/lib/pricing";
 import { doctor } from "@/lib/doctor";
-import { ogImagesFor } from "@/lib/seo";
+import { ogImagesFor, pageTitle } from "@/lib/seo";
 
 export function generateStaticParams() {
   return blogPosts.map((p) => ({ slug: p.slug }));
@@ -26,7 +26,7 @@ export function generateMetadata({
   const post = getBlogPostBySlug(params.slug);
   if (!post) return {};
   return {
-    title: post.title,
+    title: pageTitle(post.title),
     description: post.metaDescription,
     alternates: { canonical: `${business.siteUrl}/blog/${post.slug}` },
     openGraph: {
@@ -59,6 +59,16 @@ function renderFormattedBody(body: string) {
   return (
     <div className="mt-3 flex flex-col gap-4 font-body text-[17px] leading-relaxed text-brand-muted">
       {blocks.map((block, idx) => {
+        // The first plain paragraph of a section answers its heading: shown as
+        // a lead line (no "Direct Answer" label, which reads oddly to patients).
+        if (idx === 0 && !/^(• |- |\d+\.\s)/.test(block) && !block.includes("\n• ")) {
+          return (
+            <p key={idx} className="font-medium leading-relaxed text-brand-ink">
+              {formatInline(block)}
+            </p>
+          );
+        }
+
         if (
           block.startsWith("**Direct Answer:**") ||
           block.startsWith("**Crisp Answer:**") ||

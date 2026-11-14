@@ -19,3 +19,14 @@ export function ogImagesFor(image?: { src: string; width: number; height: number
     ? [{ url: image.src, width: image.width, height: image.height, alt: image.alt }]
     : [defaultOgImage];
 }
+
+const BRAND_SUFFIX = " | RedCity Dental Care";
+
+/**
+ * The layout appends " | RedCity Dental Care" to page titles. When that would
+ * push a title past ~60 characters (where Google cuts it off), use the title on
+ * its own so the words that matter stay visible.
+ */
+export function pageTitle(title: string) {
+  return title.length + BRAND_SUFFIX.length > 60 ? { absolute: title } : title;
+}

@@ -134,11 +134,12 @@ export function PhotoReviewCta({
         <div className="min-w-0 flex-[1_1_480px]">
           <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 font-body text-xs font-bold uppercase tracking-wider text-white">
             <Icon name="mic" size={14} />
-            Free Preliminary Voice Triage
+            Voice reply from Dr. Sahu
           </span>
           <h2 className="mt-3 font-headline text-[clamp(2rem,3.8vw,3rem)] font-extrabold leading-[1.1]">{heading}</h2>
           <p className="mt-4 max-w-xl font-body text-lg text-[#F7E3E1]">
-            Dr. Arvind Sahu (MDS Prosthodontics) will personally review your photos and send you a voice note explaining your realistic treatment options before you travel — this is not an automated diagnosis.
+            Dr. Sahu will personally review your photos and send you a voice message — this is
+            not an automated diagnosis.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href={photoReviewUrl} className={btn.white}>
@@ -172,7 +173,7 @@ export function PhotoReviewCta({
             })}
           </ul>
           <p className="mt-3 text-center font-body text-xs text-[#F7E3E1]/80">
-            Tip: Turn on your phone flash. A family member taking the photo works best.
+            Tip: turn on your phone&apos;s flash. It is easier if someone else takes the photos.
           </p>
         </div>
       </div>

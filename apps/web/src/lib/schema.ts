@@ -31,63 +31,10 @@ export function buildDentistSchema() {
           },
         }
       : {}),
-    ...(business.openingHours.length ? { openingHours: business.openingHours } : {}),
+    ...(business.openingHoursSchema.length ? { openingHours: business.openingHoursSchema } : {}),
+    // No price list here: fees live on /cost-and-payment, and Dr. Sahu asked
+    // that X-ray charges not be advertised.
     sameAs: [business.googleBusinessUrl],
-    priceRange: "₹200 - ₹4,000+",
-    currenciesAccepted: "INR",
-    hasOfferCatalog: {
-      "@type": "OfferCatalog",
-      name: "Published Routine Dental Fees",
-      itemListElement: [
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "MedicalProcedure",
-            name: "Dental Consultation & Clinical Examination",
-          },
-          price: "300",
-          priceCurrency: "INR",
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "MedicalProcedure",
-            name: "Digital RVG X-ray Diagnostic Exposure",
-          },
-          price: "200",
-          priceCurrency: "INR",
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "MedicalProcedure",
-            name: "Full-Mouth Ultrasonic Scaling and Polishing",
-          },
-          price: "1000",
-          priceCurrency: "INR",
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "MedicalProcedure",
-            name: "Porcelain-Fused-to-Metal (PFM) Dental Crown",
-            description: "Starting fee per tooth",
-          },
-          price: "2000",
-          priceCurrency: "INR",
-        },
-        {
-          "@type": "Offer",
-          itemOffered: {
-            "@type": "MedicalProcedure",
-            name: "Monolithic Zirconia CAD/CAM Dental Crown",
-            description: "Starting fee per tooth",
-          },
-          price: "4000",
-          priceCurrency: "INR",
-        },
-      ],
-    },
     areaServed: {
       "@type": "City",
       name: business.addressLocality,

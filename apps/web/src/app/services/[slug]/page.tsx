@@ -18,7 +18,7 @@ import { pricingApproved } from "@/lib/pricing";
 import { buildServiceSchemaGraph } from "@/lib/schema";
 import { getServiceBySlug, relatedServices, services } from "@/lib/services";
 import { btn, container, eyebrow, h2 } from "@/lib/styles";
-import { ogImagesFor } from "@/lib/seo";
+import { ogImagesFor, pageTitle } from "@/lib/seo";
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
@@ -28,7 +28,7 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   const service = getServiceBySlug(params.slug);
   if (!service) return {};
   return {
-    title: service.metaTitle ?? service.name,
+    title: pageTitle(service.metaTitle ?? service.name),
     description: service.metaDescription,
     alternates: { canonical: `${business.siteUrl}/services/${service.slug}` },
     openGraph: {

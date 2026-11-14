@@ -13,7 +13,7 @@ import {
 } from "@/lib/policies";
 
 export const metadata: Metadata = {
-  title: "Patient Policies: Implant Warranty & Refunds",
+  title: "Implant Warranty & Refund Policies",
   description: `Implant warranty (5-year, 10-year and lifetime), rescheduling, refunds and treatment-plan changes at ${business.name}, ${business.addressLocality}.`,
   alternates: { canonical: `${business.siteUrl}/policies` },
   robots: policiesApproved ? undefined : { index: false, follow: false },
