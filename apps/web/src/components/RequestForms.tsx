@@ -251,6 +251,95 @@ export function BookingForm({
   );
 }
 
+/**
+ * Short form for the ads landing pages: name, mobile, treatment and time.
+ * Any link with a `data-treatment` attribute (the treatment cards) picks that
+ * treatment here, so a tap on a card lands on a form that is already filled in.
+ */
+export function QuickBookForm({
+  greeting,
+  button,
+  treatments,
+}: {
+  greeting: string;
+  button: string;
+  treatments: string[];
+}) {
+  const id = useId();
+  const { errors, submit } = useRequest("booking");
+  const [treatment, setTreatment] = useState(treatments[0]);
+  const [picked, setPicked] = useState(false);
+
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    const onClick = (e: MouseEvent) => {
+      const el = (e.target as Element | null)?.closest?.<HTMLElement>("[data-treatment]");
+      const value = el?.dataset.treatment;
+      if (!value || !treatments.includes(value)) return;
+      setTreatment(value);
+      setPicked(true);
+      clearTimeout(timer);
+      timer = setTimeout(() => setPicked(false), 1600);
+    };
+    document.addEventListener("click", onClick);
+    return () => {
+      document.removeEventListener("click", onClick);
+      clearTimeout(timer);
+    };
+  }, [treatments]);
+
+  return (
+    <form
+      noValidate
+      onSubmit={(e) =>
+        submit(e, (d) => [
+          greeting,
+          `Name: ${d.get("name")}`,
+          `Mobile: ${d.get("phone")}`,
+          `Treatment: ${d.get("treatment")}`,
+          `Preferred time: ${d.get("time")}`,
+        ])
+      }
+      className={formShell}
+    >
+      <Field label="Your name" id={`${id}-name`} error={errors.name} wide>
+        <input id={`${id}-name`} name="name" type="text" autoComplete="name" required maxLength={80} aria-invalid={!!errors.name} aria-describedby={errors.name ? `${id}-name-error` : undefined} className={field} />
+      </Field>
+      <Field label="Mobile number" id={`${id}-phone`} error={errors.phone} wide>
+        <input id={`${id}-phone`} name="phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="98765 43210" required maxLength={17} aria-invalid={!!errors.phone} aria-describedby={errors.phone ? `${id}-phone-error` : undefined} className={field} />
+      </Field>
+      <Field label="Treatment" id={`${id}-treatment`}>
+        <select
+          id={`${id}-treatment`}
+          name="treatment"
+          value={treatment}
+          onChange={(e) => setTreatment(e.target.value)}
+          className={`${field} transition-shadow ${picked ? "border-brand-red ring-4 ring-brand-red/20" : ""}`}
+        >
+          {treatments.map((t) => (
+            <option key={t}>{t}</option>
+          ))}
+        </select>
+      </Field>
+      <Field label="Preferred time" id={`${id}-time`}>
+        <select id={`${id}-time`} name="time" className={field}>
+          {["Any time", ...TIMES].map((t) => (
+            <option key={t}>{t}</option>
+          ))}
+        </select>
+      </Field>
+      <Consent id={`${id}-consent`} error={errors.consent} />
+      <button type="submit" className={submitBtn}>
+        {button}
+      </button>
+      <p className="font-body text-xs text-brand-muted sm:col-span-2">
+        This opens WhatsApp with your request ready to send, and we confirm the time with you.
+        Nothing is stored on this website.
+      </p>
+    </form>
+  );
+}
+
 const ORG_TYPES = ["Company or office", "School", "College or university", "Housing society or other group"];
 
 /** Enquiry for a dental check-up camp at a workplace, school or college. */

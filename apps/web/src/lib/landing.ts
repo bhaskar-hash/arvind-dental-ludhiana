@@ -1,126 +1,195 @@
 import { routineFees } from "./pricing";
 
 /**
- * Landing pages for paid ads (/lp/<slug>). They are noindex, show no menu, and
- * every claim stays inside the NMC / Dental Council rules: facts, fees and
- * process only. No offers, discounts, "free", "best", reviews, before/after
- * photos or the doctor's photo.
+ * Landing pages for paid ads (/lp/<slug>), in the card layout Dr. Sahu sent on
+ * 14 Nov 2026, with basic information only. They are noindex and show no menu.
+ *
+ * Every line stays inside the NMC / Dental Council rules: facts, fees and
+ * process only. No "best", "advanced", "affordable", "free", offers, reviews,
+ * before/after photos or the doctor's photo. Dr. Sahu asked that X-ray charges
+ * not be mentioned. Treatments not on the main site (All-on-4/6, E-max, digital
+ * smile design) come from his own mockup.
  *
  * Ad links should carry UTM tags so the WhatsApp message names the campaign, e.g.
- * /lp/dental-implants?utm_source=google&utm_medium=cpc&utm_campaign=implants-nov
+ * /lp/dental-implants?utm_source=google&utm_medium=cpc&utm_campaign=implants
  */
+
+export type FeatureIcon = "digital" | "smile" | "degree" | "care" | "estimate";
+
+export interface LandingCard {
+  /** Form value chosen when the card is tapped; must be one of `treatments`. */
+  treatment: string;
+  tag: string;
+  title: string;
+  body: string;
+  points: string[];
+  /** Illustration slot id (lib/illustration-prompts.ts). */
+  image: string;
+}
+
 export interface LandingPage {
   slug: string;
+  /** Browser tab title. */
   title: string;
   description: string;
-  eyebrow: string;
-  headline: string;
+  location: string;
+  /** Two-tone headline: first line dark, second line red. */
+  headline: [string, string];
   sub: string;
-  facts: { value: string; label: string }[];
-  forYouHeading: string;
-  forYou: string[];
-  steps: { title: string; body: string }[];
-  faqs: { question: string; answer: string }[];
+  heroNote: string;
+  features: { icon: FeatureIcon; label: string }[];
+  cardsHeading: [string, string];
+  cardsSub: string;
+  cards: LandingCard[];
+  /** Options in the form's treatment list. */
+  treatments: string[];
   greeting: string;
   button: string;
-  /** Treatment page with the full detail, linked once near the end. */
-  moreHref: string;
-  moreLabel: string;
 }
 
 const fee = (n: number) => `₹${n.toLocaleString("en-IN")}`;
+const LOCATION = "South Model Gram, Ludhiana";
 
 export const landingPages: LandingPage[] = [
+  {
+    slug: "dental-check-up",
+    title: "Dental Clinic in South Model Gram, Ludhiana",
+    description: `Dental clinic in South Model Gram, Ludhiana: check-ups, root canals, crowns, implants and smile makeovers with Dr. Arvind Sahu, MDS. Check-up ${fee(routineFees.checkup)}.`,
+    location: LOCATION,
+    headline: ["Your smile.", "Our priority."],
+    sub: "Check-ups, root canals, crowns, implants and smile makeovers with Dr. Arvind Sahu, MDS (Prosthodontics). Fees are explained before treatment.",
+    heroNote: `Check-up ${fee(routineFees.checkup)} · Open Mon–Sat 10 am–8 pm, Sun 10 am–2 pm`,
+    features: [
+      { icon: "digital", label: "Digital dentistry" },
+      { icon: "smile", label: "Smile design" },
+      { icon: "degree", label: "MDS prostho\u00addontist" },
+      { icon: "care", label: "Personalised care" },
+    ],
+    cardsHeading: ["Our dental", "treatments"],
+    cardsSub: "Tap a treatment to book a consultation for it.",
+    cards: [
+      {
+        treatment: "Dental implants",
+        tag: "Dental implants",
+        title: "Dental implants, standard to premium",
+        body: "Fixed replacement for one, several or all teeth.",
+        points: ["Single, multiple or full-arch", "All-on-4 / All-on-6 if suitable"],
+        image: "cat-implants",
+      },
+      {
+        treatment: "Smile makeover",
+        tag: "Aesthetic dentistry",
+        title: "Smile design & makeover",
+        body: "Your new smile is planned before treatment starts.",
+        points: ["Digital smile design", "Veneers and whitening"],
+        image: "cat-smile-makeover",
+      },
+      {
+        treatment: "Root canal",
+        tag: "Root canal",
+        title: "Root canal treatment",
+        body: "Tooth pain checked and treated, keeping your own tooth where possible.",
+        points: ["Under local anaesthesia", "Crown when needed"],
+        image: "rct",
+      },
+      {
+        treatment: "Crowns & bridges",
+        tag: "Crowns & bridges",
+        title: "Zirconia & E-max crowns",
+        body: "Tooth-coloured crowns and bridges, priced per tooth.",
+        points: ["Zirconia from ₹4,000", "PFM from ₹2,000"],
+        image: "crowns",
+      },
+      {
+        treatment: "Dentures",
+        tag: "Dentures",
+        title: "Dentures & overdentures",
+        body: "Complete or partial dentures, or dentures held by implants.",
+        points: ["Made to fit your bite"],
+        image: "dentures",
+      },
+      {
+        treatment: "Check-up or cleaning",
+        tag: "General dentistry",
+        title: "Check-ups, cleaning & fillings",
+        body: "Routine care for the whole family, children included.",
+        points: [`Check-up ${fee(routineFees.checkup)}`, `Cleaning ${fee(routineFees.cleaning)}`],
+        image: "cat-checkup",
+      },
+    ],
+    treatments: [
+      "Dental implants",
+      "Smile makeover",
+      "Root canal",
+      "Crowns & bridges",
+      "Dentures",
+      "Check-up or cleaning",
+      "Tooth pain",
+      "Not sure yet",
+    ],
+    greeting: "Hi, I'd like to book a consultation at RedCity Dental Care.",
+    button: "Request appointment",
+  },
   {
     slug: "dental-implants",
     title: "Dental Implant Consultation in Ludhiana",
     description:
-      "Implant consultation with Dr. Arvind Sahu, MDS (Prosthodontics), South Model Gram, Ludhiana. Examination, X-ray and a written estimate before any treatment.",
-    eyebrow: "Dental implants · South Model Gram, Ludhiana",
-    headline: "Missing teeth? Find out if implants suit you.",
-    sub: "A consultation with Dr. Arvind Sahu, MDS (Prosthodontics), the specialty that plans tooth replacement. You leave with your options and a written estimate, before any treatment starts.",
-    facts: [
-      { value: fee(routineFees.checkup), label: "Examination fee" },
-      { value: fee(routineFees.xray), label: "X-ray, if needed" },
-      { value: "Written", label: "Estimate before treatment" },
+      "Dental implant consultation with Dr. Arvind Sahu, MDS (Prosthodontics), South Model Gram, Ludhiana. Single, multiple and full-arch options, with a written estimate first.",
+    location: LOCATION,
+    headline: ["Missing teeth?", "See if implants suit you."],
+    sub: "An implant consultation with Dr. Arvind Sahu, MDS (Prosthodontics), the specialty that plans tooth replacement. Standard and premium implant options, and a written estimate before treatment.",
+    heroNote: `Examination ${fee(routineFees.checkup)} · Open Mon–Sat 10 am–8 pm, Sun 10 am–2 pm`,
+    features: [
+      { icon: "degree", label: "MDS prostho\u00addontist" },
+      { icon: "digital", label: "Digital dentistry" },
+      { icon: "estimate", label: "Written estimate" },
+      { icon: "care", label: "Personalised care" },
     ],
-    forYouHeading: "This consultation is for you if",
-    forYou: [
-      "One or more teeth are missing, or a tooth needs to come out",
-      "Your denture is loose and you want something fixed in place",
-      "You were told you need a bridge and want to compare options",
-      "You want to know the cost and number of visits before deciding",
-    ],
-    steps: [
-      { title: "Examination", body: "Dr. Sahu checks the gap, your gums and bite, and takes an X-ray if needed." },
-      { title: "Your options", body: "Implant, bridge or denture, explained side by side, including what suits your bone and budget." },
-      { title: "Written estimate", body: "Cost, number of visits and timeline in writing. You decide in your own time." },
-    ],
-    faqs: [
+    cardsHeading: ["Implant", "options"],
+    cardsSub: "Tap the one closest to your situation.",
+    cards: [
       {
-        question: "How much does a dental implant cost?",
-        answer:
-          "It depends on the number of implants, the implant option and whether bone grafting is needed. You get an itemised written estimate after the examination, before any treatment.",
+        treatment: "Single tooth implant",
+        tag: "One missing tooth",
+        title: "Single tooth implant",
+        body: "Replaces one tooth without cutting the teeth beside it.",
+        points: ["Implant, abutment and crown"],
+        image: "cat-implants",
       },
       {
-        question: "How many visits does an implant take?",
-        answer:
-          "Usually a placement visit, a healing period of a few months while the implant joins the bone, then visits to fit the crown. Your estimate lists the visits for your case.",
+        treatment: "Several missing teeth",
+        tag: "Several missing teeth",
+        title: "Implant-supported bridge",
+        body: "A few implants hold a fixed bridge for several teeth.",
+        points: ["Fixed, not removable"],
+        image: "crowns",
       },
       {
-        question: "Can anyone get an implant?",
-        answer:
-          "Most adults can, but gum health, bone, diabetes control and smoking all matter. The examination and X-ray show whether an implant suits you or another option is better.",
+        treatment: "Full arch (All-on-4 / All-on-6)",
+        tag: "All teeth in a jaw",
+        title: "All-on-4 / All-on-6",
+        body: "A fixed set of teeth on 4 or 6 implants.",
+        points: ["When the bone allows", "Planned around your bite"],
+        image: "cat-full-mouth",
       },
+      {
+        treatment: "Implant overdenture",
+        tag: "Loose denture",
+        title: "Implant overdenture",
+        body: "Your denture clips onto implants so it stays in place.",
+        points: ["Removable for cleaning"],
+        image: "dentures",
+      },
+    ],
+    treatments: [
+      "Single tooth implant",
+      "Several missing teeth",
+      "Full arch (All-on-4 / All-on-6)",
+      "Implant overdenture",
+      "Not sure yet",
     ],
     greeting: "Hi, I'd like a dental implant consultation at RedCity Dental Care.",
-    button: "Request an implant consultation",
-    moreHref: "/services/dental-implants",
-    moreLabel: "Read more about dental implants",
-  },
-  {
-    slug: "dental-check-up",
-    title: "Dental Check-up in South Model Gram, Ludhiana",
-    description: `Dental check-up with Dr. Arvind Sahu, MDS, at RedCity Dental Care, South Model Gram, Ludhiana. Examination fee ${fee(routineFees.checkup)}, fees shown upfront.`,
-    eyebrow: "Dental clinic · South Model Gram, Ludhiana",
-    headline: `Tooth trouble? Book a check-up. Examination fee ${fee(routineFees.checkup)}.`,
-    sub: "Examined by Dr. Arvind Sahu, MDS (Prosthodontics). We find the cause, explain it in plain words and tell you the cost before any treatment.",
-    facts: [
-      { value: fee(routineFees.checkup), label: "Examination fee" },
-      { value: fee(routineFees.xray), label: "X-ray, if needed" },
-      { value: fee(routineFees.cleaning), label: "Cleaning (scaling)" },
-    ],
-    forYouHeading: "Come in for",
-    forYou: [
-      "Tooth pain, sensitivity or a broken tooth",
-      "Bleeding gums or bad breath",
-      "A cleaning or a routine check-up",
-      "Your child's teeth",
-      "A second opinion on a treatment plan",
-    ],
-    steps: [
-      { title: "Examination", body: "A full check of teeth and gums, with an X-ray only if it is needed." },
-      { title: "Plain explanation", body: "What is wrong, what happens if you wait, and the treatment options." },
-      { title: "Cost first", body: "The fee for any treatment is told before it starts. Nothing is done without your agreement." },
-    ],
-    faqs: [
-      {
-        question: "What does the check-up include?",
-        answer: `An examination of your teeth and gums by Dr. Sahu for ${fee(routineFees.checkup)}. An X-ray, if needed, is ${fee(routineFees.xray)}.`,
-      },
-      {
-        question: "Can I come the same day?",
-        answer: "Call or WhatsApp us and we will give you the earliest time available. For severe pain or swelling, call first.",
-      },
-      {
-        question: "Where is the clinic?",
-        answer: "47 A/1, South Model Gram, near South Model Town, Ludhiana. Directions are on our Visit us page.",
-      },
-    ],
-    greeting: "Hi, I'd like to book a dental check-up at RedCity Dental Care.",
-    button: "Request a check-up",
-    moreHref: "/services",
-    moreLabel: "See all treatments",
+    button: "Request implant consultation",
   },
 ];
 
