@@ -111,14 +111,9 @@ const HIGHLIGHT_TAGS: HighlightTag[] = [
 ];
 
 /** Copy text to clipboard with multi-browser mobile fallbacks. */
-async function copyToClipboard(text: string): Promise<boolean> {
+function copyToClipboard(text: string): boolean {
   if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
-    try {
-      await navigator.clipboard.writeText(text);
-      return true;
-    } catch {
-      // Fall through to textarea execCommand fallback
-    }
+    navigator.clipboard.writeText(text).catch(() => {});
   }
 
   try {
@@ -194,18 +189,20 @@ export function ReviewAssistant() {
     });
   }
 
-  async function handleCopyAndLaunch() {
-    // 1. Copy text to clipboard immediately
-    await copyToClipboard(reviewText);
+  function handleCopyAndLaunch() {
+    // 1. Copy text to clipboard immediately in synchronous user gesture
+    copyToClipboard(reviewText);
     setHasCopied(true);
 
-    // 2. Open Google Review dialog directly
-    // Direct location assignment opens the Google Maps app's native review screen on Android/iOS
+    // 2. Open Google Maps review URL
     const directUrl = business.googleWriteReviewUrl;
     try {
-      window.location.href = directUrl;
+      const win = window.open(directUrl, "_blank", "noopener,noreferrer");
+      if (!win || win.closed || typeof win.closed === "undefined") {
+        window.location.href = directUrl;
+      }
     } catch {
-      window.open(directUrl, "_blank", "noopener,noreferrer");
+      window.location.href = directUrl;
     }
   }
 

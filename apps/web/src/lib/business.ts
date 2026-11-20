@@ -36,9 +36,8 @@ export const business = {
       "Hi, I'd like to book a consultation at RedCity Dental Care.",
     ),
   googleBusinessUrl: "https://maps.app.goo.gl/aw86VcC2PLQ8iETQ8",
-  /** Opens the Google Maps "Write a review" dialog directly (no extra navigation). */
-  googleWriteReviewUrl:
-    "https://search.google.com/local/writereview?placeid=ChIJCeVdbG-vgxo5EcdqbCZ8Rv70",
+  /** Official Google Maps review action link for Red City Dental Care (verified by clinic). */
+  googleWriteReviewUrl: "https://maps.app.goo.gl/aw86VcC2PLQ8iETQ8",
   googleRating: 5.0,
   // TODO(business-content): number of Google reviews — shown next to the
   // rating once known. Leave null rather than guessing.
