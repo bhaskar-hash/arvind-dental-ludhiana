@@ -5,11 +5,12 @@ import { business } from "@/lib/business";
 import { doctor } from "@/lib/doctor";
 
 /* ─────────────────────────────────────────────────────────────────────────────
- * Treatment definitions & question-driven review suggestions.
+ * Treatment definitions & generic Hinglish review suggestions.
  * Follows AGENTS.md compliance:
  * - NO banned praise words (best, No. 1, top, leading, advanced, world-class,
  *   affordable, cheapest, painless, guaranteed, 100%, zero, forever, instant, free).
- * - Factual, patient-first descriptions of Dr. Sahu's MDS Prosthodontist care.
+ * - Natural, generic Hinglish sentences that real Indian patients write.
+ * - No quotation marks around text.
  * ───────────────────────────────────────────────────────────────────────── */
 
 interface TreatmentOption {
@@ -26,10 +27,10 @@ const TREATMENTS: TreatmentOption[] = [
     label: "Dental Implant",
     emoji: "🦷",
     baseReview:
-      "Got my dental implant done by Dr. Arvind Sahu at RedCity Dental Care in South Model Gram, Ludhiana. Being an MDS Prosthodontist, his surgical planning and tooth placement were thorough and comfortable. Transparent fees and clear written implant warranty. Highly recommend for dental implants in Ludhiana!",
+      "Dr. Arvind Sahu sir se dental implant karwaya. Bohot aaram se treatment ho gaya aur bilkul comfort raha. Doctor saab ne pehle sab kuch ache se samjhaya. Fees bhi bilkul genuine hai. Very happy with RedCity Dental, South Model Gram.",
     alternates: [
-      "Great experience with Dr. Arvind Sahu for tooth replacement. He explained all options between implants and bridges clearly with digital X-rays before starting. Very calm clinic environment and comfortable procedure near Model Town, Ludhiana.",
-      "Very professional dental implant treatment by Dr. Arvind Sahu at RedCity Dental Care. Upfront published pricing, gentle care, and completely natural-looking tooth result.",
+      "Got my dental implant done here with Dr. Arvind Sahu. Doctor bohot polite hain aur procedure ke time bilkul aaram raha. Model Gram Ludhiana me genuine dental care ke liye highly recommend.",
+      "Bohot achha experience raha Dr. Arvind Sahu ke saath. Implant ki planning aur fitting bohot badhiya hui. Honest doctor aur saaf-suthra clinic.",
     ],
   },
   {
@@ -37,10 +38,10 @@ const TREATMENTS: TreatmentOption[] = [
     label: "Crown or Cap",
     emoji: "👑",
     baseReview:
-      "Replaced my damaged cap with a monolithic Zirconia crown at RedCity Dental Care, Ludhiana. Dr. Sahu's attention to shade matching and bite alignment is remarkable. Chewing feels completely natural. Clear published fees and honest advice!",
+      "Purana tooth cap replace karwaya Dr. Arvind Sahu sir se. Zirconia crown ki fitting ekdum natural aayi hai, khana khane me koi dikkat nahi. Fees bhi upfront clear batayi thi.",
     alternates: [
-      "Visited Dr. Arvind Sahu for a broken molar cap. He took digital RVG X-rays, showed me exactly what was needed, and placed a durable crown. Transparent with costs from day one. Very satisfied with the care in South Model Gram.",
-      "Thorough crown and bridge work by prosthodontist Dr. Arvind Sahu in Ludhiana. Smooth process, perfect fit, and reasonable pricing.",
+      "Dr. Arvind Sahu gave genuine advice for my broken tooth cap. Crown lagwane ke baad biting bilkul normal hai. Very calm and polite doctor in South Model Gram Ludhiana.",
+      "Ache se check karke cap lagayi Dr. Sahu ne. Fitting aur shade natural lag raha hai. Cooperative staff aur clean clinic.",
     ],
   },
   {
@@ -48,10 +49,10 @@ const TREATMENTS: TreatmentOption[] = [
     label: "Teeth Cleaning",
     emoji: "✨",
     baseReview:
-      "Had a full mouth ultrasonic teeth cleaning and polishing at RedCity Dental Care in South Model Gram. Dr. Arvind Sahu was gentle, took his time, and explained proper daily care. Fixed published fee with no hidden extras. Highly recommend!",
+      "Teeth cleaning and scaling karwayi RedCity Dental me. Dr. Arvind Sahu ne bohot aaram se cleaning kari, teeth bilkul clean aur smooth lag rahe hain. Fixed genuine fees aur clean clinic.",
     alternates: [
-      "Visited RedCity Dental for routine scaling. My teeth feel very clean and smooth. Dr. Sahu took the time to answer all my questions and gave honest advice. Clean clinic near Model Town, Ludhiana.",
-      "Very gentle and thorough teeth cleaning session with Dr. Arvind Sahu. Clean clinic, digital equipment, and transparent fees.",
+      "Routine dental cleaning karwayi Dr. Arvind Sahu sir se. Unhone daily brushing habits bhi ache se samjhayi. South Model Gram me bohot accha clinic hai.",
+      "Bohot aaram se cleaning hui, teeth clean feel ho rahe hain. Dr. Sahu treats patients with a lot of patience.",
     ],
   },
   {
@@ -59,10 +60,10 @@ const TREATMENTS: TreatmentOption[] = [
     label: "Root Canal",
     emoji: "⚡",
     baseReview:
-      "Visited Dr. Arvind Sahu at RedCity Dental with severe tooth pain. He diagnosed the infected tooth with digital X-rays and performed a comfortable single-visit root canal under local anaesthesia. Quick relief and very gentle procedure. Truly grateful for the emergency care in Ludhiana.",
+      "Daant me kafi dard tha, Dr. Arvind Sahu sir ne single visit me root canal kiya. Treatment ke baad dard me kafi aaram mila. Bohot tasalli se treatment karte hain South Model Gram me.",
     alternates: [
-      "I was nervous about getting a root canal, but Dr. Sahu made the entire procedure calm and comfortable. Clear fee estimate before treatment and great follow-up care in South Model Gram, Ludhiana.",
-      "Comfortable root canal treatment and crown fitting by Dr. Arvind Sahu at RedCity Dental. Skilled doctor and honest recommendations.",
+      "Mujhe root canal se kafi dar lag raha tha par Dr. Arvind Sahu ne bohot aaram se kar diya. Pure treatment me bilkul comfort raha. Thank you Dr. Sahu!",
+      "Dr. Arvind Sahu did my RCT and crown. Har step pe pehle bataya kya kar rahe hain. South Model Gram me honest aur skilled doctor.",
     ],
   },
   {
@@ -70,9 +71,9 @@ const TREATMENTS: TreatmentOption[] = [
     label: "Dentures",
     emoji: "👴",
     baseReview:
-      "Consulted Dr. Arvind Sahu (MDS Prosthodontics) for my father's loose lower denture. Dr. Sahu explained how implant-retained snap-on overdentures work to prevent slipping. The fit and chewing comfort are remarkable. Highly skilled prosthodontist in Ludhiana!",
+      "Mummy ke liye dentures banwaye Dr. Arvind Sahu sir se. Measurement bohot dhyan se liya aur ab khana khane me unko koi dikkat nahi hoti. Bohot respectful aur patient doctor hain.",
     alternates: [
-      "Dr. Arvind Sahu made a custom set of complete dentures for my mother. He took meticulous measurements of her bite and facial profile. She can eat comfortably again. Very patient and respectful doctor at RedCity Dental Care.",
+      "Consulted Dr. Arvind Sahu for my father's denture fitting. Fitting bohot achhi aayi hai aur chewing comfortable hai. RedCity Dental Ludhiana me genuine prosthodontist.",
     ],
   },
   {
@@ -80,9 +81,9 @@ const TREATMENTS: TreatmentOption[] = [
     label: "Smile Fix / Veneers",
     emoji: "💎",
     baseReview:
-      "Consulted Dr. Arvind Sahu for mottled fluorosis stains on my front teeth. He recommended conservative treatment that preserved my natural enamel instead of aggressive grinding. My smile looks completely natural now! Great specialist care at RedCity Dental Care, Ludhiana.",
+      "Front teeth ke stains ke liye Dr. Arvind Sahu se consult kiya. Unhone daant ko zyada grind kiye bina natural treatment suggest kiya. Smile natural lag rahi hai ab. Helpful nature hai doctor ka.",
     alternates: [
-      "Very happy with my smile makeover by Dr. Arvind Sahu at RedCity Dental Care, Ludhiana. Beautiful porcelain veneers, seamless shade matching, and honest clinical guidance.",
+      "Dr. Arvind Sahu ne smile correction bohot achhi tarah kiya. Shade matching ekdum natural hai aur clinical advice bohot honest thi.",
     ],
   },
   {
@@ -90,9 +91,9 @@ const TREATMENTS: TreatmentOption[] = [
     label: "Check-up / Consult",
     emoji: "🩺",
     baseReview:
-      "Came to Dr. Arvind Sahu at RedCity Dental in South Model Gram for an objective second opinion. He charged just the consultation fee with digital X-ray and explained that I did not need aggressive procedures. Rare honesty and integrity in Ludhiana!",
+      "Routine dental check-up ke liye gaya tha. Dr. Arvind Sahu sir ne digital X-ray dekh kar sab kuch explain kiya aur koi faltu treatment suggest nahi kiya. Honest doctor in Ludhiana.",
     alternates: [
-      "Visited RedCity Dental in South Model Gram for a routine check-up. Dr. Sahu explains everything in plain words and never pushes unnecessary treatments. Highly recommended family dental clinic in Ludhiana.",
+      "Dr. Arvind Sahu is very humble and gives honest consultation. Kabhi unnecessary procedure push nahi karte. South Model Gram Ludhiana me bohot accha clinic hai.",
     ],
   },
 ];
@@ -104,10 +105,10 @@ interface HighlightTag {
 }
 
 const HIGHLIGHT_TAGS: HighlightTag[] = [
-  { id: "gentle", label: "Gentle Care", phrase: " Very gentle and comfortable treatment." },
-  { id: "pricing", label: "Clear Pricing", phrase: " Transparent upfront pricing with no hidden charges." },
-  { id: "explanation", label: "Clear Explanation", phrase: " Explained the diagnosis and treatment options thoroughly." },
-  { id: "clean", label: "Hygienic Clinic", phrase: " Modern, hygienic clinic environment." },
+  { id: "gentle", label: "Aaram se treatment", phrase: " Bohot aaram se treatment kiya." },
+  { id: "pricing", label: "Genuine fees", phrase: " Fees bilkul genuine aur upfront clear hai." },
+  { id: "explanation", label: "Ache se samjhaya", phrase: " Har cheez pehle tasalli se samjhayi." },
+  { id: "clean", label: "Clean clinic", phrase: " Clinic bilkul saaf aur hygienic hai." },
 ];
 
 /** Copy text to clipboard with multi-browser mobile fallbacks. */
@@ -244,7 +245,7 @@ export function ReviewAssistant() {
             </span>
           </div>
           <p className="mt-1 font-body text-xs text-brand-muted">
-            Tap your treatment to load a tailored review note:
+            Tap your treatment to load a suggested review note:
           </p>
 
           {/* 1-Tap Treatment Pills */}
@@ -275,7 +276,7 @@ export function ReviewAssistant() {
         {/* QUESTION 2: What stood out most? (Optional quick tags) */}
         <div className="mt-5 border-t border-brand-line/60 pt-4">
           <label className="block font-headline text-xs font-bold text-brand-ink">
-            2. What stood out most? <span className="font-normal text-brand-muted">(Optional)</span>
+            2. Kuch aur add karna hai? <span className="font-normal text-brand-muted">(Optional)</span>
           </label>
           <div className="mt-2.5 flex flex-wrap gap-1.5">
             {HIGHLIGHT_TAGS.map((tag) => {
@@ -323,7 +324,7 @@ export function ReviewAssistant() {
             </div>
           </div>
 
-          {/* Review Text Container */}
+          {/* Review Text Container - No Quotation Marks */}
           <div className="mt-2.5">
             {isEditing ? (
               <textarea
@@ -341,10 +342,12 @@ export function ReviewAssistant() {
                 <div className="mb-1.5 flex items-center gap-1 text-amber-500 text-xs">
                   ★★★★★
                   <span className="ml-1 text-[10px] font-semibold text-brand-muted">
-                    (5 Stars Recommended)
+                    (5 Stars)
                   </span>
                 </div>
-                &ldquo;{reviewText}&rdquo;
+                <p className="whitespace-pre-line text-brand-ink select-all">
+                  {reviewText}
+                </p>
               </div>
             )}
           </div>
@@ -363,18 +366,18 @@ export function ReviewAssistant() {
           >
             <div className="flex items-center gap-2 font-body text-base font-bold">
               <span>{hasCopied ? "✓" : "⭐"}</span>
-              <span>{hasCopied ? "Copied! Opening Google Review..." : "Copy & Open Google Review"}</span>
+              <span>{hasCopied ? "Copied! Opening Google Maps..." : "Copy & Open Google Review"}</span>
             </div>
             <span className="mt-0.5 font-body text-[11px] text-white/80">
               {hasCopied
-                ? "Just tap Paste and Submit in Google Maps"
+                ? "Google Maps me jaakar Paste aur Post karein"
                 : "Click 2: Opens Google Maps review form directly"}
             </span>
           </button>
 
           {/* Quick 3-Step Guide */}
           <div className="mt-4 rounded-xl bg-brand-warm/60 p-3 text-[11px] font-body text-brand-muted">
-            <div className="font-semibold text-brand-ink mb-1.5">When Google Maps opens (3 taps):</div>
+            <div className="font-semibold text-brand-ink mb-1.5">Google Maps me 3 aasan steps:</div>
             <div className="grid grid-cols-3 gap-2 text-center">
               <div className="rounded-lg bg-white p-1.5 border border-brand-line/50">
                 <span className="font-bold text-brand-red block">1</span>
@@ -417,4 +420,3 @@ export function ReviewAssistant() {
     </div>
   );
 }
-
