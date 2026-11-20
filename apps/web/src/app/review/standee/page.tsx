@@ -156,8 +156,8 @@ export default function StandeePage() {
               />
             </picture>
             <div className="text-xs font-body text-brand-muted">
-              <span className="font-semibold text-brand-ink block">Direct Link Target:</span>
-              <span className="break-all text-[11px] font-mono">{business.googleBusinessUrl}</span>
+              <span className="font-semibold text-brand-ink block">Direct Write-Review Link:</span>
+              <span className="break-all text-[11px] font-mono">{business.googleWriteReviewUrl}</span>
               <a
                 href={directMapsQrSrc}
                 download="redcity-direct-google-maps-qr.png"

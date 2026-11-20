@@ -1,346 +1,423 @@
 "use client";
 
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback } from "react";
 import { business } from "@/lib/business";
+import { doctor } from "@/lib/doctor";
 
 /* ─────────────────────────────────────────────────────────────────────────────
- * Review suggestion data — one entry per treatment the clinic offers.
- * Each has 2-3 keyword-rich starting-point texts the patient can use as-is,
- * shuffle through, or edit before posting on Google Maps.
- *
- * NOTE: These are suggested review texts for patients, not clinic marketing
- * copy. Keep them factual, avoid banned praise words from AGENTS.md, and
- * never compare with other clinics.
+ * Treatment definitions & question-driven review suggestions.
+ * Follows AGENTS.md compliance:
+ * - NO banned praise words (best, No. 1, top, leading, advanced, world-class,
+ *   affordable, cheapest, painless, guaranteed, 100%, zero, forever, instant, free).
+ * - Factual, patient-first descriptions of Dr. Sahu's MDS Prosthodontist care.
  * ───────────────────────────────────────────────────────────────────────── */
 
-interface Treatment {
+interface TreatmentOption {
   id: string;
   label: string;
   emoji: string;
-  suggestions: string[];
+  baseReview: string;
+  alternates: string[];
 }
 
-const TREATMENTS: Treatment[] = [
+const TREATMENTS: TreatmentOption[] = [
   {
     id: "implants",
     label: "Dental Implant",
     emoji: "🦷",
-    suggestions: [
-      "Got my dental implant done by Dr. Arvind Sahu at RedCity Dental Care in South Model Gram, Ludhiana. Being an MDS Prosthodontist, his surgical planning and implant placement were excellent. Transparent fees and genuine written implant warranty. Highly recommend for dental implants in Ludhiana!",
-      "Great experience with Dr. Arvind Sahu for tooth replacement at RedCity Dental. He explained all options between implants and bridges clearly with digital X-rays before starting. Very calm clinic environment and comfortable procedure. Recommended for dental care near Model Town!",
-      "Very professional dental implant treatment by Dr. Arvind Sahu at RedCity Dental. Upfront pricing, gentle care, and completely natural-looking tooth result.",
+    baseReview:
+      "Got my dental implant done by Dr. Arvind Sahu at RedCity Dental Care in South Model Gram, Ludhiana. Being an MDS Prosthodontist, his surgical planning and tooth placement were thorough and comfortable. Transparent fees and clear written implant warranty. Highly recommend for dental implants in Ludhiana!",
+    alternates: [
+      "Great experience with Dr. Arvind Sahu for tooth replacement. He explained all options between implants and bridges clearly with digital X-rays before starting. Very calm clinic environment and comfortable procedure near Model Town, Ludhiana.",
+      "Very professional dental implant treatment by Dr. Arvind Sahu at RedCity Dental Care. Upfront published pricing, gentle care, and completely natural-looking tooth result.",
     ],
   },
   {
     id: "crowns",
     label: "Crown or Cap",
     emoji: "👑",
-    suggestions: [
-      "Replaced my old metal crown with a monolithic Zirconia crown at RedCity Dental Care, Ludhiana. Dr. Sahu's attention to shade matching and bite alignment is remarkable. No dark line at the gumline and chewing feels completely natural. Clear published fees and honest advice!",
-      "Visited Dr. Arvind Sahu for a broken molar cap. He took digital RVG X-rays, showed me exactly what was wrong, and placed a high-strength crown. Extremely transparent with costs from day one. Very happy with the care in South Model Gram.",
-      "Excellent crown and bridge work by prosthodontist Dr. Arvind Sahu in Ludhiana. Smooth process, perfect fit, and very reasonable pricing.",
+    baseReview:
+      "Replaced my damaged cap with a monolithic Zirconia crown at RedCity Dental Care, Ludhiana. Dr. Sahu's attention to shade matching and bite alignment is remarkable. Chewing feels completely natural. Clear published fees and honest advice!",
+    alternates: [
+      "Visited Dr. Arvind Sahu for a broken molar cap. He took digital RVG X-rays, showed me exactly what was needed, and placed a durable crown. Transparent with costs from day one. Very satisfied with the care in South Model Gram.",
+      "Thorough crown and bridge work by prosthodontist Dr. Arvind Sahu in Ludhiana. Smooth process, perfect fit, and reasonable pricing.",
     ],
   },
   {
     id: "cleaning",
     label: "Teeth Cleaning",
     emoji: "✨",
-    suggestions: [
-      "Had a full mouth ultrasonic teeth cleaning and polishing at RedCity Dental Care in South Model Gram. Dr. Arvind Sahu was extremely gentle, took his time, and explained proper brushing technique. Fixed fee with no hidden surprises. Highly recommend!",
-      "Visited RedCity Dental for routine scaling. My teeth feel so clean and smooth. Dr. Sahu busted the myth that cleaning makes teeth loose and gave very honest advice. Great clinic near Model Town, Ludhiana.",
-      "Very thorough teeth cleaning session with Dr. Arvind Sahu. Clean clinic, modern equipment, and fixed transparent fees.",
+    baseReview:
+      "Had a full mouth ultrasonic teeth cleaning and polishing at RedCity Dental Care in South Model Gram. Dr. Arvind Sahu was gentle, took his time, and explained proper daily care. Fixed published fee with no hidden extras. Highly recommend!",
+    alternates: [
+      "Visited RedCity Dental for routine scaling. My teeth feel very clean and smooth. Dr. Sahu took the time to answer all my questions and gave honest advice. Clean clinic near Model Town, Ludhiana.",
+      "Very gentle and thorough teeth cleaning session with Dr. Arvind Sahu. Clean clinic, digital equipment, and transparent fees.",
     ],
   },
   {
     id: "root-canal",
     label: "Root Canal",
     emoji: "⚡",
-    suggestions: [
-      "Visited Dr. Arvind Sahu at RedCity Dental with severe nighttime tooth pain. He diagnosed the infected nerve with digital X-rays and performed a comfortable single-visit root canal under local anaesthesia. Quick relief! Truly grateful for the emergency care.",
-      "I was very nervous about getting a root canal, but Dr. Sahu made the entire procedure comfortable and stress-free. Clear fee estimate before treatment and great follow-up care in South Model Gram, Ludhiana.",
-      "Comfortable root canal treatment and crown fitting by Dr. Arvind Sahu at RedCity Dental. Highly skilled doctor and honest recommendations.",
+    baseReview:
+      "Visited Dr. Arvind Sahu at RedCity Dental with severe tooth pain. He diagnosed the infected tooth with digital X-rays and performed a comfortable single-visit root canal under local anaesthesia. Quick relief and very gentle procedure. Truly grateful for the emergency care in Ludhiana.",
+    alternates: [
+      "I was nervous about getting a root canal, but Dr. Sahu made the entire procedure calm and comfortable. Clear fee estimate before treatment and great follow-up care in South Model Gram, Ludhiana.",
+      "Comfortable root canal treatment and crown fitting by Dr. Arvind Sahu at RedCity Dental. Skilled doctor and honest recommendations.",
     ],
   },
   {
     id: "dentures",
     label: "Dentures",
     emoji: "👴",
-    suggestions: [
-      "Consulted Dr. Arvind Sahu (MDS Prosthodontics) for my father's loose lower denture. Dr. Sahu explained how implant-retained snap-on overdentures work to stop slipping. The fit and chewing comfort are extraordinary. Excellent prosthodontist in Ludhiana!",
+    baseReview:
+      "Consulted Dr. Arvind Sahu (MDS Prosthodontics) for my father's loose lower denture. Dr. Sahu explained how implant-retained snap-on overdentures work to prevent slipping. The fit and chewing comfort are remarkable. Highly skilled prosthodontist in Ludhiana!",
+    alternates: [
       "Dr. Arvind Sahu made a custom set of complete dentures for my mother. He took meticulous measurements of her bite and facial profile. She can eat comfortably again. Very patient and respectful doctor at RedCity Dental Care.",
     ],
   },
   {
     id: "veneers",
-    label: "Veneers / Smile Fix",
+    label: "Smile Fix / Veneers",
     emoji: "💎",
-    suggestions: [
-      "Consulted Dr. Arvind Sahu for fluorosis stains on my front teeth. He recommended conservative treatment that preserved my natural enamel instead of grinding them down for caps. My smile looks completely natural now! Great dentist at RedCity Dental Care, Ludhiana.",
-      "Excellent aesthetic smile makeover by Dr. Arvind Sahu at RedCity Dental Care, Ludhiana. Beautiful porcelain veneers, seamless shade matching, and honest clinical guidance.",
+    baseReview:
+      "Consulted Dr. Arvind Sahu for mottled fluorosis stains on my front teeth. He recommended conservative treatment that preserved my natural enamel instead of aggressive grinding. My smile looks completely natural now! Great specialist care at RedCity Dental Care, Ludhiana.",
+    alternates: [
+      "Very happy with my smile makeover by Dr. Arvind Sahu at RedCity Dental Care, Ludhiana. Beautiful porcelain veneers, seamless shade matching, and honest clinical guidance.",
     ],
   },
   {
     id: "checkup",
-    label: "Check-up",
+    label: "Check-up / Consult",
     emoji: "🩺",
-    suggestions: [
-      "Came to Dr. Arvind Sahu at RedCity Dental for a second opinion. He charged just ₹300 for the consultation and digital X-ray, and explained that I didn't need aggressive work. Rare honesty in Ludhiana!",
+    baseReview:
+      "Came to Dr. Arvind Sahu at RedCity Dental in South Model Gram for an objective second opinion. He charged just the consultation fee with digital X-ray and explained that I did not need aggressive procedures. Rare honesty and integrity in Ludhiana!",
+    alternates: [
       "Visited RedCity Dental in South Model Gram for a routine check-up. Dr. Sahu explains everything in plain words and never pushes unnecessary treatments. Highly recommended family dental clinic in Ludhiana.",
     ],
   },
 ];
 
-/* ─────────────────────────────────────────────────────────────────────────── */
+interface HighlightTag {
+  id: string;
+  label: string;
+  phrase: string;
+}
 
-export function ReviewAssistant() {
-  const [treatmentId, setTreatmentId] = useState<string | null>(null);
-  const [suggestionIdx, setSuggestionIdx] = useState(0);
-  const [customText, setCustomText] = useState<string | null>(null);
-  const [editing, setEditing] = useState(false);
-  const [copied, setCopied] = useState(false);
-  const reviewRef = useRef<HTMLDivElement>(null);
+const HIGHLIGHT_TAGS: HighlightTag[] = [
+  { id: "gentle", label: "Gentle Care", phrase: " Very gentle and comfortable treatment." },
+  { id: "pricing", label: "Clear Pricing", phrase: " Transparent upfront pricing with no hidden charges." },
+  { id: "explanation", label: "Clear Explanation", phrase: " Explained the diagnosis and treatment options thoroughly." },
+  { id: "clean", label: "Hygienic Clinic", phrase: " Modern, hygienic clinic environment." },
+];
 
-  const treatment = TREATMENTS.find((t) => t.id === treatmentId);
-  const displayText =
-    customText ?? (treatment ? treatment.suggestions[suggestionIdx] : "");
-
-  /* ── Handlers ── */
-
-  const pickTreatment = useCallback((id: string) => {
-    const t = TREATMENTS.find((t) => t.id === id)!;
-    setTreatmentId(id);
-    setSuggestionIdx(Math.floor(Math.random() * t.suggestions.length));
-    setCustomText(null);
-    setEditing(false);
-    setCopied(false);
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        reviewRef.current?.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      });
-    });
-  }, []);
-
-  const shuffle = useCallback(() => {
-    if (!treatment) return;
-    setSuggestionIdx((i) => (i + 1) % treatment.suggestions.length);
-    setCustomText(null);
-    setCopied(false);
-  }, [treatment]);
-
-  const toggleEdit = useCallback(() => {
-    setEditing((prev) => {
-      if (!prev) setCustomText(displayText);
-      return !prev;
-    });
-  }, [displayText]);
-
-  const goBack = useCallback(() => {
-    setTreatmentId(null);
-    setCustomText(null);
-    setEditing(false);
-    setCopied(false);
-  }, []);
-
-  const copyAndPost = useCallback(async () => {
-    const url = business.googleWriteReviewUrl;
+/** Copy text to clipboard with multi-browser mobile fallbacks. */
+async function copyToClipboard(text: string): Promise<boolean> {
+  if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
     try {
-      await navigator.clipboard.writeText(displayText);
-      setCopied(true);
-      setTimeout(() => {
-        window.open(url, "_blank", "noopener,noreferrer");
-      }, 600);
+      await navigator.clipboard.writeText(text);
+      return true;
     } catch {
-      window.open(url, "_blank", "noopener,noreferrer");
+      // Fall through to textarea execCommand fallback
     }
-  }, [displayText]);
-
-  /* ── Step 1: Pick treatment ── */
-
-  if (!treatmentId) {
-    return (
-      <div className="mx-auto max-w-md px-1">
-        <div className="mb-7 text-center">
-          <span
-            className="inline-block text-5xl leading-none"
-            role="img"
-            aria-label="Thank you"
-          >
-            🙏
-          </span>
-          <h2 className="mt-3 font-headline text-2xl font-extrabold text-brand-ink sm:text-3xl">
-            What did you visit for?
-          </h2>
-          <p className="mt-1.5 font-body text-sm text-brand-muted">
-            Tap your treatment — we&apos;ll write the review for you
-          </p>
-        </div>
-
-        <div className="grid grid-cols-2 gap-3">
-          {TREATMENTS.map((t) => (
-            <button
-              key={t.id}
-              type="button"
-              onClick={() => pickTreatment(t.id)}
-              className="group flex flex-col items-center gap-2.5 rounded-2xl border-2 border-brand-line/80 bg-white px-3 py-5 shadow-sm transition-all duration-150 active:scale-95 hover:border-brand-red/50 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red focus-visible:ring-offset-2"
-            >
-              <span className="text-3xl leading-none transition-transform duration-150 group-active:scale-90">
-                {t.emoji}
-              </span>
-              <span className="font-body text-[13px] font-semibold leading-snug text-brand-ink text-center">
-                {t.label}
-              </span>
-            </button>
-          ))}
-        </div>
-
-        {/* Direct link for people who don't need help */}
-        <p className="mt-7 text-center">
-          <a
-            href={business.googleWriteReviewUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-body text-xs text-brand-muted underline decoration-brand-line underline-offset-2 hover:text-brand-ink"
-          >
-            Skip — write directly on Google Maps →
-          </a>
-        </p>
-      </div>
-    );
   }
 
-  /* ── Step 2: Review card + 1-tap post ── */
+  try {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.position = "fixed";
+    textArea.style.left = "-9999px";
+    textArea.style.top = "0";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+    const successful = document.execCommand("copy");
+    document.body.removeChild(textArea);
+    return successful;
+  } catch {
+    return false;
+  }
+}
 
-  if (!treatment) return null;
+export function ReviewAssistant() {
+  const [selectedTreatmentId, setSelectedTreatmentId] = useState<string>("implants");
+  const [selectedHighlightId, setSelectedHighlightId] = useState<string | null>(null);
+  const [suggestionIdx, setSuggestionIdx] = useState<number>(0);
+  const [customText, setCustomText] = useState<string | null>(null);
+  const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [hasCopied, setHasCopied] = useState<boolean>(false);
+
+  const activeTreatment =
+    TREATMENTS.find((t) => t.id === selectedTreatmentId) ?? TREATMENTS[0];
+
+  // Build the review text based on treatment + optional highlight modifier
+  const computeActiveText = useCallback(() => {
+    if (customText !== null) return customText;
+    const baseList = [activeTreatment.baseReview, ...activeTreatment.alternates];
+    let base = baseList[suggestionIdx % baseList.length];
+    if (selectedHighlightId) {
+      const tag = HIGHLIGHT_TAGS.find((h) => h.id === selectedHighlightId);
+      if (tag && !base.includes(tag.phrase.trim())) {
+        base = `${base}${tag.phrase}`;
+      }
+    }
+    return base;
+  }, [activeTreatment, suggestionIdx, selectedHighlightId, customText]);
+
+  const reviewText = computeActiveText();
+
+  // Handlers
+  function handleSelectTreatment(id: string) {
+    setSelectedTreatmentId(id);
+    setSuggestionIdx(0);
+    setCustomText(null);
+    setIsEditing(false);
+    setHasCopied(false);
+  }
+
+  function handleToggleHighlight(id: string) {
+    setSelectedHighlightId((prev) => (prev === id ? null : id));
+    setCustomText(null);
+    setHasCopied(false);
+  }
+
+  function handleShuffleNote() {
+    const baseList = [activeTreatment.baseReview, ...activeTreatment.alternates];
+    setSuggestionIdx((prev) => (prev + 1) % baseList.length);
+    setCustomText(null);
+    setHasCopied(false);
+  }
+
+  function handleToggleEdit() {
+    setIsEditing((prev) => {
+      if (!prev) setCustomText(reviewText);
+      return !prev;
+    });
+  }
+
+  async function handleCopyAndLaunch() {
+    // 1. Copy text to clipboard immediately
+    await copyToClipboard(reviewText);
+    setHasCopied(true);
+
+    // 2. Open Google Review dialog directly
+    // Direct location assignment opens the Google Maps app's native review screen on Android/iOS
+    const directUrl = business.googleWriteReviewUrl;
+    try {
+      window.location.href = directUrl;
+    } catch {
+      window.open(directUrl, "_blank", "noopener,noreferrer");
+    }
+  }
 
   return (
-    <div ref={reviewRef} className="mx-auto max-w-md px-1">
-      {/* Back + treatment badge */}
-      <div className="mb-4 flex items-center gap-2.5">
-        <button
-          type="button"
-          onClick={goBack}
-          aria-label="Change treatment"
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-brand-line bg-white font-body text-xl text-brand-muted transition-colors hover:border-brand-red/40 hover:text-brand-ink active:scale-95"
-        >
-          ‹
-        </button>
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-brand-blush px-4 py-2 font-body text-sm font-bold text-brand-red">
-          <span>{treatment.emoji}</span>
-          <span>{treatment.label}</span>
-        </span>
-      </div>
-
-      {/* Review card */}
-      <div className="overflow-hidden rounded-3xl border-2 border-brand-line bg-white shadow-lg">
-        {/* Review body */}
-        <div className="p-5 sm:p-6">
-          <div className="mb-3.5 flex items-center justify-between">
-            <span className="font-body text-[11px] font-bold uppercase tracking-widest text-brand-muted">
-              Suggested review
-            </span>
-            <span className="text-sm leading-none" aria-label="5 stars">
-              ⭐⭐⭐⭐⭐
-            </span>
-          </div>
-
-          {editing ? (
-            <textarea
-              value={displayText}
-              onChange={(e) => {
-                setCustomText(e.target.value);
-                setCopied(false);
-              }}
-              rows={6}
-              autoFocus
-              className="w-full resize-none rounded-xl border border-brand-line bg-brand-warm/30 p-3.5 font-body text-[15px] leading-relaxed text-brand-ink outline-none transition-colors focus:border-brand-red focus:bg-white"
-            />
-          ) : (
-            <blockquote className="font-body text-[15px] leading-relaxed text-brand-ink">
-              &ldquo;{displayText}&rdquo;
-            </blockquote>
-          )}
-
-          {/* Secondary actions */}
-          <div className="mt-4 flex items-center gap-1 border-t border-brand-line/50 pt-3">
-            <button
-              type="button"
-              onClick={shuffle}
-              className="inline-flex items-center gap-1.5 rounded-lg px-3 py-2 font-body text-xs font-semibold text-brand-muted transition-colors hover:bg-brand-warm hover:text-brand-ink active:scale-95"
-            >
-              <span className="text-sm">🔄</span> Different
-            </button>
-            <span className="text-brand-line/60 select-none">·</span>
-            <button
-              type="button"
-              onClick={toggleEdit}
-              className="inline-flex items-center gap-1.5 rounded-lg px-3 py-2 font-body text-xs font-semibold text-brand-muted transition-colors hover:bg-brand-warm hover:text-brand-ink active:scale-95"
-            >
-              {editing ? (
-                <>
-                  <span className="text-sm">✓</span> Done
-                </>
-              ) : (
-                <>
-                  <span className="text-sm">✏️</span> Edit
-                </>
-              )}
-            </button>
+    <div className="mx-auto max-w-lg px-2 sm:px-0">
+      {/* Clinic Header Banner */}
+      <div className="mb-5 rounded-3xl border border-brand-line bg-white p-5 shadow-sm text-center">
+        <div className="flex items-center justify-center gap-3">
+          <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-brand-gold font-headline font-black text-brand-maroon text-lg shadow-sm">
+            RC
+          </span>
+          <div className="text-left">
+            <h1 className="font-headline text-lg font-bold text-brand-ink leading-tight">
+              {business.name}
+            </h1>
+            <p className="font-body text-xs text-brand-muted">
+              {doctor.name} · {doctor.credentialsShort} · South Model Gram, Ludhiana
+            </p>
           </div>
         </div>
 
-        {/* CTA footer */}
-        <div className="border-t-2 border-brand-line/50 bg-brand-warm/40 p-4 sm:p-5">
+        <div className="mt-4 flex items-center justify-center gap-2 border-t border-brand-line/60 pt-3 text-xs font-semibold text-brand-muted">
+          <span className="text-amber-500 font-bold tracking-wide">★★★★★ 5.0 on Google</span>
+          <span className="text-brand-line">•</span>
+          <span className="text-brand-red font-bold">2-Click Review Assistant</span>
+        </div>
+      </div>
+
+      {/* Main Review Helper Card */}
+      <div className="rounded-3xl border border-brand-line bg-white p-5 shadow-sm">
+        {/* QUESTION 1: What treatment did you receive? */}
+        <div>
+          <div className="flex items-center justify-between">
+            <label className="font-headline text-sm font-bold text-brand-ink">
+              1. What did you visit for today?
+            </label>
+            <span className="rounded-full bg-brand-blush px-2.5 py-0.5 font-body text-[11px] font-bold text-brand-red">
+              Click 1
+            </span>
+          </div>
+          <p className="mt-1 font-body text-xs text-brand-muted">
+            Tap your treatment to load a tailored review note:
+          </p>
+
+          {/* 1-Tap Treatment Pills */}
+          <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
+            {TREATMENTS.map((t) => {
+              const isSelected = t.id === selectedTreatmentId;
+              return (
+                <button
+                  key={t.id}
+                  type="button"
+                  onClick={() => handleSelectTreatment(t.id)}
+                  className={`flex items-center gap-2 rounded-2xl px-3 py-2.5 text-left transition-all active:scale-95 ${
+                    isSelected
+                      ? "border-2 border-brand-red bg-brand-blush/60 font-bold text-brand-red shadow-sm"
+                      : "border border-brand-line bg-white font-medium text-brand-ink hover:bg-brand-warm/60"
+                  }`}
+                >
+                  <span className="text-xl shrink-0 leading-none">{t.emoji}</span>
+                  <span className="font-body text-xs leading-tight line-clamp-1">
+                    {t.label}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* QUESTION 2: What stood out most? (Optional quick tags) */}
+        <div className="mt-5 border-t border-brand-line/60 pt-4">
+          <label className="block font-headline text-xs font-bold text-brand-ink">
+            2. What stood out most? <span className="font-normal text-brand-muted">(Optional)</span>
+          </label>
+          <div className="mt-2.5 flex flex-wrap gap-1.5">
+            {HIGHLIGHT_TAGS.map((tag) => {
+              const isSelected = tag.id === selectedHighlightId;
+              return (
+                <button
+                  key={tag.id}
+                  type="button"
+                  onClick={() => handleToggleHighlight(tag.id)}
+                  className={`rounded-full px-3 py-1 font-body text-[11px] font-semibold transition-all active:scale-95 ${
+                    isSelected
+                      ? "bg-brand-maroon text-brand-gold shadow-sm"
+                      : "border border-brand-line bg-brand-warm/50 text-brand-muted hover:text-brand-ink"
+                  }`}
+                >
+                  {tag.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Review Preview & Options */}
+        <div className="mt-5 border-t border-brand-line/70 pt-4">
+          <div className="flex items-center justify-between">
+            <span className="font-headline text-xs font-bold text-brand-ink">
+              Ready-made Google Review
+            </span>
+            <div className="flex items-center gap-1.5">
+              <button
+                type="button"
+                onClick={handleShuffleNote}
+                className="inline-flex items-center gap-1 rounded-lg bg-brand-warm px-2.5 py-1 font-body text-[11px] font-semibold text-brand-muted hover:text-brand-ink active:scale-95"
+                title="Try another version"
+              >
+                <span>🔄</span> Shuffle
+              </button>
+              <button
+                type="button"
+                onClick={handleToggleEdit}
+                className="inline-flex items-center gap-1 rounded-lg bg-brand-warm px-2.5 py-1 font-body text-[11px] font-semibold text-brand-muted hover:text-brand-ink active:scale-95"
+              >
+                <span>✏️</span> {isEditing ? "Done" : "Edit"}
+              </button>
+            </div>
+          </div>
+
+          {/* Review Text Container */}
+          <div className="mt-2.5">
+            {isEditing ? (
+              <textarea
+                value={reviewText}
+                onChange={(e) => {
+                  setCustomText(e.target.value);
+                  setHasCopied(false);
+                }}
+                rows={5}
+                className="w-full rounded-2xl border-2 border-brand-red/50 bg-white p-3.5 font-body text-xs text-brand-ink leading-relaxed outline-none focus:border-brand-red"
+                placeholder="Type your review note here..."
+              />
+            ) : (
+              <div className="rounded-2xl border border-brand-line/80 bg-brand-warm/40 p-3.5 font-body text-xs leading-relaxed text-brand-ink">
+                <div className="mb-1.5 flex items-center gap-1 text-amber-500 text-xs">
+                  ★★★★★
+                  <span className="ml-1 text-[10px] font-semibold text-brand-muted">
+                    (5 Stars Recommended)
+                  </span>
+                </div>
+                &ldquo;{reviewText}&rdquo;
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* CLICK 2: Big Action Button */}
+        <div className="mt-5 border-t border-brand-line/70 pt-5">
           <button
             type="button"
-            onClick={copyAndPost}
-            className={`flex w-full items-center justify-center gap-2.5 rounded-2xl py-4 font-body text-[15px] font-bold text-white shadow-lg transition-all duration-200 active:scale-[0.97] ${
-              copied
-                ? "bg-[#0B7A55] shadow-[#0B7A55]/20"
-                : "bg-brand-red shadow-brand-red/25 hover:brightness-110"
+            onClick={handleCopyAndLaunch}
+            className={`w-full flex flex-col items-center justify-center rounded-2xl py-4 px-6 text-white shadow-lg transition-all active:scale-[0.98] ${
+              hasCopied
+                ? "bg-[#0B7A55] shadow-[#0B7A55]/25"
+                : "bg-brand-red shadow-brand-red/25 hover:bg-brand-red-dark"
             }`}
           >
-            {copied ? (
-              <>
-                <span className="text-xl leading-none">✓</span>
-                <span>Copied! Paste on Google &amp; post</span>
-              </>
-            ) : (
-              <>
-                <span className="text-xl leading-none">⭐</span>
-                <span>Copy &amp; Post on Google</span>
-              </>
-            )}
+            <div className="flex items-center gap-2 font-body text-base font-bold">
+              <span>{hasCopied ? "✓" : "⭐"}</span>
+              <span>{hasCopied ? "Copied! Opening Google Review..." : "Copy & Open Google Review"}</span>
+            </div>
+            <span className="mt-0.5 font-body text-[11px] text-white/80">
+              {hasCopied
+                ? "Just tap Paste and Submit in Google Maps"
+                : "Click 2: Opens Google Maps review form directly"}
+            </span>
           </button>
 
-          {copied ? (
-            <div className="mt-3 rounded-xl border border-green-200 bg-green-50 p-3 text-center">
-              <p className="font-body text-xs font-semibold text-green-800">
-                Google Maps is opening — tap the review box, long-press →
-                Paste, then Post! 🎉
-              </p>
+          {/* Quick 3-Step Guide */}
+          <div className="mt-4 rounded-xl bg-brand-warm/60 p-3 text-[11px] font-body text-brand-muted">
+            <div className="font-semibold text-brand-ink mb-1.5">When Google Maps opens (3 taps):</div>
+            <div className="grid grid-cols-3 gap-2 text-center">
+              <div className="rounded-lg bg-white p-1.5 border border-brand-line/50">
+                <span className="font-bold text-brand-red block">1</span>
+                Tap 5 Stars ⭐
+              </div>
+              <div className="rounded-lg bg-white p-1.5 border border-brand-line/50">
+                <span className="font-bold text-brand-red block">2</span>
+                Hold &amp; <strong>Paste</strong>
+              </div>
+              <div className="rounded-lg bg-white p-1.5 border border-brand-line/50">
+                <span className="font-bold text-brand-red block">3</span>
+                Tap <strong>Post</strong> 🎉
+              </div>
             </div>
-          ) : (
-            <p className="mt-2.5 text-center font-body text-[11px] text-brand-muted">
-              Takes less than 10 seconds · text copies automatically
-            </p>
-          )}
+          </div>
+
+          {/* Direct Fallback link */}
+          <div className="mt-4 text-center">
+            <a
+              href={business.googleWriteReviewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-body text-xs text-brand-muted underline decoration-brand-line hover:text-brand-red"
+            >
+              Open Google Review form manually →
+            </a>
+          </div>
         </div>
       </div>
 
-      {/* Fallback link */}
-      <p className="mt-6 text-center">
+      {/* Staff Counter Kit Link */}
+      <div className="mt-6 text-center font-body text-xs text-brand-muted">
         <a
-          href={business.googleWriteReviewUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-body text-xs text-brand-muted underline decoration-brand-line underline-offset-2 hover:text-brand-ink"
+          href="/review/standee"
+          className="text-brand-red underline hover:text-brand-ink"
         >
-          Write your own review on Google Maps →
+          Clinic Reception QR Standee Card (Printable) →
         </a>
-      </p>
+      </div>
     </div>
   );
 }
+

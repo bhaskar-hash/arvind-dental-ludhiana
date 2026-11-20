@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function ReviewPage() {
   return (
-    <main className="min-h-screen bg-brand-warm/50 py-12 sm:py-20">
+    <main className="min-h-screen bg-brand-warm/50 py-6 sm:py-14">
       <div className={container}>
         <ReviewAssistant />
       </div>
