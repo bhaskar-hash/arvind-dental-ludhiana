@@ -14,6 +14,7 @@ export function SiteFooter() {
     { label: "Meet Dr. Sahu", href: "/about" },
     ...(pricingApproved ? [{ label: "Cost & payment", href: "/cost-and-payment" }] : []),
     ...(policiesApproved ? [{ label: "Patient policies", href: "/policies" }] : []),
+    { label: "Share your review", href: "/review" },
   ];
   const socials = (["instagram", "facebook", "youtube"] as const).filter((s) => business.social[s]);
 
