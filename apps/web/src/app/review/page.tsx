@@ -6,7 +6,7 @@ import { container } from "@/lib/styles";
 
 export const metadata: Metadata = {
   title: `Share Your Feedback | ${doctor.name} at ${business.name}`,
-  description: `Help other patients in Ludhiana find honest dental care. Choose your treatment to generate a 1-tap review recommendation for Google Maps.`,
+  description: `Leave your honest feedback for Dr. Arvind Sahu at RedCity Dental Care in Ludhiana. Write a review directly on Google Maps or use our optional writing assistant.`,
   alternates: { canonical: `${business.siteUrl}/review` },
   robots: { index: false, follow: true }, // Utility page for patients in clinic
 };
