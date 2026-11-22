@@ -61,13 +61,19 @@ export default function StandeePage() {
         <div className="overflow-hidden rounded-[28px] border-2 border-brand-maroon/20 bg-white shadow-xl print:m-0 print:border-none print:shadow-none print:rounded-none">
           {/* Top Branding Banner */}
           <div className="bg-brand-maroon px-6 py-6 text-center text-white">
-            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-gold font-headline text-xl font-black text-brand-maroon shadow-md">
-              RC
+            <div className="mx-auto inline-block rounded-2xl bg-white px-4 py-2 shadow-sm">
+              <picture>
+                <source srcSet="/redcity-logo.webp" type="image/webp" />
+                <img
+                  src="/redcity-logo.png"
+                  width={560}
+                  height={169}
+                  alt={business.name}
+                  className="h-7 sm:h-8 w-auto object-contain"
+                />
+              </picture>
             </div>
-            <h2 className="mt-3 font-headline text-xl sm:text-2xl font-bold tracking-tight text-white">
-              {business.name}
-            </h2>
-            <p className="mt-1 font-body text-xs font-semibold text-brand-gold">
+            <p className="mt-3 font-body text-xs sm:text-sm font-semibold text-brand-gold">
               {doctor.name} · {doctor.credentialsShort}
             </p>
             <p className="mt-0.5 font-body text-[11px] text-[#E3D1CE]">

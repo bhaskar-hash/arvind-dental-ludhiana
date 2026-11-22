@@ -161,22 +161,22 @@ export function ReviewAssistant() {
   return (
     <div className="mx-auto max-w-xl px-3 sm:px-0">
       {/* ── Clinic Header Banner ── */}
-      <div className="mb-5 overflow-hidden rounded-3xl border border-brand-line bg-white p-6 shadow-sm text-center">
-        <div className="flex items-center justify-center gap-3.5">
-          <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-gold font-headline font-black text-brand-maroon text-xl shadow-sm">
-            RC
-          </span>
-          <div className="text-left">
-            <h1 className="font-headline text-lg sm:text-xl font-bold text-brand-ink leading-tight">
-              {business.name}
-            </h1>
-            <p className="font-body text-xs text-brand-muted mt-0.5">
-              {doctor.name} · {doctor.credentialsShort} · South Model Gram, Ludhiana
-            </p>
-          </div>
-        </div>
+      <div className="mb-5 overflow-hidden rounded-3xl border border-brand-line bg-white p-5 sm:p-6 shadow-sm text-center">
+        <picture className="mx-auto block">
+          <source srcSet="/redcity-logo.webp" type="image/webp" />
+          <img
+            src="/redcity-logo.png"
+            width={560}
+            height={169}
+            alt={business.name}
+            className="mx-auto h-9 sm:h-11 w-auto object-contain"
+          />
+        </picture>
+        <p className="font-body text-xs text-brand-muted mt-2">
+          {doctor.name} · {doctor.credentialsShort} · {business.streetAddress}, {business.addressLocality}
+        </p>
 
-        <p className="mt-4 text-xs font-body text-brand-muted border-t border-brand-line/60 pt-3">
+        <p className="mt-3 text-xs font-body text-brand-muted border-t border-brand-line/60 pt-2.5">
           Your honest review helps other patients in Ludhiana find reliable dental care.
         </p>
       </div>
