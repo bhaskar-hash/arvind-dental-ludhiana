@@ -199,7 +199,21 @@ export default function BlogPostPage({
 
       <article className="px-6 py-16 sm:py-20 max-w-2xl mx-auto">
         {cover ? (
-          <AiImage image={cover} priority sizes="(min-width: 768px) 720px, 100vw" className="mb-10 block aspect-[16/9] w-full rounded-3xl object-cover" />
+          <figure className="mb-10">
+            <span className="relative block overflow-hidden rounded-3xl border border-brand-line/60 bg-white shadow-sm">
+              <AiImage
+                image={cover}
+                priority
+                sizes="(min-width: 768px) 720px, 100vw"
+                className="block h-auto w-full object-contain"
+              />
+            </span>
+            {cover.alt ? (
+              <figcaption className="mt-2.5 text-center font-body text-xs text-brand-muted">
+                {cover.alt}
+              </figcaption>
+            ) : null}
+          </figure>
         ) : null}
         <h1 className="font-headline text-[clamp(2rem,4vw,2.75rem)] font-extrabold leading-[1.1] tracking-[-0.01em]">
           {post.title}
