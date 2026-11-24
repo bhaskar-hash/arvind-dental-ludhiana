@@ -432,6 +432,17 @@ export const slots: ImageSlot[] = [
       "An elegant aesthetic dental arrangement of ultra-thin ceramic veneers and dental shade guide beside delicate marigold petals, wedding invitation calligraphy, and a minimalist milestone timeline on warm silk fabric.",
     alt: "Illustration of pre-wedding smile makeover planning with ceramic veneers and wedding calendar",
   },
+  {
+    id: "article-guided-dental-implants",
+    group: "articles",
+    title: "Guided dental implant surgery vs freehand",
+    where: "Article cover: Guided Dental Implant Surgery vs. Freehand Placement",
+    file: "ai/articles/guided-dental-implant-surgery",
+    width: 1024, height: 1024, aspect: "1:1", style: "render",
+    scene:
+      "A clinical comparison infographic showing 3D digital planning, custom clear surgical template guide, and precise prosthetically driven dental implant placement versus freehand placement.",
+    alt: "Illustration demonstrating guided dental implant surgery with 3D digital planning and surgical guide",
+  },
 
   // ── Emergency first aid (Resources page cards) ──
   {

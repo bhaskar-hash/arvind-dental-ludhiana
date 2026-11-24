@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { AiImage } from "@/components/AiImage";
@@ -135,6 +136,35 @@ function renderFormattedBody(body: string) {
               </ol>
             </div>
           );
+        }
+
+        if (block.startsWith("![") && block.includes("](") && block.endsWith(")")) {
+          const match = block.match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+          if (match) {
+            const [, alt, src] = match;
+            return (
+              <figure key={idx} className="my-4">
+                <span className="relative block overflow-hidden rounded-2xl border border-brand-line bg-white shadow-sm">
+                  <Image
+                    src={src}
+                    alt={alt}
+                    width={1024}
+                    height={1024}
+                    className="w-full h-auto object-contain"
+                    sizes="(min-width: 768px) 672px, 100vw"
+                  />
+                  <span className="pointer-events-none absolute bottom-2 left-2 rounded-full bg-black/60 px-2 py-0.5 font-body text-[10px] font-semibold text-white">
+                    AI illustration
+                  </span>
+                </span>
+                {alt ? (
+                  <figcaption className="mt-2 text-center font-body text-xs text-brand-muted">
+                    {alt}
+                  </figcaption>
+                ) : null}
+              </figure>
+            );
+          }
         }
 
         return <p key={idx}>{formatInline(block)}</p>;
